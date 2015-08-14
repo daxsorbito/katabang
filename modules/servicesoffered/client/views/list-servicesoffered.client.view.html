@@ -1,0 +1,19 @@
+<section data-ng-controller="ServicesofferedController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Services offered</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="serviceoffered in servicesoffered" data-ui-sref="servicesoffered.view({serviceofferedId: serviceoffered._id})" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="serviceoffered.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="serviceoffered.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="serviceoffered.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!servicesoffered.$resolved || servicesoffered.length">
+    	No Services offered yet, why don't you <a data-ui-sref="servicesoffered.create">create one</a>?
+    </div>
+</section>

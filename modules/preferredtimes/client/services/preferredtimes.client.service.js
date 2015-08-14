@@ -1,7 +1,7 @@
 'use strict';
 
-//Locations service used to communicate Preferredtimes REST endpoints
-angular.module('locations').factory('Preferredtimes', ['$resource',
+//Locations service used to communicate Services REST endpoints
+angular.module('preferredtimes').factory('Preferredtimes', ['$resource',
 	function($resource) {
 		return $resource('api/preferredtimes/:preferredtimeId', {
 			preferredtimeId: '@_id'
