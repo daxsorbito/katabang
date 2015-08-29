@@ -1,59 +1,109 @@
-<div class="container" data-ng-controller="HeaderController">
-  <div class="navbar-header">
-    <button class="navbar-toggle" type="button" data-ng-click="toggleCollapsibleMenu()">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a data-ui-sref="home" class="navbar-brand">MEAN.JS</a>
+<!--<div class="container" >-->
+  <!--<div class="navbar-header">-->
+    <!--<button class="navbar-toggle" type="button" data-ng-click="toggleCollapsibleMenu()">-->
+      <!--<span class="sr-only">Toggle navigation</span>-->
+      <!--<span class="icon-bar"></span>-->
+      <!--<span class="icon-bar"></span>-->
+      <!--<span class="icon-bar"></span>-->
+    <!--</button>-->
+    <!--<a data-ui-sref="home" class="navbar-brand">MEAN.JS</a>-->
+  <!--</div>-->
+  <!--<nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">-->
+    <!--<ul class="nav navbar-nav" data-ng-if="menu.shouldRender(authentication.user);">-->
+      <!--<li data-ng-repeat="item in menu.items | orderBy: 'position'" data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.type" data-ng-class="{ active: $state.includes(item.state), dropdown: item.type === 'dropdown' }" class="{{item.class}}" dropdown="item.type === 'dropdown'">-->
+        <!--<a ng-switch-when="dropdown" class="dropdown-toggle" dropdown-toggle role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>-->
+        <!--<ul ng-switch-when="dropdown" class="dropdown-menu">-->
+          <!--<li data-ng-repeat="subitem in item.items | orderBy: 'position'" data-ng-if="subitem.shouldRender(authentication.user);" data-ui-sref-active="active">-->
+            <!--<a data-ui-sref="{{subitem.state}}" data-ng-bind="subitem.title"></a>-->
+          <!--</li>-->
+        <!--</ul>-->
+        <!--<a ng-switch-default data-ui-sref="{{item.state}}" data-ng-bind="item.title"></a>-->
+      <!--</li>-->
+    <!--</ul>-->
+    <!--<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">-->
+      <!--<li data-ui-sref-active="active">-->
+        <!--<a data-ui-sref="authentication.signup">Sign Up</a>-->
+      <!--</li>-->
+      <!--<li class="divider-vertical"></li>-->
+      <!--<li data-ui-sref-active="active">-->
+        <!--<a data-ui-sref="authentication.signin">Sign In</a>-->
+      <!--</li>-->
+    <!--</ul>-->
+
+  <!--</nav>-->
+<!--</div>-->
+<!-- HEADER AND TITLEBAND -->
+<header>
+   User Settings DropDown Menu
+  <div id="usersettings">
+    <a href="." id="home">
+      <img src="modules/core/img/brand/home_badge.png" alt="home"/>
+    </a>
+
+    <div id="usersetmenu" class="ddmenu"><img src="modules/core/img/brand/usericon.png"/>MY ACCOUNT &#x25BE;
+      <ul>
+        <li><a href="signin.html">Sign In</a></li>
+        <li><a href="clientmyacct.html">My Account</a></li>
+        <li><a href="clientmyacct.html#userprofile">My Profile</a></li>
+        <li><a href="">Sign Out</a></li>
+      </ul>
+    </div>
   </div>
-  <nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
-    <ul class="nav navbar-nav" data-ng-if="menu.shouldRender(authentication.user);">
-      <li data-ng-repeat="item in menu.items | orderBy: 'position'" data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.type" data-ng-class="{ active: $state.includes(item.state), dropdown: item.type === 'dropdown' }" class="{{item.class}}" dropdown="item.type === 'dropdown'">
-        <a ng-switch-when="dropdown" class="dropdown-toggle" dropdown-toggle role="button">{{::item.title}}&nbsp;<span class="caret"></span></a>
-        <ul ng-switch-when="dropdown" class="dropdown-menu">
-          <li data-ng-repeat="subitem in item.items | orderBy: 'position'" data-ng-if="subitem.shouldRender(authentication.user);" data-ui-sref-active="active">
-            <a data-ui-sref="{{subitem.state}}" data-ng-bind="subitem.title"></a>
-          </li>
-        </ul>
-        <a ng-switch-default data-ui-sref="{{item.state}}" data-ng-bind="item.title"></a>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
-      <li data-ui-sref-active="active">
-        <a data-ui-sref="authentication.signup">Sign Up</a>
-      </li>
-      <li class="divider-vertical"></li>
-      <li data-ui-sref-active="active">
-        <a data-ui-sref="authentication.signin">Sign In</a>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
-      <li class="dropdown" dropdown>
-        <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">
-          <img data-ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-profile-image" />
-          <span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
+  <!--    <p><a href="index.html#appslinks">Download the Katabang App for your Phone Now!</a></p>-->
+  <div id="flag-icons">COUNTRY &#x25BE;
+    <ul>
+      <li>
+        <a href="#">
+          <img src="modules/core/img/brand/Flag-of-Philippines.png" alt="Filipino"/>&nbsp; &nbsp;ENG
         </a>
-        <ul class="dropdown-menu" role="menu">
-          <li data-ui-sref-active="active">
-            <a data-ui-sref="settings.profile">Edit Profile</a>
-          </li>
-          <li data-ui-sref-active="active">
-            <a data-ui-sref="settings.picture">Change Profile Picture</a>
-          </li>
-          <li data-ui-sref-active="active" data-ng-show="authentication.user.provider === 'local'">
-            <a data-ui-sref="settings.password">Change Password</a>
-          </li>
-          <li data-ui-sref-active="active">
-            <a data-ui-sref="settings.accounts">Manage Social Accounts</a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="/api/auth/signout" target="_self">Signout</a>
-          </li>
-        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <img src="modules/core/img/brand/Flag-of-Japan.png" alt="Japanese"/>&nbsp; &nbsp;JAP
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="modules/core/img/brand/Flag-of-South-Korea.png" alt="Korean"/>&nbsp; &nbsp;KOR
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="modules/core/img/brand/Flag-of-United-States.png" alt="English"/>&nbsp; &nbsp;ENG
+        </a>
       </li>
     </ul>
-  </nav>
+  </div>
+  <!--<ul id="flag-icons">-->
+    <!--<li class="dropdown" dropdown>-->
+      <!--<a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">-->
+        <!--COUNTRY-->
+      <!--</a>-->
+      <!--<ul class="dropdown-menu" role="menu">-->
+        <!--<li data-ui-sref-active="active">-->
+          <!--<img src="modules/core/img/brand/Flag-of-Philippines.png" alt="Filipino"/>&nbsp; &nbsp;ENG-->
+        <!--</li>-->
+        <!--<li data-ui-sref-active="active">-->
+          <!--<img src="modules/core/img/brand/Flag-of-Japan.png" alt="Japanese"/>&nbsp; &nbsp;JAP-->
+        <!--</li>-->
+        <!--<li data-ui-sref-active="active">-->
+          <!--<img src="modules/core/img/brand/Flag-of-South-Korea.png" alt="Korean"/>&nbsp; &nbsp;KOR-->
+        <!--</li>-->
+        <!--<li data-ui-sref-active="active">-->
+          <!--<img src="modules/core/img/brand/Flag-of-United-States.png" alt="English"/>&nbsp; &nbsp;ENG-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</li>-->
+  <!--</ul>-->
+
+</header>
+<div class="titleband">
+  <h1><a href="."><span>KA</span>TABANG</a><sup>Beta v.1.0.2</sup></h1>
+  <div id="signin">
+    <h2><a href="signin.html">Sign In</a></h2>
+  </div>
+  <div id="signup">
+    <h2><a href="signupclient.html">Sign Up <span>FREE</span></a></h2>
+  </div>
 </div>
+<!-- END OF HEADER AND TITLEBAND -->

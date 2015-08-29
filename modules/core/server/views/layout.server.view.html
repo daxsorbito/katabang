@@ -31,14 +31,16 @@
   <!-- Fav Icon -->
   <link href="{{url}}{{favicon}}" rel="shortcut icon" type="image/x-icon">
 
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/webshim/1.12.4/shims/styles/shim.css">
+
   <!-- Application CSS Files -->
   {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
 </head>
 
 <body class="ng-cloak">
-  <header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
-  <section class="content">
-    <section class="container">
+  <header data-ng-include="'/modules/core/views/header.client.view.html'" ></header>
+  <section >
+    <section >
       {% block content %}{% endblock %}
     </section>
   </section>
@@ -58,6 +60,9 @@
   <!--Livereload script rendered -->
   <script type="text/javascript" src="{{host}}:35729/livereload.js"></script>
   {% endif %}
+  <footer>
+    <p>All Rights Reserved @ 2015 www.katabang.com | <a href="PrivacyPolicy.html">Privacy Policy</a> | <a href="TOU.html">Terms of Use</a></p>
+  </footer>
 </body>
 
 </html>

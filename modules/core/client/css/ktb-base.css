@@ -1,0 +1,454 @@
+/*=======================================================
+GENERAL
+=======================================================*/
+/*=======================================================
+RESPONSIVE: MEDIA QUERY FOR DESKTOP
+========================================================*/
+@media screen and (min-width: 901px){
+    
+body{
+    font-family: 'Source Sans Pro', Helvetica, Verdana, Arial, sans-serif;
+}
+header{
+    margin: 0 auto;
+}
+/*=======================================================
+HEADER AND TITLEBAND
+========================================================*/
+header{
+    background-color: #103c21;
+    height: 60px;
+}
+header p{
+    display: none;
+}
+#home{
+    float: left;
+    margin-left: 20px;
+    padding-top: 5px;
+}
+#usersettings{
+    margin-left: 20px;
+    padding-top: 10px;
+}
+#usersettings img{
+    padding-right: 10px;
+}
+#usersetmenu{
+    display: block;
+    float: left;
+    padding: 5px 16px;
+    width: 180px;
+    margin: 0 80px;
+    position: absolute;
+    cursor: pointer;
+    border-left: 2px solid darkgray;
+    color: white;
+     -webkit-box-shadow: 1px 1px 2px;
+}
+#usersetmenu a{
+    color: black;
+    text-decoration: none;
+}
+#usersetmenu:hover{
+    color: #ffd175;
+}
+#usersetmenu.open{
+    background: #103c21;
+    color: #fff;
+    font-weight: 400;
+}
+#usersetmenu ul{
+    position: absolute;
+    width: 212px;
+    margin-left: -18px;
+    margin-top: 6px;
+    padding: 10px 0;
+    display: none;
+    border-left: 2px solid darkgray;
+    background: #fff;
+    -webkit-box-shadow: 1px 1px 2px;
+    z-index: 30;
+}
+#usersetmenu li{
+    font-size: 20px;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    padding-left: 55px;
+}
+#usersetmenu li a{
+    text-decoration: none;
+    display: block;
+}
+#usersetmenu li a:hover{
+    background: #ffd175;
+}
+#flag-icons{
+    display: block;
+    float: right;
+    padding: 15px 15px;
+    width: 110px;
+    margin: 0 22px;
+    cursor: pointer;
+    border-left: 2px solid darkgray;
+    color: white;
+     -webkit-box-shadow: 1px 1px 2px;
+}
+#flag-icons:hover{
+    color: #ffd175;
+}
+#flag-icons ul{
+    position: absolute;
+    width: 140px;
+    margin-left: -17px;
+    margin-top: 15px;
+    padding: 5px 0;
+    display: none;
+    border-left: 2px solid darkgray;
+    background: #fff;
+    -webkit-box-shadow: 1px 1px 2px;
+}
+#flag-icons li{
+    font-size: 16px;
+    padding: 5px 10px;
+    z-index: 5;
+}
+#flag-icons li a{
+    text-decoration: none;
+    color: black;
+}
+#flag-icons li a:hover{
+    background: #ffd175;
+}
+ /*=======================================================
+FOOTER
+========================================================*/
+footer{
+    margin: 0 auto;
+}
+footer{
+    background-color: #103c21;
+    height: 40px;
+    top: 300%;
+    left: 0px;
+    width: 100%;
+}
+footer p{
+    font: 400 12px Verdana;
+    color: #f5f5f5;
+    text-align: center;
+    padding-top: 15px;
+   }
+footer p a{
+    text-decoration: none;
+    font: 400 12px Verdana;
+    color: #f5f5f5;
+}
+footer p a:hover{
+    text-decoration: underline;
+}
+    
+}
+/*=======================================================
+RESPONSIVE: MEDIA QUERY FOR SMARTPHONE
+========================================================*/
+@media screen and (max-width: 480px){
+    
+body{
+    font-family: 'Source Sans Pro', Helvetica, Verdana, Arial, sans-serif;
+    width: 480px;
+}
+header{
+    margin: 0 auto;
+}
+/*=======================================================
+HEADER AND TITLEBAND
+========================================================*/
+header{
+    background-color: #103c21;
+    height: 60px;
+}
+    header p a{
+        display: none;
+    }
+#home{
+    float: left;
+    margin-left: 10px;
+    padding-top: 5px;
+}
+#usersettings{
+    margin-left: 10px;
+    padding-top: 10px;
+}
+#usersettings img{
+    padding-right: 10px;
+}
+#usersetmenu{
+    display: block;
+    float: left;
+    padding: 5px 16px;
+    width: 180px;
+    margin: 0 80px;
+    position: absolute;
+    cursor: pointer;
+    border-left: 2px solid darkgray;
+    color: white;
+     -webkit-box-shadow: 1px 1px 2px;
+}
+#usersetmenu a{
+    color: black;
+    text-decoration: none;
+}
+#usersetmenu:hover{
+    color: #ffd175;
+}
+#usersetmenu.open{
+    background: #103c21;
+    color: #fff;
+    font-weight: 400;
+}
+#usersetmenu ul{
+    position: absolute;
+    width: 212px;
+    margin-left: -18px;
+    margin-top: 6px;
+    padding: 10px 0;
+    display: none;
+    border-left: 2px solid darkgray;
+    background: #fff;
+    -webkit-box-shadow: 1px 1px 2px;
+    z-index: 30;
+}
+#usersetmenu li{
+    font-size: 20px;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    padding-left: 55px;
+}
+#usersetmenu li a{
+    text-decoration: none;
+    display: block;
+}
+#usersetmenu li a:hover{
+    background: #ffd175;
+}
+#flag-icons{
+    display: block;
+    float: right;
+    padding: 15px 10px;
+    width: 100px;
+    margin: 0 30px;
+    cursor: pointer;
+    border-left: 2px solid darkgray;
+    color: white;
+     -webkit-box-shadow: 1px 1px 2px;    
+}
+#flag-icons:hover{
+    color: #ffd175;
+}
+#flag-icons ul{
+    position: absolute;
+    width: 70px;
+    margin-left: -12px;
+    margin-top: 15px;
+    padding: 5px 0;
+    display: none;
+    border-left: 2px solid darkgray;
+    background: #fff;
+    -webkit-box-shadow: 1px 1px 2px;
+    z-index: 20;
+}
+#flag-icons li{
+    font-size: 16px;
+    padding: 5px 10px;
+}
+#flag-icons li a{
+    text-decoration: none;
+    color: black;
+}
+#flag-icons li a:hover{
+    background: #ffd175;
+}
+ /*=======================================================
+FOOTER
+========================================================*/
+footer{
+    margin: 0 auto;
+    clear: both;
+}
+footer{
+    background-color: #103c21;
+    height: 40px;
+    top: 300%;
+    left: 0px;
+    width: 100%;
+}
+footer p{
+    font: 400 10px Verdana;
+    color: #f5f5f5;
+    text-align: center;
+    padding-top: 15px;
+   }
+footer p a{
+    text-decoration: none;
+    font: 400 10px Verdana;
+    color: #f5f5f5;
+}
+footer p a:hover{
+    text-decoration: underline;
+}
+    
+}
+/*=======================================================
+RESPONSIVE: MEDIA QUERY FOR LANDSCAPE PHABLET & TABLET
+========================================================*/
+@media screen and (min-width: 481px) and (max-width: 900px){
+    
+body{
+    font-family: 'Source Sans Pro', Helvetica, Verdana, Arial, sans-serif;
+    width: 100%;
+}
+header{
+    margin: 0 auto;
+}
+/*=======================================================
+HEADER AND TITLEBAND
+========================================================*/
+header{
+    background-color: #103c21;
+    height: 60px;
+}
+    header p a{
+        display: none;
+    }
+#home{
+    float: left;
+    margin-left: 10px;
+    padding-top: 5px;
+}
+#usersettings{
+    margin-left: 10px;
+    padding-top: 10px;
+}
+#usersettings img{
+    padding-right: 10px;
+}
+#usersetmenu{
+    display: block;
+    float: left;
+    padding: 5px 16px;
+    width: 180px;
+    margin: 0 80px;
+    position: absolute;
+    cursor: pointer;
+    border-left: 2px solid darkgray;
+    color: white;
+     -webkit-box-shadow: 1px 1px 2px;
+}
+#usersetmenu a{
+    color: black;
+    text-decoration: none;
+}
+#usersetmenu:hover{
+    color: #ffd175;
+}
+#usersetmenu.open{
+    background: #103c21;
+    color: #fff;
+    font-weight: 400;
+}
+#usersetmenu ul{
+    position: absolute;
+    width: 212px;
+    margin-left: -18px;
+    margin-top: 6px;
+    padding: 10px 0;
+    display: none;
+    border-left: 2px solid darkgray;
+    background: #fff;
+    -webkit-box-shadow: 1px 1px 2px;
+    z-index: 30;
+}
+#usersetmenu li{
+    font-size: 20px;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    padding-left: 55px;
+}
+#usersetmenu li a{
+    text-decoration: none;
+    display: block;
+}
+#usersetmenu li a:hover{
+    background: #ffd175;
+}
+#flag-icons{
+    display: block;
+    float: right;
+    padding: 15px 10px;
+    width: 100px;
+    margin: 0 30px;
+    cursor: pointer;
+    border-left: 2px solid darkgray;
+    color: white;
+     -webkit-box-shadow: 1px 1px 2px;    
+}
+#flag-icons:hover{
+    color: #ffd175;
+}
+#flag-icons ul{
+    position: absolute;
+    width: 70px;
+    margin-left: -12px;
+    margin-top: 15px;
+    padding: 5px 0;
+    display: none;
+    border-left: 2px solid darkgray;
+    background: #fff;
+    -webkit-box-shadow: 1px 1px 2px;
+    z-index: 20;
+}
+#flag-icons li{
+    font-size: 16px;
+    padding: 5px 10px;
+}
+#flag-icons li a{
+    text-decoration: none;
+    color: black;
+}
+#flag-icons li a:hover{
+    background: #ffd175;
+}
+ /*=======================================================
+FOOTER
+========================================================*/
+footer{
+    margin: 0 auto;
+    clear: both;
+}
+footer{
+    background-color: #103c21;
+    height: 40px;
+    top: 300%;
+    left: 0px;
+    width: 100%;
+}
+footer p{
+    font: 400 10px Verdana;
+    color: #f5f5f5;
+    text-align: center;
+    padding-top: 15px;
+   }
+footer p a{
+    text-decoration: none;
+    font: 400 10px Verdana;
+    color: #f5f5f5;
+}
+footer p a:hover{
+    text-decoration: underline;
+}
+    
+}
+/*=======================================================
+END OF BASE CSS - MOST ELEMENTS ARE USED REPEATEDLY FOR ALL PAGES
+========================================================*/
