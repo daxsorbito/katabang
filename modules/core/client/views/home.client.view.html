@@ -1,233 +1,1094 @@
-<section data-ng-controller="HomeController">
-  <!--<div class="jumbotron text-center">-->
-    <!--<div class="row">-->
-      <!--<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">-->
-        <!--<img alt="MEAN.JS" class="img-responsive text-center" src="modules/core/img/brand/logo.png" />-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--<br>-->
-    <!--<div class="row">-->
-      <!--<p class="lead">-->
-        <!--Open-Source Full-Stack Solution For MEAN Applications-->
-      <!--</p>-->
-    <!--</div>-->
-    <!--<div class="row">-->
-      <!--<p>-->
-        <!--<a class="btn btn-primary btn-lg" href="http://meanjs.org" target="_blank">Learn more</a>-->
-      <!--</p>-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div>-->
-    <!--<h2>Congrats! You've configured and run the sample application.</h2>-->
-    <!--<p>MEAN.JS is a web application boilerplate, which means you should start changing everything :-)</p>-->
-    <!--<p>This sample application tracks users and articles.</p>-->
-    <!--<ul>-->
-      <!--<li>-->
-        <!--Click-->
-        <!--<em>Signup</em> to get started.-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--Configure your app to work with your social accounts, by editing the-->
-        <!--<em>/config/env/*.js</em> files.-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--Edit your users module.-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--Add new CRUD modules.-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--Have fun...-->
-      <!--</li>-->
-    <!--</ul>-->
-  <!--</div>-->
-  <!--<div class="row">-->
-    <!--<div class="col-md-3">-->
-      <!--<h2><strong>M</strong>ongoDB</h2>-->
-      <!--<p><a target="_blank" href="http://mongodb.org/">MongoDB</a> is a database. MongoDB's <a target="_blank" href="http://docs.mongodb.org/manual/">great manual</a> is the place to get started with NoSQL and MongoDB.</p>-->
-    <!--</div>-->
-    <!--<div class="col-md-3">-->
-      <!--<h2><strong>E</strong>xpress</h2>-->
-      <!--<p><a target="_blank" href="http://expressjs.com/"> Express</a> is an app server. Check out <a target="_blank" href="http://expressjs.com/4x/api.html">The ExpressJS API reference for more information</a> or <a target="_blank" href="http://stackoverflow.com/questions/8144214/learning-express-for-node-js">StackOverflow</a> for more info.</p>-->
-    <!--</div>-->
-    <!--<div class="col-md-3">-->
-      <!--<h2><strong>A</strong>ngularJS</h2>-->
-      <!--<p>AngularJS is web app framework. <a target="_blank" href="http://angularjs.org/">Angular's website</a> offers a lot. The <a target="_blank" href="http://www.thinkster.io/">Thinkster Popular Guide</a> and <a target="_blank" href="https://egghead.io/">Egghead Videos</a> are great resources.</p>-->
-    <!--</div>-->
-    <!--<div class="col-md-3">-->
-      <!--<h2><strong>N</strong>ode.js</h2>-->
-      <!--<p><a target="_blank" href="http://nodejs.org/">Node.js</a> is a web server. Node's website and this <a target="_blank" href="http://stackoverflow.com/questions/2353818/how-do-i-get-started-with-node-js">stackOverflow thread</a> offer excellent starting points to get to grasps with node.</p>-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div class="well">-->
-    <!--<h2>MEAN.JS Documentation</h2>-->
-    <!--<p>-->
-      <!--Once you're familiar with the foundation technology, check out the MEAN.JS Documentation:-->
+<section id="main" data-ng-controller="HomeController">
+  <!--&lt;!&ndash; Slider &ndash;&gt;-->
+  <!--<div class="fullwidthbanner-container tp-banner-container">-->
+    <!--<div class="fullwidthbanner rslider tp-banner">-->
       <!--<ul>-->
-        <!--<li><a target="_blank" href="http://meanjs.org/docs.html">MEAN.JS Documentation</a>-->
+        <!--&lt;!&ndash; THE FIRST SLIDE &ndash;&gt;-->
+        <!--<li data-transition="fade" data-slotamount="7" data-masterspeed="2000" data-thumb="homeslider_thumb2.jpg" data-delay="10000"  data-saveperformance="on">-->
+          <!--&lt;!&ndash; MAIN IMAGE &ndash;&gt;-->
+          <!--<img src="img/dummy.png"  alt="laptopmockup_sliderdy" data-lazyload="img/slider/slider-bg-1.jpg" data-bgposition="right top" data-kenburns="on" data-duration="12000" data-ease="Power0.easeInOut" data-bgfit="115" data-bgfitend="100" data-bgpositionend="center bottom">-->
+          <!--&lt;!&ndash; LAYERS &ndash;&gt;-->
+          <!--&lt;!&ndash; LAYER NR. 1 &ndash;&gt;-->
+          <!--<div class="tp-caption customin fadeout rs-parallaxlevel-10"-->
+               <!--data-x="783"-->
+               <!--data-y="146"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="2700"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 2;"><img src="img/dummy.png" alt="" data-lazyload="img/redbg_big.png">-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 2 &ndash;&gt;-->
+          <!--<div class="tp-caption light_heavy_50 customin fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="797"-->
+               <!--data-y="154"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="2850"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">Bootstrap-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 3 &ndash;&gt;-->
+          <!--<div class="tp-caption black_heavy_70 skewfromleftshort fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="550"-->
+               <!--data-y="83"-->
+               <!--data-speed="500"-->
+               <!--data-start="2400"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="chars"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">Multipurpose-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 4 &ndash;&gt;-->
+          <!--<div class="tp-caption black_bold_40 skewfromrightshort fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="900"-->
+               <!--data-y="232"-->
+               <!--data-speed="500"-->
+               <!--data-start="3200"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="chars"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">Theme!-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 5 &ndash;&gt;-->
+          <!--<div class="tp-caption black_bold_bg_20 sfr fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="933"-->
+               <!--data-y="300"-->
+               <!--data-speed="300"-->
+               <!--data-start="4000"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">RETINA READY-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 6 &ndash;&gt;-->
+          <!--<div class="tp-caption greenbox30 customin fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="902"-->
+               <!--data-y="300"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="4000"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 7; max-width: auto; max-height: auto; white-space: nowrap;">&nbsp;-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 7 &ndash;&gt;-->
+          <!--<div class="tp-caption arrowicon customin fadeout rs-parallaxlevel-10"-->
+               <!--data-x="911"-->
+               <!--data-y="306"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="4200"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 8;"><img src="img/dummy.png" alt="" data-ww="17" data-hh="17" data-lazyload="img/check.png">-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 8 &ndash;&gt;-->
+          <!--<div class="tp-caption black_bold_bg_20 sfr fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="933"-->
+               <!--data-y="340"-->
+               <!--data-speed="300"-->
+               <!--data-start="4500"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">SUPER CUSTOMIZABLE-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 9 &ndash;&gt;-->
+          <!--<div class="tp-caption greenbox30 customin fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="902"-->
+               <!--data-y="340"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="4500"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 10; max-width: auto; max-height: auto; white-space: nowrap;">&nbsp;-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 10 &ndash;&gt;-->
+          <!--<div class="tp-caption arrowicon customin fadeout rs-parallaxlevel-10"-->
+               <!--data-x="911"-->
+               <!--data-y="347"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="4700"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 11;"><img src="img/dummy.png" alt="" data-ww="17" data-hh="17" data-lazyload="img/check.png">-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 11 &ndash;&gt;-->
+          <!--<div class="tp-caption black_bold_bg_20 sfr fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="933"-->
+               <!--data-y="380"-->
+               <!--data-speed="300"-->
+               <!--data-start="5000"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 12; max-width: auto; max-height: auto; white-space: nowrap;">EASY TO USE-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 12 &ndash;&gt;-->
+          <!--<div class="tp-caption greenbox30 customin fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="902"-->
+               <!--data-y="380"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="5000"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 13; max-width: auto; max-height: auto; white-space: nowrap;">&nbsp;-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 13 &ndash;&gt;-->
+          <!--<div class="tp-caption arrowicon customin fadeout rs-parallaxlevel-10"-->
+               <!--data-x="911"-->
+               <!--data-y="386"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="5200"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 14;"><img src="img/dummy.png" alt="" data-ww="17" data-hh="17" data-lazyload="img/check.png">-->
+          <!--</div>-->
         <!--</li>-->
-        <!--&lt;!&ndash; <li><a target="_blank" href="http://meanjs.org/generator.html">Yeoman Generator</a>-->
-				<!--</li> &ndash;&gt;-->
-        <!--<li><a target="_blank" href="http://meanjs.org/modules.html">Modules</a>-->
-        <!--</li>-->
-        <!--<li><a target="_blank" href="http://meanjs.org/changelog.html">Changelog</a>-->
-        <!--</li>-->
-        <!--<li><a target="_blank" href="http://meanjs.org/community.html">Community</a>-->
-        <!--</li>-->
-        <!--<li><a target="_blank" href="http://blog.meanjs.org">Blog</a>-->
+        <!--&lt;!&ndash; /THE FIRST SLIDE &ndash;&gt;-->
+        <!--&lt;!&ndash; THE RESPONSIVE SLIDE &ndash;&gt;-->
+        <!--<li data-transition="fade" data-slotamount="1" data-masterspeed="300">-->
+          <!--<img src="img/slider/slider-bg-2.jpg" data-fullwidthcentering="on" alt="">-->
+          <!--<div class="caption large_text sft"-->
+               <!--data-x="660"-->
+               <!--data-y="54"-->
+               <!--data-speed="300"-->
+               <!--data-start="800"-->
+               <!--data-easing="easeOutExpo"  >TOUCH ENABLED</div>-->
+          <!--<div class="caption medium_text sfl"-->
+               <!--data-x="689"-->
+               <!--data-y="92"-->
+               <!--data-speed="300"-->
+               <!--data-start="1100"-->
+               <!--data-easing="easeOutExpo"  >AND</div>-->
+          <!--<div class="caption large_text sfr"-->
+               <!--data-x="738"-->
+               <!--data-y="88"-->
+               <!--data-speed="300"-->
+               <!--data-start="1100"-->
+               <!--data-easing="easeOutExpo"  ><span class="dblue">RESPONSIVE</span></div>-->
+          <!--&lt;!&ndash; LAYER NR. 5 1 &ndash;&gt;-->
+          <!--<div class="tp-caption black_bold_bg_20 sfr fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="691"-->
+               <!--data-y="220"-->
+               <!--data-speed="300"-->
+               <!--data-start="1000"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">Unique Design-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 6 1 &ndash;&gt;-->
+          <!--<div class="tp-caption greenbox30 customin fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="660"-->
+               <!--data-y="220"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="1200"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 7; max-width: auto; max-height: auto; white-space: nowrap;">&nbsp;-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 7 1 &ndash;&gt;-->
+          <!--<div class="tp-caption arrowicon customin fadeout rs-parallaxlevel-10"-->
+               <!--data-x="669"-->
+               <!--data-y="232"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="1500"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 8;"><img src="img/dummy.png" alt="" data-ww="17" data-hh="17" data-lazyload="img/check.png">-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 5 1 &ndash;&gt;-->
+          <!--<div class="tp-caption black_bold_bg_20 sfr fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="691"-->
+               <!--data-y="260"-->
+               <!--data-speed="300"-->
+               <!--data-start="1500"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">Responsive Pricing Tables-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 6 1 &ndash;&gt;-->
+          <!--<div class="tp-caption greenbox30 customin fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="660"-->
+               <!--data-y="260"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="1700"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 7; max-width: auto; max-height: auto; white-space: nowrap;">&nbsp;-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 7 1 &ndash;&gt;-->
+          <!--<div class="tp-caption arrowicon customin fadeout rs-parallaxlevel-10"-->
+               <!--data-x="669"-->
+               <!--data-y="272"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="2000"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 8;"><img src="img/dummy.png" alt="" data-ww="17" data-hh="17" data-lazyload="img/check.png">-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 5 &ndash;&gt;-->
+          <!--<div class="tp-caption black_bold_bg_20 sfr fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="691"-->
+               <!--data-y="300"-->
+               <!--data-speed="300"-->
+               <!--data-start="2000"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">Crossbrowser Compatible-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 6 &ndash;&gt;-->
+          <!--<div class="tp-caption greenbox30 customin fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="660"-->
+               <!--data-y="300"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="2000"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 7; max-width: auto; max-height: auto; white-space: nowrap;">&nbsp;-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 7 &ndash;&gt;-->
+          <!--<div class="tp-caption arrowicon customin fadeout rs-parallaxlevel-10"-->
+               <!--data-x="669"-->
+               <!--data-y="306"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="2200"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 8;"><img src="img/dummy.png" alt="" data-ww="17" data-hh="17" data-lazyload="img/check.png">-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 8 &ndash;&gt;-->
+          <!--<div class="tp-caption black_bold_bg_20 sfr fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="691"-->
+               <!--data-y="340"-->
+               <!--data-speed="300"-->
+               <!--data-start="2500"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">Twitter 1.1 API Support-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 9 &ndash;&gt;-->
+          <!--<div class="tp-caption greenbox30 customin fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="660"-->
+               <!--data-y="340"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="2500"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 10; max-width: auto; max-height: auto; white-space: nowrap;">&nbsp;-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 10 &ndash;&gt;-->
+          <!--<div class="tp-caption arrowicon customin fadeout rs-parallaxlevel-10"-->
+               <!--data-x="669"-->
+               <!--data-y="347"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="2700"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 11;"><img src="img/dummy.png" alt="" data-ww="17" data-hh="17" data-lazyload="img/check.png">-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 11 &ndash;&gt;-->
+          <!--<div class="tp-caption black_bold_bg_20 sfr fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="691"-->
+               <!--data-y="380"-->
+               <!--data-speed="300"-->
+               <!--data-start="3000"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 12; max-width: auto; max-height: auto; white-space: nowrap;">Bootstrap Framework-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 12 &ndash;&gt;-->
+          <!--<div class="tp-caption greenbox30 customin fadeout tp-resizeme rs-parallaxlevel-10"-->
+               <!--data-x="660"-->
+               <!--data-y="380"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="3000"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-splitin="none"-->
+               <!--data-splitout="none"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 13; max-width: auto; max-height: auto; white-space: nowrap;">&nbsp;-->
+          <!--</div>-->
+          <!--&lt;!&ndash; LAYER NR. 13 &ndash;&gt;-->
+          <!--<div class="tp-caption arrowicon customin fadeout rs-parallaxlevel-10"-->
+               <!--data-x="669"-->
+               <!--data-y="386"-->
+               <!--data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"-->
+               <!--data-speed="300"-->
+               <!--data-start="3200"-->
+               <!--data-easing="Power3.easeInOut"-->
+               <!--data-elementdelay="0.1"-->
+               <!--data-endelementdelay="0.1"-->
+               <!--data-endspeed="300"-->
+               <!--style="z-index: 14;"><img src="img/dummy.png" alt="" data-ww="17" data-hh="17" data-lazyload="img/check.png">-->
+          <!--</div>-->
+          <!--<div class="caption lfl"-->
+               <!--data-x="53"-->
+               <!--data-y="30"-->
+               <!--data-speed="300"-->
+               <!--data-start="1400"-->
+               <!--data-easing="easeOutExpo">-->
+            <!--<img src="img/slider/responsive-imac.png" alt="iMac Responsive">-->
+          <!--</div>-->
+          <!--<div class="caption lfl"-->
+               <!--data-x="323"-->
+               <!--data-y="145"-->
+               <!--data-speed="300"-->
+               <!--data-start="1500"-->
+               <!--data-easing="easeOutExpo">-->
+            <!--<img src="img/slider/responsive-ipad.png" alt="iPad Responsive">-->
+          <!--</div>-->
+          <!--<div class="caption lfl"-->
+               <!--data-x="472"-->
+               <!--data-y="253"-->
+               <!--data-speed="300"-->
+               <!--data-start="1600"-->
+               <!--data-easing="easeOutExpo">-->
+            <!--<img src="img/slider/responsive-iphone.png" alt="iPhone Responsive">-->
+          <!--</div>-->
         <!--</li>-->
       <!--</ul>-->
-    <!--</p>-->
+    <!--</div>-->
   <!--</div>-->
-  <!--<br>Enjoy &amp; Keep Us Updated,-->
-  <!--<br>The MEAN.JS Team.-->
-
-  <div class="mainbody">
-
-    <!-- START OF BOOKING FORM -->
-    <form id="mainbkgform" action="signin.html" method="post" autocomplete="off">
-      <!-- SERVERSIDE: Need 2 actions for this form, first to post to database, and second to go to signin.html-->
-      <label for="bkgservtype">Book a Service Now!</label><br/>
-      <select id="bkgservtype" name="bkgservtype" required>
-        <option value="House Cleaner" selected="selected">House Cleaner</option>
-        <option value="Laundry /Press">Laundry /Press</option>
-        <option value="Caretaker (Oldsitter)">Caretaker (Oldsitter)</option>
-        <option value="Caretaker (Babysitter)">Caretaker (Babysitter)</option>
-        <option value="Plumber">Plumber</option>
-        <option value="Aircon Cleaner">Aircon Cleaner</option>
-        <option value="House Fixtures /Installer">House Fixtures /Installer</option>
-        <option value="Gardener">Gardener</option>
-        <option value="Handyman">Handyman</option>
-      </select><br/>
-      <label for="bkgloc">Where</label><br/>
-      <select id="bkgloc" name="bkgloc" required>
-        <!-- <option value="" disable selected>Please Select</option>-->
-        <option value=""></option>
-        <option value="Cebu City">Cebu City</option>
-        <option value="Mandaue">Mandaue</option>
-        <option value="Lapu-lapu">Lapu-lapu</option>
-        <option value="Talisay">Talisay</option>
-        <option value="Manila-Pasay">Manila-Pasay</option>
-        <option value="Makati">Makati</option>
-        <option value="Ortigas-Taguig">Ortigas-Taguig</option>
-        <option value="Quezon City">Quezon City</option>
-        <option value="Tokyo">Tokyo</option>
-        <option value="Seoul">Seoul</option>
-        <option value="Suwon">Suwon</option>
-        <option value="Busan">Busan</option>
-      </select><br/>
-      <label for="bkgdate">Date</label><br/>
-      <input type="date" name="bkgdate" id="dateinput" min="valdatebk" step="1" required><br/>
-      <label for="bkgtimestart">Preferred Time</label><br/>
-      <select id="bkgtimestart" name="bkgtimestart" required>
-        <!--<option value="" disable selected>Please Select</option>-->
-        <option value=""></option>
-        <option value="8AM">8AM</option>
-        <option value="9AM">9AM</option>
-        <option value="10AM">10AM</option>
-        <option value="1PM">1PM</option>
-        <option value="2PM">2PM</option>
-        <option value="3PM">3PM</option>
-        <option value="6PM">6PM</option>
-        <option value="7PM">7PM</option>
-      </select><br/>
-      <h6>- We recommend 4 hours each booking -</h6>
-      <div class="booknowbutton">
-        <input type="submit" name="submitbooking" value="Book Now"/>
+  <!--&lt;!&ndash; Slider &ndash;&gt;-->
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="container">
+    <div class="row text-center">
+        {{ 'HEADLINE' | translate }}
+        <h2>You are the HERO in this story</h2>
+    </div>
+        <div class="row"></div>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 wow fadeIn">
+          <div class="content-box big ch-item bottom-pad-small">
+            <div class="ch-info-wrap">
+              <div class="ch-info">
+                <div class="ch-info-front ch-img-1"><i class="fa fa-child"></i></div>
+                <div class="ch-info-back">
+                  <i class="fa fa-child"></i>
+                </div>
+              </div>
+            </div>
+            <div class="content-box-info">
+              <h3>Responsive Design</h3>
+              <p>
+                Lorem Ipsum is simply dummy text of Lorem the printing and typesettings industry.
+              </p>
+              <a href="#">Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+            </div>
+            <div class="border-bottom margin-top30">
+            </div>
+            <div class="border-bottom">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 wow fadeIn">
+          <div class="content-box big ch-item bottom-pad-small">
+            <div class="ch-info-wrap">
+              <div class="ch-info">
+                <div class="ch-info-front ch-img-1"><i class="fa fa-check"></i></div>
+                <div class="ch-info-back">
+                  <i class="fa fa-check"></i>
+                </div>
+              </div>
+            </div>
+            <div class="content-box-info">
+              <h3>Retina Ready</h3>
+              <p>
+                Lorem Ipsum is simply dummy text of Lorem the printing and typesettings industry.
+              </p>
+              <a href="#">Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+            </div>
+            <div class="border-bottom margin-top30">
+            </div>
+            <div class="border-bottom">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 wow fadeIn">
+          <div class="content-box big ch-item">
+            <div class="ch-info-wrap">
+              <div class="ch-info">
+                <div class="ch-info-front ch-img-1"><i class="fa fa-tags"></i></div>
+                <div class="ch-info-back">
+                  <i class="fa fa-tags"></i>
+                </div>
+              </div>
+            </div>
+            <div class="content-box-info">
+              <h3>Premium Design</h3>
+              <p>
+                Lorem Ipsum is simply dummy text of Lorem the printing and typesettings industry.
+              </p>
+              <a href="#">Read More <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+            </div>
+            <div class="border-bottom margin-top30">
+            </div>
+            <div class="border-bottom">
+            </div>
+          </div>
+        </div>
       </div>
-    </form>
-    <!-- END OF BOOKING FORM -->
-    <div class="maingraphic">
-      <img src="modules/core/img/brand/ktbmainpic2.jpg" alt="Katabang"/>
-    </div>
-    <div id="faqband">
-      <h2><a href="FAQ.html">FAQ: How Does It Work?</a></h2>
-    </div>
-    <div id="socialmediaband">
-      <ul>
-        <li><a href="#"><img src="modules/core/img/brand/googleplus40x40.png" alt="Google Plus"/></a></li>
-        <li><a href="#"><img src="modules/core/img/brand/facebook40x40.png" alt="Facebook"/></a></li>
-        <li><a href="mailto:support@katabang.com"><img src="modules/core/img/brand/email40x40.png" alt="Email"/></a></li>
-      </ul>
-    </div>
-    <div class="serviceband1">
-      <ul>
-        <li><a href="signin.html">HOUSE CLEANER</a></li>
-        <li><a href="signin.html">LAUNDRY/PRESS</a></li>
-        <li><a href="signin.html">CARETAKER (OLDSITTER)</a></li>
-        <li><a href="signin.html">CARETAKER (BABYSITTER)</a></li>
-        <li><a href="signin.html">PLUMBER</a></li>
-      </ul>
-    </div>
-    <div class="stepstitle">
-      <h1><span>KA</span>TABANG in 3 Easy Steps</h1>
-    </div>
-    <div class="steps123">
-      <div class="step">
-        <img src="modules/core/img/brand/step1.jpg" alt="step 1"/>
-        <p>Choose Service, Select Date and Time</p>
-      </div>
-      <div class="arrow">
-        <img src="modules/core/img/brand/arrow1.png" alt="next step"/>
-      </div>
-      <div class="step">
-        <img src="modules/core/img/brand/step2.jpg" alt="step 2"/>
-        <p>We will Confirm Booking and Take Care of Payment Securely</p>
-      </div>
-      <div class="arrow">
-        <img src="modules/core/img/brand/arrow1.png" alt="next step"/>
-      </div>
-      <div class="step">
-        <img src="modules/core/img/brand/step3.jpg" alt="step 3"/>
-        <p>Experience the Best of your very own Katabang professional</p>
-      </div>
-    </div>
-    <div class="maingraphic2">
-      <img src="modules/core/img/brand/tea1.jpg" alt="domestic services"/>
-    </div>
-    <div class="serviceband2">
-      <ul>
-        <li><a href="signin.html">AIRCON CLEANER</a></li>
-        <li><a href="signin.html">GARDENER</a></li>
-        <li><a href="signin.html">HOUSE FIXTURES/INSTALLER</a></li>
-        <li><a href="signin.html">HANDYMAN</a></li>
-        <li><a href="signin.html">MORE</a></li>
-      </ul>
     </div>
   </div>
-  <!-- END OF MAIN BODY -->
-  <!-- START OF SUBBODY CONTENTS -->
-  <div class="subbodycontent">
-    <div class="subbodyheadline">
-      <h2>YOU ARE THE HERO</h2>
-      <h2>IN THIS STORY</h2>
-    </div>
-    <div class="subcontent">
-      <div class="contentbox">
-        <img src="modules/core/img/brand/icon1.png" alt="We Help You"/>
-        <h3>We Help You</h3>
-        <p>We provide a platform where you, who needs domestic services easily meets those who can provide them, locally, reliably, securely and at the best cost possible.  We enable you to meet your needs without long-term commitment, and with the convenience of following your own schedules.</p>
+  <!-- /Main Content -->
+  <!-- Product Content -->
+  <div class="product-lead bottom-pad margin-top100">
+    <div class="pattern-overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 col-xs-12 text-center wow fadeInLeft">
+            <img class="app-img" src="img/iphone5c.png" alt="iPhone5c">
+          </div>
+          <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInRight">
+            <div class="app-service padding-bottom50">
+              <h2 class="light">Gallaxy App Services</h2>
+              <h4>We provide all kinds of iPhone application design and development services.</h4>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem fermentum ipsum dolor sit amet.Lorem fermentum diam diam.
+              </p>
+              <div class="divider"></div>
+              <div class="learnmore">
+                <a class="btn-special btn-grey" href="#">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="contentbox">
-        <img src="modules/core/img/brand/icon2.png" alt="Help Yourself"/>
-        <h3>Help Yourself</h3>
-        <p>If your circumstances do not allow you to live with the help nor be committed long-term, katabang.com is for you. Designed for life on-the-go, and for your added privacy. We are here to help you.</p>
-      </div>
-      <div class="contentbox">
-        <img src="modules/core/img/brand/icon3.png" alt="And Help Others"/>
-        <h3>And Help Others</h3>
-        <p>Help yourself by helping others. Katabang is a win-win  platform which strives to fill the gap in domestic service requirements, while at the same time giving opportunities for those who are underemployed to earn decently while still being able to take care of their families and live their lives. As a Katabang customer, you are helping people and contributing to the goodness in this world.</p>
-      </div>
-    </div>
-    <!-- APP LINKS -->
-    <div id="appslinks">
-      <h3>BOOK NOW OR CALL US TO LEARN MORE</h3>
-      <h4>GO MOBILE. DOWNLOAD THE APPS.</h4>
-      <ul>
-        <li><a href="#"><img src="modules/core/img/brand/app-appstore1.png" alt="Apple Appstore"/></a></li>
-        <li><a href="#"><img src="modules/core/img/brand/app-googleplay1.png" alt="Google Play"/></a></li>
-      </ul>
     </div>
   </div>
-  <!-- END OF SUBBODY CONTENTS -->
+  <!-- /Product Content -->
+  <!-- Portfolio Work -->
+  <div class="portfolio bottom-pad margin-top100">
+    <div class="container">
+      <div class="row">
+        <div class="portfolio-content">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="portfolio-title text-center">
+              <h2 class="wow fadeIn">Creative Portfolio Showcasse</h2>
+              <h4 class="wow fadeInRight">
+                Gallaxy provides you to show your portfolio contents in beautiful layout. <br/>
+                Make a cool and colorful showcase for your site...
+              </h4>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 portfolio-three-column wow fadeInUp">
+            <div class="grid">
+              <!-- Item 1 -->
+              <figure class="effect-zoe portfolio-border web jquery item">
+                <a href="img/portfolio/01.jpg" class="portfolio-item-link" data-rel="prettyPhoto" ><img src="img/portfolio/01.jpg" alt="img1"/></a>
+                <figcaption>
+                  <h2>Creative <span>Zoe</span></h2>
+                  <span><a href="portfolio-single.html"><i class="fa fa-share"></i></a></span>
+                  <span><a href="img/portfolio/01.jpg" class="portfolio-item-link" data-rel="prettyPhoto"><i class="fa fa-paperclip"></i></a></span>
+                  <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </figcaption>
+              </figure>
+              <!-- /Item 1 -->
+              <!-- Item 2 -->
+              <figure class="effect-zoe portfolio-border wp css item">
+                <a href="img/portfolio/02.jpg" class="portfolio-item-link" data-rel="prettyPhoto" ><img src="img/portfolio/02.jpg" alt="img2"/></a>
+                <figcaption>
+                  <h2>Marchant <span>Mogul</span></h2>
+                  <span><a href="portfolio-single.html"><i class="fa fa-share"></i></a></span>
+                  <span><a href="img/portfolio/02.jpg" class="portfolio-item-link" data-rel="prettyPhoto"><i class="fa fa-paperclip"></i></a></span>
+                  <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </figcaption>
+              </figure>
+              <!-- /Item 2 -->
+              <!-- Item 3 -->
+              <figure class="effect-zoe portfolio-border php jquery wp item">
+                <a href="img/portfolio/03.jpg" class="portfolio-item-link" data-rel="prettyPhoto" ><img src="img/portfolio/03.jpg" alt="img3"/></a>
+                <figcaption>
+                  <h2>Pedaling <span>Tavern</span></h2>
+                  <span><a href="portfolio-single.html"><i class="fa fa-share"></i></a></span>
+                  <span><a href="img/portfolio/03.jpg" class="portfolio-item-link" data-rel="prettyPhoto"><i class="fa fa-paperclip"></i></a></span>
+                  <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </figcaption>
+              </figure>
+              <!-- /Item 3 -->
+              <!-- Item 4 -->
+              <figure class="effect-zoe portfolio-border wp jquery css item">
+                <a href="img/portfolio/04.jpg" class="portfolio-item-link" data-rel="prettyPhoto" ><img src="img/portfolio/04.jpg" alt="img4"/></a>
+                <figcaption>
+                  <h2>Create <span>Smart</span></h2>
+                  <span><a href="portfolio-single.html"><i class="fa fa-share"></i></a></span>
+                  <span><a href="img/portfolio/04.jpg" class="portfolio-item-link" data-rel="prettyPhoto"><i class="fa fa-paperclip"></i></a></span>
+                  <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </figcaption>
+              </figure>
+              <!-- /Item 4 -->
+              <!-- Item 5 -->
+              <figure class="effect-zoe portfolio-border web css wp item">
+                <a href="img/portfolio/05.jpg" class="portfolio-item-link" data-rel="prettyPhoto" ><img src="img/portfolio/05.jpg" alt="img5"/></a>
+                <figcaption>
+                  <h2>Back to <span>Zen</span></h2>
+                  <span><a href="portfolio-single.html"><i class="fa fa-share"></i></a></span>
+                  <span><a href="img/portfolio/05.jpg" class="portfolio-item-link" data-rel="prettyPhoto"><i class="fa fa-paperclip"></i></a></span>
+                  <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </figcaption>
+              </figure>
+              <!-- /Item 5 -->
+              <!-- Item 6 -->
+              <figure class="effect-zoe portfolio-border web php item">
+                <a href="img/portfolio/06.jpg" class="portfolio-item-link" data-rel="prettyPhoto" ><img src="img/portfolio/06.jpg" alt="img6"/></a>
+                <figcaption>
+                  <h2>Dynamic <span>Wins</span></h2>
+                  <span><a href="portfolio-single.html"><i class="fa fa-share"></i></a></span>
+                  <span><a href="img/portfolio/06.jpg" class="portfolio-item-link" data-rel="prettyPhoto"><i class="fa fa-paperclip"></i></a></span>
+                  <span><a href="#"><i class="fa fa-heart"></i></a></span>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </figcaption>
+              </figure>
+              <!-- /Item 6 -->
+            </div>
+            <!-- /grid -->
+          </div>
+          <div class="clearfix">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Portfolio work -->
+  <!-- Services -->
+  <div id="services" class="margin-top80">
+    <div class="pattern-overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="padding-top40 text-center">
+              <h2 class="light wow fadeIn">Other Services We Provide</h2>
+              <h4 class="light wow fadeInRight">
+                We have a strong team of web design, email marketing and corporate solution.Feel free to get a free quote!!!
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-4 text-center wow fadeInLeft">
+            <div class="service-box padding-top30 padding-bottom40">
+              <div class="service-box-icon">
+                <a href="#"><img alt="Web Design" src="img/icons/web-design.png"></a>
+              </div>
+              <div class="service-box-info">
+                <a href="#">
+                  <h3 class="padding-top25">Web Design</h3>
+                </a>
+                <p>
+                  Lorem Ipsum is simply dummy text of Lorem the printing and typesettings industry.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 text-center wow fadeInUp">
+            <div class="service-box padding-top30 padding-bottom40">
+              <div class="service-box-icon">
+                <a href="#"><img alt="Email Marketing" src="img/icons/email-marketing.png"></a>
+              </div>
+              <div class="service-box-info">
+                <a href="#">
+                  <h3 class="padding-top25">Email Marketing</h3>
+                </a>
+                <p>
+                  Lorem Ipsum is simply dummy text of Lorem the printing and typesettings industry.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 text-center wow fadeInRight">
+            <div class="service-box padding-top30 padding-bottom40">
+              <div class="service-box-icon">
+                <a href="#"><img alt="Corportate Solutions" src="img/icons/corporate-solutions.png"></a>
+              </div>
+              <div class="service-box-info">
+                <a href="#">
+                  <h3 class="padding-top25">Corporate Solutions</h3>
+                </a>
+                <p>
+                  Lorem Ipsum is simply dummy text of Lorem the printing and typesettings industry.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Services -->
+  <!-- Testimonials -->
+  <div id="testimonials" class="padding-top100">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="text-center">
+            <h2 class="wow fadeIn">What Clients Say About Us</h2>
+            <h4 class="wow fadeInRight">We have a lot of clients over the world. Checout their feedback and comments about us.</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 wow fadeInRight">
+          <!-- Testimonials Widget -->
+          <div class="row margin-top25">
+            <div class="testimonials widget">
+              <div class="clearfix"></div>
+              <div id="testimonials-carousel" class="testimonials-carousel carousel slide">
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="testimonial item">
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam necessitatibus magni nulla tempore ad deserunt vero dolor? Minus aspernatur adipisci quam nam, animi eveniet quos ab, necessitatibus iusto, molestias eligendi!
+                        </p>
+                        <div class="testimonials-arrow"></div>
+                        <div class="author">
+                          <div class="testimonial-image ">
+                            <img alt="" src="img/testimonial/team-member-1.jpg">
+                          </div>
+                          <div class="testimonial-author-info">
+                            <a href="#"><span class="color">Monica Sing</span></a> FIFO Themes
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="testimonial item">
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quas animi placeat consequatur dicta repudiandae voluptatum ut, iusto qui. Natus suscipit nemo officiis quo dignissimos laudantium, deleniti expedita eveniet. Expedita?
+                        </p>
+                        <div class="testimonials-arrow"></div>
+                        <div class="author">
+                          <div class="testimonial-image ">
+                            <img alt="" src="img/testimonial/team-member-2.jpg">
+                          </div>
+                          <div class="testimonial-author-info">
+                            <a href="#"><span class="color">Monzurul Haque</span></a> FIFO Themes
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="testimonial item">
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam ducimus eaque blanditiis quas! Error nam ad facilis mollitia cum aliquid, optio voluptates a doloremque, earum tempore iste! Autem, vel, ipsam.
+                        </p>
+                        <div class="testimonials-arrow"></div>
+                        <div class="author">
+                          <div class="testimonial-image ">
+                            <img alt="" src="img/testimonial/team-member-3.jpg">
+                          </div>
+                          <div class="testimonial-author-info">
+                            <a href="#"><span class="color">Carol Johansen</span></a> FIFO Themes
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Testimonials Widget -->
+      </div>
+    </div>
+  </div>
+  <!-- /Testimonials -->
+  <!-- Random Facts -->
+  <div id="random-facts" class=" margin-top70">
+    <div class="pattern-overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="padding-top60 text-center">
+              <h2 class="light wow fadeIn">Some Random Facts</h2>
+              <h4 class="light wow fadeInRight">
+                Find what is going around us. You can see some real stats here!
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeIn">
+            <div class="random-box padding-top30 padding-bottom40">
+              <div class="random-box-icon">
+                <i class="fa fa-coffee"></i>
+              </div>
+              <div class="random-box-info">
+                <span class="facts" data-from="0" data-to="101" data-speed="5000" data-refresh-interval="50"></span>
+                <p>
+                  COFFEES
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeIn">
+            <div class="random-box padding-top30 padding-bottom40">
+              <div class="random-box-icon">
+                <i class="fa fa-briefcase"></i>
+              </div>
+              <div class="random-box-info">
+                <span class="facts" data-from="0" data-to="299" data-speed="5000" data-refresh-interval="50"></span>
+                <p>
+                  PROJECTS
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeIn">
+            <div class="random-box padding-top30 padding-bottom40">
+              <div class="random-box-icon">
+                <i class="fa fa-user"></i>
+              </div>
+              <div class="random-box-info">
+                <span class="facts" data-from="0" data-to="175" data-speed="5000" data-refresh-interval="50"></span>
+                <p>
+                  CLIENTS
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 wow fadeIn">
+            <div class="random-box padding-top30 padding-bottom40">
+              <div class="random-box-icon">
+                <i class="fa fa-gift"></i>
+              </div>
+              <div class="random-box-info">
+                <span class="facts" data-from="0" data-to="50" data-speed="5000" data-refresh-interval="50"></span>
+                <p>
+                  AWARDS
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Random Facts -->
+  <!-- Latest Posts -->
+  <div id="latest-posts" class=" margin-top100">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 text-center">
+          <h2 class="wow fadeIn">Latest Posts</h2>
+          <h4 class="wow fadeInRight">We regularly post updates on our blog. Feel free to join with our blog!</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="padding-top40">
+          <!-- post item -->
+          <div class="col-lg-3 col-md-3 col-sm-6 post-item wow fadeInUp">
+            <div class="post-img">
+              <a href="single-post.html"><img alt="" src="img/blog/01.jpg"></a>
+            </div>
+            <div class="post-content blog-post-content">
+              <h4><a href="single-post.html">Praesentium minima</a></h4>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              </p>
+            </div>
+            <div class="meta post-meta">
+              <div class="post-date post-meta-content">
+                <i title="12 May 2014" class="fa fa-clock-o"></i>
+              </div>
+              <div class="post-comment post-meta-content">
+                <a title="Comments" href="#"><i class="fa fa-comment-o"></i> 15</a>
+              </div>
+              <div class="post-like  post-meta-content">
+                <a title="Likes" href="#"><i class="fa fa-heart"></i> 20</a>
+              </div>
+              <div class="post-link post-meta-content">
+                <a title="Read More" class="post-meta-link" href="#">...</a>
+              </div>
+            </div>
+          </div>
+          <!-- /post item -->
+          <!-- post item -->
+          <div class="col-lg-3 col-md-3 col-sm-6 post-item wow fadeInUp">
+            <div class="post-img">
+              <a href="single-post.html"><img alt="" src="img/blog/02.jpg"></a>
+            </div>
+            <div class="post-content blog-post-content">
+              <h4><a href="single-post.html">Quisquam maiores</a></h4>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              </p>
+            </div>
+            <div class="meta post-meta">
+              <div class="post-date post-meta-content">
+                <i title="12 May 2014" class="fa fa-clock-o"></i>
+              </div>
+              <div class="post-comment post-meta-content">
+                <a title="Comments" href="#"><i class="fa fa-comment-o"></i> 15</a>
+              </div>
+              <div class="post-like  post-meta-content">
+                <a title="Likes" href="#"><i class="fa fa-heart"></i> 20</a>
+              </div>
+              <div class="post-link post-meta-content">
+                <a title="Read More" class="post-meta-link" href="#">...</a>
+              </div>
+            </div>
+          </div>
+          <!-- /post item -->
+          <!-- post item -->
+          <div class="col-lg-3 col-md-3 col-sm-6 post-item wow fadeInUp">
+            <div class="post-img">
+              <a href="single-post.html"><img alt="" src="img/blog/03.jpg"></a>
+            </div>
+            <div class="post-content blog-post-content">
+              <h4><a href="single-post.html">Ipsam inventores</a></h4>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              </p>
+            </div>
+            <div class="meta post-meta">
+              <div class="post-date post-meta-content">
+                <i title="12 May 2014" class="fa fa-clock-o"></i>
+              </div>
+              <div class="post-comment post-meta-content">
+                <a title="Comments" href="#"><i class="fa fa-comment-o"></i> 15</a>
+              </div>
+              <div class="post-like  post-meta-content">
+                <a title="Likes" href="#"><i class="fa fa-heart"></i> 20</a>
+              </div>
+              <div class="post-link post-meta-content">
+                <a title="Read More" class="post-meta-link" href="#">...</a>
+              </div>
+            </div>
+          </div>
+          <!-- /post item -->
+          <!-- post item -->
+          <div class="col-lg-3 col-md-3 col-sm-6 post-item wow fadeInUp">
+            <div class="post-img">
+              <a href="single-post.html"><img alt="" src="img/blog/04.jpg"></a>
+            </div>
+            <div class="post-content blog-post-content">
+              <h4><a href="single-post.html">Labore consequuntur</a></h4>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              </p>
+            </div>
+            <div class="meta post-meta">
+              <div class="post-date post-meta-content">
+                <i title="12 May 2014" class="fa fa-clock-o"></i>
+              </div>
+              <div class="post-comment post-meta-content">
+                <a title="Comments" href="#"><i class="fa fa-comment-o"></i> 15</a>
+              </div>
+              <div class="post-like  post-meta-content">
+                <a title="Likes" href="#"><i class="fa fa-heart"></i> 20</a>
+              </div>
+              <div class="post-link post-meta-content">
+                <a title="Read More" class="post-meta-link" href="#">...</a>
+              </div>
+            </div>
+          </div>
+          <!-- /post item -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Latest Posts -->
+  <!-- Slogan -->
+  <div class="slogan margin-top100 bottom-pad-small">
+    <div class="pattern-overlay">
+      <div class="container">
+        <div class="row">
+          <div class="slogan-content">
+            <div class="col-lg-10 col-md-10 wow fadeInLeft">
+              <h2 class="slogan-title">Found a reason to work with us? Lets's start!</h2>
+            </div>
+            <div class="col-lg-2 col-md-2 wow fadeInRight">
+              <div class="get-started wow fadeIn">
+                <a href="#" class="btn-special btn-grey pull-right">BUY NOW</a>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Slogan -->
+  <!-- Our Clients -->
+  <div class="our-clients">
+    <div class="container">
+      <div class="row">
+        <div class="client">
+          <div class="client-logo">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="text-center">
+                <h2 class="wow fadeIn">Our Clients</h2>
+                <h4 class="wow fadeInRight">
+                  See some of our satisfied clients over the world.
+                </h4>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="clearfix"></div>
+              <div class="row text-center padding-top40">
+                <div id="client-carousel" class="client-carousel carousel slide">
+                  <div class="carousel-inner">
+                    <div class="item active">
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item wow fadeIn">
+                        <div class="item-inner"><a href="#"><img alt="Upportdash" src="img/clientslogo/01.png"></a></div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item wow fadeIn">
+                        <div class="item-inner"><a href="#"><img alt="Upportdash" src="img/clientslogo/02.png"></a></div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item wow fadeIn">
+                        <div class="item-inner"><a href="#"><img alt="Upportdash" src="img/clientslogo/03.png"></a></div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item wow fadeIn">
+                        <div class="item-inner"><a href="#"><img alt="Upportdash" src="img/clientslogo/04.png"></a></div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+                        <div class="item-inner"><a href="#"><img alt="Upportdash" src="img/clientslogo/04.png"></a></div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+                        <div class="item-inner"><a href="#"><img alt="Upportdash" src="img/clientslogo/03.png"></a></div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+                        <div class="item-inner"><a href="#"><img alt="Upportdash" src="img/clientslogo/02.png"></a></div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 item">
+                        <div class="item-inner"><a href="#"><img alt="Upportdash" src="img/clientslogo/01.png"></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 wow fadeInUp">
+              <div class="clients-title">
+                <h3 class="title">&nbsp;</h3>
+                <div class="carousel-controls pull-right">
+                  <a class="prev" href="#client-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                  <a class="next" href="#client-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Our Clients -->
+
+
 </section>

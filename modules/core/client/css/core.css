@@ -33,3 +33,7 @@ a:hover .header-profile-image {
   padding-top: 11px !important;
   padding-bottom: 11px !important;
 }
+.lang-flags {
+  width: 25px;
+  height: 25px;
+}
