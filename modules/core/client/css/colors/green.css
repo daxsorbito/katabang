@@ -91,3 +91,7 @@ a, .post-item h4 a:hover, .cn-wrapper li a:hover, .cn-wrapper li a.active, .colo
 .subscribe-btn {
     background: #82dc23 !important;
 }
+
+ .ch-info .ch-info-back {
+     background-color: rgba(89, 171, 2, 0.3);
+ }

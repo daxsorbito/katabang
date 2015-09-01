@@ -37,3 +37,15 @@ a:hover .header-profile-image {
   width: 25px;
   height: 25px;
 }
+
+.hero_title {
+  padding: 0 0 40px 0;
+}
+
+.ch-info img {
+  padding-top: 5px;
+  width: 60px;
+  height: 50px;
+}
+
+

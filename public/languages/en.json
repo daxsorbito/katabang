@@ -1,4 +1,10 @@
 {
-  "HEADLINE": "Hello there, This is my awesome app",
-  "INTRO_TEXT": "And it has i18n support!"
+  "HERO_TITLE": "You are the HERO in this story"
+  ,"WE_HELP_YOU": "We Help You"
+  ,"HELP_URSELF": "Help Yourself"
+  ,"AND_HELP_OTHERS": "And Help Others"
+  ,"HELP_YOU_NOTE": "We provide a platform where you who needs services easily meets those who can provide them, locally, reliably, securely and at the best cost possible. We enable you to meet your needs without long-term commitment, and with the convenience of following your own schedules."
+  ,"HELP_URSELF_NOTE": "If your circumstances do not allow you to live with the help nor be committed long-term, katabang.com is for you. Designed for life on-the-go, and for added privacy, we are here to help you."
+  ,"HELP_OTHERS_NOTE": "Help yourself by helping others. Katabang is a win-win platform which strives to fill the gap in service requirements, while at the same time giving opportunities for those who are underemployed. We reach out to them pro-actively and provide basic training."
+  ,"READ_MORE": "Read More"
 }
