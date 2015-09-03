@@ -48,4 +48,20 @@ a:hover .header-profile-image {
   height: 50px;
 }
 
+.steps {
+  width: 125px;
+  height: 200px;
+}
 
+.arrow_steps {
+  width: 100px;
+  height: 70px;
+  margin-top: 70px;
+}
+
+.step_number {
+  font-size: 40px;
+  font-weight: bolder;
+  margin-top: 70px;
+  position: absolute;
+}

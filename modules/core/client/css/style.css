@@ -1371,7 +1371,7 @@ ol.commentlist li:first-child {
    ==================================================
    ================================================== */
 
-.main-content { padding: 60px 0 0 }
+.main-content { padding: 20px 0 0 }
 
 .home-3 .main-content,
 .home-4 .main-content {
@@ -1381,7 +1381,10 @@ ol.commentlist li:first-child {
 
 .main-content { margin: 45px 0 35px }
 
-div.content-box { clear: both }
+div.content-box { 
+    clear: both;
+    height: 345px;
+}
 
 div.content-box div.content-box-info { padding-left: 115px }
 
@@ -1993,13 +1996,13 @@ ul.why li:before {
     height: 5px;
 }
 
-.top-pad { margin-top: 25px }
+.top-pad { margin-top: 25px; }
 
-.no-divider { margin: 0 }
+.no-divider { margin: 0; }
 
-.bottom-pad { margin-bottom: 100px }
+.bottom-pad { margin-bottom: 45px; }
 
-.bottom-pad-small { margin-bottom: 50px }
+.bottom-pad-small { margin-bottom: 50px; }
 
 .no-bottom-pad {
     margin-bottom: 0 !important;
