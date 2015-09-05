@@ -82,3 +82,7 @@ a:hover .header-profile-image {
   height: 546px;
   margin-top: 64px;
 }
+
+.tp-banner-container {
+  background-color: rgb(250, 250, 250);
+}

@@ -1,0 +1,5 @@
+[{
+    "name"      : "Katabas",
+    "script"    : "server.js",
+    "args"      : "['--production']"
+}]
