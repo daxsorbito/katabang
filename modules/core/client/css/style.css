@@ -295,7 +295,7 @@ img { max-width: 100% }
     background-size: cover;
 }
 
-.pattern-overlay { background-image: url("../img/brand/bg_off.png") }
+.pattern-overlay { background-image: url("/modules/core/img/brand/bg_off.png") }
 
 .pattern-overlay p { color: #fff }
 
@@ -449,7 +449,7 @@ footer .social li:hover a i { color: #fff }
 
 #search-form input.search-text-box {
     background-color: #fff;
-    background-image: url(../img/search-icon.png);
+    background-image: url(/modules/core/img/brand/search-icon.png);
     background-position: 6px 56%;
     background-repeat: no-repeat;
     border: 0;
@@ -1805,7 +1805,7 @@ a.scrollup:focus i {
 
 .contact-us {
     margin: 15px 0 0;
-    background: url("../img/contact-map.png") no-repeat center bottom;
+    background: url("/modules/core/img/brand/contact-map.png") no-repeat center bottom;
 }
 
 .business-hour i { margin-right: 5px }
@@ -1950,7 +1950,7 @@ ul.why li:before {
 
 .services-big div.content-box div.content-box-icon {
     border: 1px solid #ddd;
-    background: url(../img/bg_off.png) repeat;
+    background: url(/modules/core/img/brand/bg_off.png) repeat;
     border-radius: 2px;
     display: block;
     float: none;
@@ -1991,7 +1991,7 @@ ul.why li:before {
 
 .blog-divider {
     margin: 35px 0;
-    background: url(../img/bg_off.png) repeat;
+    background: url(/modules/core/img/brand/bg_off.png) repeat;
     content: "";
     height: 5px;
 }
@@ -2500,7 +2500,7 @@ ul#projects-carousel {
 
 .post-body {
     padding: 4px;
-    background: url("../img/bg_off.png") repeat;
+    background: url("/modules/core/img/brand/bg_off.png") repeat;
     border: 1px solid #DDDDDD;
     border-radius: 3px;
 }
@@ -5059,7 +5059,7 @@ input[type=submit].btn-block { width: 100% }
 }
 
 .pricing_plan h3 {
-    background-image: url("../img/bg_off.png");
+    background-image: url("/modules/core/img/brand/bg_off.png");
     border-radius: 6px 6px 0px 0px;
     padding: 60px 5px;
     margin: 20px;

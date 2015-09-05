@@ -76,7 +76,7 @@ a:hover .header-profile-image {
 }
 
 .main-container {
-  background-image: url(../img/brand/maid-service.png);
+  background-image: url(/modules/core/img/brand/maid-service.png);
   background-repeat: no-repeat;
   width: 487px;
   height: 546px;
