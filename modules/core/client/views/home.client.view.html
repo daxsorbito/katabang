@@ -1,58 +1,43 @@
 <section id="main" data-ng-controller="HomeController">
-    <!-- Slider -->
-    <div class="tp-banner-container">
-        <div class="fullwidthbanner tp-banner">
-            <form id="mainbkgform" action="signin.html" method="post" autocomplete="off">
-                <!-- SERVERSIDE: Need 2 actions for this form, first to post to database, and second to go to signin.html-->
-                <label for="bkgservtype">Book a Service Now!</label><br/>
-                <select id="bkgservtype" name="bkgservtype" required>
-                    <option value="House Cleaner" selected="selected">House Cleaner</option>
-                    <option value="Laundry /Press">Laundry /Press</option>
-                    <option value="Caretaker (Oldsitter)">Caretaker (Oldsitter)</option>
-                    <option value="Caretaker (Babysitter)">Caretaker (Babysitter)</option>
-                    <option value="Plumber">Plumber</option>
-                    <option value="Aircon Cleaner">Aircon Cleaner</option>
-                    <option value="House Fixtures /Installer">House Fixtures /Installer</option>
-                    <option value="Gardener">Gardener</option>
-                    <option value="Handyman">Handyman</option>
-                </select><br/>
-                <label for="bkgloc">Where</label><br/>
-                <select id="bkgloc" name="bkgloc" required>
-                    <!-- <option value="" disable selected>Please Select</option>-->
-                    <option value=""></option>
-                    <option value="Cebu City">Cebu City</option>
-                    <option value="Mandaue">Mandaue</option>
-                    <option value="Lapu-lapu">Lapu-lapu</option>
-                    <option value="Talisay">Talisay</option>
-                    <option value="Manila-Pasay">Manila-Pasay</option>
-                    <option value="Makati">Makati</option>
-                    <option value="Ortigas-Taguig">Ortigas-Taguig</option>
-                    <option value="Quezon City">Quezon City</option>
-                    <option value="Tokyo">Tokyo</option>
-                    <option value="Seoul">Seoul</option>
-                    <option value="Suwon">Suwon</option>
-                    <option value="Busan">Busan</option>
-                </select><br/>
-                <label for="bkgdate">Date</label><br/>
-                <input type="date" name="bkgdate" id="dateinput" min="valdatebk" step="1" required><br/>
-                <label for="bkgtimestart">Preferred Time</label><br/>
-                <select id="bkgtimestart" name="bkgtimestart" required>
-                    <!--<option value="" disable selected>Please Select</option>-->
-                    <option value=""></option>
-                    <option value="8AM">8AM</option>
-                    <option value="9AM">9AM</option>
-                    <option value="10AM">10AM</option>
-                    <option value="1PM">1PM</option>
-                    <option value="2PM">2PM</option>
-                    <option value="3PM">3PM</option>
-                    <option value="6PM">6PM</option>
-                    <option value="7PM">7PM</option>
-                </select><br/>
-                <h6>- We recommend 4 hours each booking -</h6>
-                <div class="booknowbutton">
-                    <input type="submit" name="submitbooking" value="Book Now"/>
+    <div class="tp-banner-container row">
+        <div class="container">
+            <div class="main-container pull-left"></div>
+            <div class="modal-dialog pull-right book-now">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="form-signin-heading modal-title" id="myModalLabel">{{ 'BOOK_SERVICE_FORM_TITLE' |
+                            translate}}</h2>
+                    </div>
+                    <form name="bookingform" action="signin.html" method="post"
+                          class="col-lg5 ">
+                        <div class="modal-body">
+                            <label for="bkgservtype" class="control-label">{{ 'SELECT_A_SERVICE' | translate }}</label>
+                            <select id="bkgservtype" class="form-control">
+                                <option>{{ 'PLEASE_SELECT' | translate }}</option>
+                                <option data-ng-repeat="srv in services">{{srv.name}}</option>
+                            </select>
+                            <label for="bkgloc" class="control-label">{{ 'WHERE' | translate }}</label>
+                            <select id="bkgloc" class="form-control">
+                                <option>{{ 'PLEASE_SELECT' | translate }}</option>
+                                <option data-ng-repeat="loc in locations">{{loc.name}}</option>
+                            </select>
+                            <label for="dateinput" class="control-label">{{ 'DATE' | translate }}</label>
+                            <input type="date" id="dateinput" class="form-control"/>
+                            <label for="bkgtimestart" class="control-label">{{ 'PREFERRED_TIME' | translate }}</label>
+                            <select id="bkgtimestart" class="form-control">
+                                <option>{{ 'PLEASE_SELECT' | translate }}</option>
+                                <option data-ng-repeat="prefTime in preferredtimes">{{prefTime.name}}</option>
+                            </select>
+                            <div class="booknowbutton text-center">
+                                <h4>{{ 'RECOMMEND_4HOURS' | translate }}</h4>
+                                <input type="submit" name="submitbooking" class="btn btn-color btn-lg btn-block"
+                                       value="Book Now"/>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
+
         </div>
     </div>
     <!-- Slider -->
@@ -63,34 +48,35 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12 wow fadeInRight">
                         <div class="app-service padding-bottom50">
-                            <h1 class="light text-center"><span>KA</span>TABANG in 3 Easy Steps</h1>
+                            <h1 class="light text-center">{{ 'KATABANG_IN_3_STEPS' | translate}}</h1>
 
-                            <div class="row text-center">
-                                <div class="col-lg-3 col-md-4 col-sm-4-">
+                            <div class="text-center col-lg-12">
+                                <div class="col-lg-offset-1  col-lg-3 col-md-4 col-sm-4-">
                                     <img class="steps" src="modules/core/img/brand/step1.png" alt="step 1"></img>
 
-                                    <h2>Choose Service, Select Date and Time</h2>
+                                    <h2>{{ 'STEP1_NOTE' | translate}}</h2>
                                 </div>
-                                <div class="col-lg-1 col-md-1 hidden-sm">
-                                    <img class="arrow_steps" src="modules/core/img/brand/arrow-right.png"
+                                <div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
+                                    <img class="arrow-steps" src="modules/core/img/brand/arrow-right.png"
                                          alt="next step"/>
                                 </div>
                                 <div class="col-lg-3 col-md-4 col-sm-4">
                                     <img class="steps" src="modules/core/img/brand/step2.png" alt="step 2"/>
 
-                                    <h2>We will Confirm Booking and Take Care of Payment Securely</h2>
+                                    <h2>{{ 'STEP2_NOTE' | translate}}</h2>
                                 </div>
-                                <div class="col-lg-1 col-md-1 hidden-sm">
-                                    <img class="arrow_steps" src="modules/core/img/brand/arrow-right.png"
+                                <div class="col-lg-1 col-md-1 hidden-sm  hidden-xs">
+                                    <img class="arrow-steps" src="modules/core/img/brand/arrow-right.png"
                                          alt="next step"/>
                                 </div>
                                 <div class="col-lg-3 col-md-4 col-sm-4">
                                     <img class="steps" src="modules/core/img/brand/step3.png" alt="step 3"/>
 
-                                    <h2>Experience the Best of your very own Katabang professional</h2>
+                                    <h2>{{ 'STEP3_NOTE' | translate}}</h2>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

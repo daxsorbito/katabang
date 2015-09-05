@@ -53,15 +53,32 @@ a:hover .header-profile-image {
   height: 200px;
 }
 
-.arrow_steps {
+.arrow-steps {
   width: 100px;
   height: 70px;
   margin-top: 70px;
 }
 
-.step_number {
-  font-size: 40px;
-  font-weight: bolder;
-  margin-top: 70px;
-  position: absolute;
+
+.book-now {
+
+}
+.header-login {
+  padding-top: 30px;
+
+}
+.header-login a {
+  padding-left: 20px;
+}
+
+.booknowbutton {
+  padding-top: 10px;
+}
+
+.main-container {
+  background-image: url(../img/brand/maid-service.png);
+  background-repeat: no-repeat;
+  width: 487px;
+  height: 546px;
+  margin-top: 64px;
 }
