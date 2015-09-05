@@ -14,7 +14,15 @@
                             <label for="bkgservtype" class="control-label">{{ 'SELECT_A_SERVICE' | translate }}</label>
                             <select id="bkgservtype" class="form-control">
                                 <option>{{ 'PLEASE_SELECT' | translate }}</option>
-                                <option data-ng-repeat="srv in services">{{srv.name}}</option>
+                                <option value="1">{{ 'SERVICES.HOUSE_CLEANER' | translate }}</option>
+                                <option value="2">{{ 'SERVICES.LAUNDRY_PRESS' | translate }}</option>
+                                <option value="3">{{ 'SERVICES.CARETAKER_OLDSITTER' | translate }}</option>
+                                <option value="4">{{ 'SERVICES.CARETAKER_BABYSITTER' | translate }}</option>
+                                <option value="5">{{ 'SERVICES.PLUMBER' | translate }}</option>
+                                <option value="6">{{ 'SERVICES.AIRCON_CLEANER' | translate }}</option>
+                                <option value="7">{{ 'SERVICES.HOUSE_FIXTURES_INSTALLER' | translate }}</option>
+                                <option value="8">{{ 'SERVICES.GARDENER' | translate }}</option>
+                                <option value="9">{{ 'SERVICES.HANDYMAN' | translate }}</option>
                             </select>
                             <label for="bkgloc" class="control-label">{{ 'WHERE' | translate }}</label>
                             <select id="bkgloc" class="form-control">

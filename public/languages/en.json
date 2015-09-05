@@ -18,4 +18,15 @@
   ,"HELP_URSELF_NOTE": "If your circumstances do not allow you to live with the help nor be committed long-term, katabang.com is for you. Designed for life on-the-go, and for added privacy, we are here to help you."
   ,"HELP_OTHERS_NOTE": "Help yourself by helping others. Katabang is a win-win platform which strives to fill the gap in service requirements, while at the same time giving opportunities for those who are underemployed. We reach out to them pro-actively and provide basic training."
   ,"READ_MORE": "Read More"
+  ,"SERVICES" : {
+    "HOUSE_CLEANER" : "House Cleaner"
+    ,"LAUNDRY_PRESS": "Laundry/Press"
+    ,"CARETAKER_OLDSITTER" : "Caretaker (Oldsitter)"
+    ,"CARETAKER_BABYSITTER": "Caretaker (Babysitter)"
+    ,"PLUMBER": "Plumber"
+    ,"AIRCON_CLEANER": "Aircon Cleaner"
+    ,"HOUSE_FIXTURES_INSTALLER" : "House Fixtures /Installer"
+    ,"GARDENER" : "Gardener"
+    ,"HANDYMAN" : "Handyman"
+  }
 }
