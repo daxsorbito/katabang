@@ -62,11 +62,11 @@
             <div class="container">
                 <div class="pull-left">
                     <ul class="social pull-left">
-                        <li><a href="#"><img class="lang-flags"
+                        <li><a ng-click="changeLanguage('en')"><img class="lang-flags"
                                              src="modules/core/img/brand/Flag-of-Philippines.png"/></a></li>
-                        <li><a href="#"><img class="lang-flags" src="modules/core/img/brand/Flag-of-Japan.png"/></a>
+                        <li><a ng-click="changeLanguage('jp')"><img class="lang-flags" src="modules/core/img/brand/Flag-of-Japan.png"/></a>
                         </li>
-                        <li><a href="#"><img class="lang-flags"
+                        <li><a ng-click="changeLanguage('ko')"><img class="lang-flags"
                                              src="modules/core/img/brand/Flag-of-South-Korea.png"/></a></li>
                     </ul>
                 </div>
@@ -89,9 +89,9 @@
                     </h1>
                 </div>
                 <div class="header-login pull-right">
-                    <a ui-sref="authentication.signin"><i class="fa fa-sign-in"></i> Login</a>
+                    <a ui-sref="authentication.signin"><i class="fa fa-sign-in"></i>{{ 'LOGIN' | translate }}</a>
                     <a ui-sref="authentication.signup"><i class="fa fa-edit"></i>
-                        Registration</a>
+                        {{ 'REGISTRATION' | translate }}</a>
                 </div>
                 <!-- /Logo -->
                 <!--&lt;!&ndash; Mobile Menu &ndash;&gt;-->

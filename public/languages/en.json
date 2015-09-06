@@ -1,5 +1,7 @@
 {
-  "BOOK_SERVICE_FORM_TITLE": "Book a service now!"
+  "LOGIN": "Login"
+  ,"REGISTRATION": "Registration"
+  ,"BOOK_SERVICE_FORM_TITLE": "Book a service now!"
   ,"SELECT_A_SERVICE": "Select a service:"
   ,"PLEASE_SELECT": "Please Select"
   ,"WHERE": "Where:"
@@ -29,4 +31,6 @@
     ,"GARDENER" : "Gardener"
     ,"HANDYMAN" : "Handyman"
   }
+  ,"COPYRIGHT": " Copyright 2015 by"
+  ,"ALL_RIGHTS_RESERVED" : "All Rights Reserved."
 }
