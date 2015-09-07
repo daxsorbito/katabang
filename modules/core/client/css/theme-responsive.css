@@ -7,7 +7,7 @@
         width: 1230px;
         -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
         box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
-        background: url(../img/patterns/whitey.png) repeat;
+        background: url(module/core/img/brand/whitey.png) repeat;
         margin: 0 auto;
     }
 
