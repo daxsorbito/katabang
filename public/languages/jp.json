@@ -1,36 +1,44 @@
 {
-  "LOGIN": "Login_jp"
-  ,"REGISTRATION": "Registration_jp"
-  ,"BOOK_SERVICE_FORM_TITLE": "Book a service now!_jp"
-  ,"SELECT_A_SERVICE": "Select a service:_jp"
-  ,"PLEASE_SELECT": "Please Select_jp"
-  ,"WHERE": "Where_jp:"
-  ,"DATE": "Date_jp:"
-  ,"PREFERRED_TIME" : "Preferred Time_jp:"
-  ,"RECOMMEND_4HOURS" : "- We recommend 4 hours each booking_jp -"
-  ,"KATABANG_IN_3_STEPS":"In 3 easy steps_jp"
-  ,"STEP1_NOTE": "Choose Service, Select Date and Time_jp"
-  ,"STEP2_NOTE": "We will Confirm Booking and Take Care of Payment Securely_jp"
-  ,"STEP3_NOTE": "Experience the Best of your very own Katabang professional_jp"
-  ,"HERO_TITLE": "You are the HERO in this story_jp"
-  ,"WE_HELP_YOU": "We Help You_jp"
-  ,"HELP_URSELF": "Help Yourself_jp"
-  ,"AND_HELP_OTHERS": "And Help Others_jp"
-  ,"HELP_YOU_NOTE": "We provide a platform where you who needs services easily meets those who can provide them, locally, reliably, securely and at the best cost possible. We enable you to meet your needs without long-term commitment, and with the convenience of following your own schedules._jp"
-  ,"HELP_URSELF_NOTE": "If your circumstances do not allow you to live with the help nor be committed long-term, katabang.com is for you. Designed for life on-the-go, and for added privacy, we are here to help you._jp"
-  ,"HELP_OTHERS_NOTE": "Help yourself by helping others. Katabang is a win-win platform which strives to fill the gap in service requirements, while at the same time giving opportunities for those who are underemployed. We reach out to them pro-actively and provide basic training._jp"
-  ,"READ_MORE": "Read More_jp"
-  ,"SERVICES" : {
-    "HOUSE_CLEANER" : "House Cleaner_jp"
-    ,"LAUNDRY_PRESS": "Laundry/Press_jp"
-    ,"CARETAKER_OLDSITTER" : "Caretaker (Oldsitter)_jp"
-    ,"CARETAKER_BABYSITTER": "Caretaker (Babysitter)_jp"
-    ,"PLUMBER": "Plumber_jp"
-    ,"AIRCON_CLEANER": "Aircon Cleaner_jp"
-    ,"HOUSE_FIXTURES_INSTALLER" : "House Fixtures /Installer_jp"
-    ,"GARDENER" : "Gardener_jp"
-    ,"HANDYMAN" : "Handyman_jp"
-  }
-  ,"COPYRIGHT": "Copyright 2015 by_jp"
-  ,"ALL_RIGHTS_RESERVED" : "All Rights Reserved._jp"
+  "LOGIN": "Login_jp",
+  "REGISTRATION": "Registration_jp",
+  "EDIT_PROFILE": "Edit Profile_jp",
+  "CHANGE_PROFILE_PICTURE": "Change Profile Picture_jp",
+  "CHANGE_PASSWORD": "Change Password_jp",
+  "MANAGE_SOCIAL_ACCOUNTS": "Manage Social Accounts_jp",
+  "SIGNOUT": "Signout_jp",
+  "USER_NAME": "Username_jp",
+  "SIGNIN_SOCIAL_ACCOUNT": "Sign in using your social accounts_jp",
+  "OR_WITH_YOUR_ACCOUNT" : "Or with your account_jp",
+  "BOOK_SERVICE_FORM_TITLE": "Book a service now!_jp",
+  "SELECT_A_SERVICE": "Select a service:_jp",
+  "PLEASE_SELECT": "Please Select_jp",
+  "WHERE": "Where_jp:",
+  "DATE": "Date_jp:",
+  "PREFERRED_TIME": "Preferred Time_jp:",
+  "RECOMMEND_4HOURS": "- We recommend 4 hours each booking_jp -",
+  "KATABANG_IN_3_STEPS": "In 3 easy steps_jp",
+  "STEP1_NOTE": "Choose Service, Select Date and Time_jp",
+  "STEP2_NOTE": "We will Confirm Booking and Take Care of Payment Securely_jp",
+  "STEP3_NOTE": "Experience the Best of your very own Katabang professional_jp",
+  "HERO_TITLE": "You are the HERO in this story_jp",
+  "WE_HELP_YOU": "We Help You_jp",
+  "HELP_URSELF": "Help Yourself_jp",
+  "AND_HELP_OTHERS": "And Help Others_jp",
+  "HELP_YOU_NOTE": "We provide a platform where you who needs services easily meets those who can provide them, locally, reliably, securely and at the best cost possible. We enable you to meet your needs without long-term commitment, and with the convenience of following your own schedules._jp",
+  "HELP_URSELF_NOTE": "If your circumstances do not allow you to live with the help nor be committed long-term, katabang.com is for you. Designed for life on-the-go, and for added privacy, we are here to help you._jp",
+  "HELP_OTHERS_NOTE": "Help yourself by helping others. Katabang is a win-win platform which strives to fill the gap in service requirements, while at the same time giving opportunities for those who are underemployed. We reach out to them pro-actively and provide basic training._jp",
+  "READ_MORE": "Read More_jp",
+  "SERVICES": {
+    "HOUSE_CLEANER": "House Cleaner_jp",
+    "LAUNDRY_PRESS": "Laundry/Press_jp",
+    "CARETAKER_OLDSITTER": "Caretaker (Oldsitter)_jp",
+    "CARETAKER_BABYSITTER": "Caretaker (Babysitter)_jp",
+    "PLUMBER": "Plumber_jp",
+    "AIRCON_CLEANER": "Aircon Cleaner_jp",
+    "HOUSE_FIXTURES_INSTALLER": "House Fixtures /Installer_jp",
+    "GARDENER": "Gardener_jp",
+    "HANDYMAN": "Handyman_jp"
+  },
+  "COPYRIGHT": "Copyright 2015 by_jp",
+  "ALL_RIGHTS_RESERVED": "All Rights Reserved._jp"
 }

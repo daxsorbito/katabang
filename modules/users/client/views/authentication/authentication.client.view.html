@@ -2,8 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header text-center">
-                <h2 class="form-signin-heading modal-title" id="registrationModalLabel">Sign in using your social
-                    accounts</h2>
+                <h2 class="form-signin-heading modal-title" id="registrationModalLabel">{{ 'SIGNIN_SOCIAL_ACCOUNT' | translate }}</h2>
                 <img ng-click="callOauthProvider('/api/auth/facebook')"
                      ng-src="/modules/users/img/buttons/facebook.png">
             </div>

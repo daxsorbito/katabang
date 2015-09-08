@@ -1,32 +1,32 @@
 <div class="modal-dialog" data-ng-controller="AuthenticationController">
     <div class="modal-content">
         <div class="modal-header">
-            <h2 class="form-signin-heading modal-title">Or with your account</h2>
+            <h2 class="form-signin-heading modal-title">{{ 'OR_WITH_YOUR_ACCOUNT' | translate }}</h2>
         </div>
         <form data-ng-submit="signin()" class="signin" autocomplete="off">
             <div class="modal-body">
                 <fieldset>
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" class="form-control"
-                               data-ng-model="credentials.username" placeholder="Username">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" class="form-control"
-                               data-ng-model="credentials.password" placeholder="Password">
-                    </div>
-                    <div class="text-center form-group">
-                        <button type="submit" class="btn btn-color">Sign in</button>
-                        &nbsp; or&nbsp;
-                        <a data-ui-sref="authentication.signup">Sign up</a>
-                    </div>
-                    <div class="text-center forgot-password">
-                        <a data-ui-sref="password.forgot">Forgot your password?</a>
-                    </div>
                     <alert type="danger" data-ng-show="error" class="text-center text-danger">
                         <span data-ng-bind="error"></span>
                     </alert>
+                    <div class="form-group">
+                        <label for="username">{{ 'USER_NAME' | translate }}</label>
+                        <input type="text" id="username" name="username" class="form-control"
+                               data-ng-model="credentials.username" placeholder="{{ 'USER_NAME' | translate }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">{{ 'PASSWORD' | translate }}</label>
+                        <input type="password" id="password" name="password" class="form-control"
+                               data-ng-model="credentials.password" placeholder="{{ 'PASSWORD' | translate }}">
+                    </div>
+                    <div class="text-center form-group">
+                        <button type="submit" class="btn btn-color btn-lg">{{ 'SIGN_IN' | translate }}</button>
+                        &nbsp; or&nbsp;
+                        <a data-ui-sref="authentication.signup">{{ 'SIGN_UP' | translate }}</a>
+                    </div>
+                    <div class="text-center forgot-password">
+                        <a data-ui-sref="password.forgot">{{ 'FORGOT_YOUR_PASSWORD' | translate }}</a>
+                    </div>
                 </fieldset>
             </div>
         </form>

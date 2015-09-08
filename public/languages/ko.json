@@ -1,36 +1,43 @@
 {
-  "LOGIN": "Login_ko"
-  ,"REGISTRATION": "Registration_ko"
-  ,"BOOK_SERVICE_FORM_TITLE": "Book a service now!_ko"
-  ,"SELECT_A_SERVICE": "Select a service:_ko"
-  ,"PLEASE_SELECT": "Please Select_ko"
-  ,"WHERE": "Where_ko:"
-  ,"DATE": "Date_ko:"
-  ,"PREFERRED_TIME" : "Preferred Time_ko:"
-  ,"RECOMMEND_4HOURS" : "- We recommend 4 hours each booking_ko -"
-  ,"KATABANG_IN_3_STEPS":"In 3 easy steps_ko"
-  ,"STEP1_NOTE": "Choose Service, Select Date and Time_ko"
-  ,"STEP2_NOTE": "We will Confirm Booking and Take Care of Payment Securely_ko"
-  ,"STEP3_NOTE": "Experience the Best of your very own Katabang professional_ko"
-  ,"HERO_TITLE": "You are the HERO in this story_ko"
-  ,"WE_HELP_YOU": "We Help You_ko"
-  ,"HELP_URSELF": "Help Yourself_ko"
-  ,"AND_HELP_OTHERS": "And Help Others_ko"
-  ,"HELP_YOU_NOTE": "We provide a platform where you who needs services easily meets those who can provide them, locally, reliably, securely and at the best cost possible. We enable you to meet your needs without long-term commitment, and with the convenience of following your own schedules._ko"
-  ,"HELP_URSELF_NOTE": "If your circumstances do not allow you to live with the help nor be committed long-term, katabang.com is for you. Designed for life on-the-go, and for added privacy, we are here to help you._ko"
-  ,"HELP_OTHERS_NOTE": "Help yourself by helping others. Katabang is a win-win platform which strives to fill the gap in service requirements, while at the same time giving opportunities for those who are underemployed. We reach out to them pro-actively and provide basic training._ko"
-  ,"READ_MORE": "Read More_ko"
-  ,"SERVICES" : {
-    "HOUSE_CLEANER" : "House Cleaner_ko"
-    ,"LAUNDRY_PRESS": "Laundry/Press_ko"
-    ,"CARETAKER_OLDSITTER" : "Caretaker (Oldsitter)_ko"
-    ,"CARETAKER_BABYSITTER": "Caretaker (Babysitter)_ko"
-    ,"PLUMBER": "Plumber_ko"
-    ,"AIRCON_CLEANER": "Aircon Cleaner_ko"
-    ,"HOUSE_FIXTURES_INSTALLER" : "House Fixtures /Installer_ko"
-    ,"GARDENER" : "Gardener_ko"
-    ,"HANDYMAN" : "Handyman_ko"
-  }
-  ,"COPYRIGHT": "Copyright 2015 by_ko"
-  ,"ALL_RIGHTS_RESERVED" : "All Rights Reserved._ko"
+  "LOGIN": "Login_ko",
+  "REGISTRATION": "Registration_ko",
+  "EDIT_PROFILE": "Edit Profile_ko",
+  "CHANGE_PROFILE_PICTURE": "Change Profile Picture_ko",
+  "CHANGE_PASSWORD": "Change Password_ko",
+  "MANAGE_SOCIAL_ACCOUNTS": "Manage Social Accounts_ko",
+  "SIGNOUT": "Signout_ko",
+  "SIGNIN_SOCIAL_ACCOUNT": "Sign in using your social accounts_ko",
+  "OR_WITH_YOUR_ACCOUNT" : "Or with your account_ko",
+  "BOOK_SERVICE_FORM_TITLE": "Book a service now!_ko",
+  "SELECT_A_SERVICE": "Select a service:_ko",
+  "PLEASE_SELECT": "Please Select_ko",
+  "WHERE": "Where_ko:",
+  "DATE": "Date_ko:",
+  "PREFERRED_TIME": "Preferred Time_ko:",
+  "RECOMMEND_4HOURS": "- We recommend 4 hours each booking_ko -",
+  "KATABANG_IN_3_STEPS": "In 3 easy steps_ko",
+  "STEP1_NOTE": "Choose Service, Select Date and Time_ko",
+  "STEP2_NOTE": "We will Confirm Booking and Take Care of Payment Securely_ko",
+  "STEP3_NOTE": "Experience the Best of your very own Katabang professional_ko",
+  "HERO_TITLE": "You are the HERO in this story_ko",
+  "WE_HELP_YOU": "We Help You_ko",
+  "HELP_URSELF": "Help Yourself_ko",
+  "AND_HELP_OTHERS": "And Help Others_ko",
+  "HELP_YOU_NOTE": "We provide a platform where you who needs services easily meets those who can provide them, locally, reliably, securely and at the best cost possible. We enable you to meet your needs without long-term commitment, and with the convenience of following your own schedules._ko",
+  "HELP_URSELF_NOTE": "If your circumstances do not allow you to live with the help nor be committed long-term, katabang.com is for you. Designed for life on-the-go, and for added privacy, we are here to help you._ko",
+  "HELP_OTHERS_NOTE": "Help yourself by helping others. Katabang is a win-win platform which strives to fill the gap in service requirements, while at the same time giving opportunities for those who are underemployed. We reach out to them pro-actively and provide basic training._ko",
+  "READ_MORE": "Read More_ko",
+  "SERVICES": {
+    "HOUSE_CLEANER": "House Cleaner_ko",
+    "LAUNDRY_PRESS": "Laundry/Press_ko",
+    "CARETAKER_OLDSITTER": "Caretaker (Oldsitter)_ko",
+    "CARETAKER_BABYSITTER": "Caretaker (Babysitter)_ko",
+    "PLUMBER": "Plumber_ko",
+    "AIRCON_CLEANER": "Aircon Cleaner_ko",
+    "HOUSE_FIXTURES_INSTALLER": "House Fixtures /Installer_ko",
+    "GARDENER": "Gardener_ko",
+    "HANDYMAN": "Handyman_ko"
+  },
+  "COPYRIGHT": "Copyright 2015 by_ko",
+  "ALL_RIGHTS_RESERVED": "All Rights Reserved._ko"
 }

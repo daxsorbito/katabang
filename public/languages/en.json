@@ -1,36 +1,48 @@
 {
-  "LOGIN": "Login"
-  ,"REGISTRATION": "Registration"
-  ,"BOOK_SERVICE_FORM_TITLE": "Book a service now!"
-  ,"SELECT_A_SERVICE": "Select a service:"
-  ,"PLEASE_SELECT": "Please Select"
-  ,"WHERE": "Where:"
-  ,"DATE": "Date:"
-  ,"PREFERRED_TIME" : "Preferred Time:"
-  ,"RECOMMEND_4HOURS" : "- We recommend 4 hours each booking -"
-  ,"KATABANG_IN_3_STEPS":"In 3 easy steps"
-  ,"STEP1_NOTE": "Choose Service, Select Date and Time"
-  ,"STEP2_NOTE": "We will Confirm Booking and Take Care of Payment Securely"
-  ,"STEP3_NOTE": "Experience the Best of your very own Katabang professional"
-  ,"HERO_TITLE": "You are the HERO in this story"
-  ,"WE_HELP_YOU": "We Help You"
-  ,"HELP_URSELF": "Help Yourself"
-  ,"AND_HELP_OTHERS": "And Help Others"
-  ,"HELP_YOU_NOTE": "We provide a platform where you who needs services easily meets those who can provide them, locally, reliably, securely and at the best cost possible. We enable you to meet your needs without long-term commitment, and with the convenience of following your own schedules."
-  ,"HELP_URSELF_NOTE": "If your circumstances do not allow you to live with the help nor be committed long-term, katabang.com is for you. Designed for life on-the-go, and for added privacy, we are here to help you."
-  ,"HELP_OTHERS_NOTE": "Help yourself by helping others. Katabang is a win-win platform which strives to fill the gap in service requirements, while at the same time giving opportunities for those who are underemployed. We reach out to them pro-actively and provide basic training."
-  ,"READ_MORE": "Read More"
-  ,"SERVICES" : {
-    "HOUSE_CLEANER" : "House Cleaner"
-    ,"LAUNDRY_PRESS": "Laundry/Press"
-    ,"CARETAKER_OLDSITTER" : "Caretaker (Oldsitter)"
-    ,"CARETAKER_BABYSITTER": "Caretaker (Babysitter)"
-    ,"PLUMBER": "Plumber"
-    ,"AIRCON_CLEANER": "Aircon Cleaner"
-    ,"HOUSE_FIXTURES_INSTALLER" : "House Fixtures /Installer"
-    ,"GARDENER" : "Gardener"
-    ,"HANDYMAN" : "Handyman"
-  }
-  ,"COPYRIGHT": " Copyright 2015 by"
-  ,"ALL_RIGHTS_RESERVED" : "All Rights Reserved."
+  "LOGIN": "Login",
+  "REGISTRATION": "Registration",
+  "BOOK_SERVICE_FORM_TITLE": "Book a service now!",
+  "SELECT_A_SERVICE": "Select a service:",
+  "PLEASE_SELECT": "Please Select",
+  "WHERE": "Where:",
+  "DATE": "Date:",
+  "PREFERRED_TIME": "Preferred Time:",
+  "RECOMMEND_4HOURS": "- We recommend 4 hours each booking -",
+  "KATABANG_IN_3_STEPS": "In 3 easy steps",
+  "STEP1_NOTE": "Choose Service, Select Date and Time",
+  "STEP2_NOTE": "We will Confirm Booking and Take Care of Payment Securely",
+  "STEP3_NOTE": "Experience the Best of your very own Katabang professional",
+  "HERO_TITLE": "You are the HERO in this story",
+  "WE_HELP_YOU": "We Help You",
+  "HELP_URSELF": "Help Yourself",
+  "AND_HELP_OTHERS": "And Help Others",
+  "HELP_YOU_NOTE": "We provide a platform where you who needs services easily meets those who can provide them, locally, reliably, securely and at the best cost possible. We enable you to meet your needs without long-term commitment, and with the convenience of following your own schedules.",
+  "HELP_URSELF_NOTE": "If your circumstances do not allow you to live with the help nor be committed long-term, katabang.com is for you. Designed for life on-the-go, and for added privacy, we are here to help you.",
+  "HELP_OTHERS_NOTE": "Help yourself by helping others. Katabang is a win-win platform which strives to fill the gap in service requirements, while at the same time giving opportunities for those who are underemployed. We reach out to them pro-actively and provide basic training.",
+  "READ_MORE": "Read More",
+  "SERVICES": {
+    "HOUSE_CLEANER": "House Cleaner",
+    "LAUNDRY_PRESS": "Laundry/Press",
+    "CARETAKER_OLDSITTER": "Caretaker (Oldsitter)",
+    "CARETAKER_BABYSITTER": "Caretaker (Babysitter)",
+    "PLUMBER": "Plumber",
+    "AIRCON_CLEANER": "Aircon Cleaner",
+    "HOUSE_FIXTURES_INSTALLER": "House Fixtures /Installer",
+    "GARDENER": "Gardener",
+    "HANDYMAN": "Handyman"
+  },
+  "COPYRIGHT": " Copyright 2015 by",
+  "ALL_RIGHTS_RESERVED": "All Rights Reserved.",
+  "EDIT_PROFILE": "Edit Profile",
+  "CHANGE_PROFILE_PICTURE": "Change Profile Picture",
+  "CHANGE_PASSWORD": "Change Password",
+  "MANAGE_SOCIAL_ACCOUNTS": "Manage Social Accounts",
+  "SIGNOUT": "Signout",
+  "SIGNIN_SOCIAL_ACCOUNT": "Sign in using your social accounts",
+  "USER_NAME": "Username",
+  "PASSWORD" : "Password",
+  "SIGN_IN": "Sign in",
+  "SIGN_UP": "Sign up",
+  "FORGOT_YOUR_PASSWORD" : "Forgot your password?",
+  "OR_WITH_YOUR_ACCOUNT" : "Or with your account"
 }

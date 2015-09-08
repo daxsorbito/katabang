@@ -63,11 +63,14 @@
                 <div class="pull-left">
                     <ul class="social pull-left">
                         <li><a ng-click="changeLanguage('en')"><img class="lang-flags"
-                                             src="modules/core/img/brand/Flag-of-Philippines.png"/></a></li>
-                        <li><a ng-click="changeLanguage('jp')"><img class="lang-flags" src="modules/core/img/brand/Flag-of-Japan.png"/></a>
+                                                                    src="modules/core/img/brand/Flag-of-Philippines.png"/></a>
+                        </li>
+                        <li><a ng-click="changeLanguage('jp')"><img class="lang-flags"
+                                                                    src="modules/core/img/brand/Flag-of-Japan.png"/></a>
                         </li>
                         <li><a ng-click="changeLanguage('ko')"><img class="lang-flags"
-                                             src="modules/core/img/brand/Flag-of-South-Korea.png"/></a></li>
+                                                                    src="modules/core/img/brand/Flag-of-South-Korea.png"/></a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -83,15 +86,42 @@
                 <div class="logo pull-left">
                     <h1>Katabang
                         <!--<a href="index.html">-->
-                            <!--<img class="logo-color" src="modules/core/img/brand/klogo03.jpg" alt="gallaxy" width="160"-->
-                                 <!--height="60"/>atabang-->
+                        <!--<img class="logo-color" src="modules/core/img/brand/klogo03.jpg" alt="gallaxy" width="160"-->
+                        <!--height="60"/>atabang-->
                         <!--</a>-->
                     </h1>
                 </div>
-                <div class="header-login pull-right">
+                <div class="header-login pull-right" ng-hide="authentication.user">
                     <a ui-sref="authentication.signin"><i class="fa fa-sign-in"></i>&nbsp;{{ 'LOGIN' | translate }}</a>
                     <a ui-sref="authentication.signup"><i class="fa fa-edit"></i>&nbsp;{{ 'REGISTRATION' | translate }}</a>
                 </div>
+                <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
+                    <li class="dropdown" dropdown>
+                        <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">
+                            <img ng-src="{{authentication.user.profileImageURL}}"
+                                 alt="{{authentication.user.displayName}}" class="header-profile-image"/>
+                            <span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ui-sref-active="active">
+                                <a ui-sref="settings.profile">{{ 'EDIT_PROFILE' | translate }}</a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="settings.picture">{{ 'CHANGE_PROFILE_PICTURE' | translate }}</a>
+                            </li>
+                            <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
+                                <a ui-sref="settings.password">{{ 'CHANGE_PASSWORD' | translate }}</a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="settings.accounts">{{ 'MANAGE_SOCIAL_ACCOUNTS' | translate }}</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="/api/auth/signout" target="_self">{{ 'SIGNOUT' | translate }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
                 <!-- /Logo -->
                 <!--&lt;!&ndash; Mobile Menu &ndash;&gt;-->
                 <!--<div class="mobile navbar-header">-->
