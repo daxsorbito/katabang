@@ -5,7 +5,8 @@ module.exports = {
     lib: {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.css',
-        'public/lib/bootstrap/dist/css/bootstrap-theme.css'
+        'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+        'public/lib/font-awesome/css/font-awesome.css'
       ],
       js: [
         'public/lib/angular/angular.js',
@@ -15,12 +16,14 @@ module.exports = {
         'public/lib/angular-ui-utils/ui-utils.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/angular-file-upload.js',
-        'public/lib/jquery/dist/jquery.js'
+        'public/lib/angular-sanitize/angular-sanitize.js',
+        'public/lib/angular-translate/angular-translate.js',
+        'public/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },
     css: [
-      'modules/*/client/css/*.css'
+      'modules/*/client/css/**/*.css'
     ],
     less: [
       'modules/*/client/less/*.less'

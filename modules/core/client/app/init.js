@@ -53,3 +53,12 @@ angular.element(document).ready(function () {
   //Then init the app
   angular.bootstrap(document, [ApplicationConfiguration.applicationModuleName]);
 });
+
+angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
+    .controller('CarouselController', ['$scope', '$timeout', '$transition', '$q', function        ($scope, $timeout, $transition, $q) {
+    }]).directive('carousel', [function() {
+      return {
+
+
+      };
+    }]);

@@ -33,3 +33,67 @@ a:hover .header-profile-image {
   padding-top: 11px !important;
   padding-bottom: 11px !important;
 }
+.lang-flags {
+  width: 25px;
+  height: 25px;
+}
+
+.hero_title {
+  padding: 0 0 40px 0;
+}
+
+.ch-info img {
+  padding-top: 5px;
+  width: 60px;
+  height: 50px;
+}
+
+.steps {
+  width: 125px;
+  height: 200px;
+}
+
+.arrow-steps {
+  width: 100px;
+  height: 70px;
+  margin-top: 70px;
+}
+
+.header-login {
+  padding-top: 30px;
+
+}
+.header-login a {
+  padding-left: 20px;
+}
+
+.booknowbutton {
+  padding-top: 10px;
+}
+
+.main-container {
+  background-image: url(/modules/core/img/brand/maid-service.png);
+  background-repeat: no-repeat;
+  width: 487px;
+  height: 546px;
+  margin-top: 64px;
+}
+
+.tp-banner-container {
+  background-image: url(/modules/core/img/brand/tileable_wood.png);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrap {
+  padding: 10px;
+  min-height: -webkit-calc(100% - 100px);     /* Chrome */
+  min-height: -moz-calc(100% - 100px);     /* Firefox */
+  min-height: calc(100% - 100px);     /* native */
+}
+.footer {
+  position: relative;
+  clear:both;
+}
