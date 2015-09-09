@@ -44,5 +44,21 @@
   "SIGN_IN": "Sign in",
   "SIGN_UP": "Sign up",
   "FORGOT_YOUR_PASSWORD" : "Forgot your password?",
-  "OR_WITH_YOUR_ACCOUNT" : "Or with your account"
+  "OR_WITH_YOUR_ACCOUNT" : "Or with your account",
+  "OR_SIGN_UP_USING_UR_EMAIL": "Or sign up using your email",
+  "FIRST_NAME": "First Name",
+  "LAST_NAME": "Last Name",
+  "EMAIL": "Email",
+  "SETTINGS": "Settings",
+  "SELECT_IMAGE" : "Select Image",
+  "PROFILE_PIC_CHANGED_SUCCESS": "Profile Picture Changed Successfully",
+  "SAVE_PROFILE": "Save Profile",
+  "PROFILE_SAVED_SUCCESSFULLY": "Profile Saved Successfully",
+  "CURRENT_PASSWORD": "Current Password",
+  "NEW_PASSWORD": "New Password",
+  "VERIFY_PASSWORD": "Verify Password",
+  "SAVE_PASSWORD": "Save Password",
+  "PASSWORD_CHANGED_SUCCESSFULLY" :"Password Changed Successfully",
+  "UPLOAD": "Upload",
+  "CANCEL": "Cancel"
 }
