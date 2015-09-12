@@ -105,3 +105,10 @@ html, body {
 .settings-view {
   min-height: 420px;
 }
+
+.tab-body {
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+}

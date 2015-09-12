@@ -5,42 +5,60 @@
         </div>
         <form name="userForm" data-ng-submit="signup()" class="signin" novalidate autocomplete="off">
             <div class="modal-body">
-                <fieldset>
-                    <alert type="danger" data-ng-show="error" class="text-center text-danger">
-                        <span data-ng-bind="error"></span>
-                    </alert>
-                    <div class="form-group">
-                        <label for="firstName">{{ 'FIRST_NAME' | translate }}/label>
-                        <input type="text" required id="firstName" name="firstName" class="form-control"
-                               data-ng-model="credentials.firstName" placeholder="{{ 'FIRST_NAME' | translate }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">{{ 'LAST_NAME' | translate }}</label>
-                        <input type="text" id="lastName" name="lastName" class="form-control"
-                               data-ng-model="credentials.lastName" placeholder="{{ 'LAST_NAME' | translate }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">{{ 'EMAIL' | translate }}</label>
-                        <input type="email" id="email" name="email" class="form-control"
-                               data-ng-model="credentials.email"
-                               placeholder="{{ 'EMAIL' | translate }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="username">{{ 'USER_NAME' | translate }}</label>
-                        <input type="text" id="username" name="username" class="form-control"
-                               data-ng-model="credentials.username" placeholder="{{ 'USER_NAME' | translate }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">{{ 'PASSWORD' | translate }}</label>
-                        <input type="password" id="password" name="password" class="form-control"
-                               data-ng-model="credentials.password" placeholder="{{ 'PASSWORD' | translate }}">
-                    </div>
-                    <div class="text-center form-group">
-                        <button type="submit" class="btn btn-color btn-lg">{{ 'SIGN_UP' | translate }}</button>
-                        &nbsp; or&nbsp;
-                        <a data-ui-sref="authentication.signin" class="show-signup">{{ 'SIGN_IN' | translate }}</a>
-                    </div>
-                </fieldset>
+                <tabset justified="true">
+                    <tab heading="Customer Signup">
+                        <div class="tab-body">
+                            <fieldset>
+                                <alert type="danger" data-ng-show="error" class="text-center text-danger">
+                                    <span data-ng-bind="error"></span>
+                                </alert>
+                                <div class="form-group">
+                                    <label for="firstName">{{ 'FIRST_NAME' | translate }}</label>
+                                    <input type="text" required id="firstName" name="firstName" class="form-control"
+                                           data-ng-model="credentials.firstName"
+                                           placeholder="{{ 'FIRST_NAME' | translate }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">{{ 'LAST_NAME' | translate }}</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-control"
+                                           data-ng-model="credentials.lastName"
+                                           placeholder="{{ 'LAST_NAME' | translate }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">{{ 'EMAIL' | translate }}</label>
+                                    <input type="email" id="email" name="email" class="form-control"
+                                           data-ng-model="credentials.email"
+                                           placeholder="{{ 'EMAIL' | translate }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">{{ 'USER_NAME' | translate }}</label>
+                                    <input type="text" id="username" name="username" class="form-control"
+                                           data-ng-model="credentials.username"
+                                           placeholder="{{ 'USER_NAME' | translate }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">{{ 'PASSWORD' | translate }}</label>
+                                    <input type="password" id="password" name="password" class="form-control"
+                                           data-ng-model="credentials.password"
+                                           placeholder="{{ 'PASSWORD' | translate }}">
+                                </div>
+                                <div class="text-center form-group">
+                                    <button type="submit" class="btn btn-color btn-lg">{{ 'SIGN_UP' | translate }}
+                                    </button>
+                                    &nbsp; or&nbsp;
+                                    <a data-ui-sref="authentication.signin" class="show-signup">{{ 'SIGN_IN' | translate
+                                        }}</a>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </tab>
+                    <tab heading="Service Provider Signup">
+                        <div class="tab-body">
+                            <fieldset>
+                            </fieldset>
+                        </div>
+                    </tab>
+                </tabset>
             </div>
         </form>
     </div>
