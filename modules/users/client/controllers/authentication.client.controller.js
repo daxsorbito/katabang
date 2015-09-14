@@ -16,7 +16,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $scope.credentials = {};
       $scope.credentials.userType = [];
       $scope.credentials.userType.push('provider');
-    }
+    };
 
     $scope.signup = function () {
       if($scope.credentials && $scope.credentials.primaryService && $scope.credentials.secondaryService){
