@@ -12,7 +12,18 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $location.path('/');
     }
 
+    $scope.setRole = function() {
+      $scope.credentials = {};
+      $scope.credentials.userType = [];
+      $scope.credentials.userType.push('provider');
+    }
+
     $scope.signup = function () {
+      if($scope.credentials && $scope.credentials.primaryService && $scope.credentials.secondaryService){
+        $scope.credentials.serviceRender = [];
+        $scope.credentials.serviceRender.push($scope.credentials.primaryService);
+        $scope.credentials.serviceRender.push($scope.credentials.secondaryService);
+      }
       $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model
         $scope.authentication.user = response;

@@ -83,7 +83,7 @@ var UserSchema = new Schema({
   roles: {
     type: [{
       type: String,
-      enum: ['user', 'admin']
+      enum: ['user', 'admin', 'provider']
     }],
     default: ['user']
   },
@@ -93,6 +93,18 @@ var UserSchema = new Schema({
   created: {
     type: Date,
     default: Date.now
+  },
+  userType: {
+    type: [{
+      type: String,
+      enum: ['client', 'provider']
+    }],
+    default: ['client']
+  },
+  serviceRender :{
+    type: [{
+      type: Number
+    }]
   },
   /* For reset password */
   resetPasswordToken: {
