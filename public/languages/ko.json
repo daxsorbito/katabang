@@ -60,5 +60,9 @@
   "SAVE_PASSWORD": "Save Password_ko",
   "PASSWORD_CHANGED_SUCCESSFULLY" :"Password Changed Successfully_ko",
   "UPLOAD": "Upload_ko",
-  "CANCEL": "Cancel_ko"
+  "CANCEL": "Cancel_ko",
+  "CUSTOMER_SIGNUP": "Customer Signup_ko",
+  "SERVICE_PROVIDER_SIGNUP": "Service Provider Signup_ko",
+  "MY_PRIMARY_SERVICE": "My Primary Service_ko",
+  "MY_SECONDARY_SERVICE": "My Secondary Service_ko"
 }

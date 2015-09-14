@@ -5,7 +5,7 @@
         </div>
         <div class="modal-body">
             <tabset justified="true">
-                <tab heading="Customer Signup">
+                <tab heading="{{ 'CUSTOMER_SIGNUP' | translate }}">
                     <div class="tab-body">
                         <fieldset ng-form data-ng-controller="AuthenticationController">
                             <alert type="danger" data-ng-show="error" class="text-center text-danger">
@@ -52,7 +52,7 @@
                         </fieldset>
                     </div>
                 </tab>
-                <tab heading="Service Provider Signup">
+                <tab heading="{{ 'SERVICE_PROVIDER_SIGNUP' | translate }}">
                     <div class="tab-body">
                         <fieldset ng-form data-ng-controller="AuthenticationController" ng-init="setRole()">
                             <alert type="danger" data-ng-show="error" class="text-center text-danger">
@@ -90,7 +90,7 @@
                             </div>
                             <hr/>
                             <div class="form-group">
-                                <label for="primaryService">My Primary Service</label>
+                                <label for="primaryService">{{ 'MY_PRIMARY_SERVICE' | translate }}</label>
                                 <select data-ng-model="credentials.primaryService" id="primaryService"
                                         class="form-control">
                                     <option selected>{{ 'PLEASE_SELECT' | translate }}</option>
@@ -106,7 +106,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="secondaryService">My Secondary Service</label>
+                                <label for="secondaryService">{{ 'MY_SECONDARY_SERVICE' | translate }}</label>
                                 <select data-ng-model="credentials.secondaryService" id="secondaryService"
                                         class="form-control">
                                     <option selected>{{ 'PLEASE_SELECT' | translate }}</option>

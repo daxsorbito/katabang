@@ -60,5 +60,9 @@
   "SAVE_PASSWORD": "Save Password_jp",
   "PASSWORD_CHANGED_SUCCESSFULLY" :"Password Changed Successfully_jp",
   "UPLOAD": "Upload_jp",
-  "CANCEL": "Cancel_jp"
+  "CANCEL": "Cancel_jp",
+  "CUSTOMER_SIGNUP": "Customer Signup_jp",
+  "SERVICE_PROVIDER_SIGNUP": "Service Provider Signup_jp",
+  "MY_PRIMARY_SERVICE": "My Primary Service_jp",
+  "MY_SECONDARY_SERVICE": "My Secondary Service_jp"
 }
