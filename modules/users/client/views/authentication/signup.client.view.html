@@ -54,7 +54,7 @@
                 </tab>
                 <tab heading="{{ 'SERVICE_PROVIDER_SIGNUP' | translate }}">
                     <div class="tab-body">
-                        <fieldset ng-form data-ng-controller="AuthenticationController" ng-init="setRole()">
+                        <fieldset ng-form data-ng-controller="AuthenticationController" ng-init="setInitValues()">
                             <alert type="danger" data-ng-show="error" class="text-center text-danger">
                                 <span data-ng-bind="error"></span>
                             </alert>
@@ -62,19 +62,19 @@
                                 <label for="firstName">{{ 'FIRST_NAME' | translate }}</label>
                                 <input type="text" required id="firstName" name="firstName" class="form-control"
                                        data-ng-model="credentials.firstName"
-                                       placeholder="{{ 'FIRST_NAME' | translate }}">
+                                       placeholder="{{ 'FIRST_NAME' | translate }}" ng-required >
                             </div>
                             <div class="form-group">
                                 <label for="lastName">{{ 'LAST_NAME' | translate }}</label>
                                 <input type="text" id="lastName" name="lastName" class="form-control"
                                        data-ng-model="credentials.lastName"
-                                       placeholder="{{ 'LAST_NAME' | translate }}">
+                                       placeholder="{{ 'LAST_NAME' | translate }}" ng-required>
                             </div>
                             <div class="form-group">
                                 <label for="email">{{ 'EMAIL' | translate }}</label>
                                 <input type="email" id="email" name="email" class="form-control"
                                        data-ng-model="credentials.email"
-                                       placeholder="{{ 'EMAIL' | translate }}">
+                                       placeholder="{{ 'EMAIL' | translate }}" ng-required>
                             </div>
                             <div class="form-group">
                                 <label for="username">{{ 'USER_NAME' | translate }}</label>
@@ -121,14 +121,20 @@
                                     <option value="9">{{ 'SERVICES.HANDYMAN' | translate }}</option>
                                 </select>
                             </div>
+                            <!--<hr/>-->
+                            <!--<div class="form-group">-->
+
+                            <!--</div>-->
                             <hr/>
+                            <div class="text-justified">
+                                <h4><input type="checkbox" name="agreeTerms" id="agreeTerms" ng-model="credentials.agreeTerms" ng-true-value="1" ng-false-value="0">&nbsp;I agree to the Terms of Use</input></h4>
+                            </div>
                             <div class="text-center form-group">
-                                <button type="submit" class="btn btn-color btn-lg" ng-click="signup()">{{ 'SIGN_UP' |
+                                <button type="submit" class="btn btn-color btn-lg" ng-disabled="!credentials.agreeTerms" ng-click="signup()" >{{ 'SIGN_UP' |
                                     translate }}
                                 </button>
                                 &nbsp; or&nbsp;
-                                <a data-ui-sref="authentication.signin" class="show-signup">{{ 'SIGN_IN' | translate
-                                    }}</a>
+                                <a data-ui-sref="authentication.signin" class="show-signup">{{ 'SIGN_IN' | translate }}</a>
                             </div>
                         </fieldset>
 

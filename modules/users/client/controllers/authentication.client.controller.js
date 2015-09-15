@@ -12,10 +12,11 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $location.path('/');
     }
 
-    $scope.setRole = function() {
+    $scope.setInitValues = function() {
       $scope.credentials = {};
       $scope.credentials.userType = [];
       $scope.credentials.userType.push('provider');
+      $scope.agreeTerms = 0;
     };
 
     $scope.signup = function () {
