@@ -12,10 +12,9 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $location.path('/');
     }
 
-    $scope.setInitValues = function() {
+    $scope.setInitValues = function(userType) {
       $scope.credentials = {};
-      $scope.credentials.userType = [];
-      $scope.credentials.userType.push('provider');
+      $scope.credentials.userType = (userType === 'provider') ? 1 : 0;
       $scope.agreeTerms = 0;
     };
 

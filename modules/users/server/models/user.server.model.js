@@ -83,7 +83,7 @@ var UserSchema = new Schema({
   roles: {
     type: [{
       type: String,
-      enum: ['user', 'admin', 'provider']
+      enum: ['user', 'admin']
     }],
     default: ['user']
   },
@@ -95,16 +95,22 @@ var UserSchema = new Schema({
     default: Date.now
   },
   userType: {
-    type: [{
-      type: String,
-      enum: ['client', 'provider']
-    }],
-    default: ['client']
+    type: Number,
+    default: 0 // 0 - Client; 1 - Provider
   },
   serviceRender :{
     type: [{
       type: Number
     }]
+  },
+  address : {
+    address1: { type: String, required: 'Address is required' },
+    city: { type: Number, required: 'City is required' },
+    prov_state: { type: Number,  },
+    zip_code: { type: String },
+    country: { type: Number, required: 'Country is required' },
+    telephone: { type: String, required: 'Telephone is required' },
+    mobilephone: { type: String, required: 'Mobilephone is required' }
   },
   /* For reset password */
   resetPasswordToken: {
