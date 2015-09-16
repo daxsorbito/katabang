@@ -44,8 +44,8 @@
   "SIGN_IN": "Sign in_ko",
   "SIGN_UP": "Sign up_ko",
   "FORGOT_YOUR_PASSWORD" : "Forgot your password?_ko",
-  "OR_WITH_YOUR_ACCOUNT" : "Or with your account_ko",
-  "OR_SIGN_UP_USING_UR_EMAIL": "Or sign up using your email_ko",
+  "OR_WITH_YOUR_ACCOUNT" : "Sign In_ko",
+  "OR_SIGN_UP_USING_UR_EMAIL": "Sign Up_ko",
   "FIRST_NAME": "First Name_ko",
   "LAST_NAME": "Last Name_ko",
   "EMAIL": "Email_ko",
@@ -64,5 +64,13 @@
   "CUSTOMER_SIGNUP": "Customer Signup_ko",
   "SERVICE_PROVIDER_SIGNUP": "Service Provider Signup_ko",
   "MY_PRIMARY_SERVICE": "My Primary Service_ko",
-  "MY_SECONDARY_SERVICE": "My Secondary Service_ko"
+  "MY_SECONDARY_SERVICE": "My Secondary Service_ko",
+  "HOUSE_APT_BLDG_NO": "House/Appt/Bldg No. | Street | Village_ko",
+  "CITY_TOWN": "City | Town_ko",
+  "PROV_STATE": "Province | State | Prefecture_ko",
+  "ZIP_CODE": "Zip_ko",
+  "COUNTRY": "Country_ko",
+  "TELEPHONE": "Telephone_ko",
+  "MOBILEPHONE": "Cellphone No._ko",
+  "AGREE_TERM_OF_USE": "I agree to the Terms of Use_ko"
 }
