@@ -1,0 +1,84 @@
+<section class="row" data-ng-controller="EditProfileController">
+  <div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4">
+    <form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="" autocomplete="off">
+      <fieldset>
+        <alert type="danger" data-ng-show="error" class="text-center text-danger">
+          <span data-ng-bind="error"></span>
+        </alert>
+        <div class="form-group">
+          <label for="address1">{{ 'HOUSE_APT_BLDG_NO' | translate }}</label>
+          <input type="text" id="address1" name="address1" class="form-control"
+                 data-ng-model="user.address.address1"
+                 placeholder="{{ 'HOUSE_APT_BLDG_NO' | translate }}">
+        </div>
+        <div class="form-group">
+          <label for="city">{{ 'CITY_TOWN' | translate }}</label>
+          <select data-ng-model="user.address.city" id="city"
+                  class="form-control">
+            <option value="0" {{user.address.city == 0 ? 'selected' : ''}}>{{ 'PLEASE_SELECT' | translate }}</option>
+            <option value="1" {{user.address.city == 1 ? 'selected' : ''}}>Cebu City</option>
+            <option value="2" {{user.address.city == 2 ? 'selected' : ''}}>Mandaue</option>
+            <option value="3" {{user.address.city == 3 ? 'selected' : ''}}>Lapu-lapu</option>
+            <option value="4" {{user.address.city == 4 ? 'selected' : ''}}>Talisay</option>
+            <option value="5" {{user.address.city == 5 ? 'selected' : ''}}>Manila-Pasay</option>
+            <option value="6" {{user.address.city == 6 ? 'selected' : ''}}>Makati</option>
+            <option value="7" {{user.address.city == 7 ? 'selected' : ''}}>Ortigas</option>
+            <option value="8" {{user.address.city == 8 ? 'selected' : ''}}>Taguig</option>
+            <option value="9" {{user.address.city == 9 ? 'selected' : ''}}>Tokyo</option>
+            <option value="10" {{user.address.city == 10 ? 'selected' : ''}}>Seoul</option>
+            <option value="11" {{user.address.city == 11 ? 'selected' : ''}}>Singapore</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="prov_state">{{ 'PROV_STATE' | translate }}</label>
+          <select data-ng-model="user.address.prov_state" id="prov_state"
+                  class="form-control">
+            <option value="0" {{user.address.prov_state == 0 ? 'selected' : ''}}>{{ 'PLEASE_SELECT' | translate }}</option>
+            <option value="1" {{user.address.prov_state == 1 ? 'selected' : ''}}>Cebu</option>
+            <option value="2" {{user.address.prov_state == 2 ? 'selected' : ''}}>Manila</option>
+            <option value="3" {{user.address.prov_state == 3 ? 'selected' : ''}}>Tokyo</option>
+            <option value="4" {{user.address.prov_state == 4 ? 'selected' : ''}}>Seoul</option>
+            <option value="5" {{user.address.prov_state == 5 ? 'selected' : ''}}>Hong Kong</option>
+            <option value="6" {{user.address.prov_state == 6 ? 'selected' : ''}}>Singapore</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="zip_code">{{ 'ZIP_CODE' | translate }}</label>
+          <input type="text" id="zip_code" name="zip_code" class="form-control"
+                 data-ng-model="user.address.zip_code"
+                 placeholder="{{ 'ZIP_CODE' | translate }}">
+        </div>
+        <div class="form-group">
+          <label for="country">{{ 'COUNTRY' | translate }}</label>
+          <select data-ng-model="user.address.country" id="country"
+                  class="form-control">
+            <option value="0" {{user.address.country == 0 ? 'selected' : ''}}>{{ 'PLEASE_SELECT' | translate }}</option>
+            <option value="1" {{user.address.country == 1 ? 'selected' : ''}}>Philippines</option>
+            <option value="2" {{user.address.country == 2 ? 'selected' : ''}}>Japan</option>
+            <option value="3" {{user.address.country == 3 ? 'selected' : ''}}>Korea</option>
+            <option value="4" {{user.address.country == 4 ? 'selected' : ''}}>Hong Kong</option>
+            <option value="5" {{user.address.country == 5 ? 'selected' : ''}}>Singapore</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="telephone">{{ 'TELEPHONE' | translate }}</label>
+          <input type="text" id="telephone" name="telephone" class="form-control"
+                 data-ng-model="user.address.telephone"
+                 placeholder="{{ 'TELEPHONE' | translate }}">
+        </div>
+        <div class="form-group">
+          <label for="mobilephone">{{ 'MOBILEPHONE' | translate }}</label>
+          <input type="text" id="mobilephone" name="mobilephone" class="form-control"
+                 data-ng-model="user.address.mobilephone"
+                 placeholder="{{ 'MOBILEPHONE' | translate }}">
+        </div>
+        <div class="text-center form-group">
+          <button type="submit" class="btn btn-lg btn-color">{{ 'SAVE_PROFILE' | translate }}</button>
+        </div>
+        <div data-ng-show="success" class="text-center text-success">
+          <strong>{{ 'PROFILE_SAVED_SUCCESSFULLY' | translate }}</strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

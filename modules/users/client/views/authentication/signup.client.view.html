@@ -165,7 +165,7 @@
                                 <label for="primaryService">{{ 'MY_PRIMARY_SERVICE' | translate }}</label>
                                 <select data-ng-model="credentials.primaryService" id="primaryService"
                                         class="form-control">
-                                    <option selected>{{ 'PLEASE_SELECT' | translate }}</option>
+                                    <option value="0" selected>{{ 'PLEASE_SELECT' | translate }}</option>
                                     <option value="1">{{ 'SERVICES.HOUSE_CLEANER' | translate }}</option>
                                     <option value="2">{{ 'SERVICES.LAUNDRY_PRESS' | translate }}</option>
                                     <option value="3">{{ 'SERVICES.CARETAKER_OLDSITTER' | translate }}</option>
@@ -178,20 +178,13 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="secondaryService">{{ 'MY_SECONDARY_SERVICE' | translate }}</label>
-                                <select data-ng-model="credentials.secondaryService" id="secondaryService"
-                                        class="form-control">
-                                    <option selected>{{ 'PLEASE_SELECT' | translate }}</option>
-                                    <option value="1">{{ 'SERVICES.HOUSE_CLEANER' | translate }}</option>
-                                    <option value="2">{{ 'SERVICES.LAUNDRY_PRESS' | translate }}</option>
-                                    <option value="3">{{ 'SERVICES.CARETAKER_OLDSITTER' | translate }}</option>
-                                    <option value="4">{{ 'SERVICES.CARETAKER_BABYSITTER' | translate }}</option>
-                                    <option value="5">{{ 'SERVICES.PLUMBER' | translate }}</option>
-                                    <option value="6">{{ 'SERVICES.AIRCON_CLEANER' | translate }}</option>
-                                    <option value="7">{{ 'SERVICES.HOUSE_FIXTURES_INSTALLER' | translate }}</option>
-                                    <option value="8">{{ 'SERVICES.GARDENER' | translate }}</option>
-                                    <option value="9">{{ 'SERVICES.HANDYMAN' | translate }}</option>
-                                </select>
+                                <label >{{ 'OTHER_SERVICES' | translate }}</label>
+                                <div class="checkbox-services">
+                                    <label class="checkbox" ng-repeat="service in services"   for="{{service.id}}">
+                                        <input  type="checkbox" ng-disabled="service.id == credentials.primaryService" ng-model="credentials.otherServices[service.id]" name="otherServices" id={{service.id}}" >
+                                        {{ service.name | translate }}
+                                    </label>
+                                </div>
                             </div>
                             <hr/>
                             <div class="form-group">
@@ -204,7 +197,7 @@
                                 <label for="city">{{ 'CITY_TOWN' | translate }}</label>
                                 <select data-ng-model="credentials.address.city" id="city"
                                         class="form-control">
-                                    <option selected>{{ 'PLEASE_SELECT' | translate }}</option>
+                                    <option value="0" selected>{{ 'PLEASE_SELECT' | translate }}</option>
                                     <option value="1">Cebu City</option>
                                     <option value="2">Mandaue</option>
                                     <option value="3">Lapu-lapu</option>
@@ -222,7 +215,7 @@
                                 <label for="prov_state">{{ 'PROV_STATE' | translate }}</label>
                                 <select data-ng-model="credentials.address.prov_state" id="prov_state"
                                         class="form-control">
-                                    <option selected>{{ 'PLEASE_SELECT' | translate }}</option>
+                                    <option value="0" selected>{{ 'PLEASE_SELECT' | translate }}</option>
                                     <option value="1">Cebu</option>
                                     <option value="2">Manila</option>
                                     <option value="3">Tokyo</option>
@@ -241,12 +234,12 @@
                                 <label for="country">{{ 'COUNTRY' | translate }}</label>
                                 <select data-ng-model="credentials.address.country" id="country"
                                         class="form-control">
-                                    <option selected>{{ 'PLEASE_SELECT' | translate }}</option>
+                                    <option value="0" selected>{{ 'PLEASE_SELECT' | translate }}</option>
                                     <option value="1">Philippines</option>
                                     <option value="2">Japan</option>
                                     <option value="3">Korea</option>
-                                    <option value="5">Hong Kong</option>
-                                    <option value="6">Singapore</option>
+                                    <option value="4">Hong Kong</option>
+                                    <option value="5">Singapore</option>
                                 </select>
                             </div>
                             <div class="form-group">

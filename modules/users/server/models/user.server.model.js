@@ -98,7 +98,10 @@ var UserSchema = new Schema({
     type: Number,
     default: 0 // 0 - Client; 1 - Provider
   },
-  serviceRender :{
+  primaryService: {
+    type: Number
+  },
+  otherServices :{
     type: [{
       type: Number
     }]

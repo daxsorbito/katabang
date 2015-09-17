@@ -1,0 +1,42 @@
+<section class="row" data-ng-controller="EditProfileController">
+  <div class="col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4">
+    <form name="userForm" data-ng-submit="updateUserProfile(userForm.$valid)" class="" autocomplete="off">
+      <fieldset>
+        <alert type="danger" data-ng-show="error" class="text-center text-danger">
+          <span data-ng-bind="error"></span>
+        </alert>
+        <div class="form-group">
+          <label for="primaryService">{{ 'MY_PRIMARY_SERVICE' | translate }}</label>
+          <select data-ng-model="user.primaryService" id="primaryService"
+                  class="form-control">
+            <option value="0" {{(user.primaryService == 0) ? 'selected' : ''}}>{{ 'PLEASE_SELECT' | translate }}</option>
+            <option value="1" {{(user.primaryService == 1) ? 'selected' : ''}}>{{ 'SERVICES.HOUSE_CLEANER' | translate }}</option>
+            <option value="2" {{(user.primaryService == 2) ? 'selected' : ''}}>{{ 'SERVICES.LAUNDRY_PRESS' | translate }}</option>
+            <option value="3" {{(user.primaryService == 3) ? 'selected' : ''}}>{{ 'SERVICES.CARETAKER_OLDSITTER' | translate }}</option>
+            <option value="4" {{(user.primaryService == 4) ? 'selected' : ''}}>{{ 'SERVICES.CARETAKER_BABYSITTER' | translate }}</option>
+            <option value="5" {{(user.primaryService == 5) ? 'selected' : ''}}>{{ 'SERVICES.PLUMBER' | translate }}</option>
+            <option value="6" {{(user.primaryService == 6) ? 'selected' : ''}}>{{ 'SERVICES.AIRCON_CLEANER' | translate }}</option>
+            <option value="7" {{(user.primaryService == 7) ? 'selected' : ''}}>{{ 'SERVICES.HOUSE_FIXTURES_INSTALLER' | translate }}</option>
+            <option value="8" {{(user.primaryService == 8) ? 'selected' : ''}}>{{ 'SERVICES.GARDENER' | translate }}</option>
+            <option value="9" {{(user.primaryService == 9) ? 'selected' : ''}}>{{ 'SERVICES.HANDYMAN' | translate }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label >{{ 'OTHER_SERVICES' | translate }}</label>
+          <div class="checkbox-services">
+            <label class="checkbox" ng-repeat="service in services"   for="{{service.id}}">
+              <input  type="checkbox" ng-disabled="service.id == user.primaryService" ng-false-value='0' ng-model="user.editableServices[service.id]" name="otherServices" id={{service.id}}" >
+              {{ service.name | translate }}
+            </label>
+          </div>
+        </div>
+        <div class="text-center form-group">
+          <button type="submit" class="btn btn-lg btn-color">{{ 'SAVE_PROFILE' | translate }}</button>
+        </div>
+        <div data-ng-show="success" class="text-center text-success">
+          <strong>{{ 'PROFILE_SAVED_SUCCESSFULLY' | translate }}</strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

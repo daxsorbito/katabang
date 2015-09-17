@@ -18,11 +18,26 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $scope.agreeTerms = 0;
     };
 
+    $scope.services = [{name: 'SERVICES.HOUSE_CLEANER', id: 1},
+      {name: 'SERVICES.LAUNDRY_PRESS', id: 2},
+      {name: 'SERVICES.CARETAKER_OLDSITTER', id: 3},
+      {name: 'SERVICES.CARETAKER_BABYSITTER', id: 4},
+      {name: 'SERVICES.PLUMBER', id: 5},
+      {name: 'SERVICES.AIRCON_CLEANER', id: 6},
+      {name: 'SERVICES.HOUSE_FIXTURES_INSTALLER', id: 7},
+      {name: 'SERVICES.GARDENER', id: 8},
+      {name: 'SERVICES.HANDYMAN', id: 9}
+    ];
+
     $scope.signup = function () {
-      if($scope.credentials && $scope.credentials.primaryService && $scope.credentials.secondaryService){
-        $scope.credentials.serviceRender = [];
-        $scope.credentials.serviceRender.push($scope.credentials.primaryService);
-        $scope.credentials.serviceRender.push($scope.credentials.secondaryService);
+      var otherServices = $scope.credentials.otherServices;
+      if(otherServices) {
+        $scope.credentials.otherServices = [];
+        for (var property in otherServices) {
+          if (otherServices.hasOwnProperty(property)) {
+            $scope.credentials.otherServices.push(property);
+          }
+        }
       }
       $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model

@@ -64,7 +64,7 @@
   "CUSTOMER_SIGNUP": "Customer Signup",
   "SERVICE_PROVIDER_SIGNUP": "Service Provider Signup",
   "MY_PRIMARY_SERVICE": "My Primary Service",
-  "MY_SECONDARY_SERVICE": "My Secondary Service",
+  "OTHER_SERVICES": "Other Services",
   "HOUSE_APT_BLDG_NO": "House/Appt/Bldg No. | Street | Village",
   "CITY_TOWN": "City | Town",
   "PROV_STATE": "Province | State | Prefecture",
@@ -72,5 +72,7 @@
   "COUNTRY": "Country",
   "TELEPHONE": "Telephone",
   "MOBILEPHONE": "Cellphone No.",
-  "AGREE_TERM_OF_USE": "I agree to the Terms of Use"
+  "AGREE_TERM_OF_USE": "I agree to the Terms of Use",
+  "EDIT_ADDRESS": "Edit Address",
+  "EDIT_SERVICES": "Edit Services"
 }

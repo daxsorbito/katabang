@@ -16,9 +16,11 @@
                             <li data-ui-sref-active="active" data-ng-show="user.provider === 'local'">
                                 <a data-ui-sref="settings.password">{{ 'CHANGE_PASSWORD' | translate }}</a>
                             </li>
-                            <!--<li data-ui-sref-active="active">-->
-                                <!--<a data-ui-sref="settings.accounts">Manage Social Accounts</a>-->
-                            <!--</li>-->
+                            <li data-ui-sref-active="active">
+                                <a data-ui-sref="settings.address">{{ 'EDIT_ADDRESS' | translate }}</a>
+                            </li>
+                            <li data-ui-sref-active="active" ng-show="user.userType === 1">
+                                <a data-ui-sref="settings.services">{{ 'EDIT_SERVICES' | translate }}
                         </ul>
                     </nav>
                     <div class="settings-view">
