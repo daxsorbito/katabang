@@ -1,8 +1,10 @@
 'use strict';
 
-angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'Authentication',
-  function ($scope, $state, $http, $location, $window, Authentication) {
+angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'Authentication', 'vcRecaptchaService',
+  function ($scope, $state, $http, $location, $window, Authentication, vcRecaptchaService) {
     $scope.authentication = Authentication;
+    $scope.response = null;
+    $scope.widgetId = null;
 
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
@@ -16,6 +18,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $scope.credentials = {};
       $scope.credentials.userType = (userType === 'provider') ? 1 : 0;
       $scope.agreeTerms = 0;
+      $scope.credentials.captchaPublicKey = "6LfHVg0TAAAAAK3A3_yE1P4E3MDmuQ5ZxYikgdnm";
     };
 
     $scope.services = [{name: 'SERVICES.HOUSE_CLEANER', id: 1},
@@ -39,6 +42,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
           }
         }
       }
+      $scope.credentials['g-response'] = vcRecaptchaService.getResponse();
       $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model
         $scope.authentication.user = response;
@@ -47,6 +51,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         $state.go($state.previous.state.name || 'home', $state.previous.params);
       }).error(function (response) {
         $scope.error = response.message;
+        vcRecaptchaService.reload($scope.widgetId);
       });
     };
 
@@ -72,6 +77,19 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
       // Effectively call OAuth authentication route:
       $window.location.href = url + (redirect_to ? '?redirect_to=' + encodeURIComponent(redirect_to) : '');
+    };
+
+    $scope.setResponse = function (response) {
+      console.info('Response available');
+      $scope.response = response;
+    };
+    $scope.setWidgetId = function (widgetId) {
+      console.info('Created widget ID: %s', widgetId);
+      $scope.widgetId = widgetId;
+    };
+    $scope.cbExpiration = function() {
+      console.info('Captcha expired. Resetting response object');
+      $scope.response = null;
     };
   }
 ]);

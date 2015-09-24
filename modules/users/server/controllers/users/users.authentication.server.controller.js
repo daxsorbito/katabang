@@ -7,7 +7,10 @@ var path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   mongoose = require('mongoose'),
   passport = require('passport'),
-  User = mongoose.model('User');
+  User = mongoose.model('User'),
+  rp  = require('request-promise'),
+  config = require(path.resolve('./config/config'));
+
 
 // URLs for which user can't be redirected on signin
 var noReturnUrls = [
@@ -26,30 +29,52 @@ exports.signup = function (req, res) {
   var user = new User(req.body);
   var message = null;
 
-  // Add missing user fields
-  user.provider = 'local';
-  user.displayName = user.firstName + ' ' + user.lastName;
+  var post_data = {
+    secret: config.reCaptcha.siteKey,
+    response: req.body['g-response']
+  };
 
-  // Then save the user
-  user.save(function (err) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      // Remove sensitive data before login
-      user.password = undefined;
-      user.salt = undefined;
+  console.log(post_data);
+  var post_options = {
+    uri: 'https://www.google.com/recaptcha/api/siteverify',
+    method: 'POST',
+    json: true,
+    body: post_data
+  };
 
-      req.login(user, function (err) {
-        if (err) {
-          res.status(400).send(err);
-        } else {
-          res.json(user);
-        }
+  console.log(post_options);
+
+  rp(post_options)
+      .then(function(response) {
+        // Add missing user fields
+        user.provider = 'local';
+        user.displayName = user.firstName + ' ' + user.lastName;
+
+        // Then save the user
+        user.save(function (err) {
+          if (err) {
+            return res.status(400).send({
+              message: errorHandler.getErrorMessage(err)
+            });
+          } else {
+            // Remove sensitive data before login
+            user.password = undefined;
+            user.salt = undefined;
+
+            req.login(user, function (err) {
+              if (err) {
+                res.status(400).send(err);
+              } else {
+                res.json(user);
+              }
+            });
+          }
+        });
+      })
+      .catch(function(err){
+        console.log(err);
+        res.json(err);
       });
-    }
-  });
 };
 
 /**

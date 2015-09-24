@@ -18,7 +18,8 @@ module.exports = {
         'public/lib/angular-file-upload/angular-file-upload.js',
         'public/lib/angular-sanitize/angular-sanitize.js',
         'public/lib/angular-translate/angular-translate.js',
-        'public/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.js'
+        'public/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+        'public/lib/angular-recaptcha/release/angular-recaptcha.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },

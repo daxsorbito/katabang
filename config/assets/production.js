@@ -18,7 +18,8 @@ module.exports = {
         'public/lib/angular-file-upload/angular-file-upload.min.js',
         'public/lib/angular-sanitize/angular-sanitize.min.js',
         'public/lib/angular-translate/angular-translate.min.js',
-        'public/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js'
+        'public/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
+        'public/lib/angular-recaptcha/release/angular-recaptcha.min.js'
       ]
     },
     css: 'public/dist/application.min.css',
