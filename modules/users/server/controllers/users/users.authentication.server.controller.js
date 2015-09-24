@@ -34,7 +34,6 @@ exports.signup = function (req, res) {
     response: req.body['g-response']
   };
 
-  console.log(post_data);
   var post_options = {
     uri: 'https://www.google.com/recaptcha/api/siteverify',
     method: 'POST',
@@ -42,38 +41,43 @@ exports.signup = function (req, res) {
     body: post_data
   };
 
-  console.log(post_options);
 
   rp(post_options)
       .then(function(response) {
         // Add missing user fields
-        user.provider = 'local';
-        user.displayName = user.firstName + ' ' + user.lastName;
+        console.log('------------------------------------');
+        console.log(response);
+        console.log('------------------------------------');
+        if (response.success) {
+          user.provider = 'local';
+          user.displayName = user.firstName + ' ' + user.lastName;
 
-        // Then save the user
-        user.save(function (err) {
-          if (err) {
-            return res.status(400).send({
-              message: errorHandler.getErrorMessage(err)
-            });
-          } else {
-            // Remove sensitive data before login
-            user.password = undefined;
-            user.salt = undefined;
+          // Then save the user
+          user.save(function (err) {
+            if (err) {
+              return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+              });
+            } else {
+              // Remove sensitive data before login
+              user.password = undefined;
+              user.salt = undefined;
 
-            req.login(user, function (err) {
-              if (err) {
-                res.status(400).send(err);
-              } else {
-                res.json(user);
-              }
-            });
-          }
-        });
+              req.login(user, function (err) {
+                if (err) {
+                  res.status(400).send(err);
+                } else {
+                  res.json(user);
+                }
+              });
+            }
+          });
+        } else {
+          res.status(400).send({message:'Captcha required!'});
+        }
       })
       .catch(function(err){
-        console.log(err);
-        res.json(err);
+        res.status(400).send(err);
       });
 };
 
