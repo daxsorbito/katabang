@@ -42,7 +42,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
           }
         }
       }
-      $scope.credentials['g-response'] = vcRecaptchaService.getResponse();
+      $scope.credentials['g-response'] = vcRecaptchaService.getResponse($scope.widgetId);
       $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model
         $scope.authentication.user = response;
@@ -80,15 +80,15 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     };
 
     $scope.setResponse = function (response) {
-      console.info('Response available');
+      console.log('Response available');
       $scope.response = response;
     };
     $scope.setWidgetId = function (widgetId) {
-      console.info('Created widget ID: %s', widgetId);
+      console.log('Created widget ID: %s', widgetId);
       $scope.widgetId = widgetId;
     };
     $scope.cbExpiration = function() {
-      console.info('Captcha expired. Resetting response object');
+      console.log('Captcha expired. Resetting response object');
       $scope.response = null;
     };
   }

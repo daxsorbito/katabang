@@ -11,6 +11,8 @@ var path = require('path'),
   rp  = require('request-promise'),
   config = require(path.resolve('./config/config'));
 
+//require('request-promise').debug = true;
+//require('request-debug')(rp);
 
 // URLs for which user can't be redirected on signin
 var noReturnUrls = [
@@ -30,7 +32,7 @@ exports.signup = function (req, res) {
   var message = null;
 
   var post_data = {
-    secret: config.reCaptcha.siteKey,
+    secret: config.reCaptcha.secretKey,
     response: req.body['g-response']
   };
 
@@ -38,16 +40,11 @@ exports.signup = function (req, res) {
     uri: 'https://www.google.com/recaptcha/api/siteverify',
     method: 'POST',
     json: true,
-    body: post_data
+    form: post_data
   };
-
 
   rp(post_options)
       .then(function(response) {
-        // Add missing user fields
-        console.log('------------------------------------');
-        console.log(response);
-        console.log('------------------------------------');
         if (response.success) {
           user.provider = 'local';
           user.displayName = user.firstName + ' ' + user.lastName;
