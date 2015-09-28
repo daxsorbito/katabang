@@ -81,6 +81,7 @@ a:hover .header-profile-image {
 
 .tp-banner-container {
   background-image: url(/modules/core/img/brand/tileable_wood.png);
+  min-height: 640px;
 }
 .home-banner-container {
   background-image: url(/modules/core/img/brand/home-bg/home-bg.jpg);
@@ -123,4 +124,8 @@ html, body {
 }
 .header-logo span {
   color: red;
+}
+
+.password-restore {
+  padding-top: 25px;
 }

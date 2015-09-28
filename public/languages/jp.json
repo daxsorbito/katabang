@@ -74,5 +74,7 @@
   "MOBILEPHONE": "Cellphone No._jp",
   "AGREE_TERM_OF_USE": "I agree to the Terms of Use_jp",
   "EDIT_ADDRESS": "Edit Address_jp",
-  "EDIT_SERVICES": "Edit Services_jp"
+  "EDIT_SERVICES": "Edit Services_jp",
+  "RESTORE_PASSWORD": "Restore Password_jp",
+  "SUBMIT" : "Submit_jp"
 }

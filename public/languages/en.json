@@ -74,5 +74,7 @@
   "MOBILEPHONE": "Cellphone No.",
   "AGREE_TERM_OF_USE": "I agree to the Terms of Use",
   "EDIT_ADDRESS": "Edit Address",
-  "EDIT_SERVICES": "Edit Services"
+  "EDIT_SERVICES": "Edit Services",
+  "RESTORE_PASSWORD": "Restore Password",
+  "SUBMIT" : "Submit"
 }
