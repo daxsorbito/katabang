@@ -76,5 +76,11 @@
   "EDIT_ADDRESS": "Edit Address",
   "EDIT_SERVICES": "Edit Services",
   "RESTORE_PASSWORD": "Restore Password",
-  "SUBMIT" : "Submit"
+  "SUBMIT" : "Submit",
+  "RESET_YOUR_PASSWORD": "Reset your password",
+  "UPDATE_PASSWORD": "Update Password",
+  "PASSWORD_RESET_IS_INVALID": "Password reset is invalid",
+  "ASK_NEW_PASSWORD": "Ask for a new password reset",
+  "PASSWORD_SUCCESSFULLY_RESET": "Password successfully reset",
+  "CONTINUE_TO_HOME_PAGE": "Continue to home page"
 }

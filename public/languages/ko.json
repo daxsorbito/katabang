@@ -76,5 +76,11 @@
   "EDIT_ADDRESS": "Edit Address_ko",
   "EDIT_SERVICES": "Edit Services_ko",
   "RESTORE_PASSWORD": "Restore Password_ko",
-  "SUBMIT" : "Submit_ko"
+  "SUBMIT" : "Submit_ko",
+  "RESET_YOUR_PASSWORD": "Reset your password_ko",
+  "UPDATE_PASSWORD": "Update Password_ko",
+  "PASSWORD_RESET_IS_INVALID": "Password reset is invalid_ko",
+  "ASK_NEW_PASSWORD": "Ask for a new password reset_ko",
+  "PASSWORD_SUCCESSFULLY_RESET": "Password successfully reset_ko",
+  "CONTINUE_TO_HOME_PAGE": "Continue to home page_ko"
 }

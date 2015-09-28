@@ -10,9 +10,20 @@ var path = require('path'),
   User = mongoose.model('User'),
   nodemailer = require('nodemailer'),
   async = require('async'),
-  crypto = require('crypto');
+  crypto = require('crypto'),
+  ses = require('nodemailer-ses-transport');
 
-var smtpTransport = nodemailer.createTransport(config.mailer.options);
+////var smtpTransport = nodemailer.createTransport(config.mailer.options);
+//var smtpTransport = nodemailer.createTransport("SES", {
+//      AWSAccessKeyID: "AKIAJILT4UGK6WDMBQNQ",
+//      AWSSecretKey: "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",
+//      SeviceUrl:"https://email.us-west-1.amazonaws.com"
+//    });
+
+var smtpTransport = nodemailer.createTransport(ses({
+  accessKeyId: 'AKIAJILT4UGK6WDMBQNQ',
+  secretAccessKey: '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'
+}));
 
 /**
  * Forgot for reset password (forgot POST)
