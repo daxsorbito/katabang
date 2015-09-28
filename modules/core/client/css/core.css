@@ -129,3 +129,7 @@ html, body {
 .password-restore {
   padding-top: 25px;
 }
+
+.dropdown-menu-nav {
+  padding-top: 20px;
+}

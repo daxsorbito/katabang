@@ -31,7 +31,7 @@
                     <a ui-sref="authentication.signup"><i class="fa fa-edit"></i>&nbsp;{{ 'REGISTRATION' | translate }}</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
-                    <li class="dropdown" dropdown>
+                    <li class="dropdown dropdown-menu-nav" dropdown>
                         <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">
                             <img ng-src="{{authentication.user.profileImageURL}}"
                                  alt="{{authentication.user.displayName}}" class="header-profile-image"/>
