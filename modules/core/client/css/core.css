@@ -80,7 +80,8 @@ a:hover .header-profile-image {
 }
 
 .tp-banner-container {
-  background-image: url(/modules/core/img/brand/tileable_wood.png);
+  background-image: url(/modules/core/img/brand/home-bg/other-page-bg.jpg);
+  background-size: 100% 100%;
   min-height: 640px;
 }
 .home-banner-container {
