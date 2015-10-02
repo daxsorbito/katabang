@@ -111,19 +111,19 @@
                             </div>
                             <hr/>
                             <div class="text-justified form-group">
-                                <h4><input type="checkbox" name="agreeTerms" id="agreeTerms" ng-model="credentials.agreeTerms" ng-true-value="1" ng-false-value="0">&nbsp;{{ 'AGREE_TERM_OF_USE' | translate }}</input></h4>
+                                <h4><input type="checkbox" name="agreeTerms" id="agreeTerms" ng-model="agreeTerms" ng-true-value="1" ng-false-value="0">&nbsp;{{ 'AGREE_TERM_OF_USE' | translate }}</input></h4>
                             </div>
                             <hr/>
                             <div class="text-center form-group">
                                 <div vc-recaptcha id="recaptcha1"
                                     theme="'light'"
-                                    key="credentials.captchaPublicKey"
+                                    key="captchaPublicKey"
                                     on-create="setWidgetId(widgetId)"
                                     on-success="setResponse(response)"
                                     on-expire="cbExpiration()"></div>
                             </div>
                             <div class="text-center form-group">
-                                <button type="submit" class="btn btn-color btn-lg" ng-disabled="!credentials.agreeTerms" ng-click="signup()">{{ 'SIGN_UP' |
+                                <button type="submit" class="btn btn-color btn-lg" ng-disabled="!agreeTerms" ng-click="signup()">{{ 'SIGN_UP' |
                                     translate }}
                                 </button>
                                 &nbsp; or&nbsp;
@@ -189,7 +189,7 @@
                             <div class="form-group">
                                 <label >{{ 'OTHER_SERVICES' | translate }}</label>
                                 <div class="checkbox-services">
-                                    <label class="checkbox" ng-repeat="service in services"   for="{{service.id}}">
+                                    <label class="checkbox" ng-repeat="service in services" for="{{service.id}}">
                                         <input  type="checkbox" ng-disabled="service.id == credentials.primaryService" ng-model="credentials.otherServices[service.id]" name="otherServices" id={{service.id}}" >
                                         {{ service.name | translate }}
                                     </label>
@@ -265,19 +265,19 @@
                             </div>
                             <hr/>
                             <div class="text-justified">
-                                <h4><input type="checkbox" name="agreeTerms" id="agreeTerms" ng-model="credentials.agreeTerms" ng-true-value="1" ng-false-value="0">&nbsp;{{ 'AGREE_TERM_OF_USE' | translate }}</input></h4>
+                                <h4><input type="checkbox" name="agreeTerms" id="agreeTerms" ng-model="agreeTerms" ng-true-value="1" ng-false-value="0">&nbsp;{{ 'AGREE_TERM_OF_USE' | translate }}</input></h4>
                             </div>
                             <hr/>
                             <div class="text-center form-group">
                                 <div vc-recaptcha id="recaptcha2"
                                         theme="'light'"
-                                        key="credentials.captchaPublicKey"
+                                        key="captchaPublicKey"
                                         on-create="setWidgetId(widgetId)"
                                         on-success="setResponse(response)"
                                         on-expire="cbExpiration()"></div>
                             </div>
                             <div class="text-center form-group">
-                                <button type="submit" class="btn btn-color btn-lg" ng-disabled="!credentials.agreeTerms" ng-click="signup()" >{{ 'SIGN_UP' |
+                                <button type="submit" class="btn btn-color btn-lg" ng-disabled="!agreeTerms" ng-click="signup()" >{{ 'SIGN_UP' |
                                     translate }}
                                 </button>
                                 &nbsp; or&nbsp;

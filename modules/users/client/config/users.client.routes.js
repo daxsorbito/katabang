@@ -44,12 +44,12 @@ angular.module('users').config(['$stateProvider',
       })
       .state('authentication.signup', {
         url: '/signup',
-        templateUrl: 'modules/users/views/authentication/signup.client.view.html'
+        templateUrl: 'modules/users/views/authentication/signup.client.view.html',
       })
       .state('authentication.signin', {
         url: '/signin?err',
         templateUrl: 'modules/users/views/authentication/signin.client.view.html'
-      })
+        })
       .state('password', {
         abstract: true,
         url: '/password',

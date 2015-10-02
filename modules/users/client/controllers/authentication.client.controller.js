@@ -17,8 +17,8 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     $scope.setInitValues = function(userType) {
       $scope.credentials = {};
       $scope.credentials.userType = (userType === 'provider') ? 1 : 0;
-      $scope.agreeTerms = 0;
-      $scope.credentials.captchaPublicKey = "6LfHVg0TAAAAAK3A3_yE1P4E3MDmuQ5ZxYikgdnm";
+      //$scope.agreeTerms = 0;
+      $scope.captchaPublicKey = "6LfHVg0TAAAAAK3A3_yE1P4E3MDmuQ5ZxYikgdnm";
     };
 
     $scope.services = [{name: 'SERVICES.HOUSE_CLEANER', id: 1},

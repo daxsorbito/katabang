@@ -8,11 +8,11 @@
                         <h2 class="form-signin-heading modal-title" id="myModalLabel">{{ 'BOOK_SERVICE_FORM_TITLE' |
                             translate}}</h2>
                     </div>
-                    <form name="bookingform" action="signin.html" method="post"
+                    <form name="bookingform" ng-submit="bookNow()"
                           class="col-lg5 ">
                         <div class="modal-body">
                             <label for="bkgservtype" class="control-label">{{ 'SELECT_A_SERVICE' | translate }}</label>
-                            <select id="bkgservtype" class="form-control">
+                            <select id="bkgservtype" class="form-control" data-ng-model="booking.serviceType">
                                 <option>{{ 'PLEASE_SELECT' | translate }}</option>
                                 <option value="1">{{ 'SERVICES.HOUSE_CLEANER' | translate }}</option>
                                 <option value="2">{{ 'SERVICES.LAUNDRY_PRESS' | translate }}</option>
@@ -25,21 +25,43 @@
                                 <option value="9">{{ 'SERVICES.HANDYMAN' | translate }}</option>
                             </select>
                             <label for="bkgloc" class="control-label">{{ 'WHERE' | translate }}</label>
-                            <select id="bkgloc" class="form-control">
-                                <option>{{ 'PLEASE_SELECT' | translate }}</option>
-                                <option data-ng-repeat="loc in locations">{{loc.name}}</option>
+                            <select id="bkgloc" class="form-control" data-ng-model="booking.address.city">
+                                <option selected>{{ 'PLEASE_SELECT' | translate }}</option>
+                                <option value="1">Cebu City</option>
+                                <option value="2">Mandaue</option>
+                                <option value="3">Lapu-lapu</option>
+                                <option value="4">Talisay</option>
+                                <option value="5">Manila-Pasay</option>
+                                <option value="6">Makati</option>
+                                <option value="7">Ortigas</option>
+                                <option value="8">Taguig</option>
+                                <option value="9">Tokyo</option>
+                                <option value="10">Seoul</option>
+                                <option value="10">Singapore</option>
                             </select>
                             <label for="dateinput" class="control-label">{{ 'DATE' | translate }}</label>
-                            <input type="date" id="dateinput" class="form-control"/>
+                            <input type="date" id="dateinput" class="form-control" data-ng-model="booking.booking_date"/>
                             <label for="bkgtimestart" class="control-label">{{ 'PREFERRED_TIME' | translate }}</label>
                             <select id="bkgtimestart" class="form-control">
                                 <option>{{ 'PLEASE_SELECT' | translate }}</option>
-                                <option data-ng-repeat="prefTime in preferredtimes">{{prefTime.name}}</option>
+                                <option value=""></option>
+                                <option value="8AM">8AM</option>
+                                <option value="9AM">9AM</option>
+                                <option value="10AM">10AM</option>
+                                <option value="11AM">11AM</option>
+                                <option value="12PM">12PM</option>
+                                <option value="1PM">1PM</option>
+                                <option value="2PM">2PM</option>
+                                <option value="3PM">3PM</option>
+                                <option value="4PM">4PM</option>
+                                <option value="5PM">5PM</option>
+                                <option value="6PM">6PM</option>
+                                <option value="7PM">7PM</option>
                             </select>
                             <div class="booknowbutton text-center">
                                 <h4>{{ 'RECOMMEND_4HOURS' | translate }}</h4>
                                 <input type="submit" name="submitbooking" class="btn btn-color btn-lg btn-block"
-                                       value="Book Now"/>
+                                       value="{{ 'BOOK_NOW' | translate }}"/>
                             </div>
                         </div>
                     </form>
