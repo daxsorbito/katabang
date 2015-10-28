@@ -19,7 +19,9 @@ module.exports = {
         'public/lib/angular-sanitize/angular-sanitize.js',
         'public/lib/angular-translate/angular-translate.js',
         'public/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
-        'public/lib/angular-recaptcha/release/angular-recaptcha.js'
+        'public/lib/angular-recaptcha/release/angular-recaptcha.js',
+        'public/lib/ngstorage/ngStorage.js'
+
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },
@@ -49,6 +51,7 @@ module.exports = {
     sockets: 'modules/*/server/sockets/**/*.js',
     config: 'modules/*/server/config/*.js',
     policies: 'modules/*/server/policies/*.js',
-    views: 'modules/*/server/views/*.html'
+    views: 'modules/*/server/views/*.html',
+    jobs: 'modules/*/jobs/*.js'
   }
 };

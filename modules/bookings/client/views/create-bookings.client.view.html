@@ -1,0 +1,36 @@
+<section data-ng-controller="BookingsController" class="row">
+    <div class="col-lg-12 tp-banner-container-booking">
+        <div class="pull-right col-lg-12">
+            <div class="modal-dialog pull-left book-now col-lg-6">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="form-signin-heading modal-title" id="myModalLabel">{{ 'BOOKING_DETAILS' | translate}}</h2>
+                    </div>
+                    <form data-ng-submit="create()" novalidate ng-init="init()" >
+                        <div data-ng-include="'/modules/bookings/views/partials/bookings.client.partial.html'"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="bookingNotes">
+                <h2>NOTES:</h2>
+                <p>You may change any of your booking details and preferences on the form at the left before processing payment.</p><br><br>
+                <div>
+                    <h3>Your Estimated Amount Due is = &nbsp; {{ booking.dueAmount || 0 }}</h3>
+                </div>
+                <p>
+                    The amount estimated above already includes the VAT (value added tax - if applicable in your country).
+                </p><br>
+                <p>
+                    Your amount due also includes the transportation cost incurred by the Katabang professional serving you.
+                </p><br>
+                <p>
+                    In addition, your amount due also includes an appropriately scaled damage insurance which is effect during the time your Katabang professional is with you. To read about your online insurance policy, <a href="">Please Click Here</a>.
+                </p><br><br>
+                <p>Details:<br><br>
+                    1 x House Cleaner service<br>
+                    4 hours total duration from arrival, including 30 minutes of wrap up prior to departure<br><br>
+                    What is usually included in a house cleaner service? <a href="housecleaningchecklist.html">Please Click Here</a>. The checklist is for guidance only. Not all items in the checklist may be completed depending on the size of your house and its current state.<br><br>
+                    If you have any questions, please do not hesitate to <a href="mailto:support@katabang.com">email</a> or call us.</p>
+            </div>
+    </div>
+</section>

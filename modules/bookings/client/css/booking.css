@@ -1,0 +1,19 @@
+.bookingNotes {
+    margin-top: 35px;
+    /*margin-left: -85px;*/
+    /*padding: 20px;*/
+    padding-left: 20px;
+    border-radius: 5px;
+    min-height: 1400px;
+    /*background-color: rgba(145,255,170,0.8);*/
+    /*color: #000011;*/
+    font-weight: 800;
+}
+
+.tp-banner-container-booking {
+    background-image: url(/modules/core/img/brand/tileable_wood.png); !important;
+}
+
+.frequency {
+    padding-left: 30px;
+}
