@@ -6,105 +6,105 @@
 var path = require('path'),
     mongoose = require('mongoose'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
-    Location = mongoose.model('Location'),
+    Pricing = mongoose.model('Pricing'),
     _ = require('lodash');
 
 /**
- * Create a Location
+ * Create a Pricing
  */
 exports.create = function(req, res) {
-    var location = new Location(req.body);
-    location.user = req.user;
+    var pricing = new Pricing(req.body);
+    pricing.user = req.user;
 
-    location.save(function(err) {
+    pricing.save(function(err) {
         if (err) {
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });
         } else {
-            res.jsonp(location);
+            res.jsonp(pricing);
         }
     });
 };
 
 /**
- * Show the current Location
+ * Show the current Pricing
  */
 exports.read = function(req, res) {
-    res.jsonp(req.location);
+    res.jsonp(req.pricing);
 };
 
 /**
- * Update a Location
+ * Update a Pricing
  */
 exports.update = function(req, res) {
-    var location = req.location ;
+    var pricing = req.pricing ;
 
-    location = _.extend(location , req.body);
+    pricing = _.extend(pricing , req.body);
 
-    location.save(function(err) {
+    pricing.save(function(err) {
         if (err) {
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });
         } else {
-            res.jsonp(location);
+            res.jsonp(pricing);
         }
     });
 };
 
 /**
- * Delete an Location
+ * Delete an Pricing
  */
 exports.delete = function(req, res) {
-    var location = req.location ;
+    var pricing = req.pricing ;
 
-    location.remove(function(err) {
+    pricing.remove(function(err) {
         if (err) {
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });
         } else {
-            res.jsonp(location);
+            res.jsonp(pricing);
         }
     });
 };
 
 /**
- * List of Locations
+ * List of Pricings
  */
 exports.list = function(req, res) {
-    Location.find().sort('-created').populate('user', 'displayName').exec(function(err, locations) {
+    Pricing.find().sort('-created').populate('user', 'displayName').exec(function(err, pricings) {
         if (err) {
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });
         } else {
-            res.jsonp(locations);
+            res.jsonp(pricings);
         }
     });
 };
 
 /**
- * Location middleware
+ * Pricing middleware
  */
-exports.locationByID = function (req, res, next, id) {
+exports.pricingByID = function (req, res, next, id) {
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).send({
-            message: 'Location is invalid'
+            message: 'Pricing is invalid'
         });
     }
 
-    Location.findById(id).populate('user', 'displayName').exec(function (err, location) {
+    Pricing.findById(id).populate('user', 'displayName').exec(function (err, pricing) {
         if (err) {
             return next(err);
-        } else if (!location) {
+        } else if (!pricing) {
             return res.status(404).send({
-                message: 'No location with that identifier has been found'
+                message: 'No pricing with that identifier has been found'
             });
         }
-        req.location = location;
+        req.pricing = pricing;
         next();
     });
 };

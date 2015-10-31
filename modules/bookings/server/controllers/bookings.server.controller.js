@@ -13,6 +13,7 @@ var path = require('path'),
  * Create a Booking
  */
 exports.create = function(req, res) {
+    console.log('entered server create');
     var booking = new Booking(req.body);
     booking.user = req.user;
 

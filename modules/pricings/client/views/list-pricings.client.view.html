@@ -1,0 +1,19 @@
+<section data-ng-controller="PricingsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Pricings</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="pricing in pricings" data-ui-sref="pricings.view({pricingId: pricing._id})" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="pricing.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="pricing.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="pricing.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!pricings.$resolved || pricings.length">
+    	No Pricings yet, why don't you <a data-ui-sref="pricings.create">create one</a>?
+    </div>
+</section>

@@ -7,13 +7,13 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
- * Location Schema
+ * Pricing Schema
  */
-var LocationSchema = new Schema({
+var PricingSchema = new Schema({
 	name: {
 		type: String,
 		default: '',
-		required: 'Please fill Location name',
+		required: 'Please fill Pricing name',
 		trim: true
 	},
 	created: {
@@ -26,4 +26,4 @@ var LocationSchema = new Schema({
 	}
 });
 
-mongoose.model('Location', LocationSchema);
+mongoose.model('Pricing', PricingSchema);

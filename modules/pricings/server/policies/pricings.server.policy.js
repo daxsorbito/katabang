@@ -9,47 +9,47 @@ var acl = require('acl');
 acl = new acl(new acl.memoryBackend());
 
 /**
- * Invoke Locations Permissions
+ * Invoke Pricings Permissions
  */
 exports.invokeRolesPolicies = function () {
     acl.allow([{
         roles: ['admin'],
         allows: [{
-            resources: '/api/locations',
+            resources: '/api/pricings',
             permissions: '*'
         }, {
-            resources: '/api/locations/:locationId',
+            resources: '/api/pricings/:pricingId',
             permissions: '*'
         }]
     }, {
         roles: ['user'],
         allows: [{
-            resources: '/api/locations',
+            resources: '/api/pricings',
             permissions: ['get', 'post']
         }, {
-            resources: '/api/locations/:locationId',
+            resources: '/api/pricings/:pricingId',
             permissions: ['get']
         }]
     }, {
         roles: ['guest'],
         allows: [{
-            resources: '/api/locations',
+            resources: '/api/pricings',
             permissions: ['get']
         }, {
-            resources: '/api/locations/:locationId',
+            resources: '/api/pricings/:pricingId',
             permissions: ['get']
         }]
     }]);
 };
 
 /**
- * Check If Locations Policy Allows
+ * Check If Pricings Policy Allows
  */
 exports.isAllowed = function (req, res, next) {
     var roles = (req.user) ? req.user.roles : ['guest'];
 
-    // If a location is being processed and the current user created it then allow any manipulation
-    if (req.location && req.user && req.location.user.id === req.user.id) {
+    // If a pricing is being processed and the current user created it then allow any manipulation
+    if (req.pricing && req.user && req.pricing.user.id === req.user.id) {
         return next();
     }
 

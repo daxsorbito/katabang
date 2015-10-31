@@ -1,8 +1,8 @@
 'use strict';
 
 // Bookings controller
-angular.module('bookings').controller('BookingsController', ['$scope', '$state', '$stateParams', '$location', '$localStorage', 'Authentication', 'Bookings',
-    function ($scope, $state, $stateParams, $location, $localStorage, Authentication, Bookings) {
+angular.module('bookings').controller('BookingsController', ['$scope', '$state', '$stateParams', '$location', '$localStorage', '$translate', 'Authentication', 'Bookings',
+    function ($scope, $state, $stateParams, $location, $localStorage, $translate, Authentication, Bookings) {
         $scope.authentication = Authentication;
         $scope.createBookingPage = $state.current.name === 'bookings.create';
 
@@ -19,12 +19,20 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
         $scope.init = function() {
             console.log($localStorage.booked);
             $scope.booking = $localStorage.booked || {};
+
+            // set the Users acount here
+            console.log($scope.authentication);
+            $scope.booking.address = $scope.authentication.user.address;
+            console.log($translate.use());
             console.log('<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>');
             console.log($scope.booking);
         };
 
         // Create new Bookings
         $scope.create = function () {
+            console.log('enetered create');
+            console.log($scope.booking);
+
             // Create new Bookings object
             var booking = new Bookings({
                 name: this.name
