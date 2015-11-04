@@ -13,11 +13,11 @@ module.exports = function (app) {
 		.post(pricings.create);
 
 	// Single article routes
-	app.route('/api/pricings/:pricingId').all(pricingsPolicy.isAllowed)
+	app.route('/api/pricings/:pricingLocale').all(pricingsPolicy.isAllowed)
 		.get(pricings.read)
 		.put(pricings.update)
 		.delete(pricings.delete);
 
 	// Finish by binding the article middleware
-	app.param('pricingId', pricings.pricingByID);
+	app.param('pricingLocale', pricings.pricingLocale);
 };

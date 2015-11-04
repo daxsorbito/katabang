@@ -49,3 +49,8 @@ module.exports.start = function start(callback) {
   });
 
 };
+
+module.exports.startWorkers = function startWorkers(callback) {
+  this.init();
+  require('./jobs.js');
+};

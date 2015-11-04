@@ -1,8 +1,8 @@
 'use strict';
 
 // Bookings controller
-angular.module('bookings').controller('BookingsController', ['$scope', '$state', '$stateParams', '$location', '$localStorage', '$translate', 'Authentication', 'Bookings',
-    function ($scope, $state, $stateParams, $location, $localStorage, $translate, Authentication, Bookings) {
+angular.module('bookings').controller('BookingsController', ['$scope', '$state', '$stateParams', '$location', '$localStorage', '$translate', 'Authentication', 'Bookings', 'Pricings',
+    function ($scope, $state, $stateParams, $location, $localStorage, $translate, Authentication, Bookings, Pricings) {
         $scope.authentication = Authentication;
         $scope.createBookingPage = $state.current.name === 'bookings.create';
 
@@ -17,15 +17,17 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
         };
 
         $scope.init = function() {
-            console.log($localStorage.booked);
             $scope.booking = $localStorage.booked || {};
 
             // set the Users acount here
-            console.log($scope.authentication);
             $scope.booking.address = $scope.authentication.user.address;
-            console.log($translate.use());
-            console.log('<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>');
-            console.log($scope.booking);
+
+            Pricings.get({
+                pricingLocale: $translate.use()
+            },function(data){
+                $scope.pricing = data;
+                $scope.booking.amountDue = data.price;
+            });
         };
 
         // Create new Bookings

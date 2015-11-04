@@ -58,7 +58,7 @@ angular.module('pricings').controller('PricingsController', ['$scope', '$statePa
 
 		// Find existing Pricing
 		$scope.findOne = function() {
-			$scope.pricing = PricingsR.get({
+			$scope.pricing = Pricings.get({
 				pricingId: $stateParams.pricingId
 			});
 		};

@@ -88,15 +88,8 @@ exports.list = function(req, res) {
 /**
  * Pricing middleware
  */
-exports.pricingByID = function (req, res, next, id) {
-
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(400).send({
-            message: 'Pricing is invalid'
-        });
-    }
-
-    Pricing.findById(id).populate('user', 'displayName').exec(function (err, pricing) {
+exports.pricingLocale = function (req, res, next, locale) {
+    Pricing.findOne({locale: locale}).sort({startDate: -1}).populate('user', 'displayName').exec(function (err, pricing) {
         if (err) {
             return next(err);
         } else if (!pricing) {

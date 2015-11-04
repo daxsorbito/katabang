@@ -10,11 +10,18 @@ var mongoose = require('mongoose'),
  * Pricing Schema
  */
 var PricingSchema = new Schema({
-	name: {
+	startDate: {
+		type: Date,
+		required: 'Start date is required'
+	},
+	locale: {
 		type: String,
-		default: '',
-		required: 'Please fill Pricing name',
+		required: 'Locale is required',
 		trim: true
+	},
+	price: {
+		type: Number,
+		required: 'Price is required'
 	},
 	created: {
 		type: Date,

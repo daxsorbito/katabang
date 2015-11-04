@@ -18,7 +18,7 @@ exports.invokeRolesPolicies = function () {
             resources: '/api/pricings',
             permissions: '*'
         }, {
-            resources: '/api/pricings/:pricingId',
+            resources: '/api/pricings/:pricingLocale',
             permissions: '*'
         }]
     }, {
@@ -27,7 +27,7 @@ exports.invokeRolesPolicies = function () {
             resources: '/api/pricings',
             permissions: ['get', 'post']
         }, {
-            resources: '/api/pricings/:pricingId',
+            resources: '/api/pricings/:pricingLocale',
             permissions: ['get']
         }]
     }, {
@@ -36,7 +36,7 @@ exports.invokeRolesPolicies = function () {
             resources: '/api/pricings',
             permissions: ['get']
         }, {
-            resources: '/api/pricings/:pricingId',
+            resources: '/api/pricings/:pricingLocale',
             permissions: ['get']
         }]
     }]);
@@ -49,7 +49,7 @@ exports.isAllowed = function (req, res, next) {
     var roles = (req.user) ? req.user.roles : ['guest'];
 
     // If a pricing is being processed and the current user created it then allow any manipulation
-    if (req.pricing && req.user && req.pricing.user.id === req.user.id) {
+    if (req.pricing && req.user && req.pricing.user && req.pricing.user.id === req.user.id) {
         return next();
     }
 
