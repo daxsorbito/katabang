@@ -51,6 +51,16 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
             });
         };
 
+        $scope.reCompute = function() {
+            // http://stackoverflow.com/questions/15298663/how-to-subtract-two-angularjs-date-variables
+            console.log($scope.booking);
+            var numOfBooking = ($scope.booking.duration || 4) / 4;
+            if($scope.booking.recurring) {
+
+            }
+            $scope.booking.amountDue = $scope.pricing.price * numOfBooking;
+          console.log('reCompute was called');
+        };
         // Remove existing Bookings
         $scope.remove = function (booking) {
             if (booking) {

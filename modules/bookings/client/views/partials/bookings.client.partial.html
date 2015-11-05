@@ -5,22 +5,22 @@
         </option>
         <option value="1" ng-selected="$parent.booking.serviceType == 1">{{ 'SERVICES.HOUSE_CLEANER' | translate }}
         </option>
-        <option value="2" ng-selected="$parent.booking.serviceType == 2">{{ 'SERVICES.LAUNDRY_PRESS' | translate }}
+        <option value="2" disabled ng-selected="$parent.booking.serviceType == 2">{{ 'SERVICES.LAUNDRY_PRESS' | translate }}
         </option>
-        <option value="3" ng-selected="$parent.booking.serviceType == 3">{{ 'SERVICES.CARETAKER_OLDSITTER' | translate
+        <option value="3" disabled ng-selected="$parent.booking.serviceType == 3">{{ 'SERVICES.CARETAKER_OLDSITTER' | translate
             }}
         </option>
-        <option value="4" ng-selected="$parent.booking.serviceType == 4">{{ 'SERVICES.CARETAKER_BABYSITTER' | translate
+        <option value="4" disabled ng-selected="$parent.booking.serviceType == 4">{{ 'SERVICES.CARETAKER_BABYSITTER' | translate
             }}
         </option>
-        <option value="5" ng-selected="$parent.booking.serviceType == 5">{{ 'SERVICES.PLUMBER' | translate }}</option>
-        <option value="6" ng-selected="$parent.booking.serviceType == 6">{{ 'SERVICES.AIRCON_CLEANER' | translate }}
+        <option value="5" disabled ng-selected="$parent.booking.serviceType == 5">{{ 'SERVICES.PLUMBER' | translate }}</option>
+        <option value="6" disabled ng-selected="$parent.booking.serviceType == 6">{{ 'SERVICES.AIRCON_CLEANER' | translate }}
         </option>
-        <option value="7" ng-selected="$parent.booking.serviceType == 7">{{ 'SERVICES.HOUSE_FIXTURES_INSTALLER' |
+        <option value="7" disabled ng-selected="$parent.booking.serviceType == 7">{{ 'SERVICES.HOUSE_FIXTURES_INSTALLER' |
             translate }}
         </option>
-        <option value="8" ng-selected="$parent.booking.serviceType == 8">{{ 'SERVICES.GARDENER' | translate }}</option>
-        <option value="9" ng-selected="$parent.booking.serviceType == 9">{{ 'SERVICES.HANDYMAN' | translate }}</option>
+        <option value="8" disabled ng-selected="$parent.booking.serviceType == 8">{{ 'SERVICES.GARDENER' | translate }}</option>
+        <option value="9" disabled ng-selected="$parent.booking.serviceType == 9">{{ 'SERVICES.HANDYMAN' | translate }}</option>
     </select>
     <label for="bkgloc" class="control-label">{{ 'WHERE' | translate }}</label>
     <select id="bkgloc" class="form-control" data-ng-model="$parent.booking.city">
@@ -57,29 +57,29 @@
         <option value="7PM" ng-selected="$parent.booking.booking_time == '7PM'">7PM</option>
     </select>
     <label for="bkgNoOfHrs" class="control-label">{{ 'NUMBER_OF_HOURS' | translate }}</label>
-    <select id="bkgNoOfHrs" class="form-control" data-ng-model="$parent.booking.duration">
+    <select id="bkgNoOfHrs" class="form-control" data-ng-model="$parent.booking.duration" ng-change="$parent.reCompute()">
         <option value="" ng-selected="($parent.booking.duration || 0) == 0">{{ 'PLEASE_SELECT' | translate }}</option>
-        <option value="2" ng-selected="$parent.booking.duration == 2">2 {{ 'HOURS' | translate }}</option>
+        <!--<option value="2" ng-selected="$parent.booking.duration == 2">2 {{ 'HOURS' | translate }}</option>-->
         <option value="4" ng-selected="$parent.booking.duration == 4">4 {{ 'HOURS' | translate }}</option>
-        <option value="6" ng-selected="$parent.booking.duration == 6">6 {{ 'HOURS' | translate }}</option>
+        <!--<option value="6" ng-selected="$parent.booking.duration == 6">6 {{ 'HOURS' | translate }}</option>-->
         <option value="8" ng-selected="$parent.booking.duration == 8">8 {{ 'HOURS' | translate }}</option>
     </select>
 
     <div ng-show="createBookingPage">
         <div class="text-justified form-group">
             <label>
-                <input type="checkbox" name="recurring" id="recurring" ng-model="$parent.booking.recurring"
+                <input type="checkbox" name="recurring" id="recurring" ng-model="$parent.booking.recurring" ng-change="$parent.reCompute()"
                        ng-init="$parent.booking.recurring=0" ng-true-value="1" ng-false-value="0">&nbsp;{{
                 'RECURRING_REQUEST' | translate }}</input>
             </label>
 
             <div ng-show="$parent.booking.recurring" class="frequency">
                 <label for="frequency">{{ 'FREQUENCY' | translate }}</label>
-                <select id="frequency" class="form-control" data-ng-model="$parent.booking.frequency">
+                <select id="frequency" class="form-control" data-ng-model="$parent.booking.frequency" ng-change="$parent.reCompute()">
                     <option value="" ng-selected="($parent.booking.booking_time || 0 )== 0">{{ 'PLEASE_SELECT' |
                         translate }}
                     </option>
-                    <option value="1" ng-selected="$parent.booking.booking_time == 1">Daily</option>
+                    <!--<option value="1" ng-selected="$parent.booking.booking_time == 1">Daily</option>-->
                     <option value="2" ng-selected="$parent.booking.booking_time == 2">MWF</option>
                     <option value="3" ng-selected="$parent.booking.booking_time == 3">TTH</option>
                     <option value="4" ng-selected="$parent.booking.booking_time == 4">Weekly</option>
@@ -93,7 +93,7 @@
                                <!--ng-true-value="1" ng-false-value="0">&nbsp;{{-->
                         <!--'CONTINUE_FOREVER' | translate }}</input>-->
                     <!--</label>-->
-                    <input type="date" id="until_date" class="form-control"
+                    <input type="date" id="until_date" class="form-control" ng-change="$parent.reCompute()"
                            data-ng-model="$parent.booking.frequency_until_date"/>
                 </div>
             </div>

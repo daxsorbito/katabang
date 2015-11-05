@@ -23,6 +23,10 @@ var PricingSchema = new Schema({
 		type: Number,
 		required: 'Price is required'
 	},
+	serviceType: {
+		type: Number,
+		required: "Service type is required"
+	},
 	created: {
 		type: Date,
 		default: Date.now

@@ -8,9 +8,9 @@ module.exports = function (agenda) {
     agenda.define('seedPricing', function(job, done) {
         console.log('[seedPricing] executed at --> ' + (new Date));
         var data = [
-            {startDate: '1/1/2015', locale: 'en', price: 145},
-            {startDate: '1/1/2015', locale: 'ko', price: 45},
-            {startDate: '1/1/2015', locale: 'jp', price: 545}
+            {startDate: '1/1/2015', locale: 'en', price: 145, serviceType: 1},
+            {startDate: '1/1/2015', locale: 'ko', price: 45, serviceType: 1},
+            {startDate: '1/1/2015', locale: 'jp', price: 545, serviceType: 1}
         ];
 
         Pricing.find({startDate: '1/1/2015'}, function(err, foundPrices){
