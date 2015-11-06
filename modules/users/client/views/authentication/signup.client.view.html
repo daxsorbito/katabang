@@ -46,6 +46,12 @@
                                        placeholder="{{ 'PASSWORD' | translate }}"
                                        ng-required>
                             </div>
+                            <div class="form-group">
+                                <label for="confirm_password">{{ 'CONFIRM_PASSWORD' | translate }}</label>
+                                <input type="password" id="confirm_password" name="confirm_password" class="form-control"
+                                       ng-model="credentials.confirm_password"
+                                       placeholder="{{ 'CONFIRM_PASSWORD' | translate }}">
+                            </div>
                             <hr/>
                             <div class="form-group">
                                 <label for="address1">{{ 'HOUSE_APT_BLDG_NO' | translate }}<span class="text-danger"> *</span></label>
@@ -180,6 +186,12 @@
                                        data-ng-model="credentials.password"
                                        placeholder="{{ 'PASSWORD' | translate }}"
                                        ng-required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm_password">{{ 'CONFIRM_PASSWORD' | translate }}</label>
+                                <input type="password" id="confirm_password" name="confirm_password" class="form-control"
+                                       ng-model="credentials.confirm_password"
+                                       placeholder="{{ 'CONFIRM_PASSWORD' | translate }}">
                             </div>
                             <hr/>
                             <div class="form-group">

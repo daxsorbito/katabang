@@ -42,6 +42,7 @@
   "SIGNIN_SOCIAL_ACCOUNT": "Sign in using your social accounts",
   "USER_NAME": "Username",
   "PASSWORD" : "Password",
+  "CONFIRM_PASSWORD" : "Confirm Password",
   "SIGN_IN": "Sign in",
   "SIGN_UP": "Sign up",
   "FORGOT_YOUR_PASSWORD" : "Forgot your password?",
@@ -83,5 +84,8 @@
   "PASSWORD_RESET_IS_INVALID": "Password reset is invalid",
   "ASK_NEW_PASSWORD": "Ask for a new password reset",
   "PASSWORD_SUCCESSFULLY_RESET": "Password successfully reset",
-  "CONTINUE_TO_HOME_PAGE": "Continue to home page"
+  "CONTINUE_TO_HOME_PAGE": "Continue to home page",
+  "ERROR_MSG":{
+    "PASSWORD_DO_NOT_MATCH": "Password do not match"
+  }
 }

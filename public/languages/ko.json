@@ -42,6 +42,7 @@
   "SIGNIN_SOCIAL_ACCOUNT": "Sign in using your social accounts_ko",
   "USER_NAME": "Username_ko",
   "PASSWORD" : "Password_ko",
+  "CONFIRM_PASSWORD" : "Confirm Password_ko",
   "SIGN_IN": "Sign in_ko",
   "SIGN_UP": "Sign up_ko",
   "FORGOT_YOUR_PASSWORD" : "Forgot your password?_ko",
@@ -83,5 +84,8 @@
   "PASSWORD_RESET_IS_INVALID": "Password reset is invalid_ko",
   "ASK_NEW_PASSWORD": "Ask for a new password reset_ko",
   "PASSWORD_SUCCESSFULLY_RESET": "Password successfully reset_ko",
-  "CONTINUE_TO_HOME_PAGE": "Continue to home page_ko"
+  "CONTINUE_TO_HOME_PAGE": "Continue to home page_ko",
+  "ERROR_MSG":{
+    "PASSWORD_DO_NOT_MATCH": "Password do not match_ko"
+  }
 }
