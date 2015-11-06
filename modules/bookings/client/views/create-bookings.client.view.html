@@ -15,6 +15,7 @@
                 <h2>NOTES:</h2>
                 <p>You may change any of your booking details and preferences on the form at the left before processing payment.</p><br><br>
                 <div>
+                    <h3>Number of bookings: {{ booking.numberOfBookings || 1 }}</h3>
                     <h3>Your Estimated Amount Due is = &nbsp; {{ booking.amountDue || 0 }}</h3>
                 </div>
                 <p>

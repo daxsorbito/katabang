@@ -16,9 +16,10 @@ exports.create = function(req, res) {
     console.log('entered server create');
     var booking = new Booking(req.body);
     booking.user = req.user;
-
+    console.log(booking);
     booking.save(function(err) {
         if (err) {
+            console.log(err);
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });

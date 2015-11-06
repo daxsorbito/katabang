@@ -4,7 +4,7 @@
             <!--<div class="main-container pull-left"></div>-->
             <div class="modal-dialog pull-right book-now" data-ng-controller="BookingsController">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header" ng-init="init()">
                         <h2 class="form-signin-heading modal-title" id="myModalLabel">{{ 'BOOK_SERVICE_FORM_TITLE' |
                             translate}}</h2>
                     </div>
