@@ -42,6 +42,12 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
           }
         }
       }
+      if($scope.credentials.confirm_password !== $scope.credentials.password){
+        $scope.error = 'ERROR_MSG.PASSWORD_DO_NOT_MATCH';
+        return;
+      }
+
+
       $scope.credentials['g-response'] = vcRecaptchaService.getResponse($scope.widgetId);
       $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model

@@ -70,7 +70,7 @@ exports.signup = function (req, res) {
             }
           });
         } else {
-          res.status(400).send({message:'Captcha required!'});
+          res.status(400).send({message:'ERROR_MSG.CAPTCHA_REQUIRED'});
         }
       })
       .catch(function(err){

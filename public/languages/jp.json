@@ -42,6 +42,7 @@
   "SIGNIN_SOCIAL_ACCOUNT": "Sign in using your social accounts_jp",
   "USER_NAME": "Username_jp",
   "PASSWORD" : "Password_jp",
+  "CONFIRM_PASSWORD" : "Confirm Password_jp",
   "SIGN_IN": "Sign in_jp",
   "SIGN_UP": "Sign up_jp",
   "FORGOT_YOUR_PASSWORD" : "Forgot your password?_jp",
@@ -83,5 +84,21 @@
   "PASSWORD_RESET_IS_INVALID": "Password reset is invalid_jp",
   "ASK_NEW_PASSWORD": "Ask for a new password reset_jp",
   "PASSWORD_SUCCESSFULLY_RESET": "Password successfully reset_jp",
-  "CONTINUE_TO_HOME_PAGE": "Continue to home page_jp"
+  "CONTINUE_TO_HOME_PAGE": "Continue to home page_jp",
+  "ERROR_MSG":{
+    "PASSWORD_DO_NOT_MATCH": "Password do not match_jp",
+    "FIRST_NAME_REQUIRED": "Please fill in your first name_jp",
+    "LAST_NAME_REQUIRED": "Please fill in your last name_jp",
+    "VALID_EMAIL": "Please fill a valid email address_jp",
+    "USER_NAME_EXIST": "Username already exists_jp",
+    "USER_NAME_REQUIRED": "Please fill in a username_jp",
+    "PASSWORD_LENGTH" : "Password should be longer_jp",
+    "PROVIDER_REQUIRED": "Provider is required_jp",
+    "ADDRESS_REQUIRED": "Address is required_jp",
+    "CITY_REQUIRED": "City is required_jp",
+    "COUNTRY_REQUIRED": "Country is required_jp",
+    "TELEPHONE_REQUIRED": "Telephone is required_jp",
+    "MOBILEPHONE_REQUIRED": "Mobilephone is required_jp",
+    "CAPTCHA_REQUIRED": "Captcha required! jp"
+  }
 }
