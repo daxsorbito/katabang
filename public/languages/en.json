@@ -86,6 +86,19 @@
   "PASSWORD_SUCCESSFULLY_RESET": "Password successfully reset",
   "CONTINUE_TO_HOME_PAGE": "Continue to home page",
   "ERROR_MSG":{
-    "PASSWORD_DO_NOT_MATCH": "Password do not match"
+    "PASSWORD_DO_NOT_MATCH": "Password do not match",
+    "FIRST_NAME_REQUIRED": "Please fill in your first name",
+    "LAST_NAME_REQUIRED": "Please fill in your last name",
+    "EMAIL_VALID": "Please fill a valid email address",
+    "USER_NAME_EXIST": "Username already exists",
+    "USER_NAME_REQUIRED": "Please fill in a username",
+    "PASSWORD_LENGTH" : "Password should be longer",
+    "PROVIDER_REQUIRED": "Provider is required",
+    "ADDRESS_REQUIRED": "Address is required",
+    "CITY_REQUIRED": "City is required",
+    "COUNTRY_REQUIRED": "Country is required",
+    "TELEPHONE_REQUIRED": "Telephone is required",
+    "MOBILEPHONE_REQUIRED": "Mobilephone is required",
+    "CAPTCHA_REQUIRED": "Captcha required!"
   }
 }
