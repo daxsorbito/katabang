@@ -116,7 +116,6 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
 
         function computeRecurringBooking () {
             $scope.booking.scheduledBooking = $scope.booking.scheduledBooking || {};
-
         }
 
         function countNumberOfDays(start_date, end_date) {
@@ -146,9 +145,6 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
 
         function countNumberOfMonths(start_date, end_date) {
             return Math.floor(end_date.getMonth() - start_date.getMonth() + (12 * (end_date.getFullYear() - start_date.getFullYear())));
-            if ($scope.booking.recurring && $scope.booking.frequency_until_date) {
-
-            }
         }
 
         // Remove existing Bookings
