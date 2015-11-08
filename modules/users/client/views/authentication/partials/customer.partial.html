@@ -1,0 +1,41 @@
+<div class="form-group">
+    <label for="firstName">{{ 'FIRST_NAME' | translate }}<span class="text-danger"> *</span></label>
+    <input type="text" id="firstName" name="firstName" class="form-control"
+           data-ng-model="credentials.firstName"
+           placeholder="{{ 'FIRST_NAME' | translate }}"
+           ng-required>
+</div>
+<div class="form-group">
+    <label for="lastName">{{ 'LAST_NAME' | translate }}<span class="text-danger"> *</span></label>
+    <input type="text" id="lastName" name="lastName" class="form-control"
+           data-ng-model="credentials.lastName"
+           placeholder="{{ 'LAST_NAME' | translate }}"
+           ng-required>
+</div>
+<div class="form-group">
+    <label for="email">{{ 'EMAIL' | translate }}<span class="text-danger"> *</span></label>
+    <input type="email" id="email" name="email" class="form-control"
+           data-ng-model="credentials.email"
+           placeholder="{{ 'EMAIL' | translate }}"
+           ng-required>
+</div>
+<div class="form-group">
+    <label for="username">{{ 'USER_NAME' | translate }}<span class="text-danger"> *</span></label>
+    <input type="text" id="username" name="username" class="form-control"
+           data-ng-model="credentials.username"
+           placeholder="{{ 'USER_NAME' | translate }}"
+           ng-required>
+</div>
+<div class="form-group">
+    <label for="password">{{ 'PASSWORD' | translate }}<span class="text-danger"> *</span></label>
+    <input type="password" id="password" name="password" class="form-control"
+           data-ng-model="credentials.password"
+           placeholder="{{ 'PASSWORD' | translate }}"
+           ng-required>
+</div>
+<div class="form-group">
+    <label for="confirm_password">{{ 'CONFIRM_PASSWORD' | translate }}</label>
+    <input type="password" id="confirm_password" name="confirm_password" class="form-control"
+           ng-model="credentials.confirm_password"
+           placeholder="{{ 'CONFIRM_PASSWORD' | translate }}">
+</div>
