@@ -9,49 +9,62 @@
                     <div class="tab-body">
                         <fieldset ng-form data-ng-controller="AuthenticationController" ng-init="setInitValues()">
                             <alert type="danger" data-ng-show="error" class="text-center text-danger">
-                                <span data-ng-bind="error"></span>
+                                <span>{{ error | translate }}</span>
                             </alert>
                             <div class="form-group">
-                                <label for="firstName">{{ 'FIRST_NAME' | translate }}</label>
-                                <input type="text" required id="firstName" name="firstName" class="form-control"
+                                <label for="firstName">{{ 'FIRST_NAME' | translate }}<span class="text-danger"> *</span></label>
+                                <input type="text" id="firstName" name="firstName" class="form-control"
                                        data-ng-model="credentials.firstName"
-                                       placeholder="{{ 'FIRST_NAME' | translate }}">
+                                       placeholder="{{ 'FIRST_NAME' | translate }}"
+                                       ng-required>
                             </div>
                             <div class="form-group">
-                                <label for="lastName">{{ 'LAST_NAME' | translate }}</label>
+                                <label for="lastName">{{ 'LAST_NAME' | translate }}<span class="text-danger"> *</span></label>
                                 <input type="text" id="lastName" name="lastName" class="form-control"
                                        data-ng-model="credentials.lastName"
-                                       placeholder="{{ 'LAST_NAME' | translate }}">
+                                       placeholder="{{ 'LAST_NAME' | translate }}"
+                                       ng-required>
                             </div>
                             <div class="form-group">
-                                <label for="email">{{ 'EMAIL' | translate }}</label>
+                                <label for="email">{{ 'EMAIL' | translate }}<span class="text-danger"> *</span></label>
                                 <input type="email" id="email" name="email" class="form-control"
                                        data-ng-model="credentials.email"
-                                       placeholder="{{ 'EMAIL' | translate }}">
+                                       placeholder="{{ 'EMAIL' | translate }}"
+                                       ng-required>
                             </div>
                             <div class="form-group">
-                                <label for="username">{{ 'USER_NAME' | translate }}</label>
+                                <label for="username">{{ 'USER_NAME' | translate }}<span class="text-danger"> *</span></label>
                                 <input type="text" id="username" name="username" class="form-control"
                                        data-ng-model="credentials.username"
-                                       placeholder="{{ 'USER_NAME' | translate }}">
+                                       placeholder="{{ 'USER_NAME' | translate }}"
+                                       ng-required>
                             </div>
                             <div class="form-group">
-                                <label for="password">{{ 'PASSWORD' | translate }}</label>
+                                <label for="password">{{ 'PASSWORD' | translate }}<span class="text-danger"> *</span></label>
                                 <input type="password" id="password" name="password" class="form-control"
                                        data-ng-model="credentials.password"
-                                       placeholder="{{ 'PASSWORD' | translate }}">
+                                       placeholder="{{ 'PASSWORD' | translate }}"
+                                       ng-required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm_password">{{ 'CONFIRM_PASSWORD' | translate }}</label>
+                                <input type="password" id="confirm_password" name="confirm_password" class="form-control"
+                                       ng-model="credentials.confirm_password"
+                                       placeholder="{{ 'CONFIRM_PASSWORD' | translate }}">
                             </div>
                             <hr/>
                             <div class="form-group">
-                                <label for="address1">{{ 'HOUSE_APT_BLDG_NO' | translate }}</label>
+                                <label for="address1">{{ 'HOUSE_APT_BLDG_NO' | translate }}<span class="text-danger"> *</span></label>
                                 <input type="text" id="address1" name="address1" class="form-control"
                                        data-ng-model="credentials.address.address1"
-                                       placeholder="{{ 'HOUSE_APT_BLDG_NO' | translate }}">
+                                       placeholder="{{ 'HOUSE_APT_BLDG_NO' | translate }}"
+                                       ng-required>
                             </div>
                             <div class="form-group">
-                                <label for="city">{{ 'CITY_TOWN' | translate }}</label>
+                                <label for="city">{{ 'CITY_TOWN' | translate }}<span class="text-danger"> *</span></label>
                                 <select data-ng-model="credentials.address.city" id="city"
-                                        class="form-control">
+                                        class="form-control"
+                                        ng-required>
                                     <option selected>{{ 'PLEASE_SELECT' | translate }}</option>
                                     <option value="1">Cebu City</option>
                                     <option value="2">Mandaue</option>
@@ -86,9 +99,10 @@
                                        placeholder="{{ 'ZIP_CODE' | translate }}">
                             </div>
                             <div class="form-group">
-                                <label for="country">{{ 'COUNTRY' | translate }}</label>
+                                <label for="country">{{ 'COUNTRY' | translate }}<span class="text-danger"> *</span></label>
                                 <select data-ng-model="credentials.address.country" id="country"
-                                        class="form-control">
+                                        class="form-control"
+                                        ng-required>
                                     <option selected>{{ 'PLEASE_SELECT' | translate }}</option>
                                     <option value="1">Philippines</option>
                                     <option value="2">Japan</option>
@@ -98,16 +112,18 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="telephone">{{ 'TELEPHONE' | translate }}</label>
+                                <label for="telephone">{{ 'TELEPHONE' | translate }}<span class="text-danger"> *</span></label>
                                 <input type="text" id="telephone" name="telephone" class="form-control"
                                        data-ng-model="credentials.address.telephone"
-                                       placeholder="{{ 'TELEPHONE' | translate }}">
+                                       placeholder="{{ 'TELEPHONE' | translate }}"
+                                       ng-required>
                             </div>
                             <div class="form-group">
-                                <label for="mobilephone">{{ 'MOBILEPHONE' | translate }}</label>
+                                <label for="mobilephone">{{ 'MOBILEPHONE' | translate }}<span class="text-danger"> *</span></label>
                                 <input type="text" id="mobilephone" name="mobilephone" class="form-control"
                                        data-ng-model="credentials.address.mobilephone"
-                                       placeholder="{{ 'MOBILEPHONE' | translate }}">
+                                       placeholder="{{ 'MOBILEPHONE' | translate }}"
+                                       ng-required>
                             </div>
                             <hr/>
                             <div class="text-justified form-group">
@@ -137,37 +153,45 @@
                     <div class="tab-body">
                         <fieldset ng-form data-ng-controller="AuthenticationController" ng-init="setInitValues('provider')">
                             <alert type="danger" data-ng-show="error" class="text-center text-danger">
-                                <span data-ng-bind="error"></span>
+                                <span>{{ error | translate }}</span>
                             </alert>
                             <div class="form-group">
-                                <label for="firstName">{{ 'FIRST_NAME' | translate }}</label>
-                                <input type="text" required id="firstName" name="firstName" class="form-control"
+                                <label for="firstName">{{ 'FIRST_NAME' | translate }}<span class="text-danger"> *</span></label>
+                                <input type="text" id="firstName" name="firstName" class="form-control"
                                        data-ng-model="credentials.firstName"
                                        placeholder="{{ 'FIRST_NAME' | translate }}" ng-required >
                             </div>
                             <div class="form-group">
-                                <label for="lastName">{{ 'LAST_NAME' | translate }}</label>
+                                <label for="lastName">{{ 'LAST_NAME' | translate }}<span class="text-danger"> *</span></label>
                                 <input type="text" id="lastName" name="lastName" class="form-control"
                                        data-ng-model="credentials.lastName"
                                        placeholder="{{ 'LAST_NAME' | translate }}" ng-required>
                             </div>
                             <div class="form-group">
-                                <label for="email">{{ 'EMAIL' | translate }}</label>
+                                <label for="email">{{ 'EMAIL' | translate }}<span class="text-danger"> *</span></label>
                                 <input type="email" id="email" name="email" class="form-control"
                                        data-ng-model="credentials.email"
                                        placeholder="{{ 'EMAIL' | translate }}" ng-required>
                             </div>
                             <div class="form-group">
-                                <label for="username">{{ 'USER_NAME' | translate }}</label>
+                                <label for="username">{{ 'USER_NAME' | translate }}<span class="text-danger"> *</span></label>
                                 <input type="text" id="username" name="username" class="form-control"
                                        data-ng-model="credentials.username"
-                                       placeholder="{{ 'USER_NAME' | translate }}">
+                                       placeholder="{{ 'USER_NAME' | translate }}"
+                                       ng-required>
                             </div>
                             <div class="form-group">
-                                <label for="password">{{ 'PASSWORD' | translate }}</label>
+                                <label for="password">{{ 'PASSWORD' | translate }}<span class="text-danger"> *</span></label>
                                 <input type="password" id="password" name="password" class="form-control"
                                        data-ng-model="credentials.password"
-                                       placeholder="{{ 'PASSWORD' | translate }}">
+                                       placeholder="{{ 'PASSWORD' | translate }}"
+                                       ng-required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm_password">{{ 'CONFIRM_PASSWORD' | translate }}</label>
+                                <input type="password" id="confirm_password" name="confirm_password" class="form-control"
+                                       ng-model="credentials.confirm_password"
+                                       placeholder="{{ 'CONFIRM_PASSWORD' | translate }}">
                             </div>
                             <hr/>
                             <div class="form-group">
@@ -197,15 +221,15 @@
                             </div>
                             <hr/>
                             <div class="form-group">
-                                <label for="address1">{{ 'HOUSE_APT_BLDG_NO' | translate }}</label>
+                                <label for="address1">{{ 'HOUSE_APT_BLDG_NO' | translate }}<span class="text-danger"> *</span></label>
                                 <input type="text" id="address1" name="address1" class="form-control"
                                        data-ng-model="credentials.address.address1"
-                                       placeholder="{{ 'HOUSE_APT_BLDG_NO' | translate }}">
+                                       placeholder="{{ 'HOUSE_APT_BLDG_NO' | translate }}" ng-required>
                             </div>
                             <div class="form-group">
-                                <label for="city">{{ 'CITY_TOWN' | translate }}</label>
+                                <label for="city">{{ 'CITY_TOWN' | translate }}<span class="text-danger"> *</span></label>
                                 <select data-ng-model="credentials.address.city" id="city"
-                                        class="form-control">
+                                        class="form-control" ng-required>
                                     <option value="0" selected>{{ 'PLEASE_SELECT' | translate }}</option>
                                     <option value="1">Cebu City</option>
                                     <option value="2">Mandaue</option>
@@ -240,9 +264,9 @@
                                        placeholder="{{ 'ZIP_CODE' | translate }}">
                             </div>
                             <div class="form-group">
-                                <label for="country">{{ 'COUNTRY' | translate }}</label>
+                                <label for="country">{{ 'COUNTRY' | translate }}<span class="text-danger"> *</span></label>
                                 <select data-ng-model="credentials.address.country" id="country"
-                                        class="form-control">
+                                        class="form-control" ng-required>
                                     <option value="0" selected>{{ 'PLEASE_SELECT' | translate }}</option>
                                     <option value="1">Philippines</option>
                                     <option value="2">Japan</option>
@@ -252,16 +276,16 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="telephone">{{ 'TELEPHONE' | translate }}</label>
+                                <label for="telephone">{{ 'TELEPHONE' | translate }}<span class="text-danger"> *</span></label>
                                 <input type="text" id="telephone" name="telephone" class="form-control"
                                        data-ng-model="credentials.address.telephone"
-                                       placeholder="{{ 'TELEPHONE' | translate }}">
+                                       placeholder="{{ 'TELEPHONE' | translate }}" ng-required>
                             </div>
                             <div class="form-group">
-                                <label for="mobilephone">{{ 'MOBILEPHONE' | translate }}</label>
+                                <label for="mobilephone">{{ 'MOBILEPHONE' | translate }}<span class="text-danger"> *</span></label>
                                 <input type="text" id="mobilephone" name="mobilephone" class="form-control"
                                        data-ng-model="credentials.address.mobilephone"
-                                       placeholder="{{ 'MOBILEPHONE' | translate }}">
+                                       placeholder="{{ 'MOBILEPHONE' | translate }}" ng-required>
                             </div>
                             <hr/>
                             <div class="text-justified">

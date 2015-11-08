@@ -37,13 +37,13 @@ var UserSchema = new Schema({
     type: String,
     trim: true,
     default: '',
-    validate: [validateLocalStrategyProperty, 'Please fill in your first name']
+    validate: [validateLocalStrategyProperty, 'ERROR_MSG.FIRST_NAME_REQUIRED']
   },
   lastName: {
     type: String,
     trim: true,
     default: '',
-    validate: [validateLocalStrategyProperty, 'Please fill in your last name']
+    validate: [validateLocalStrategyProperty, 'ERROR_MSG.LAST_NAME_REQUIRED']
   },
   displayName: {
     type: String,
@@ -54,18 +54,18 @@ var UserSchema = new Schema({
     trim: true,
     unique: true,
     default: '',
-    validate: [validateLocalStrategyEmail, 'Please fill a valid email address']
+    validate: [validateLocalStrategyEmail, 'ERROR_MSG.EMAIL_VALID']
   },
   username: {
     type: String,
-    unique: 'Username already exists',
-    required: 'Please fill in a username',
+    unique: 'ERROR_MSG.USER_NAME_EXIST',
+    required: 'ERROR_MSG.USER_NAME_REQUIRED',
     trim: true
   },
   password: {
     type: String,
     default: '',
-    validate: [validateLocalStrategyPassword, 'Password should be longer']
+    validate: [validateLocalStrategyPassword, 'ERROR_MSG.PASSWORD_LENGTH']
   },
   salt: {
     type: String
@@ -76,7 +76,7 @@ var UserSchema = new Schema({
   },
   provider: {
     type: String,
-    required: 'Provider is required'
+    required: 'ERROR_MSG.PROVIDER_REQUIRED'
   },
   providerData: {},
   additionalProvidersData: {},
@@ -107,13 +107,13 @@ var UserSchema = new Schema({
     }]
   },
   address : {
-    address1: { type: String, required: 'Address is required' },
-    city: { type: Number, required: 'City is required' },
+    address1: { type: String, required: 'ERROR_MSG.ADDRESS_REQUIRED' },
+    city: { type: Number, required: 'ERROR_MSG.CITY_REQUIRED' },
     prov_state: { type: Number,  },
     zip_code: { type: String },
-    country: { type: Number, required: 'Country is required' },
-    telephone: { type: String, required: 'Telephone is required' },
-    mobilephone: { type: String, required: 'Mobilephone is required' }
+    country: { type: Number, required: 'ERROR_MSG.COUNTRY_REQUIRED' },
+    telephone: { type: String, required: 'ERROR_MSG.TELEPHONE_REQUIRED' },
+    mobilephone: { type: String, required: 'ERROR_MSG.MOBILEPHONE_REQUIRED' }
   },
   /* For reset password */
   resetPasswordToken: {
