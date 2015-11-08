@@ -43,11 +43,8 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         }
       }
       if($scope.credentials.confirm_password !== $scope.credentials.password){
-        $scope.error = 'Password do not match';
+        $scope.error = 'ERROR_MSG.PASSWORD_DO_NOT_MATCH';
         return;
-      }
-      else {
-        delete $scope.credentials.confirm_password;
       }
 
 

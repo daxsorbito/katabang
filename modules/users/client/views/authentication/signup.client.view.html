@@ -9,7 +9,7 @@
                     <div class="tab-body">
                         <fieldset ng-form data-ng-controller="AuthenticationController" ng-init="setInitValues()">
                             <alert type="danger" data-ng-show="error" class="text-center text-danger">
-                                <span data-ng-bind="error"></span>
+                                <span>{{ error | translate }}</span>
                             </alert>
                             <div class="form-group">
                                 <label for="firstName">{{ 'FIRST_NAME' | translate }}<span class="text-danger"> *</span></label>
@@ -153,7 +153,7 @@
                     <div class="tab-body">
                         <fieldset ng-form data-ng-controller="AuthenticationController" ng-init="setInitValues('provider')">
                             <alert type="danger" data-ng-show="error" class="text-center text-danger">
-                                <span data-ng-bind="error"></span>
+                                <span>{{ error | translate }}</span>
                             </alert>
                             <div class="form-group">
                                 <label for="firstName">{{ 'FIRST_NAME' | translate }}<span class="text-danger"> *</span></label>
