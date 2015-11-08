@@ -14,12 +14,15 @@ var path = require('path'),
  */
 exports.create = function(req, res) {
     console.log('entered server create');
+    console.log(req.body);
     var booking = new Booking(req.body);
     booking.user = req.user;
-    console.log(booking);
+    //console.log(booking);
+
+    // TODO: match model from UI
     booking.save(function(err) {
         if (err) {
-            console.log(err);
+            //console.log(err);
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });

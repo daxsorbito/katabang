@@ -69,7 +69,7 @@
         <div class="text-justified form-group">
             <label>
                 <input type="checkbox" name="recurring" id="recurring" ng-model="$parent.booking.recurring"
-                       ng-init="$parent.booking.recurring=0" ng-true-value="1" ng-false-value="0">&nbsp;{{
+                       ng-true-value="1" ng-false-value="0">&nbsp;{{
                 'RECURRING_REQUEST' | translate }}</input>
             </label>
 
@@ -93,7 +93,7 @@
                                <!--ng-true-value="1" ng-false-value="0">&nbsp;{{-->
                         <!--'CONTINUE_FOREVER' | translate }}</input>-->
                     <!--</label>-->
-                    <input type="date" id="until_date" class="form-control" min="{{ $parent.booking.allowed_start_date | date:'yyyy-MM-dd'}}"
+                    <input type="date" id="until_date" class="form-control" min="{{ $parent.booking.allowed_end_date | date:'yyyy-MM-dd'}}"
                            data-ng-model="$parent.booking.frequency_until_date"/>
                 </div>
             </div>
