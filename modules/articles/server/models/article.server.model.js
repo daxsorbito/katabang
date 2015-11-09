@@ -18,7 +18,7 @@ var ArticleSchema = new Schema({
     type: String,
     default: '',
     trim: true,
-    required: 'Title cannot be blank'
+    required: 'ERROR_MSG.TITLE_CANNOT_BE_BLANK'
   },
   content: {
     type: String,

@@ -99,6 +99,24 @@
     "COUNTRY_REQUIRED": "Country is required",
     "TELEPHONE_REQUIRED": "Telephone is required",
     "MOBILEPHONE_REQUIRED": "Mobilephone is required",
-    "CAPTCHA_REQUIRED": "Captcha required!"
-  }
+    "CAPTCHA_REQUIRED": "Captcha required!",
+    "TITLE_CANNOT_BE_BLANK": "Title cannot be blank",
+    "ARTICLE_IS_INVALID": "Article is invalid",
+    "ARTICLE_NOT_FOUND": "No article with that identifier has been found",
+    "UNEXPECTED_AUTHORIZATION_ERROR": "Unexpected authorization error",
+    "USER_IS_NOT_AUTHORIZED": "User is not authorized"
+  },
+  "ARTICLE": "Article",
+  "NEW_ARTICLE": "New Article",
+  "EDIT_ARTICLE": "Edit Article",
+  "TITLE": "Title",
+  "CONTENT": "Content",
+  "ARTICLES": "Articles",
+  "POSTED_ON": "Posted on",
+  "BY": "by",
+  "NO_ARTICLES_YET": "No articles yet, why don't you ",
+  "CREATE_ONE": "create one",
+  "CREATE": "Create",
+  "UPDATE": "Update",
+  "DELETE": "Delete"
 }

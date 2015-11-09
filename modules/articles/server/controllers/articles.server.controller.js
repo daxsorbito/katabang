@@ -92,7 +92,7 @@ exports.articleByID = function (req, res, next, id) {
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({
-      message: 'Article is invalid'
+      message: 'ERROR_MSG.ARTICLE_IS_INVALID'
     });
   }
 
@@ -101,7 +101,7 @@ exports.articleByID = function (req, res, next, id) {
       return next(err);
     } else if (!article) {
       return res.status(404).send({
-        message: 'No article with that identifier has been found'
+        message: 'ERROR_MSG.ARTICLE_NOT_FOUND'
       });
     }
     req.article = article;
