@@ -63,10 +63,10 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
     $scope.signin = function () {
       // TODO: remove this
-      $scope.credentials = {
-        username : "dax_xxxxx",
-        password : "123123123"
-      };
+      //$scope.credentials = {
+      //  username : "dax_xxxxx",
+      //  password : "123123123"
+      //};
 
       $http.post('/api/auth/signin', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model

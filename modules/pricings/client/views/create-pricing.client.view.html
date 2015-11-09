@@ -1,21 +1,21 @@
 <section data-ng-controller="PricingsController">
     <div class="page-header">
-        <h1>New Pricing</h1>
+        <h1>{{ 'NEW_PRICING' | translate }}</h1>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
             <fieldset>
                 <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
+                    <label class="control-label" for="name">{{ 'NAME' | translate }}</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
+                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="{{ 'NAME' | translate }}" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-default">
+                    <input type="submit" class="btn btn-default" value="{{ 'CREATE' | translate }}">
                 </div>
 				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
+					<strong>{{ error | translate }}</strong>
 				</div>
             </fieldset>
         </form>

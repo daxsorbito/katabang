@@ -12,20 +12,20 @@ var mongoose = require('mongoose'),
 var PricingSchema = new Schema({
 	startDate: {
 		type: Date,
-		required: 'Start date is required'
+		required: 'ERROR_MSG.START_DATE_REQUIRED'
 	},
 	locale: {
 		type: String,
-		required: 'Locale is required',
+		required: 'ERROR_MSG.LOCALE_REQUIRED',
 		trim: true
 	},
 	price: {
 		type: Number,
-		required: 'Price is required'
+		required: 'ERROR_MSG.PRICE_REQUIRED'
 	},
 	serviceType: {
 		type: Number,
-		required: "Service type is required"
+		required: "ERROR_MSG.SERVICE_TYPE_REQUIRED"
 	},
 	created: {
 		type: Date,

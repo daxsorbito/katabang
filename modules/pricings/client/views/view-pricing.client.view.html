@@ -12,9 +12,9 @@
 	</div>
 	<small>
 		<em class="text-muted">
-			Posted on
+			{{ 'POSTED_ON' | translate }}
 			<span data-ng-bind="pricing.created | date:'mediumDate'"></span>
-			by
+			{{ 'BY' | translate }}
 			<span data-ng-bind="pricing.user.displayName"></span>
 		</em>
 	</small>
