@@ -104,7 +104,11 @@
     "ARTICLE_IS_INVALID": "Article is invalid_jp",
     "ARTICLE_NOT_FOUND": "No article with that identifier has been found_jp",
     "UNEXPECTED_AUTHORIZATION_ERROR": "Unexpected authorization error_jp",
-    "USER_IS_NOT_AUTHORIZED": "User is not authorized_jp"
+    "USER_IS_NOT_AUTHORIZED": "User is not authorized_jp",
+    "START_DATE_REQUIRED": "Start date is required_jp",
+    "LOCALE_REQUIRED": "Locale is required_jp",
+    "PRICE_REQUIRED": "Price is required_jp",
+    "SERVICE_TYPE_REQUIRED": "Service type is required_jp"
   },
   "ARTICLE": "Article_jp",
   "NEW_ARTICLE": "New Article_jp",
@@ -114,9 +118,15 @@
   "ARTICLES": "Articles_jp",
   "POSTED_ON": "Posted on_jp",
   "BY": "by_jp",
-  "NO_ARTICLES_YET": "No articles yet, why don't you ",
+  "NO_ARTICLES_YET": "No articles yet, why don't you _jp",
   "CREATE_ONE": "create one_jp",
   "CREATE": "Create_jp",
   "UPDATE": "Update_jp",
-  "DELETE": "Delete_jp"
+  "DELETE": "Delete_jp",
+  "PRICING": "Pricing_jp",
+  "PRICINGS": "Pricings_jp",
+  "NO_PRICINGS_YET": "No pricings yet, why don't you _jp",
+  "NEW_PRICING": "New Pricing_jp",
+  "NAME": "Name_jp",
+  "EDIT_PRICING": "Edit Pricing_jp"
 }

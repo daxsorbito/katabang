@@ -104,7 +104,11 @@
     "ARTICLE_IS_INVALID": "Article is invalid",
     "ARTICLE_NOT_FOUND": "No article with that identifier has been found",
     "UNEXPECTED_AUTHORIZATION_ERROR": "Unexpected authorization error",
-    "USER_IS_NOT_AUTHORIZED": "User is not authorized"
+    "USER_IS_NOT_AUTHORIZED": "User is not authorized",
+    "START_DATE_REQUIRED": "Start date is required",
+    "LOCALE_REQUIRED": "Locale is required",
+    "PRICE_REQUIRED": "Price is required",
+    "SERVICE_TYPE_REQUIRED": "Service type is required"
   },
   "ARTICLE": "Article",
   "NEW_ARTICLE": "New Article",
@@ -118,5 +122,11 @@
   "CREATE_ONE": "create one",
   "CREATE": "Create",
   "UPDATE": "Update",
-  "DELETE": "Delete"
+  "DELETE": "Delete",
+  "PRICING": "Pricing",
+  "PRICINGS": "Pricings",
+  "NO_PRICINGS_YET": "No pricings yet, why don't you ",
+  "NEW_PRICING": "New Pricing",
+  "NAME": "Name",
+  "EDIT_PRICING": "Edit Pricing"
 }
