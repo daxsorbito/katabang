@@ -128,5 +128,8 @@
   "NO_PRICINGS_YET": "No pricings yet, why don't you ",
   "NEW_PRICING": "New Pricing",
   "NAME": "Name",
-  "EDIT_PRICING": "Edit Pricing"
+  "EDIT_PRICING": "Edit Pricing",
+  "NUMBER_OF_HOURS": "Number of hours",
+  "CONNECTED_SOCIAL_ACCOUNTS": "Connected social accounts",
+  "UNCONNECTED_SOCIAL_ACCOUNTS": "Unconnected social accounts"
 }
