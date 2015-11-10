@@ -9,9 +9,9 @@
     <label for="city">{{ 'CITY_TOWN' | translate }}<span class="text-danger"> *</span></label>
     <select data-ng-model="credentials.address.city" id="city"
             class="form-control"
-            ng-required>
-        <option selected>{{ 'PLEASE_SELECT' | translate }}</option>
-        <option value="1">Cebu City</option>
+            ng-required ng-options="item.id as item.name for item in cities track by item.id">
+        <option style="display:none" value="" selected>{{ 'PLEASE_SELECT' | translate }}</option>
+        <!--<option value="1">Cebu City</option>
         <option value="2">Mandaue</option>
         <option value="3">Lapu-lapu</option>
         <option value="4">Talisay</option>
@@ -21,20 +21,21 @@
         <option value="8">Taguig</option>
         <option value="9">Tokyo</option>
         <option value="10">Seoul</option>
-        <option value="10">Singapore</option>
+        <option value="10">Singapore</option>-->
     </select>
 </div>
 <div class="form-group">
     <label for="prov_state">{{ 'PROV_STATE' | translate }}</label>
     <select data-ng-model="credentials.address.prov_state" id="prov_state"
-            class="form-control">
-        <option selected>{{ 'PLEASE_SELECT' | translate }}</option>
-        <option value="1">Cebu</option>
+            class="form-control"
+            ng-required ng-options="item.id as item.name for item in prov_states track by item.id">
+        <option style="display:none" value="" selected>{{ 'PLEASE_SELECT' | translate }}</option>
+        <!--<option value="1">Cebu</option>
         <option value="2">Manila</option>
         <option value="3">Tokyo</option>
         <option value="4">Seoul</option>
         <option value="5">Hong Kong</option>
-        <option value="6">Singapore</option>
+        <option value="6">Singapore</option>-->
     </select>
 </div>
 <div class="form-group">
@@ -47,13 +48,13 @@
     <label for="country">{{ 'COUNTRY' | translate }}<span class="text-danger"> *</span></label>
     <select data-ng-model="credentials.address.country" id="country"
             class="form-control"
-            ng-required>
-        <option selected>{{ 'PLEASE_SELECT' | translate }}</option>
-        <option value="1">Philippines</option>
+            ng-required ng-options="item.id as item.name for item in countries track by item.id">
+        <option style="display:none" value="" selected>{{ 'PLEASE_SELECT' | translate }}</option>
+        <!--<option value="1">Philippines</option>
         <option value="2">Japan</option>
         <option value="3">Korea</option>
         <option value="5">Hong Kong</option>
-        <option value="6">Singapore</option>
+        <option value="6">Singapore</option>-->
     </select>
 </div>
 <div class="form-group">
