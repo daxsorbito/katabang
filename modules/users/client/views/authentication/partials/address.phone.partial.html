@@ -9,7 +9,7 @@
     <label for="city">{{ 'CITY_TOWN' | translate }}<span class="text-danger"> *</span></label>
     <select data-ng-model="credentials.address.city" id="city"
             class="form-control"
-            ng-required ng-options="item.id as item.name for item in cities track by item.id">
+            ng-required ng-options="item.id as item.name for item in cities">
         <option style="display:none" value="" selected>{{ 'PLEASE_SELECT' | translate }}</option>
         <!--<option value="1">Cebu City</option>
         <option value="2">Mandaue</option>
@@ -28,7 +28,7 @@
     <label for="prov_state">{{ 'PROV_STATE' | translate }}</label>
     <select data-ng-model="credentials.address.prov_state" id="prov_state"
             class="form-control"
-            ng-required ng-options="item.id as item.name for item in prov_states track by item.id">
+            ng-required ng-options="item.id as item.name for item in prov_states">
         <option style="display:none" value="" selected>{{ 'PLEASE_SELECT' | translate }}</option>
         <!--<option value="1">Cebu</option>
         <option value="2">Manila</option>
@@ -48,7 +48,7 @@
     <label for="country">{{ 'COUNTRY' | translate }}<span class="text-danger"> *</span></label>
     <select data-ng-model="credentials.address.country" id="country"
             class="form-control"
-            ng-required ng-options="item.id as item.name for item in countries track by item.id">
+            ng-required ng-options="item.id as item.name for item in countries">
         <option style="display:none" value="" selected>{{ 'PLEASE_SELECT' | translate }}</option>
         <!--<option value="1">Philippines</option>
         <option value="2">Japan</option>
