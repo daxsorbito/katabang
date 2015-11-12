@@ -1,13 +1,13 @@
 'use strict';
 
 // Bookings controller
-angular.module('bookings').controller('BookingsController', ['$scope', '$state', '$stateParams', '$location', '$localStorage', '$translate', 'Authentication', 'Bookings', 'Pricings',
-    function ($scope, $state, $stateParams, $location, $localStorage, $translate, Authentication, Bookings, Pricings) {
+angular.module('bookings').controller('BookingsController', ['$scope', '$state', '$stateParams', '$location', '$sessionStorage', '$translate', 'Authentication', 'Bookings', 'Pricings',
+    function ($scope, $state, $stateParams, $location, $sessionStorage, $translate, Authentication, Bookings, Pricings) {
         $scope.authentication = Authentication;
         $scope.createBookingPage = $state.current.name === 'bookings.create';
 
         $scope.bookNow = function () {
-            $localStorage.booked = $scope.booking;
+            $sessionStorage.booked = $scope.booking;
             if (!$scope.authentication.user) {
                 $state.go('authentication.signin');
             }
@@ -24,7 +24,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
                 $scope.booking.amountDue = data.price;
             });
 
-            $scope.booking = $localStorage.booked || {};
+            $scope.booking = $sessionStorage.booked || {};
             $scope.booking.recurring = $scope.booking.recurring || 0;
             if ($scope.booking.booking_date) { $scope.booking.booking_date = new Date($scope.booking.booking_date); }
             if ($scope.booking.frequency_until_date) { $scope.booking.frequency_until_date = new Date($scope.booking.frequency_until_date); }
@@ -66,85 +66,103 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
             $scope.booking.allowed_end_date = enddate.toISOString();
         }
 
-        $scope.$watchGroup(['pricing', 'booking.booking_date', 'booking.duration', 'booking.recurring', 'booking.frequency', 'booking.frequency_until_date'], function () {
+        $scope.$watchGroup(['pricing', 'booking.booking_date', 'booking.duration', 'booking.recurring', 'booking.frequency', 'booking.frequency_until_date', 'booking.booking_time'], function () {
             if (!$scope.pricing) return;
-            var numOfBooking = ($scope.booking.duration || 4) / 4; // billed by 4 hours
+            var billedBookingCount = ($scope.booking.duration || 4) / 4; // billed by 4 hours
             var multiplier = 1;
-            if ($scope.booking.recurring && $scope.booking.frequency_until_date) {
+
+            if ($scope.booking.booking_date) {
                 var start_date = new Date($scope.booking.booking_date);
-                var end_date = new Date($scope.booking.frequency_until_date);
+                var end_date = $scope.booking.frequency_until_date ? new Date($scope.booking.frequency_until_date) : new Date($scope.booking.booking_date);
+                var MWF = [1,3,5];
+                var TTH = [2, 4];
+                var DAILY = [0,1,2,3,4,5,6,7];
+                var WEEKLY = 7;
 
-                switch ($scope.booking.frequency) {
-                    case '1':
-                    { // Daily
-                        multiplier = countNumberOfDays(start_date, end_date);
-                        break;
-                    }
-                    case '2':
-                    { // MWF
-                        multiplier = countCertainDays([1, 3, 5], start_date, end_date);
-                        break;
-                    }
-                    case '3':
-                    { // TTH
-                        multiplier = countCertainDays([2, 4], start_date, end_date);
-                        break;
-                    }
-                    case '4':
-                    { // Weekly
-                        multiplier = countNumberOfWeeks(start_date, end_date);
-                        break;
-                    }
-                    case '5':
-                    { // Forthnightly
-                        // TODO: validate end date (flag error if until_date)
-                        multiplier = Math.floor(countNumberOfWeeks(start_date, end_date) / 2);
-                        break;
-                    }
-                    case '6' :
-                    { // Monthly
-                        multiplier = countNumberOfMonths(start_date, end_date);
-                    }
+                setDaysScheduledBookings(DAILY, start_date, end_date);
 
+                if ($scope.booking.recurring && $scope.booking.frequency_until_date) {
+
+
+                    switch ($scope.booking.frequency) {
+                        case '1':
+                        { // Daily
+                            setDaysScheduledBookings(DAILY, start_date, end_date);
+                            break;
+                        }
+                        case '2':
+                        { // MWF
+                            setDaysScheduledBookings(MWF, start_date, end_date);
+                            break;
+                        }
+                        case '3':
+                        { // TTH
+                            setDaysScheduledBookings(TTH, start_date, end_date);
+                            break;
+                        }
+                        case '4':
+                        { // Weekly
+                            setWeeklyScheduledBookings(WEEKLY, start_date, end_date);
+                            break;
+                        }
+                        case '5':
+                        { // Forthnightly
+                            // TODO: validate end date (flag error if until_date)
+                            setWeeklyScheduledBookings(WEEKLY * 2, start_date, end_date);
+                            break;
+                        }
+                        case '6' :
+                        { // Monthly
+                            setMonthlyScheduleBookings(start_date, end_date);
+                            break;
+                        }
+                        default :
+                            setDaysScheduledBookings(DAILY, start_date, start_date);
+
+                    }
                 }
             }
-            numOfBooking = (multiplier * numOfBooking);
+            multiplier = $scope.booking.scheduledBookings ? $scope.booking.scheduledBookings.length : 1;
+            billedBookingCount = (multiplier * billedBookingCount);
 
-            $scope.booking.numberOfBookings = numOfBooking;
-            $scope.booking.amountDue = $scope.pricing.price * numOfBooking;
+            $scope.booking.numberOfBookings = multiplier;
+            $scope.booking.amountDue = $scope.pricing.price * billedBookingCount;
+
         });
 
-        function computeRecurringBooking () {
-            $scope.booking.scheduledBooking = $scope.booking.scheduledBooking || {};
+        function setDaysScheduledBookings (days, start_date, end_date) {
+            var scheduledBookings = [];
+            for (var d = start_date; d <= end_date; d.setDate(d.getDate() + 1)) {
+                if(days.indexOf(d.getDay()) > -1) {
+                    scheduledBookings.push({
+                        booking_date: (new Date(d)).toLocaleDateString(),
+                        booking_time: $scope.booking.booking_time,
+                        booking_duration: $scope.booking.duration});
+                }
+            }
+            $scope.booking.scheduledBookings = scheduledBookings;
         }
 
-        function countNumberOfDays(start_date, end_date) {
-            return dateCompute(start_date, end_date, 24);
+        function setWeeklyScheduledBookings (weekly, start_date, end_date) {
+            var scheduledBookings = [];
+            for (var d = start_date; d <= end_date; d.setDate(d.getDate() + weekly)) {
+                scheduledBookings.push({
+                    booking_date: (new Date(d)).toLocaleDateString(),
+                    booking_time: $scope.booking.booking_time,
+                    booking_duration: $scope.booking.duration});
+            }
+            $scope.booking.scheduledBookings = scheduledBookings;
         }
 
-        function countNumberOfWeeks(start_date, end_date) {
-            return dateCompute(start_date, end_date, 24 * 7);
-        }
-
-        function dateCompute(start_date, end_date, add_on) {
-            var millisecondsPerDay = 1000 * 60 * 60 * add_on;
-
-            var millisBetween = end_date.getTime() - start_date.getTime();
-            var days = millisBetween / millisecondsPerDay;
-            console.log('number of days ' + Math.floor(days));
-            return Math.floor(days);
-        }
-
-        function countCertainDays(days, start_date, end_date) {
-            var ndays = 1 + Math.round((end_date - start_date) / (24 * 3600 * 1000));
-            var sum = function (a, b) {
-                return a + Math.floor(( ndays + (start_date.getDay() + 6 - b) % 7 ) / 7);
-            };
-            return days.reduce(sum, 0);
-        }
-
-        function countNumberOfMonths(start_date, end_date) {
-            return Math.floor(end_date.getMonth() - start_date.getMonth() + (12 * (end_date.getFullYear() - start_date.getFullYear())));
+        function setMonthlyScheduleBookings (start_date, end_date) {
+            var scheduledBookings = [];
+            for (var d = start_date; d <= end_date; d.setMonth(d.getMonth() + 1)) {
+                scheduledBookings.push({
+                    booking_date: (new Date(d)).toLocaleDateString(),
+                    booking_time: $scope.booking.booking_time,
+                    booking_duration: $scope.booking.duration});
+            }
+            $scope.booking.scheduledBookings = scheduledBookings;
         }
 
         // Remove existing Bookings

@@ -10,6 +10,30 @@
     font-weight: 800;
 }
 
+.bookingTable tr:nth-child(odd) {
+    background-color: lightgrey;
+}
+
+.bookingTable {
+    background-color: lightgoldenrodyellow;
+    margin: 15px 550px;
+    line-height: 15px;
+}
+
+.bookingTable th {
+    width: 50%;
+    padding: 5px 30px 5px 30px;
+    border: 1px solid darkgray;
+    background-color: lightgoldenrodyellow;
+}
+
+.bookingTable td{
+    width: 50%;
+    font-weight: 500;
+    padding: 5px 30px 5px 30px;
+    border: 1px solid darkgray;
+}
+
 .tp-banner-container-booking {
     background-image: url(/modules/core/img/brand/tileable_wood.png); !important;
 }
