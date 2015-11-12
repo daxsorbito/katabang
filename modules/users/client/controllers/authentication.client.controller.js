@@ -123,7 +123,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       //{"id": 9, "name": "Tokyo"},
       //{"id": 10, "name": "Seoul"},
       //{"id": 11, "name": "Singapore"}
-    ]
+    ];
     $scope.prov_states =[
       {"id": 1, "name": "Cebu"},
       {"id": 2, "name": "Manila"},
@@ -131,14 +131,14 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       //{"id": 4, "name": "Seoul"},
       //{"id": 5, "name": "Hongkong"},
       //{"id": 6, "name": "Singapore"}
-    ]
+    ];
     $scope.countries =[
       {"id": 1, "name": "Philippines"},
       //{"id": 2, "name": "Japan"},
       //{"id": 3, "name": "Korea"},
       //{"id": 4, "name": "Hongkong"},
       //{"id": 5, "name": "Singapore"}
-    ]
+    ];
 
 
   }
