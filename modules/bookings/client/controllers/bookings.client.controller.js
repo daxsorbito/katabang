@@ -61,9 +61,11 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
             var startdate = new Date();
             startdate.setDate(startdate.getDate() + 1);
             $scope.booking.allowed_start_date = startdate.toISOString();
-            var enddate = new Date($scope.booking.booking_date);
-            enddate.setDate(enddate.getDate() + 1);
-            $scope.booking.allowed_end_date = enddate.toISOString();
+            if ($scope.booking.booking_date) {
+                var enddate = new Date($scope.booking.booking_date);
+                enddate.setDate(enddate.getDate() + 1);
+                $scope.booking.allowed_end_date = enddate.toISOString();
+            }
         }
 
         $scope.$watchGroup(['pricing', 'booking.booking_date', 'booking.duration', 'booking.recurring', 'booking.frequency', 'booking.frequency_until_date', 'booking.booking_time'], function () {
@@ -132,7 +134,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
 
         function setDaysScheduledBookings (days, start_date, end_date) {
             var scheduledBookings = [];
-            for (var d = start_date; d <= end_date; d.setDate(d.getDate() + 1)) {
+            for (var d = new Date(start_date); d <= end_date; d.setDate(d.getDate() + 1)) {
                 if(days.indexOf(d.getDay()) > -1) {
                     scheduledBookings.push({
                         booking_date: (new Date(d)).toLocaleDateString(),
