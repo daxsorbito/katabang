@@ -111,34 +111,34 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       console.log('Captcha expired. Resetting response object');
       $scope.response = null;
     };
-    $scope.cities = [
-      {"id": 1, "name": "Cebu City"},
-      {"id": 2, "name": "Mandaue"},
-      {"id": 3, "name": "Lapu-lapu"},
-      {"id": 4, "name": "Talisay"},
-      {"id": 5, "name": "Manila-Pasay"},
-      {"id": 6, "name": "Makati"},
-      {"id": 7, "name": "Ortigas"},
-      {"id": 8, "name": "Taguig"},
+    // $scope.cities = [
+    //   {"id": 1, "name": "Cebu City"},
+    //   {"id": 2, "name": "Mandaue"},
+    //   {"id": 3, "name": "Lapu-lapu"},
+    //   {"id": 4, "name": "Talisay"},
+    //   {"id": 5, "name": "Manila-Pasay"},
+    //   {"id": 6, "name": "Makati"},
+    //   {"id": 7, "name": "Ortigas"},
+    //   {"id": 8, "name": "Taguig"},
       //{"id": 9, "name": "Tokyo"},
       //{"id": 10, "name": "Seoul"},
       //{"id": 11, "name": "Singapore"}
-    ];
-    $scope.prov_states =[
-      {"id": 1, "name": "Cebu"},
-      {"id": 2, "name": "Manila"},
+    //];
+    //$scope.prov_states =[
+    //  {"id": 1, "name": "Cebu"},
+    //  {"id": 2, "name": "Manila"},
       //{"id": 3, "name": "Tokyo"},
       //{"id": 4, "name": "Seoul"},
       //{"id": 5, "name": "Hongkong"},
       //{"id": 6, "name": "Singapore"}
-    ];
-    $scope.countries =[
-      {"id": 1, "name": "Philippines"},
+    //];
+    //$scope.countries =[
+    //  {"id": 1, "name": "Philippines"},
       //{"id": 2, "name": "Japan"},
       //{"id": 3, "name": "Korea"},
       //{"id": 4, "name": "Hongkong"},
       //{"id": 5, "name": "Singapore"}
-    ];
+    //];
 
 
   }

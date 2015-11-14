@@ -7,11 +7,12 @@
 </div>
 <div class="form-group">
     <label for="city">{{ 'CITY_TOWN' | translate }}<span class="text-danger"> *</span></label>
-    <select data-ng-model="credentials.address.city" id="city"
+    <cities data-ng-model="redentials.address.city" id="city"></cities>
+    <!--<select data-ng-model="credentials.address.city" id="city"
             class="form-control"
             ng-required ng-options="item.id as item.name for item in cities">
         <option style="display:none" value="" selected>{{ 'PLEASE_SELECT' | translate }}</option>
-        <!--<option value="1">Cebu City</option>
+        <option value="1">Cebu City</option>
         <option value="2">Mandaue</option>
         <option value="3">Lapu-lapu</option>
         <option value="4">Talisay</option>
@@ -21,22 +22,23 @@
         <option value="8">Taguig</option>
         <option value="9">Tokyo</option>
         <option value="10">Seoul</option>
-        <option value="10">Singapore</option>-->
-    </select>
+        <option value="10">Singapore</option>
+    </select>-->
 </div>
 <div class="form-group">
     <label for="prov_state">{{ 'PROV_STATE' | translate }}</label>
-    <select data-ng-model="credentials.address.prov_state" id="prov_state"
+    <provstates data-ng-model="redentials.address.prov_state" id="prov_state"></provstates>
+    <!--<select data-ng-model="credentials.address.prov_state" id="prov_state"
             class="form-control"
             ng-required ng-options="item.id as item.name for item in prov_states">
         <option style="display:none" value="" selected>{{ 'PLEASE_SELECT' | translate }}</option>
-        <!--<option value="1">Cebu</option>
+        <option value="1">Cebu</option>
         <option value="2">Manila</option>
         <option value="3">Tokyo</option>
         <option value="4">Seoul</option>
         <option value="5">Hong Kong</option>
-        <option value="6">Singapore</option>-->
-    </select>
+        <option value="6">Singapore</option>
+    </select>-->
 </div>
 <div class="form-group">
     <label for="zip_code">{{ 'ZIP_CODE' | translate }}</label>
@@ -46,16 +48,17 @@
 </div>
 <div class="form-group">
     <label for="country">{{ 'COUNTRY' | translate }}<span class="text-danger"> *</span></label>
-    <select data-ng-model="credentials.address.country" id="country"
+    <countries data-ng-model="credentials.address.country", id="contry"></countries>
+    <!--<select data-ng-model="credentials.address.country" id="country"
             class="form-control"
             ng-required ng-options="item.id as item.name for item in countries">
         <option style="display:none" value="" selected>{{ 'PLEASE_SELECT' | translate }}</option>
-        <!--<option value="1">Philippines</option>
+        <option value="1">Philippines</option>
         <option value="2">Japan</option>
         <option value="3">Korea</option>
         <option value="5">Hong Kong</option>
-        <option value="6">Singapore</option>-->
-    </select>
+        <option value="6">Singapore</option>
+    </select>-->
 </div>
 <div class="form-group">
     <label for="telephone">{{ 'TELEPHONE' | translate }}<span class="text-danger"> *</span></label>
