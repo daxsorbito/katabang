@@ -7,7 +7,7 @@
 </div>
 <div class="form-group">
     <label for="city">{{ 'CITY_TOWN' | translate }}<span class="text-danger"> *</span></label>
-    <cities data-ng-model="redentials.address.city" id="city"></cities>
+    <cities data-ng-model="credentials.address.city" id="city"></cities>
     <!--<select data-ng-model="credentials.address.city" id="city"
             class="form-control"
             ng-required ng-options="item.id as item.name for item in cities">
@@ -27,7 +27,7 @@
 </div>
 <div class="form-group">
     <label for="prov_state">{{ 'PROV_STATE' | translate }}</label>
-    <provstates data-ng-model="redentials.address.prov_state" id="prov_state"></provstates>
+    <provstates data-ng-model="credentials.address.prov_state" id="prov_state"></provstates>
     <!--<select data-ng-model="credentials.address.prov_state" id="prov_state"
             class="form-control"
             ng-required ng-options="item.id as item.name for item in prov_states">
