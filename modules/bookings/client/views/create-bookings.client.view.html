@@ -13,6 +13,7 @@
 
                     </div>
                 </div>
+                <hello-world/>
                 <div class="bookingNotes">
                     <h2>NOTES:</h2>
 
@@ -21,6 +22,18 @@
 
                     <div>
                         <h3>Number of bookings: {{ booking.numberOfBookings || 1 }}</h3>
+                        <table class="bookingTable text-center">
+                            <tr>
+                                <th class="text-center">Date</th>
+                                <th class="text-center">Time</th>
+                                <th class="text-center">Duration (hours)</th>
+                            </tr>
+                            <tr ng-repeat="schedBooking in booking.scheduledBookings">
+                                <td>{{ schedBooking.booking_date }}</td>
+                                <td>{{ schedBooking.booking_time }}</td>
+                                <td>{{ schedBooking.booking_duration }}</td>
+                            </tr>
+                        </table>
 
                         <h3>Your Estimated Amount Due is = &nbsp; {{ booking.amountDue || 0 }}</h3>
                         <input type="submit" name="submitbooking" class="btn btn-color btn-lg"
