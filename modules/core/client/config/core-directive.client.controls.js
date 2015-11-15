@@ -25,7 +25,7 @@ angular.module('core').directive('primaryservice', function() {
 angular.module('core').directive('cities', function(){
   'use strict';
   return {
-    restrict: 'EA',
+    restrict: 'E',
     scope: {
       ngModel: '=',
       id: '='

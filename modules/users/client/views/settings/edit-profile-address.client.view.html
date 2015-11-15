@@ -13,34 +13,11 @@
         </div>
         <div class="form-group">
           <label for="city">{{ 'CITY_TOWN' | translate }}</label>
-          <select data-ng-model="user.address.city" id="city"
-                  class="form-control">
-            <option value="0" {{user.address.city == 0 ? 'selected' : ''}}>{{ 'PLEASE_SELECT' | translate }}</option>
-            <option value="1" {{user.address.city == 1 ? 'selected' : ''}}>Cebu City</option>
-            <option value="2" {{user.address.city == 2 ? 'selected' : ''}}>Mandaue</option>
-            <option value="3" {{user.address.city == 3 ? 'selected' : ''}}>Lapu-lapu</option>
-            <option value="4" {{user.address.city == 4 ? 'selected' : ''}}>Talisay</option>
-            <option value="5" {{user.address.city == 5 ? 'selected' : ''}}>Manila-Pasay</option>
-            <option value="6" {{user.address.city == 6 ? 'selected' : ''}}>Makati</option>
-            <option value="7" {{user.address.city == 7 ? 'selected' : ''}}>Ortigas</option>
-            <option value="8" {{user.address.city == 8 ? 'selected' : ''}}>Taguig</option>
-            <option value="9" {{user.address.city == 9 ? 'selected' : ''}}>Tokyo</option>
-            <option value="10" {{user.address.city == 10 ? 'selected' : ''}}>Seoul</option>
-            <option value="11" {{user.address.city == 11 ? 'selected' : ''}}>Singapore</option>
-          </select>
+          <cities data-ng-model="user.address.city" id="city"></cities>
         </div>
         <div class="form-group">
           <label for="prov_state">{{ 'PROV_STATE' | translate }}</label>
-          <select data-ng-model="user.address.prov_state" id="prov_state"
-                  class="form-control">
-            <option value="0" {{user.address.prov_state == 0 ? 'selected' : ''}}>{{ 'PLEASE_SELECT' | translate }}</option>
-            <option value="1" {{user.address.prov_state == 1 ? 'selected' : ''}}>Cebu</option>
-            <option value="2" {{user.address.prov_state == 2 ? 'selected' : ''}}>Manila</option>
-            <option value="3" {{user.address.prov_state == 3 ? 'selected' : ''}}>Tokyo</option>
-            <option value="4" {{user.address.prov_state == 4 ? 'selected' : ''}}>Seoul</option>
-            <option value="5" {{user.address.prov_state == 5 ? 'selected' : ''}}>Hong Kong</option>
-            <option value="6" {{user.address.prov_state == 6 ? 'selected' : ''}}>Singapore</option>
-          </select>
+          <provstates data-ng-model="user.address.prov_state" id="prov_state"></provstates>
         </div>
         <div class="form-group">
           <label for="zip_code">{{ 'ZIP_CODE' | translate }}</label>
@@ -50,15 +27,7 @@
         </div>
         <div class="form-group">
           <label for="country">{{ 'COUNTRY' | translate }}</label>
-          <select data-ng-model="user.address.country" id="country"
-                  class="form-control">
-            <option value="0" {{user.address.country == 0 ? 'selected' : ''}}>{{ 'PLEASE_SELECT' | translate }}</option>
-            <option value="1" {{user.address.country == 1 ? 'selected' : ''}}>Philippines</option>
-            <option value="2" {{user.address.country == 2 ? 'selected' : ''}}>Japan</option>
-            <option value="3" {{user.address.country == 3 ? 'selected' : ''}}>Korea</option>
-            <option value="4" {{user.address.country == 4 ? 'selected' : ''}}>Hong Kong</option>
-            <option value="5" {{user.address.country == 5 ? 'selected' : ''}}>Singapore</option>
-          </select>
+          <countries data-ng-model="user.address.country" id="country"></countries>
         </div>
         <div class="form-group">
           <label for="telephone">{{ 'TELEPHONE' | translate }}</label>
