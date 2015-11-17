@@ -1,42 +1,8 @@
 <div class="modal-body">
     <label for="bkgservtype" class="control-label">{{ 'SELECT_A_SERVICE' | translate }}</label>
-    <select id="bkgservtype" class="form-control" data-ng-model="$parent.booking.serviceType">
-        <option value="0" ng-selected="($parent.booking.serviceType || 0) == 0">{{ 'PLEASE_SELECT' | translate }}
-        </option>
-        <option value="1" ng-selected="$parent.booking.serviceType == 1">{{ 'SERVICES.HOUSE_CLEANER' | translate }}
-        </option>
-        <option value="2" disabled ng-selected="$parent.booking.serviceType == 2">{{ 'SERVICES.LAUNDRY_PRESS' | translate }}
-        </option>
-        <option value="3" disabled ng-selected="$parent.booking.serviceType == 3">{{ 'SERVICES.CARETAKER_OLDSITTER' | translate
-            }}
-        </option>
-        <option value="4" disabled ng-selected="$parent.booking.serviceType == 4">{{ 'SERVICES.CARETAKER_BABYSITTER' | translate
-            }}
-        </option>
-        <option value="5" disabled ng-selected="$parent.booking.serviceType == 5">{{ 'SERVICES.PLUMBER' | translate }}</option>
-        <option value="6" disabled ng-selected="$parent.booking.serviceType == 6">{{ 'SERVICES.AIRCON_CLEANER' | translate }}
-        </option>
-        <option value="7" disabled ng-selected="$parent.booking.serviceType == 7">{{ 'SERVICES.HOUSE_FIXTURES_INSTALLER' |
-            translate }}
-        </option>
-        <option value="8" disabled ng-selected="$parent.booking.serviceType == 8">{{ 'SERVICES.GARDENER' | translate }}</option>
-        <option value="9" disabled ng-selected="$parent.booking.serviceType == 9">{{ 'SERVICES.HANDYMAN' | translate }}</option>
-    </select>
+    <primaryservice data-ng-model="$parent.booking.serviceType" id="bkgservtype"></primaryservice>
     <label for="bkgloc" class="control-label">{{ 'WHERE' | translate }}</label>
-    <select id="bkgloc" class="form-control" data-ng-model="$parent.booking.city">
-        <option value="0" ng-selected="($parent.booking.city || 0) == 0">{{ 'PLEASE_SELECT' | translate }}</option>
-        <option value="1" ng-selected="$parent.booking.city == 1">Cebu City</option>
-        <option value="2" ng-selected="$parent.booking.city == 2">Mandaue</option>
-        <option value="3" ng-selected="$parent.booking.city == 3">Lapu-lapu</option>
-        <option value="4" ng-selected="$parent.booking.city == 4">Talisay</option>
-        <option value="5" ng-selected="$parent.booking.city == 5">Manila-Pasay</option>
-        <option value="6" ng-selected="$parent.booking.city == 6">Makati</option>
-        <option value="7" ng-selected="$parent.booking.city == 7">Ortigas</option>
-        <option value="8" ng-selected="$parent.booking.city == 8">Taguig</option>
-        <option value="9" ng-selected="$parent.booking.city == 9">Tokyo</option>
-        <option value="10" ng-selected="$parent.booking.city == 10">Seoul</option>
-        <option value="11" ng-selected="$parent.booking.city == 11">Singapore</option>
-    </select>
+    <cities data-ng-model="$parent.booking.city" id="bkgloc"></cities>
     <label for="dateinput" class="control-label">{{ 'DATE' | translate }}</label>
     <input type="date" id="dateinput" class="form-control" data-ng-model="$parent.booking.booking_date" min="{{ $parent.booking.allowed_start_date | date:'yyyy-MM-dd'}}"/>
     <label for="bkgtimestart" class="control-label">{{ 'PREFERRED_TIME' | translate }}</label>
@@ -107,37 +73,11 @@
         </div>
         <div class="form-group">
             <label for="city">{{ 'CITY_TOWN' | translate }}</label>
-            <select data-ng-model="$parent.booking.address.city" id="city"
-                    class="form-control">
-                <option value="0" ng-selected="($parent.booking.address.city || 0) == 0">{{ 'PLEASE_SELECT' | translate
-                    }}
-                </option>
-                <option value="1" ng-selected="$parent.booking.address.city == 1">Cebu City</option>
-                <option value="2" ng-selected="$parent.booking.address.city == 2">Mandaue</option>
-                <option value="3" ng-selected="$parent.booking.address.city == 3">Lapu-lapu</option>
-                <option value="4" ng-selected="$parent.booking.address.city == 4">Talisay</option>
-                <option value="5" ng-selected="$parent.booking.address.city == 5">Manila-Pasay</option>
-                <option value="6" ng-selected="$parent.booking.address.city == 6">Makati</option>
-                <option value="7" ng-selected="$parent.booking.address.city == 7">Ortigas</option>
-                <option value="8" ng-selected="$parent.booking.address.city == 8">Taguig</option>
-                <option value="9" ng-selected="$parent.booking.address.city == 9">Tokyo</option>
-                <option value="10" ng-selected="$parent.booking.address.city == 10">Seoul</option>
-                <option value="11" ng-selected="$parent.booking.address.city == 11">Singapore</option>
-            </select>
+            <cities data-ng-model="$parent.booking.address.city" id="city"></cities>
         </div>
         <div class="form-group">
             <label for="prov_state">{{ 'PROV_STATE' | translate }}</label>
-            <select data-ng-model="$parent.booking.address.prov_state" id="prov_state"
-                    class="form-control">
-                <option value="" ng-selected="($parent.booking.address.prov_state || '') == ''">{{ 'PLEASE_SELECT' |
-                    translate }}
-                </option>
-                <option value="1" ng-selected="$parent.booking.address.prov_state == 1">Cebu</option>
-                <option value="2" ng-selected="$parent.booking.address.prov_state == 2">Manila</option>
-                <option value="3" ng-selected="$parent.booking.address.prov_state == 3">Tokyo</option>
-                <option value="4" ng-selected="$parent.booking.address.prov_state == 4">Hong Kong</option>
-                <option value="5" ng-selected="$parent.booking.address.prov_state == 5">Singapore</option>
-            </select>
+            <provstates data-ng-model="$parent.booking.address.prov_state" id="prov_state"></provstates>
         </div>
         <div class="form-group">
             <label for="zip_code">{{ 'ZIP_CODE' | translate }}</label>
@@ -147,17 +87,7 @@
         </div>
         <div class="form-group">
             <label for="country">{{ 'COUNTRY' | translate }}</label>
-            <select data-ng-model="$parent.booking.address.country" id="country"
-                    class="form-control">
-                <option value="" ng-selected="($parent.booking.address.country || '') == ''">{{ 'PLEASE_SELECT' |
-                    translate }}
-                </option>
-                <option value="1" ng-selected="$parent.booking.address.country == 1">Philippines</option>
-                <option value="2" ng-selected="$parent.booking.address.country == 2">Japan</option>
-                <option value="3" ng-selected="$parent.booking.address.country == 3">Korea</option>
-                <option value="4" ng-selected="$parent.booking.address.country == 4">Hong Kong</option>
-                <option value="5" ng-selected="$parent.booking.address.country == 5">Singapore</option>
-            </select>
+            <countries data-ng-model="$parent.booking.address.country" id="country"></countries>
         </div>
         <div class="form-group">
             <label for="telephone">{{ 'TELEPHONE' | translate }}</label>
