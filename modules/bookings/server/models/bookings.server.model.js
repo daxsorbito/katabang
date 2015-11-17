@@ -10,21 +10,17 @@ var mongoose = require('mongoose'),
  * Booking Schema
  */
 var BookingSchema = new Schema({
-	service_type: {
+	serviceType: {
 		type: Number,
 		required: "Service type is required"
-	},
-	location: {
-		type: Number,
-		required: "Location is required"
 	},
 	booking_date: {
 		type: Date,
 		required: "Date is required"
 	},
-	preferred_time: {
+	booking_time: {
 		type: String,
-		required: "Preferred time is required"
+		required: "Booking time is required"
 	},
 	duration: {
 		type: String,
@@ -34,14 +30,16 @@ var BookingSchema = new Schema({
 		type: Boolean,
 		default: 0
 	},
-	interval: {
-		type: Number,
-		default: 0
+	frequency: {
+		type: Number
+	},
+	frequency_until_date: {
+		type: Date
 	},
 	address : {
 		address1: { type: String, required: 'Address is required' },
 		city: { type: Number, required: 'City is required' },
-		prov_state: { type: Number,  },
+		prov_state: { type: Number },
 		zip_code: { type: String },
 		country: { type: Number, required: 'Country is required' },
 		telephone: { type: String, required: 'Telephone is required' },

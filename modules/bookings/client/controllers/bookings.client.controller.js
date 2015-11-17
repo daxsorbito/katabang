@@ -20,7 +20,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
             Pricings.get({
                 pricingLocale: $translate.use()
             }, function (data) {
-                $scope.pricing = data;
+                $scope.booking.pricing = data;
                 $scope.booking.amountDue = data.price;
             });
 
@@ -69,7 +69,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
         }
 
         $scope.$watchGroup(['pricing', 'booking.booking_date', 'booking.duration', 'booking.recurring', 'booking.frequency', 'booking.frequency_until_date', 'booking.booking_time'], function () {
-            if (!$scope.pricing) return;
+            if (!$scope.booking.pricing) return;
             var billedBookingCount = ($scope.booking.duration || 4) / 4; // billed by 4 hours
             var multiplier = 1;
 
@@ -128,7 +128,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
             billedBookingCount = (multiplier * billedBookingCount);
 
             $scope.booking.numberOfBookings = multiplier;
-            $scope.booking.amountDue = $scope.pricing.price * billedBookingCount;
+            $scope.booking.amountDue = $scope.booking.pricing.price * billedBookingCount;
 
         });
 

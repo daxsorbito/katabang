@@ -7,26 +7,37 @@ var path = require('path'),
     mongoose = require('mongoose'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
     Booking = mongoose.model('Booking'),
+    Pricing = mongoose.model('Pricing'),
+    ScheduledBooking = mongoose.model('ScheduledBooking'),
     _ = require('lodash');
 
 /**
  * Create a Booking
  */
 exports.create = function(req, res) {
-    console.log('entered server create');
-    console.log(req.body);
     var booking = new Booking(req.body);
+    var pricing = new Pricing(req.body.pricing);
+    var scheduledBookings  = req.body.scheduledBookings;
     booking.user = req.user;
-    //console.log(booking);
 
-    // TODO: match model from UI
     booking.save(function(err) {
         if (err) {
-            //console.log(err);
+            console.log(err);
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });
         } else {
+            // TODO: change implementation (use async)
+            var schedLength = scheduledBookings.length;
+            for(var x = 0; x < schedLength; x++){
+                console.log(scheduledBookings[x]);
+                var schedBooking = new ScheduledBooking(scheduledBookings[x]);
+                console.log(schedBooking);
+                schedBooking.user = booking.user;
+                schedBooking.pricing = pricing;
+                schedBooking.booking = booking;
+                schedBooking.save();
+            }
             res.jsonp(booking);
         }
     });
