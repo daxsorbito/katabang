@@ -9,7 +9,15 @@ var path = require('path'),
   passport = require('passport'),
   User = mongoose.model('User'),
   rp  = require('request-promise'),
-  config = require(path.resolve('./config/config'));
+  config = require(path.resolve('./config/config')),
+  nodemailer = require('nodemailer'),
+  crypto = require('crypto'),
+  ses = require('nodemailer-ses-transport');
+
+  var smtpTransport = nodemailer.createTransport(ses({
+    accessKeyId: 'AKIAJILT4UGK6WDMBQNQ',
+    secretAccessKey: '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'
+  }));
 
 //require('request-promise').debug = true;
 //require('request-debug')(rp);
@@ -46,8 +54,17 @@ exports.signup = function (req, res) {
   rp(post_options)
       .then(function(response) {
         if (response.success) {
+          //Generate token
+          var token = "";
+          crypto.randomBytes(20, function (err, buffer) {
+            token = buffer.toString('hex');
+          });
+
           user.provider = 'local';
           user.displayName = user.firstName + ' ' + user.lastName;
+          user.verified = false;
+          user.activateUserToken = token;
+          user.activateUserExpires = Date.now() + 3600000; // 1 hour
 
           // Then save the user
           user.save(function (err) {
