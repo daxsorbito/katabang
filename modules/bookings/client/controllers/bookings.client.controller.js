@@ -6,6 +6,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
         $scope.authentication = Authentication;
         $scope.createBookingPage = $state.current.name === 'bookings.create';
 
+
         $scope.bookNow = function () {
             $sessionStorage.booked = $scope.booking;
             if (!$scope.authentication.user) {
@@ -17,19 +18,22 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
         };
 
         $scope.init = function () {
-            Pricings.get({
+            $scope.booking = $sessionStorage.booked || {};
+            $scope.booking.pricing = Pricings.get({
                 pricingLocale: $translate.use()
-            }, function (data) {
+            });
+
+            $scope.booking.pricing.$promise.then(function(data){
                 $scope.booking.pricing = data;
                 $scope.booking.amountDue = data.price;
             });
 
             $scope.booking = $sessionStorage.booked || {};
             $scope.booking.recurring = $scope.booking.recurring || 0;
-            if ($scope.booking.booking_date) { $scope.booking.booking_date = new Date($scope.booking.booking_date); }
-            if ($scope.booking.frequency_until_date) { $scope.booking.frequency_until_date = new Date($scope.booking.frequency_until_date); }
+            if ($scope.booking.booking_date) $scope.booking.booking_date = new Date($scope.booking.booking_date);
+            if ($scope.booking.frequency_until_date) $scope.booking.frequency_until_date = new Date($scope.booking.frequency_until_date);
             setBookingEndDate();
-            // set the Users acount here
+
             $scope.booking.address = $scope.authentication.user.address;
         };
 
@@ -64,10 +68,9 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
             }
         }
 
-        $scope.$watchGroup(['pricing', 'booking.booking_date', 'booking.duration', 'booking.recurring', 'booking.frequency', 'booking.frequency_until_date', 'booking.booking_time'], function () {
+        $scope.$watchGroup(['booking.pricing.price', 'booking.booking_date', 'booking.duration', 'booking.recurring', 'booking.frequency', 'booking.frequency_until_date', 'booking.booking_time'], function () {
             if (!$scope.booking.pricing) return;
             var billedBookingCount = ($scope.booking.duration || 4) / 4; // billed by 4 hours
-            var multiplier = 1;
 
             if ($scope.booking.booking_date) {
                 var start_date = new Date($scope.booking.booking_date);
@@ -120,7 +123,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
                     }
                 }
             }
-            multiplier = $scope.booking.scheduledBookings ? $scope.booking.scheduledBookings.length : 1;
+            var multiplier = $scope.booking.scheduledBookings ? $scope.booking.scheduledBookings.length : 1;
             billedBookingCount = (multiplier * billedBookingCount);
 
             $scope.booking.numberOfBookings = multiplier;

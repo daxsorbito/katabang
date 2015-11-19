@@ -92,19 +92,19 @@ angular.module('core')
             id: '='
         },
         template: '<select ng-model="ngModel" id="id" class="form-control">' +
-                    '<option value="0" disabled ng-selected="(ngModel || "") == "">{{ "PLEASE_SELECT" | translate }}</option>' +
-                    '<option value="8AM" ng-selected="ngModel == \"8AM\"">8AM</option>' +
-                    '<option value="9AM" ng-selected="ngModel == \"9AM\"">9AM</option>' +
-                    '<option value="10AM" ng-selected="ngModel == \"10AM\"">10AM</option>' +
-                    '<option value="11AM" ng-selected="ngModel == \"11AM\"">11AM</option>' +
-                    '<option value="12PM" ng-selected="ngModel == \"12PM\"">12PM</option>' +
-                    '<option value="1PM" ng-selected="ngModel == \"1PM\"">1PM</option>' +
-                    '<option value="2PM" ng-selected="ngModel == \"2PM\"">2PM</option>' +
-                    '<option value="3PM" ng-selected="ngModel == \"3PM\"">3PM</option>' +
-                    '<option value="4PM" ng-selected="ngModel == \"4PM\"">4PM</option>' +
-                    '<option value="5PM" ng-selected="ngModel == \"5PM\"">5PM</option>' +
-                    '<option value="6PM" ng-selected="ngModel == \"6PM\"">6PM</option>' +
-                    '<option value="7PM" ng-selected="ngModel == \"7PM\"">7PM</option>' +
+                    '<option value="0" disabled ng-selected="(ngModel || \'\')" == \'\'">{{ "PLEASE_SELECT" | translate }}</option>' +
+                    '<option value="8AM" ng-selected="ngModel == \'8AM\'">8AM</option>' +
+                    '<option value="9AM" ng-selected="ngModel == \'9AM\'">9AM</option>' +
+                    '<option value="10AM" ng-selected="ngModel == \'10AM\'">10AM</option>' +
+                    '<option value="11AM" ng-selected="ngModel == \'11AM\'">11AM</option>' +
+                    '<option value="12PM" ng-selected="ngModel == \'12PM\'">12PM</option>' +
+                    '<option value="1PM" ng-selected="ngModel == \'1PM\'">1PM</option>' +
+                    '<option value="2PM" ng-selected="ngModel == \'2PM\'">2PM</option>' +
+                    '<option value="3PM" ng-selected="ngModel == \'3PM\'">3PM</option>' +
+                    '<option value="4PM" ng-selected="ngModel == \'4PM\'">4PM</option>' +
+                    '<option value="5PM" ng-selected="ngModel == \'5PM\'">5PM</option>' +
+                    '<option value="6PM" ng-selected="ngModel == \'6PM\'">6PM</option>' +
+                    '<option value="7PM" ng-selected="ngModel == \'7PM\'">7PM</option>' +
                 '</select>'
         };
     })

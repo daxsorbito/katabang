@@ -51,12 +51,12 @@
                     <p>
                         In addition, your amount due also includes an appropriately scaled damage insurance which is
                         effect during the time your Katabang professional is with you. To read about your online
-                        insurance policy, <a href="">Please Click Here</a>.
+                        insurance policy, <a href="{{ 'CURRENT_LANG' | translate }}/dax">Please Click Here</a>.
                     </p><br><br>
 
                     <p>Details:<br><br>
-                        1 x House Cleaner service<br>
-                        4 hours total duration from arrival, including 30 minutes of wrap up prior to departure<br><br>
+                        {{ booking.numberOfBookings || 1 }} x House Cleaner service<br>
+                        {{ booking.duration || 4 }} hours total duration from arrival, including 30 minutes of wrap up prior to departure<br><br>
                         What is usually included in a house cleaner service? <a href="housecleaningchecklist.html">Please
                             Click Here</a>. The checklist is for guidance only. Not all items in the checklist may be
                         completed depending on the size of your house and its current state.<br><br>

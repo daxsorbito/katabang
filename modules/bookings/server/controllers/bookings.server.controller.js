@@ -9,6 +9,7 @@ var path = require('path'),
     Booking = mongoose.model('Booking'),
     Pricing = mongoose.model('Pricing'),
     ScheduledBooking = mongoose.model('ScheduledBooking'),
+    async = require('async'),
     _ = require('lodash');
 
 /**
@@ -20,24 +21,41 @@ exports.create = function(req, res) {
     var scheduledBookings  = req.body.scheduledBookings;
     booking.user = req.user;
 
-    booking.save(function(err) {
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
+    async.waterfall([
+        // Generate random token
+        function (done) {
+            booking.save(function(err) {
+                if (err) {
+                    return res.status(400).send({
+                        message: errorHandler.getErrorMessage(err)
+                    });
+                }
+                done(err, booking);
             });
-        } else {
-            // TODO: change implementation (use async)
+        },
+        function(booking){
             var schedLength = scheduledBookings.length;
             for(var x = 0; x < schedLength; x++){
                 var schedBooking = new ScheduledBooking(scheduledBookings[x]);
                 schedBooking.user = booking.user;
                 schedBooking.pricing = pricing;
                 schedBooking.booking = booking;
-                schedBooking.save();
+                schedBooking.save(function(err) {
+                    if (err) {
+                        return res.status(400).send({
+                            message: errorHandler.getErrorMessage(err)
+                        });
+                    }
+                });
             }
-            res.jsonp(booking);
+            return res.jsonp(booking);
+        }],
+        function (err) {
+            if (err) {
+                return next(err);
+            }
         }
-    });
+    )
 };
 
 /**
