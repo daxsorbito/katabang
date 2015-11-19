@@ -55,36 +55,36 @@ exports.signup = function (req, res) {
       .then(function(response) {
         if (response.success) {
           //Generate token
-          var token = "";
           crypto.randomBytes(20, function (err, buffer) {
-            token = buffer.toString('hex');
-          });
+            var token = buffer.toString('hex');
 
-          user.provider = 'local';
-          user.displayName = user.firstName + ' ' + user.lastName;
-          user.verified = false;
-          user.activateUserToken = token;
-          user.activateUserExpires = Date.now() + 3600000; // 1 hour
+            user.provider = 'local';
+            user.displayName = user.firstName + ' ' + user.lastName;
+            user.verified = false;
+            user.activateUserToken = token;
+            user.activateUserExpires = Date.now() + 3600000; // 1 hour
 
-          // Then save the user
-          user.save(function (err) {
-            if (err) {
-              return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-              });
-            } else {
-              // Remove sensitive data before login
-              user.password = undefined;
-              user.salt = undefined;
+            // Then save the user
+            user.save(function (err) {
+              if (err) {
+                return res.status(400).send({
+                  message: errorHandler.getErrorMessage(err)
+                });
+              } else {
+                // Remove sensitive data before login
+                user.password = undefined;
+                user.salt = undefined;
 
-              req.login(user, function (err) {
-                if (err) {
-                  res.status(400).send(err);
-                } else {
-                  res.json(user);
-                }
-              });
-            }
+                req.login(user, function (err) {
+                  if (err) {
+                    res.status(400).send(err);
+                  } else {
+                    res.json(user);
+                  }
+                });
+              }
+            });
+
           });
         } else {
           res.status(400).send({message:'ERROR_MSG.CAPTCHA_REQUIRED'});
