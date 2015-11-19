@@ -22,7 +22,6 @@ exports.create = function(req, res) {
     booking.user = req.user;
 
     async.waterfall([
-        // Generate random token
         function (done) {
             booking.save(function(err) {
                 if (err) {
@@ -34,28 +33,31 @@ exports.create = function(req, res) {
             });
         },
         function(booking){
+            function respondError(err) {
+                if (err) {
+                    return res.status(400).send({
+                        message: errorHandler.getErrorMessage(err)
+                    });
+                }
+            }
             var schedLength = scheduledBookings.length;
             for(var x = 0; x < schedLength; x++){
                 var schedBooking = new ScheduledBooking(scheduledBookings[x]);
                 schedBooking.user = booking.user;
                 schedBooking.pricing = pricing;
                 schedBooking.booking = booking;
-                schedBooking.save(function(err) {
-                    if (err) {
-                        return res.status(400).send({
-                            message: errorHandler.getErrorMessage(err)
-                        });
-                    }
-                });
+                schedBooking.save(respondError);
             }
             return res.jsonp(booking);
         }],
         function (err) {
             if (err) {
-                return next(err);
+                return res.status(400).send({
+                    message: errorHandler.getErrorMessage(err)
+                });
             }
         }
-    )
+    );
 };
 
 /**
@@ -136,7 +138,7 @@ exports.bookingID = function (req, res, next, id) {
             });
         }
         // TODO: return scheduled booking
-        //ScheduledBooking.find({})
+        ScheduledBooking.find({})
         req.booking = booking;
         next();
     });

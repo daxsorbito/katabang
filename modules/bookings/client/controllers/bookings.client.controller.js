@@ -46,8 +46,6 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
             booking.$save(function (response) {
                 $location.path('bookings/payment/' + response._id);
 
-                // Clear form fields
-                $scope.name = '';
             }, function (errorResponse) {
                 $scope.error = errorResponse.data.message;
             });
