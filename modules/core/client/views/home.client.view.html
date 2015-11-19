@@ -8,9 +8,11 @@
                         <h2 class="form-signin-heading modal-title" id="myModalLabel">{{ 'BOOK_SERVICE_FORM_TITLE' |
                             translate}}</h2>
                     </div>
-                    <form name="bookingform" ng-submit="bookNow()" class="col-lg5 ">
-                        <div data-ng-include="'/modules/bookings/views/partials/bookings.client.partial.html'"></div>
-                    </form>
+                    <div class="modal-body">
+                        <form name="bookingform" ng-submit="bookNow()" class="col-lg5 ">
+                            <div data-ng-include="'/modules/bookings/views/partials/bookings.client.partial.html'"></div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

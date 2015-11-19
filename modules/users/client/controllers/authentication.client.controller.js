@@ -100,15 +100,12 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     };
 
     $scope.setResponse = function (response) {
-      console.log('Response available');
       $scope.response = response;
     };
     $scope.setWidgetId = function (widgetId) {
-      console.log('Created widget ID: %s', widgetId);
       $scope.widgetId = widgetId;
     };
     $scope.cbExpiration = function() {
-      console.log('Captcha expired. Resetting response object');
       $scope.response = null;
     };
   }

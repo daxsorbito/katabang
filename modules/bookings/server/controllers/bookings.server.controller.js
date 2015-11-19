@@ -22,7 +22,6 @@ exports.create = function(req, res) {
 
     booking.save(function(err) {
         if (err) {
-            console.log(err);
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });
@@ -30,9 +29,7 @@ exports.create = function(req, res) {
             // TODO: change implementation (use async)
             var schedLength = scheduledBookings.length;
             for(var x = 0; x < schedLength; x++){
-                console.log(scheduledBookings[x]);
                 var schedBooking = new ScheduledBooking(scheduledBookings[x]);
-                console.log(schedBooking);
                 schedBooking.user = booking.user;
                 schedBooking.pricing = pricing;
                 schedBooking.booking = booking;
@@ -120,6 +117,8 @@ exports.bookingID = function (req, res, next, id) {
                 message: 'No booking with that identifier has been found'
             });
         }
+        // TODO: return scheduled booking
+        //ScheduledBooking.find({})
         req.booking = booking;
         next();
     });

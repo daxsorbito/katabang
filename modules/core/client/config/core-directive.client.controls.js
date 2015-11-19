@@ -8,7 +8,7 @@ angular.module('core')
                 id: '='
             },
             template: '<select ng-model="ngModel" id="id" class="form-control">' +
-                            '<option value="0" ng-selected="(ngModel || 0) == 0">{{ "PLEASE_SELECT" | translate }}</option>' +
+                            '<option value="0" disabled ng-selected="(ngModel || 0) == 0">{{ "PLEASE_SELECT" | translate }}</option>' +
                             '<option value="1" ng-selected="ngModel == 1">{{ "SERVICES.HOUSE_CLEANER" | translate }}</option>' +
                             '<option value="2" disabled ng-selected="ngModel == 2">{{ "SERVICES.LAUNDRY_PRESS" | translate }}</option>' +
                             '<option value="3" disabled ng-selected="ngModel == 3">{{ "SERVICES.CARETAKER_OLDSITTER" | translate}}</option>' +
@@ -31,7 +31,7 @@ angular.module('core')
           id: '='
         },
         template:'<select ng-model="ngModel" id="id" class="form-control">' +
-                  '<option value="0" ng-selected="(ngModel || 0) == 0">{{ "PLEASE_SELECT" | translate }}</option>' +
+                  '<option value="0" disabled ng-selected="(ngModel || 0) == 0">{{ "PLEASE_SELECT" | translate }}</option>' +
                   '<option value="1" ng-selected="ngModel == 1">Cebu City</option>' +
                   '<option value="2" ng-selected="ngModel == 2">Mandaue</option>' +
                   '<option value="3" ng-selected="ngModel == 3">Lapu-lapu</option>' +
@@ -55,7 +55,7 @@ angular.module('core')
           id: '='
         },
         template: '<select ng-model="ngModel" id="id" class="form-control">' +
-                    '<option value="0" ng-selected="(ngModel || 0) == 0">{{ "PLEASE_SELECT" | translate }}</option>' +
+                    '<option value="0" disabled ng-selected="(ngModel || 0) == 0">{{ "PLEASE_SELECT" | translate }}</option>' +
                     '<option value="1" ng-selected="ngModel == 1">Cebu</option>' +
                     '<option value="2" ng-selected="ngModel == 2">Manila</option>' +
                     '<option value="3" disabled ng-selected="ngModel == 3">Tokyo</option>' +
@@ -74,7 +74,7 @@ angular.module('core')
           id: '='
         },
         template: '<select ng-model="ngModel" id="id" class="form-control">' +
-                    '<option value="0" ng-selected="(ngModel || 0) == 0">{{ "PLEASE_SELECT" | translate }}</option>' +
+                    '<option value="0" disabled ng-selected="(ngModel || 0) == 0">{{ "PLEASE_SELECT" | translate }}</option>' +
                     '<option value="1" ng-selected="ngModel == 1">Philippines</option>' +
                     '<option value="2" disabled ng-selected="ngModel == 2">Japan</option>' +
                     '<option value="3" disabled ng-selected="ngModel == 3">Korea</option>' +
@@ -92,7 +92,7 @@ angular.module('core')
             id: '='
         },
         template: '<select ng-model="ngModel" id="id" class="form-control">' +
-                    '<option value="0" ng-selected="(ngModel || "") == "">{{ "PLEASE_SELECT" | translate }}</option>' +
+                    '<option value="0" disabled ng-selected="(ngModel || "") == "">{{ "PLEASE_SELECT" | translate }}</option>' +
                     '<option value="8AM" ng-selected="ngModel == \"8AM\"">8AM</option>' +
                     '<option value="9AM" ng-selected="ngModel == \"9AM\"">9AM</option>' +
                     '<option value="10AM" ng-selected="ngModel == \"10AM\"">10AM</option>' +
@@ -117,12 +117,27 @@ angular.module('core')
                 id: '='
             },
             template: '<select ng-model="ngModel" id="id" class="form-control">' +
-                        '<option value="0" ng-selected="(ngModel || 0) == 0">{{ "PLEASE_SELECT" | translate }}</option>' +
+                        '<option value="0" disabled ng-selected="(ngModel || 0) == 0">{{ "PLEASE_SELECT" | translate }}</option>' +
                         '<option value="2" ng-selected="ngModel == 2">MWF</option>' +
                         '<option value="3" ng-selected="ngModel == 3">TTH</option>' +
                         '<option value="4" ng-selected="ngModel == 4">Weekly</option>' +
                         '<option value="5" ng-selected="ngModel == 5">Fortnightly</option>' +
                         '<option value="6" ng-selected="ngModel == 6">Monthly</option>' +
                     '</select>'
+        };
+    })
+    .directive('duration', function(){
+        'use strict';
+        return{
+            restrict: 'E',
+            scope: {
+                ngModel: '=',
+                id: '='
+            },
+            template: '<select ng-model="ngModel" id="id" class="form-control">' +
+                        '<option value="0" disabled ng-selected="(ngModel || 0) == 0">{{ "PLEASE_SELECT" | translate }}</option>' +
+                        '<option value="4" ng-selected="ngModel == 4">4 {{ "HOURS" | translate }}</option>' +
+                        '<option value="8" ng-selected="ngModel == 8">8 {{ "HOURS" | translate }}</option>' +
+                       '</select>'
         };
     });

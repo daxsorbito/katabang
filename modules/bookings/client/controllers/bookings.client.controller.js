@@ -35,20 +35,16 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
 
         // Create new Bookings
         $scope.create = function () {
-            console.log($scope.booking);
-
             // Create new Bookings object
             var booking = new Bookings($scope.booking);
 
-            console.log('create was called');
             // Redirect after save
             booking.$save(function (response) {
-                $location.path('bookings/' + response._id);
+                $location.path('bookings/payment/' + response._id);
 
                 // Clear form fields
                 $scope.name = '';
             }, function (errorResponse) {
-                console.log(errorResponse);
                 $scope.error = errorResponse.data.message;
             });
         };
@@ -147,7 +143,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
 
         function setWeeklyScheduledBookings (weekly, start_date, end_date) {
             var scheduledBookings = [];
-            for (var d = start_date; d <= end_date; d.setDate(d.getDate() + weekly)) {
+            for (var d = new Date(start_date); d <= end_date; d.setDate(d.getDate() + weekly)) {
                 scheduledBookings.push({
                     booking_date: (new Date(d)).toLocaleDateString(),
                     booking_time: $scope.booking.booking_time,
@@ -158,7 +154,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
 
         function setMonthlyScheduleBookings (start_date, end_date) {
             var scheduledBookings = [];
-            for (var d = start_date; d <= end_date; d.setMonth(d.getMonth() + 1)) {
+            for (var d = new Date(start_date); d <= end_date; d.setMonth(d.getMonth() + 1)) {
                 scheduledBookings.push({
                     booking_date: (new Date(d)).toLocaleDateString(),
                     booking_time: $scope.booking.booking_time,

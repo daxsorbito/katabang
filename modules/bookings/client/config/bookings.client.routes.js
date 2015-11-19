@@ -21,12 +21,12 @@ angular.module('bookings').config(['$stateProvider',
 				url: '/create',
 				templateUrl: 'modules/bookings/views/create-bookings.client.view.html'
 			})
-			.state('bookings.view', {
-				url: '/:preferredtimeId',
-				templateUrl: 'modules/bookings/views/view-bookings.client.view.html'
+			.state('bookings.payment', {
+				url: '/payment/:bookingId',
+				templateUrl: 'modules/bookings/views/payment-bookings.client.view.html'
 			})
 			.state('bookings.edit', {
-				url: '/:preferredtimeId/edit',
+				url: '/:bookingId/edit',
 				templateUrl: 'modules/bookings/views/edit-bookings.client.view.html'
 			});
 	}

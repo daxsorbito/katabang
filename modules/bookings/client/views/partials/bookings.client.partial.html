@@ -1,4 +1,4 @@
-<div class="modal-body">
+<div>
     <label for="bkgservtype" class="control-label">{{ 'SELECT_A_SERVICE' | translate }}</label>
     <primaryservice data-ng-model="$parent.booking.serviceType" id="bkgservtype"></primaryservice>
 
@@ -12,13 +12,7 @@
     <bookingtime ng-model="$parent.booking.booking_time" id="bkgtimestart" ></bookingtime>
 
     <label for="bkgNoOfHrs" class="control-label">{{ 'NUMBER_OF_HOURS' | translate }}</label>
-    <select id="bkgNoOfHrs" class="form-control" data-ng-model="$parent.booking.duration">
-        <option value="" ng-selected="($parent.booking.duration || 0) == 0">{{ 'PLEASE_SELECT' | translate }}</option>
-        <!--<option value="2" ng-selected="$parent.booking.duration == 2">2 {{ 'HOURS' | translate }}</option>-->
-        <option value="4" ng-selected="$parent.booking.duration == 4">4 {{ 'HOURS' | translate }}</option>
-        <!--<option value="6" ng-selected="$parent.booking.duration == 6">6 {{ 'HOURS' | translate }}</option>-->
-        <option value="8" ng-selected="$parent.booking.duration == 8">8 {{ 'HOURS' | translate }}</option>
-    </select>
+    <duration ng-model="$parent.booking.duration" id="bkgNoOfHrs" ></duration>
 
     <div ng-show="createBookingPage">
         <div class="text-justified form-group">
