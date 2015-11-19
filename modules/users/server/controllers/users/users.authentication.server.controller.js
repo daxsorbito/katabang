@@ -57,7 +57,6 @@ exports.signup = function (req, res) {
           //Generate token
           crypto.randomBytes(20, function (err, buffer) {
             var token = buffer.toString('hex');
-
             user.provider = 'local';
             user.displayName = user.firstName + ' ' + user.lastName;
             user.verified = false;
@@ -75,13 +74,45 @@ exports.signup = function (req, res) {
                 user.password = undefined;
                 user.salt = undefined;
 
-                req.login(user, function (err) {
-                  if (err) {
-                    res.status(400).send(err);
-                  } else {
-                    res.json(user);
-                  }
+                // req.login(user, function (err) {
+                //   if (err) {
+                //     res.status(400).send(err);
+                //   } else {
+                //     res.json(user);
+                //   }
+                // });
+
+                //Send email
+                console.log("Sending email");
+                res.render(path.resolve('modules/users/server/templates/activate-user-email'), {
+                  name: user.displayName,
+                  appName: config.app.title,
+                  url: 'http://' + req.headers.host + '/api/auth/activate/' + token
+                }, function (err, emailHTML) {
+                    console.log("emailHTML: " + emailHTML);
+                    var mailOptions = {
+                      to: user.email,
+                      from: config.mailer.from,
+                      subject: 'Activate Account',
+                      html: emailHTML
+                    };
+                    smtpTransport.sendMail(mailOptions, function (err) {
+                      if (!err) {
+                        console.log("sendMail");
+                        res.send({
+                          message: 'An email has been sent to the provided email with further instructions.'
+                        });
+                      } else {
+                        console.log("sendMail error: "  + err);
+                        return res.status(400).send({
+                          message: 'Failure sending email'
+                        });
+                      }
+
+                      //done(err);
+                    });
                 });
+
               }
             });
 
