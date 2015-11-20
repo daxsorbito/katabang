@@ -64,7 +64,18 @@ exports.create = function(req, res) {
  * Show the current Booking
  */
 exports.read = function(req, res) {
-    res.jsonp(req.booking);
+    ScheduledBooking.find({booking: req.booking._id})
+        .populate('booking')
+        .populate('service_provider')
+        .populate('pricing')
+        .exec(function (err, bookings) {
+            if(err) {
+                return res.status(400).send({
+                    message: 'Booking is invalid'
+                });
+            }
+            res.jsonp(bookings);
+        });
 };
 
 /**
@@ -137,8 +148,6 @@ exports.bookingID = function (req, res, next, id) {
                 message: 'No booking with that identifier has been found'
             });
         }
-        // TODO: return scheduled booking
-        ScheduledBooking.find({})
         req.booking = booking;
         next();
     });

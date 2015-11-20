@@ -81,43 +81,34 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
                 setDaysScheduledBookings(DAILY, start_date, end_date);
 
                 if ($scope.booking.recurring && $scope.booking.frequency_until_date) {
-
-
                     switch ($scope.booking.frequency) {
-                        case '1':
-                        { // Daily
+                        case '1': { // Daily
                             setDaysScheduledBookings(DAILY, start_date, end_date);
                             break;
                         }
-                        case '2':
-                        { // MWF
+                        case '2': { // MWF
                             setDaysScheduledBookings(MWF, start_date, end_date);
                             break;
                         }
-                        case '3':
-                        { // TTH
+                        case '3': { // TTH
                             setDaysScheduledBookings(TTH, start_date, end_date);
                             break;
                         }
-                        case '4':
-                        { // Weekly
+                        case '4': { // Weekly
                             setWeeklyScheduledBookings(WEEKLY, start_date, end_date);
                             break;
                         }
-                        case '5':
-                        { // Forthnightly
+                        case '5': { // Forthnightly
                             // TODO: validate end date (flag error if until_date)
                             setWeeklyScheduledBookings(WEEKLY * 2, start_date, end_date);
                             break;
                         }
-                        case '6' :
-                        { // Monthly
+                        case '6' : { // Monthly
                             setMonthlyScheduleBookings(start_date, end_date);
                             break;
                         }
                         default :
                             setDaysScheduledBookings(DAILY, start_date, start_date);
-
                     }
                 }
             }
@@ -202,6 +193,11 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
             $scope.booking = Bookings.get({
                 bookingId: $stateParams.bookingId
             });
+
+            //$scope.booking.$promise.then(function(data){
+            //    console.log(data);
+            //});
+
         };
     }
 ]);

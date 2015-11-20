@@ -23,7 +23,7 @@ var ScheduledBookingSchema = new Schema({
         ref: 'Booking',
         required: "Booking id is required"
     },
-    service_provider_id: {
+    service_provider: {
         type: Schema.ObjectId,
         ref: 'User'
     },

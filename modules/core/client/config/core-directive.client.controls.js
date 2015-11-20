@@ -92,7 +92,7 @@ angular.module('core')
             id: '='
         },
         template: '<select ng-model="ngModel" id="id" class="form-control">' +
-                    '<option value="0" disabled ng-selected="(ngModel || \'\')" == \'\'">{{ "PLEASE_SELECT" | translate }}</option>' +
+                    '<option value="0" disabled ng-selected="(ngModel || \'0\')" == \'0\'">{{ "PLEASE_SELECT" | translate }}</option>' +
                     '<option value="8AM" ng-selected="ngModel == \'8AM\'">8AM</option>' +
                     '<option value="9AM" ng-selected="ngModel == \'9AM\'">9AM</option>' +
                     '<option value="10AM" ng-selected="ngModel == \'10AM\'">10AM</option>' +
