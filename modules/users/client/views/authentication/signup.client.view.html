@@ -53,9 +53,10 @@
                             <div class="form-group">
                                 <label >{{ 'OTHER_SERVICES' | translate }}</label>
                                 <div class="checkbox-services">
-                                    <label class="checkbox" ng-repeat="service in services" for="{{service.id}}">
+                                    <label class="checkbox" ng-repeat="service in services" >
                                         <input  type="checkbox" ng-disabled="service.id == credentials.primaryService" ng-model="credentials.otherServices[service.id]" name="otherServices" id={{service.id}}" >
                                         {{ service.name | translate }}
+                                        </input>
                                     </label>
                                 </div>
                             </div>
