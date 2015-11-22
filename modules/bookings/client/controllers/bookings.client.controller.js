@@ -6,7 +6,6 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
         $scope.authentication = Authentication;
         $scope.createBookingPage = $state.current.name === 'bookings.create';
 
-
         $scope.bookNow = function () {
             $sessionStorage.booked = $scope.booking;
             if (!$scope.authentication.user) {
@@ -50,21 +49,81 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
                 $scope.error = errorResponse.data.message;
             });
         };
+        // Remove existing Bookings
+        $scope.remove = function (booking) {
+            if (booking) {
+                booking.$remove();
 
+                for (var i in $scope.bookings) {
+                    if ($scope.bookings [i] === booking) {
+                        $scope.bookings.splice(i, 1);
+                    }
+                }
+            } else {
+                $scope.booking.$remove(function () {
+                    $location.path('bookings');
+                });
+            }
+        };
+
+        // Update existing Bookings
+        $scope.update = function () {
+            var booking = $scope.booking;
+
+            booking.$update(function () {
+                $location.path('bookings/' + booking._id);
+            }, function (errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+        };
+
+        // Find a list of Bookings
+        $scope.find = function () {
+            $scope.bookings = Bookings.query();
+        };
+
+        // Find existing Bookings
+        $scope.findOne = function () {
+            $scope.booking = {};
+            $scope.booking.scheduledBookings = Bookings.get({
+                bookingId: $stateParams.bookingId
+            });
+
+            $scope.booking.scheduledBookings.$promise.then(function(data){
+                $scope.booking = data[0].booking;
+                $scope.booking.scheduledBookings = data;
+                computePayment();
+            });
+        };
+
+
+        // helper methods
         $scope.$watch('booking.booking_date', function(newValue, oldValue){
             setBookingEndDate();
         });
 
-        function setBookingEndDate() {
-            var startdate = new Date();
-            startdate.setDate(startdate.getDate() + 1);
-            $scope.booking.allowed_start_date = startdate.toISOString();
-            if ($scope.booking.booking_date) {
-                var enddate = new Date($scope.booking.booking_date);
-                enddate.setDate(enddate.getDate() + 1);
-                $scope.booking.allowed_end_date = enddate.toISOString();
+        $scope.$watch('booking.creditcardnumber', function(newVal, oldVal){
+            var accountNumber = $scope.booking.creditcardnumber;
+            var result = "";
+
+            //first check for MasterCard
+            if (/^5[1-5][0-9]{5,}$/.test(accountNumber)) {
+                result = "master";
             }
-        }
+            //then check for Visa
+            else if (/^4[0-9]{6,}$/.test(accountNumber)) {
+                result = "visa";
+            }
+            //then check for AmEx
+            else if (/^3[47][0-9]{5,}$/.test(accountNumber)) {
+                result = "amex";
+            }
+            //then check for Discover
+            else if (/^6(?:011|5[0-9]{2})[0-9]{3,}$/.test(accountNumber)) {
+                result = "disco";
+            }
+            $scope.booking.cardType = result;
+        });
 
         $scope.$watchGroup(['booking.pricing.price', 'booking.booking_date', 'booking.duration', 'booking.recurring', 'booking.frequency', 'booking.frequency_until_date', 'booking.booking_time'], function () {
             if (!$scope.booking.pricing) return;
@@ -120,6 +179,25 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
 
         });
 
+        function computePayment() {
+            var billedBookingCount = ($scope.booking.duration || 4) / 4; // billed by 4 hours
+            var pricing = $scope.booking.scheduledBookings[0].pricing;
+            var numberOfBooking = $scope.booking.scheduledBookings.length
+
+            $scope.booking.amountDue = numberOfBooking * billedBookingCount * pricing.price;
+        }
+
+        function setBookingEndDate() {
+            var startdate = new Date();
+            startdate.setDate(startdate.getDate() + 1);
+            $scope.booking.allowed_start_date = startdate.toISOString();
+            if ($scope.booking.booking_date) {
+                var enddate = new Date($scope.booking.booking_date);
+                enddate.setDate(enddate.getDate() + 1);
+                $scope.booking.allowed_end_date = enddate.toISOString();
+            }
+        }
+
         function setDaysScheduledBookings (days, start_date, end_date) {
             var scheduledBookings = [];
             for (var d = new Date(start_date); d <= end_date; d.setDate(d.getDate() + 1)) {
@@ -154,50 +232,5 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
             }
             $scope.booking.scheduledBookings = scheduledBookings;
         }
-
-        // Remove existing Bookings
-        $scope.remove = function (booking) {
-            if (booking) {
-                booking.$remove();
-
-                for (var i in $scope.bookings) {
-                    if ($scope.bookings [i] === booking) {
-                        $scope.bookings.splice(i, 1);
-                    }
-                }
-            } else {
-                $scope.booking.$remove(function () {
-                    $location.path('bookings');
-                });
-            }
-        };
-
-        // Update existing Bookings
-        $scope.update = function () {
-            var booking = $scope.booking;
-
-            booking.$update(function () {
-                $location.path('bookings/' + booking._id);
-            }, function (errorResponse) {
-                $scope.error = errorResponse.data.message;
-            });
-        };
-
-        // Find a list of Bookings
-        $scope.find = function () {
-            $scope.bookings = Bookings.query();
-        };
-
-        // Find existing Bookings
-        $scope.findOne = function () {
-            $scope.booking = Bookings.get({
-                bookingId: $stateParams.bookingId
-            });
-
-            //$scope.booking.$promise.then(function(data){
-            //    console.log(data);
-            //});
-
-        };
     }
 ]);

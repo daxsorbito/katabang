@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', '$localStorage', 'Authentication', 'vcRecaptchaService',
-  function ($scope, $state, $http, $location, $window, $localStorage, Authentication, vcRecaptchaService) {
+angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', '$sessionStorage', 'Authentication', 'vcRecaptchaService',
+  function ($scope, $state, $http, $location, $window, $sessionStorage, Authentication, vcRecaptchaService) {
     $scope.authentication = Authentication;
     $scope.response = null;
     $scope.widgetId = null;
@@ -75,8 +75,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         // And redirect to the previous or home page
 
         // TODO: put the code here to redirect to booking if booking has been done
-        if($localStorage.booked)
-        {
+        if($sessionStorage.booked) {
           $state.go('bookings.create');
         }
         else {

@@ -10,8 +10,8 @@
     font-weight: 800;
 }
 
-.bookingTable tr:nth-child(odd) {
-    background-color: lightgrey;
+.bookingTable tr:nth-child(even) {
+    background-color: whitesmoke;
 }
 
 .bookingTable {
@@ -27,7 +27,7 @@
     background-color: lightgoldenrodyellow;
 }
 
-.bookingTable td{
+.bookingTable td {
     width: 50%;
     font-weight: 500;
     padding: 5px 30px 5px 30px;
@@ -35,9 +35,140 @@
 }
 
 .tp-banner-container-booking {
-    background-image: url(/modules/core/img/brand/tileable_wood.png); !important;
+    background-image: url(/modules/core/img/brand/tileable_wood.png);
+!important;
 }
 
 .frequency {
     padding-left: 30px;
 }
+
+.create-scheduled-booking-table {
+    margin-left: 580px;
+    width: 400px;
+}
+
+.payment-scheduled-booking-table {
+    text-align: center;
+    width: 90%;
+}
+
+.invoicedetails {
+    padding: 20px 30px;
+}
+
+.scheduled-booking-table {
+    padding-top: 8px;
+    padding-bottom: 15px;
+    background-color: #2E8B57;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 5px;
+}
+
+table {
+    width: 100%;
+    background-color: #fff;
+    color: #453
+}
+
+thead {
+    background-color: #2E8B57;
+    color: #fff;
+    padding: 4px;
+    line-height: 30px
+}
+
+tbody {
+    font-weight: 400;
+    margin: 10px;
+}
+
+tbody td {
+    padding: 0 5px;
+    text-align: center
+}
+
+tbody tr:nth-child(even) {
+    background: #CCC
+}
+
+tbody tr:nth-child(odd) {
+    background: #FFF
+}
+
+.cc {
+    height: 36px;
+}
+
+.cc div {
+    background: url(/modules/core/img/brand/credit-cards.png);
+    border: 1px solid #666;
+    float: left;
+}
+
+.cc .master {
+    background-position: 0px 0px;
+    height: 32px;
+    margin: 2px;
+    width: 56px;
+}
+
+.cc .visa {
+    background-position: -56px 0px;
+    height: 32px;
+    margin: 2px;
+    width: 56px;
+}
+
+.cc .disco {
+    background-position: -112px 0px;
+    height: 32px;
+    margin: 2px;
+    width: 56px;
+}
+
+.cc .amex {
+    background-position: -168px 0px;
+    height: 32px;
+    margin: 2px;
+    width: 56px;
+}
+
+.cc .master-disable {
+    background-position: 0px 32px;
+    height: 32px;
+    margin: 2px;
+    width: 56px;
+}
+
+.cc .visa-disable {
+    background-position: -56px 32px;
+    height: 32px;
+    margin: 2px;
+    width: 56px;
+}
+
+.cc .disco-disable {
+    background-position: -112px 32px;
+    height: 32px;
+    margin: 2px;
+    width: 56px;
+}
+
+.cc .amex-disable {
+    background-position: -168px 32px;
+    height: 32px;
+    margin: 2px;
+    width: 56px;
+}
+
+#creditcardnumber {
+    width: 400px;
+}
+
+#securitycode, #expiryyear, #expirymonth {
+    width: 150px;
+}
+
