@@ -99,11 +99,14 @@ exports.signup = function (req, res) {
                     smtpTransport.sendMail(mailOptions, function (err) {
                       if (!err) {
                         console.log("sendMail");
-                        res.send({
-                          message: 'An email has been sent to the provided email with further instructions.'
-                        });
+                        return res.redirect('/authentication/signin');
+                        //res.send({
+                        //  message: 'An email has been sent to the provided email with further instructions.'
+                        //});
                       } else {
                         console.log("sendMail error: "  + err);
+                        console.log("from: " + mailOptions.from);
+                        console.log("to: " + mailOptions.to);
                         return res.status(400).send({
                           message: 'Failure sending email'
                         });
@@ -156,6 +159,43 @@ exports.signout = function (req, res) {
   req.logout();
   res.redirect('/');
 };
+
+/**
+  * Activate
+  */
+exports.activate = function (req, res){
+  var token = req.params.token;
+  User.findOne({
+    activateUserToken: token,
+    activateUserExpires: {
+      $gt: Date.now()
+    }
+  }, function(err, user){
+    if(!user)
+    {
+      console.log('user not found');
+    }
+    else{
+      console.log('user found');
+      user.verified = true;
+      user.save(function(err){
+        if(err)
+        {
+          console.log('error saving user');
+          return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+          });
+        }
+        else{
+          console.log('user updated');
+        }
+      });
+    }
+  });
+
+  return res.redirect('/authentication/signin');
+};
+
 
 /**
  * OAuth provider call
