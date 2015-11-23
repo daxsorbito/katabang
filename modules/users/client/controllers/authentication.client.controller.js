@@ -8,6 +8,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
+    $scope.success = $location.search().msg;
 
     // If user is signed in then redirect back home
     if ($scope.authentication.user) {

@@ -130,7 +130,7 @@ var UserSchema = new Schema({
   activateUserToken: {
    type: String
  },
- activateUserExpires: {
+  activateUserExpires: {
    type: Date
  }
 });

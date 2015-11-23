@@ -131,5 +131,9 @@
   "EDIT_PRICING": "Edit Pricing",
   "NUMBER_OF_HOURS": "Number of hours",
   "CONNECTED_SOCIAL_ACCOUNTS": "Connected social accounts",
-  "UNCONNECTED_SOCIAL_ACCOUNTS": "Unconnected social accounts"
+  "UNCONNECTED_SOCIAL_ACCOUNTS": "Unconnected social accounts",
+  "USER_NOT_FOUND": "User not found",
+  "USER_ACTIVATION_ERROR": "Error in activating your account",
+  "USER_ACTIVATION_SUCCESS": "Your account was successfully activated. Please login",
+  "USER_NOT_VERIFIED": "User not yet verified"
 }

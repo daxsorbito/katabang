@@ -141,13 +141,18 @@ exports.signin = function (req, res, next) {
       user.password = undefined;
       user.salt = undefined;
 
-      req.login(user, function (err) {
-        if (err) {
-          res.status(400).send(err);
-        } else {
-          res.json(user);
-        }
-      });
+      if(!user.verified){
+        res.status(400).send({"message": "USER_NOT_VERIFIED"});
+      }
+      else{
+        req.login(user, function (err) {
+          if (err) {
+            res.status(400).send(err);
+          } else {
+            res.json(user);
+          }
+        });
+      }
     }
   })(req, res, next);
 };
@@ -173,7 +178,7 @@ exports.activate = function (req, res){
   }, function(err, user){
     if(!user)
     {
-      console.log('user not found');
+      return res.redirect('/authentication/signin?err=USER_NOT_FOUND');
     }
     else{
       console.log('user found');
@@ -182,18 +187,17 @@ exports.activate = function (req, res){
         if(err)
         {
           console.log('error saving user');
-          return res.status(400).send({
-            message: errorHandler.getErrorMessage(err)
-          });
+          return res.redirect('/authentication/signin?err=USER_ACTIVATION_ERROR');
         }
         else{
           console.log('user updated');
+          return res.redirect('/authentication/signin?msg=USER_ACTIVATION_SUCCESS');
         }
       });
     }
   });
 
-  return res.redirect('/authentication/signin');
+  //return res.redirect('/authentication/signin');
 };
 
 
