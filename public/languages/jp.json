@@ -135,5 +135,6 @@
   "USER_NOT_FOUND": "User not found_jp",
   "USER_ACTIVATION_ERROR": "Error in activating your account_jp",
   "USER_ACTIVATION_SUCCESS": "Your account was successfully activated. Please login_jp",
-  "USER_NOT_VERIFIED": "User not yet verified_jp"
+  "USER_NOT_VERIFIED": "User not yet verified_jp",
+  "RESEND_ACTIVATION": "Resend activation email_jp"
 }

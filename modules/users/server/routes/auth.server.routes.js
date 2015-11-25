@@ -20,6 +20,7 @@ module.exports = function (app) {
   app.route('/api/auth/signout').get(users.signout);
 
   app.route('/api/auth/activate/:token').get(users.activate);
+  app.route('/api/auth/resendActivation').post(users.resendActivation);
 
   // Setting the facebook oauth routes
   app.route('/api/auth/facebook').get(users.oauthCall('facebook', {

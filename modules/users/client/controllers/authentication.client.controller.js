@@ -88,6 +88,21 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       });
     };
 
+    $scope.resendActivation = function () {
+      $scope.success = $scope.error = null;
+
+      $http.post('/api/auth/resendActivation', $scope.credentials).success(function (response) {
+        // Show user success message and clear form
+        $scope.credentials = null;
+        $scope.success = response.message;
+
+      }).error(function (response) {
+        // Show user error message and clear form
+        $scope.credentials = null;
+        $scope.error = response.message;
+      });
+    };
+
     // OAuth provider request
     $scope.callOauthProvider = function (url) {
       var redirect_to;
