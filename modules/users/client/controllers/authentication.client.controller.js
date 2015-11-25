@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', '$localStorage', 'Authentication', 'vcRecaptchaService',
-  function ($scope, $state, $http, $location, $window, $localStorage, Authentication, vcRecaptchaService) {
+angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', '$sessionStorage', 'Authentication', 'vcRecaptchaService',
+  function ($scope, $state, $http, $location, $window, $sessionStorage, Authentication, vcRecaptchaService) {
     $scope.authentication = Authentication;
     $scope.response = null;
     $scope.widgetId = null;
@@ -76,8 +76,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         // And redirect to the previous or home page
 
         // TODO: put the code here to redirect to booking if booking has been done
-        if($localStorage.booked)
-        {
+        if($sessionStorage.booked) {
           $state.go('bookings.create');
         }
         else {
@@ -116,15 +115,12 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     };
 
     $scope.setResponse = function (response) {
-      console.log('Response available');
       $scope.response = response;
     };
     $scope.setWidgetId = function (widgetId) {
-      console.log('Created widget ID: %s', widgetId);
       $scope.widgetId = widgetId;
     };
     $scope.cbExpiration = function() {
-      console.log('Captcha expired. Resetting response object');
       $scope.response = null;
     };
   }

@@ -1,35 +1,18 @@
-<div class="modal-body">
+<div>
     <label for="bkgservtype" class="control-label">{{ 'SELECT_A_SERVICE' | translate }}</label>
     <primaryservice data-ng-model="$parent.booking.serviceType" id="bkgservtype"></primaryservice>
+
     <label for="bkgloc" class="control-label">{{ 'WHERE' | translate }}</label>
     <cities data-ng-model="$parent.booking.city" id="bkgloc"></cities>
+
     <label for="dateinput" class="control-label">{{ 'DATE' | translate }}</label>
     <input type="date" id="dateinput" class="form-control" data-ng-model="$parent.booking.booking_date" min="{{ $parent.booking.allowed_start_date | date:'yyyy-MM-dd'}}"/>
+
     <label for="bkgtimestart" class="control-label">{{ 'PREFERRED_TIME' | translate }}</label>
-    <select id="bkgtimestart" class="form-control" data-ng-model="$parent.booking.booking_time">
-        <option value="" ng-selected="($parent.booking.booking_time || '')== ''">{{ 'PLEASE_SELECT' | translate }}
-        </option>
-        <option value="8AM" ng-selected="$parent.booking.booking_time == '8AM'">8AM</option>
-        <option value="9AM" ng-selected="$parent.booking.booking_time == '9AM'">9AM</option>
-        <option value="10AM" ng-selected="$parent.booking.booking_time == '10AM'">10AM</option>
-        <option value="11AM" ng-selected="$parent.booking.booking_time == '11AM'">11AM</option>
-        <option value="12PM" ng-selected="$parent.booking.booking_time == '12PM'">12PM</option>
-        <option value="1PM" ng-selected="$parent.booking.booking_time == '1PM'">1PM</option>
-        <option value="2PM" ng-selected="$parent.booking.booking_time == '2PM'">2PM</option>
-        <option value="3PM" ng-selected="$parent.booking.booking_time == '3PM'">3PM</option>
-        <option value="4PM" ng-selected="$parent.booking.booking_time == '4PM'">4PM</option>
-        <option value="5PM" ng-selected="$parent.booking.booking_time == '5PM'">5PM</option>
-        <option value="6PM" ng-selected="$parent.booking.booking_time == '6PM'">6PM</option>
-        <option value="7PM" ng-selected="$parent.booking.booking_time == '7PM'">7PM</option>
-    </select>
+    <bookingtime ng-model="$parent.booking.booking_time" id="bkgtimestart" ></bookingtime>
+
     <label for="bkgNoOfHrs" class="control-label">{{ 'NUMBER_OF_HOURS' | translate }}</label>
-    <select id="bkgNoOfHrs" class="form-control" data-ng-model="$parent.booking.duration">
-        <option value="" ng-selected="($parent.booking.duration || 0) == 0">{{ 'PLEASE_SELECT' | translate }}</option>
-        <!--<option value="2" ng-selected="$parent.booking.duration == 2">2 {{ 'HOURS' | translate }}</option>-->
-        <option value="4" ng-selected="$parent.booking.duration == 4">4 {{ 'HOURS' | translate }}</option>
-        <!--<option value="6" ng-selected="$parent.booking.duration == 6">6 {{ 'HOURS' | translate }}</option>-->
-        <option value="8" ng-selected="$parent.booking.duration == 8">8 {{ 'HOURS' | translate }}</option>
-    </select>
+    <duration ng-model="$parent.booking.duration" id="bkgNoOfHrs" ></duration>
 
     <div ng-show="createBookingPage">
         <div class="text-justified form-group">
@@ -41,17 +24,7 @@
 
             <div ng-show="$parent.booking.recurring" class="frequency">
                 <label for="frequency">{{ 'FREQUENCY' | translate }}</label>
-                <select id="frequency" class="form-control" data-ng-model="$parent.booking.frequency" >
-                    <option value="" ng-selected="($parent.booking.frequency || 0 )== 0">{{ 'PLEASE_SELECT' |
-                        translate }}
-                    </option>
-                    <!--<option value="1" ng-selected="$parent.booking.booking_time == 1">Daily</option>-->
-                    <option value="2" ng-selected="$parent.booking.frequency == 2">MWF</option>
-                    <option value="3" ng-selected="$parent.booking.frequency == 3">TTH</option>
-                    <option value="4" ng-selected="$parent.booking.frequency == 4">Weekly</option>
-                    <option value="5" ng-selected="$parent.booking.frequency == 5">Fortnightly</option>
-                    <option value="6" ng-selected="$parent.booking.frequency == 6">Monthly</option>
-                </select>
+                <frequency ng-model="$parent.booking.frequency" id="frequency"></frequency>
                 <label for="until">{{ 'UNTIL' | translate }}</label>
                 <div id="until">
                     <!--<label>-->

@@ -7,7 +7,7 @@ module.exports = {
     keywords: 'katabang',
     googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
   },
-  port: process.env.PORT || 3000,
+  port: process.env.PORT || 4000,
   templateEngine: 'swig',
   sessionSecret: 'katabang',
   sessionCollection: 'sessions',

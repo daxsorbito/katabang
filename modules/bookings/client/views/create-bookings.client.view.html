@@ -1,19 +1,17 @@
 <section data-ng-controller="BookingsController" class="row">
     <form data-ng-submit="create()" novalidate ng-init="init()">
-        <div class="col-lg-12 tp-banner-container-booking">
+        <div class="tp-banner-container-booking col-lg-12">
             <div class="pull-right col-lg-12">
                 <div class="modal-dialog pull-left book-now col-lg-6">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h2 class="form-signin-heading modal-title" id="myModalLabel">{{ 'BOOKING_DETAILS' |
-                                translate}}</h2>
+                            <h2 class="form-signin-heading modal-title" id="myModalLabel">{{ 'BOOKING_DETAILS' | translate}}</h2>
                         </div>
-
-                        <div data-ng-include="'/modules/bookings/views/partials/bookings.client.partial.html'"></div>
-
+                        <div class="modal-body">
+                            <div data-ng-include="'/modules/bookings/views/partials/bookings.client.partial.html'"></div>
+                        </div>
                     </div>
                 </div>
-                <hello-world/>
                 <div class="bookingNotes">
                     <h2>NOTES:</h2>
 
@@ -22,18 +20,24 @@
 
                     <div>
                         <h3>Number of bookings: {{ booking.numberOfBookings || 1 }}</h3>
-                        <table class="bookingTable text-center">
-                            <tr>
-                                <th class="text-center">Date</th>
-                                <th class="text-center">Time</th>
-                                <th class="text-center">Duration (hours)</th>
-                            </tr>
-                            <tr ng-repeat="schedBooking in booking.scheduledBookings">
-                                <td>{{ schedBooking.booking_date }}</td>
-                                <td>{{ schedBooking.booking_time }}</td>
-                                <td>{{ schedBooking.booking_duration }}</td>
-                            </tr>
-                        </table>
+                        <div class="scheduled-booking-table create-scheduled-booking-table">
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Date</th>
+                                        <th class="text-center">Time</th>
+                                        <th class="text-center">Duration (hours)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="schedBooking in booking.scheduledBookings">
+                                        <td>{{ schedBooking.booking_date | date:'MM-dd-yyyy'}}</td>
+                                        <td>{{ schedBooking.booking_time }}</td>
+                                        <td>{{ schedBooking.booking_duration }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
                         <h3>Your Estimated Amount Due is = &nbsp; {{ booking.amountDue || 0 }}</h3>
                         <input type="submit" name="submitbooking" class="btn btn-color btn-lg"
@@ -52,12 +56,12 @@
                     <p>
                         In addition, your amount due also includes an appropriately scaled damage insurance which is
                         effect during the time your Katabang professional is with you. To read about your online
-                        insurance policy, <a href="">Please Click Here</a>.
+                        insurance policy, <a href="{{ 'CURRENT_LANG' | translate }}/dax">Please Click Here</a>.
                     </p><br><br>
 
                     <p>Details:<br><br>
-                        1 x House Cleaner service<br>
-                        4 hours total duration from arrival, including 30 minutes of wrap up prior to departure<br><br>
+                        {{ booking.numberOfBookings || 1 }} x House Cleaner service<br>
+                        {{ booking.duration || 4 }} hours total duration from arrival, including 30 minutes of wrap up prior to departure<br><br>
                         What is usually included in a house cleaner service? <a href="housecleaningchecklist.html">Please
                             Click Here</a>. The checklist is for guidance only. Not all items in the checklist may be
                         completed depending on the size of your house and its current state.<br><br>
