@@ -132,5 +132,10 @@
   "EDIT_PRICING": "Edit Pricing_ko",
   "NUMBER_OF_HOURS": "Number of hours_ko",
   "CONNECTED_SOCIAL_ACCOUNTS": "Connected social accounts_ko",
-  "UNCONNECTED_SOCIAL_ACCOUNTS": "Unconnected social accounts_ko"
+  "UNCONNECTED_SOCIAL_ACCOUNTS": "Unconnected social accounts_ko",
+  "USER_NOT_FOUND": "User not found_ko",
+  "USER_ACTIVATION_ERROR": "Error in activating your account_ko",
+  "USER_ACTIVATION_SUCCESS": "Your account was successfully activated. Please login_ko",
+  "USER_NOT_VERIFIED": "User not yet verified_ko",
+  "RESEND_ACTIVATION": "Resend activation email_ko"
 }

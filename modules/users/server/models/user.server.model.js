@@ -121,7 +121,18 @@ var UserSchema = new Schema({
   },
   resetPasswordExpires: {
     type: Date
-  }
+  },
+  /* For activate user */
+  verified: {
+    type: Boolean,
+    default: false
+  },
+  activateUserToken: {
+   type: String
+ },
+  activateUserExpires: {
+   type: Date
+ }
 });
 
 /**

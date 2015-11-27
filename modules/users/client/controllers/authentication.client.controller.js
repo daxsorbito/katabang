@@ -8,6 +8,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
+    $scope.success = $location.search().msg;
 
     // If user is signed in then redirect back home
     if ($scope.authentication.user) {
@@ -82,6 +83,21 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
           $state.go($state.previous.state.name || 'home', $state.previous.params);
         }
       }).error(function (response) {
+        $scope.error = response.message;
+      });
+    };
+
+    $scope.resendActivation = function () {
+      $scope.success = $scope.error = null;
+
+      $http.post('/api/auth/resendActivation', $scope.credentials).success(function (response) {
+        // Show user success message and clear form
+        $scope.credentials = null;
+        $scope.success = response.message;
+
+      }).error(function (response) {
+        // Show user error message and clear form
+        $scope.credentials = null;
         $scope.error = response.message;
       });
     };
