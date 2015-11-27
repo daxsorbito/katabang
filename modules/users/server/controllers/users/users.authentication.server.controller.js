@@ -9,7 +9,16 @@ var path = require('path'),
   passport = require('passport'),
   User = mongoose.model('User'),
   rp  = require('request-promise'),
-  config = require(path.resolve('./config/config'));
+  config = require(path.resolve('./config/config')),
+  nodemailer = require('nodemailer'),
+  crypto = require('crypto'),
+  ses = require('nodemailer-ses-transport'),
+  async = require('async');
+
+  var smtpTransport = nodemailer.createTransport(ses({
+    accessKeyId: 'AKIAJILT4UGK6WDMBQNQ',
+    secretAccessKey: '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'
+  }));
 
 //require('request-promise').debug = true;
 //require('request-debug')(rp);
@@ -46,28 +55,71 @@ exports.signup = function (req, res) {
   rp(post_options)
       .then(function(response) {
         if (response.success) {
-          user.provider = 'local';
-          user.displayName = user.firstName + ' ' + user.lastName;
+          //Generate token
+          crypto.randomBytes(20, function (err, buffer) {
+            var token = buffer.toString('hex');
+            user.provider = 'local';
+            user.displayName = user.firstName + ' ' + user.lastName;
+            user.verified = false;
+            user.activateUserToken = token;
+            user.activateUserExpires = Date.now() + 3600000; // 1 hour
 
-          // Then save the user
-          user.save(function (err) {
-            if (err) {
-              return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-              });
-            } else {
-              // Remove sensitive data before login
-              user.password = undefined;
-              user.salt = undefined;
+            // Then save the user
+            user.save(function (err) {
+              if (err) {
+                return res.status(400).send({
+                  message: errorHandler.getErrorMessage(err)
+                });
+              } else {
+                // Remove sensitive data before login
+                user.password = undefined;
+                user.salt = undefined;
 
-              req.login(user, function (err) {
-                if (err) {
-                  res.status(400).send(err);
-                } else {
-                  res.json(user);
-                }
-              });
-            }
+                // req.login(user, function (err) {
+                //   if (err) {
+                //     res.status(400).send(err);
+                //   } else {
+                //     res.json(user);
+                //   }
+                // });
+
+                //Send email
+                console.log("Sending email");
+                res.render(path.resolve('modules/users/server/templates/activate-user-email'), {
+                  name: user.displayName,
+                  appName: config.app.title,
+                  url: 'http://' + req.headers.host + '/api/auth/activate/' + token
+                }, function (err, emailHTML) {
+                    console.log("emailHTML: " + emailHTML);
+                    var mailOptions = {
+                      to: user.email,
+                      from: config.mailer.from,
+                      subject: 'Activate Account',
+                      html: emailHTML
+                    };
+                    smtpTransport.sendMail(mailOptions, function (err) {
+                      if (!err) {
+                        console.log("sendMail");
+                        return res.redirect('/authentication/signin');
+                        //res.send({
+                        //  message: 'An email has been sent to the provided email with further instructions.'
+                        //});
+                      } else {
+                        console.log("sendMail error: "  + err);
+                        console.log("from: " + mailOptions.from);
+                        console.log("to: " + mailOptions.to);
+                        return res.status(400).send({
+                          message: 'Failure sending email'
+                        });
+                      }
+
+                      //done(err);
+                    });
+                });
+
+              }
+            });
+
           });
         } else {
           res.status(400).send({message:'ERROR_MSG.CAPTCHA_REQUIRED'});
@@ -90,13 +142,18 @@ exports.signin = function (req, res, next) {
       user.password = undefined;
       user.salt = undefined;
 
-      req.login(user, function (err) {
-        if (err) {
-          res.status(400).send(err);
-        } else {
-          res.json(user);
-        }
-      });
+      if(!user.verified){
+        res.status(400).send({"message": "USER_NOT_VERIFIED"});
+      }
+      else{
+        req.login(user, function (err) {
+          if (err) {
+            res.status(400).send(err);
+          } else {
+            res.json(user);
+          }
+        });
+      }
     }
   })(req, res, next);
 };
@@ -108,6 +165,120 @@ exports.signout = function (req, res) {
   req.logout();
   res.redirect('/');
 };
+
+/**
+  * Activate
+  */
+exports.activate = function (req, res){
+  var token = req.params.token;
+  User.findOne({
+    activateUserToken: token,
+    activateUserExpires: {
+      $gt: Date.now()
+    }
+  }, function(err, user){
+    if(!user)
+    {
+      return res.redirect('/authentication/signin?err=USER_NOT_FOUND');
+    }
+    else{
+      console.log('user found');
+      user.verified = true;
+      user.save(function(err){
+        if(err)
+        {
+          console.log('error saving user');
+          return res.redirect('/authentication/signin?err=USER_ACTIVATION_ERROR');
+        }
+        else{
+          console.log('user updated');
+          return res.redirect('/authentication/signin?msg=USER_ACTIVATION_SUCCESS');
+        }
+      });
+    }
+  });
+};
+
+/**
+ * Resend activation email
+ */
+exports.resendActivation = function (req, res, next) {
+  async.waterfall([
+    // Generate random token
+    function (done) {
+      crypto.randomBytes(20, function (err, buffer) {
+        var token = buffer.toString('hex');
+        done(err, token);
+      });
+    },
+    // Lookup user by username
+    function (token, done) {
+      if (req.body.username) {
+        User.findOne({
+          username: req.body.username
+        }, '-salt -password', function (err, user) {
+          if (!user) {
+            return res.status(400).send({
+              message: 'No account with that username has been found'
+            });
+          } else if (user.provider !== 'local') {
+            return res.status(400).send({
+              message: 'It seems like you signed up using your ' + user.provider + ' account'
+            });
+          } else {
+            user.activateUserToken = token;
+            user.activateUserExpires = Date.now() + 3600000; // 1 hour
+
+            user.save(function (err) {
+              done(err, token, user);
+            });
+          }
+        });
+      } else {
+        return res.status(400).send({
+          message: 'Username field must not be blank'
+        });
+      }
+    },
+    function (token, user, done) {
+      res.render(path.resolve('modules/users/server/templates/activate-user-email'), {
+        name: user.displayName,
+        appName: config.app.title,
+        url: 'http://' + req.headers.host + '/api/auth/activate/' + token
+      }, function (err, emailHTML) {
+        done(err, emailHTML, user);
+      });
+    },
+    // If valid email, send reset email using service
+    function (emailHTML, user, done) {
+      var mailOptions = {
+        to: user.email,
+        from: config.mailer.from,
+        subject: 'Activate Account',
+        html: emailHTML
+      };
+      console.log(emailHTML);
+      smtpTransport.sendMail(mailOptions, function (err) {
+        if (!err) {
+          res.send({
+            message: 'An email has been sent to the provided email with further instructions.'
+          });
+        } else {
+          return res.status(400).send({
+            message: 'Failure sending email'
+          });
+        }
+
+        done(err);
+      });
+    }
+  ], function (err) {
+    if (err) {
+      return next(err);
+    }
+  });
+};
+
 
 /**
  * OAuth provider call
