@@ -46,7 +46,7 @@ exports.signup = function (req, res) {
   };
 
   var post_options = {
-    uri: 'https://www.google.com/recaptcha/api/siteverify',
+    uri: config.reCaptcha.uri,
     method: 'POST',
     json: true,
     form: post_data

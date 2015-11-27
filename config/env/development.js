@@ -67,7 +67,8 @@ module.exports = {
   },
   reCaptcha : {
     siteKey: '6LfHVg0TAAAAAK3A3_yE1P4E3MDmuQ5ZxYikgdnm',
-    secretKey: '6LfHVg0TAAAAAL0CnK5730ajtLVv4dLtLbbwM-PS'
+    secretKey: '6LfHVg0TAAAAAL0CnK5730ajtLVv4dLtLbbwM-PS',
+    uri: 'https://www.google.com/recaptcha/api/siteverify'
   },
   livereload: true
 };
