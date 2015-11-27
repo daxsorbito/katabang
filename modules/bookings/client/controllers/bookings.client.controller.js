@@ -182,7 +182,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
         function computePayment() {
             var billedBookingCount = ($scope.booking.duration || 4) / 4; // billed by 4 hours
             var pricing = $scope.booking.scheduledBookings[0].pricing;
-            var numberOfBooking = $scope.booking.scheduledBookings.length
+            var numberOfBooking = $scope.booking.scheduledBookings.length;
 
             $scope.booking.amountDue = numberOfBooking * billedBookingCount * pricing.price;
         }
