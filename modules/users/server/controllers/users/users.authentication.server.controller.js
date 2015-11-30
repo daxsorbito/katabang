@@ -99,15 +99,11 @@ exports.signup = function (req, res) {
                     };
                     smtpTransport.sendMail(mailOptions, function (err) {
                       if (!err) {
+                      //if(true){//temporary to simulate successful sending of email.
                         console.log("sendMail");
-                        return res.redirect('/authentication/signin');
-                        //res.send({
-                        //  message: 'An email has been sent to the provided email with further instructions.'
-                        //});
+                        res.json(user);
                       } else {
                         console.log("sendMail error: "  + err);
-                        console.log("from: " + mailOptions.from);
-                        console.log("to: " + mailOptions.to);
                         return res.status(400).send({
                           message: 'Failure sending email'
                         });
