@@ -7,6 +7,9 @@ var bookingsPolicy = require('../policies/bookings.server.policy'),
 	bookings = require('../controllers/bookings.server.controller');
 
 module.exports = function (app) {
+	app.route('/api/bookings/pay').all(bookingsPolicy.isAllowed)
+		.post(bookings.pay);
+
 	// Bookings collection routes
 	app.route('/api/bookings').all(bookingsPolicy.isAllowed)
 		.get(bookings.list)

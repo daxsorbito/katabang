@@ -1,8 +1,8 @@
 'use strict';
 
 // Bookings controller
-angular.module('bookings').controller('BookingsController', ['$scope', '$state', '$stateParams', '$location', '$sessionStorage', '$translate', 'Authentication', 'Bookings', 'Pricings',
-    function ($scope, $state, $stateParams, $location, $sessionStorage, $translate, Authentication, Bookings, Pricings) {
+angular.module('bookings').controller('BookingsController', ['$scope', '$state', '$stateParams', '$window', '$location', '$sessionStorage', '$translate', 'Authentication', 'Bookings', 'Pricings',
+    function ($scope, $state, $stateParams, $window, $location, $sessionStorage, $translate, Authentication, Bookings, Pricings) {
         $scope.authentication = Authentication;
         $scope.createBookingPage = $state.current.name === 'bookings.create';
 
@@ -43,12 +43,36 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
 
             // Redirect after save
             booking.$save(function (response) {
-                $location.path('bookings/payment/' + response._id);
+                // TODO: call payment API
+                // $location.path('bookings/payment/' + response._id);
+                processPayment();
 
             }, function (errorResponse) {
                 $scope.error = errorResponse.data.message;
             });
         };
+
+        function processPayment(){
+            var payment = Bookings.pay($scope.booking);
+            payment.$promise.then(function(data){
+                console.log('-------------------');
+                console.log(data);
+                var linkLen = data.links.length;
+                for (var i = 0; i <= linkLen; i++ ) {
+                    var value = data.links[i];
+                    if (value.method === 'REDIRECT') {
+                        $window.location.href = value.href;
+                        break;
+                    }
+                }
+                console.log('-------------------');
+            }, function(err){
+                console.log('---ERRR-----------');
+                console.log(err);
+                console.log('---ERRR-----------');
+            });
+        }
+
         // Remove existing Bookings
         $scope.remove = function (booking) {
             if (booking) {
@@ -83,47 +107,60 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
         };
 
         // Find existing Bookings
-        $scope.findOne = function () {
-            $scope.booking = {};
-            $scope.booking.scheduledBookings = Bookings.get({
-                bookingId: $stateParams.bookingId
-            });
+        //$scope.findOne = function () {
+        //    $scope.booking = {};
+        //    $scope.booking.scheduledBookings = Bookings.get({
+        //        bookingId: $stateParams.bookingId
+        //    });
+        //
+        //    $scope.booking.scheduledBookings.$promise.then(function(data){
+        //        $scope.booking = data[0].booking;
+        //        $scope.booking.scheduledBookings = data;
+        //        $scope.payment = {};
+        //        computePayment();
+        //    });
+        //};
 
-            $scope.booking.scheduledBookings.$promise.then(function(data){
-                $scope.booking = data[0].booking;
-                $scope.booking.scheduledBookings = data;
-                computePayment();
-            });
-        };
-
+        //$scope.pay = function() {
+        //    //$scope.payment.booking = $scope.booking;
+        //    $scope.payment.booking_id = $scope.booking._id;
+        //    $scope.payment.pricing = $scope.booking.scheduledBookings[0].pricing;
+        //    var payment = Bookings.pay($scope.payment);
+        //    payment.$promise.then(function(data){
+        //        console.log(data);
+        //    }, function(err){
+        //        console.log(err);
+        //    });
+        //};
 
         // helper methods
         $scope.$watch('booking.booking_date', function(newValue, oldValue){
             setBookingEndDate();
         });
 
-        $scope.$watch('booking.creditcardnumber', function(newVal, oldVal){
-            var accountNumber = $scope.booking.creditcardnumber;
-            var result = "";
+        // $scope.$watch('payment.creditcardnumber', function(newVal, oldVal){
+        //     if (!$scope.payment || !$scope.payment.creditcardnumber) return;
+        //     var accountNumber = $scope.payment.creditcardnumber;
+        //     var result = "";
 
-            //first check for MasterCard
-            if (/^5[1-5][0-9]{5,}$/.test(accountNumber)) {
-                result = "master";
-            }
-            //then check for Visa
-            else if (/^4[0-9]{6,}$/.test(accountNumber)) {
-                result = "visa";
-            }
-            //then check for AmEx
-            else if (/^3[47][0-9]{5,}$/.test(accountNumber)) {
-                result = "amex";
-            }
-            //then check for Discover
-            else if (/^6(?:011|5[0-9]{2})[0-9]{3,}$/.test(accountNumber)) {
-                result = "disco";
-            }
-            $scope.booking.cardType = result;
-        });
+        //     //first check for MasterCard
+        //     if (/^5[1-5][0-9]{5,}$/.test(accountNumber)) {
+        //         result = "master";
+        //     }
+        //     //then check for Visa
+        //     else if (/^4[0-9]{6,}$/.test(accountNumber)) {
+        //         result = "visa";
+        //     }
+        //     //then check for AmEx
+        //     else if (/^3[47][0-9]{5,}$/.test(accountNumber)) {
+        //         result = "amex";
+        //     }
+        //     //then check for Discover
+        //     else if (/^6(?:011|5[0-9]{2})[0-9]{3,}$/.test(accountNumber)) {
+        //         result = "disco";
+        //     }
+        //     $scope.payment.cardType = result;
+        // });
 
         $scope.$watchGroup(['booking.pricing.price', 'booking.booking_date', 'booking.duration', 'booking.recurring', 'booking.frequency', 'booking.frequency_until_date', 'booking.booking_time'], function () {
             if (!$scope.booking.pricing) return;
@@ -184,7 +221,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
             var pricing = $scope.booking.scheduledBookings[0].pricing;
             var numberOfBooking = $scope.booking.scheduledBookings.length;
 
-            $scope.booking.amountDue = numberOfBooking * billedBookingCount * pricing.price;
+            $scope.booking.amountDue = $scope.payment.amountDue = numberOfBooking * billedBookingCount * pricing.price;
         }
 
         function setBookingEndDate() {

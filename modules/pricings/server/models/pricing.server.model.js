@@ -19,6 +19,11 @@ var PricingSchema = new Schema({
 		required: 'ERROR_MSG.LOCALE_REQUIRED',
 		trim: true
 	},
+	currency: {
+		type: String,
+		required: 'ERROR_MSG.CURRENCY_REQUIRED',
+		trim: true
+	},
 	price: {
 		type: Number,
 		required: 'ERROR_MSG.PRICE_REQUIRED'

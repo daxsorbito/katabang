@@ -109,7 +109,8 @@
     "START_DATE_REQUIRED": "Start date is required_ko",
     "LOCALE_REQUIRED": "Locale is required_ko",
     "PRICE_REQUIRED": "Price is required_ko",
-    "SERVICE_TYPE_REQUIRED": "Service type is required_ko"
+    "SERVICE_TYPE_REQUIRED": "Service type is required_ko",
+    "CURRENCY_REQUIRED" : "Currency is required_ko"
   },
   "ARTICLE": "Article_ko",
   "NEW_ARTICLE": "New Article_ko",

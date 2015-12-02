@@ -12,6 +12,10 @@ angular.module('bookings').factory('Bookings', ['$resource',
 			get: {
 				method: 'GET',
 				isArray: true
+			},
+			pay: {
+				method: 'POST',
+				url: 'api/bookings/pay'
 			}
 		});
 	}

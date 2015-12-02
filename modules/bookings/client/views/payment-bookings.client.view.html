@@ -1,93 +1,95 @@
 <section data-ng-controller="BookingsController" data-ng-init="findOne()">
-    <div class="col-lg-12 tp-banner-container-booking">
-        <div class="modal-dialog modal-dialog-lg col-lg-12">
-            <div class="modal-content ">
-                <div class="modal-header">
-                    <h2 class="form-signin-heading modal-title" id="myModalLabel">{{ 'BOOKING_PAYMENT' |
-                        translate}}</h2>
-                </div>
-                <div class="modal-body">
-                    <fieldset>
-                        <legend>Bookings</legend>
-                        <div class="container scheduled-booking-table payment-scheduled-booking-table">
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th class="text-center">Date</th>
-                                    <th class="text-center">Time</th>
-                                    <th class="text-center">Duration (hours)</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr ng-repeat="schedBooking in booking.scheduledBookings">
-                                    <td>{{ schedBooking.booking_date | date:'MM-dd-yyyy'}}</td>
-                                    <td>{{ schedBooking.booking.booking_time }}</td>
-                                    <td>{{ schedBooking.booking.duration }}</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="invoicedetails">
-                            <h4>Your Estimated Amount Due is = &nbsp; {{ booking.amountDue || 0 }}</h4>
-
-                            <p><h4>Details:</h4>
-                            {{ booking.scheduledBookings.length || 1 }} x House Cleaner service.<br/>
-
-                            {{ booking.duration || 4 }} hours total duration from arrival, including 30 minutes of
-                            wrap up prior to departure<br/>
-
-                            <br/>What is usually included in a house cleaner service?<br/>
-                            <a href="housecleaningchecklist.html">Please
-                                Click Here</a>. The checklist is for guidance only. Not all items in the checklist
-                            may be completed depending on the size of your house and its current state.<br/>
-                            If you have any questions, please do not hesitate to <a
-                                href="mailto:support@katabang.com">email</a> or call us.</p>
-                        </div>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Payment</legend>
-                        <div class="container">
-                            <div class="cc form-group">
-                                <div ng-class="booking.cardType == 'master' ? 'master' : 'master-disable'"></div>
-                                <div ng-class="booking.cardType == 'visa' ? 'visa' : 'visa-disable'"></div>
-                                <div ng-class="booking.cardType == 'disco' ? 'disco' : 'disco-disable'"></div>
-                                <div ng-class="booking.cardType == 'amex' ? 'amex' : 'amex-disable'"></div>
+    <form data-ng-submit="pay()" novalidate>
+        <div class="col-lg-12 tp-banner-container-booking">
+            <div class="modal-dialog modal-dialog-lg col-lg-12">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h2 class="form-signin-heading modal-title" id="myModalLabel">{{ 'BOOKING_PAYMENT' |
+                            translate}}</h2>
+                    </div>
+                    <div class="modal-body">
+                        <fieldset>
+                            <legend>{{ 'BOOKINGS' | translate }}</legend>
+                            <div class="container scheduled-booking-table payment-scheduled-booking-table">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th class="text-center">Date</th>
+                                        <th class="text-center">Time</th>
+                                        <th class="text-center">Duration (hours)</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="schedBooking in booking.scheduledBookings">
+                                        <td>{{ schedBooking.booking_date | date:'MM-dd-yyyy'}}</td>
+                                        <td>{{ schedBooking.booking.booking_time }}</td>
+                                        <td>{{ schedBooking.booking.duration }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <div>
-                                <div class="form-group">
-                                    <label for="creditcardnumber">{{ 'CREDIT_CARD_NUMBER' | translate }}</label>
-                                    <input type="text" id="creditcardnumber" name="creditcardnumber"
-                                           class="form-control"
-                                           data-ng-model="booking.creditcardnumber"
-                                           placeholder="{{ 'CREDIT_CARD_NUMBER' | translate }}"/>
+                            <div class="invoicedetails">
+                                <h4>Your Estimated Amount Due is = &nbsp; {{ payment.amountDue || 0 }}</h4>
+
+                                <p><h4>Details:</h4>
+                                {{ booking.scheduledBookings.length || 1 }} x House Cleaner service.<br/>
+
+                                {{ booking.duration || 4 }} hours total duration from arrival, including 30 minutes of
+                                wrap up prior to departure<br/>
+
+                                <br/>What is usually included in a house cleaner service?<br/>
+                                <a href="housecleaningchecklist.html">Please
+                                    Click Here</a>. The checklist is for guidance only. Not all items in the checklist
+                                may be completed depending on the size of your house and its current state.<br/>
+                                If you have any questions, please do not hesitate to <a
+                                    href="mailto:support@katabang.com">email</a> or call us.</p>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Payment</legend>
+                            <div class="container">
+                                <div class="cc form-group">
+                                    <div ng-class="payment.cardType == 'master' ? 'master' : 'master-disable'"></div>
+                                    <div ng-class="payment.cardType == 'visa' ? 'visa' : 'visa-disable'"></div>
+                                    <div ng-class="payment.cardType == 'disco' ? 'disco' : 'disco-disable'"></div>
+                                    <div ng-class="payment.cardType == 'amex' ? 'amex' : 'amex-disable'"></div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="securitycode">{{ 'SECURITY_CODE' | translate }}</label>
-                                    <input type="text" id="securitycode" name="securitycode" class="form-control"
-                                           ng-model="booking.securitycode"
-                                           placeholder="{{ 'SECURITY_CODE' | translate }}"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="expiryyear">{{ 'EXPIRY_YEAR' | translate }}</label>
-                                    <input type="text" id="expiryyear" name="expiryyear" class="form-control"
-                                           data-ng-model="booking.expiryyear"
-                                           placeholder="{{ 'YYYY' | translate }}"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="expirymonth">{{ 'EXPIRY_MONTH' | translate }}</label>
-                                    <input type="text" id="expirymonth" name="expirymonth" class="form-control"
-                                           data-ng-model="booking.expirymonth"
-                                           placeholder="{{ 'MM' | translate }}"/>
+                                <div>
+                                    <div class="form-group">
+                                        <label for="creditcardnumber">{{ 'CREDIT_CARD_NUMBER' | translate }}</label>
+                                        <input type="text" id="creditcardnumber" name="creditcardnumber"
+                                               class="form-control"
+                                               data-ng-model="payment.creditcardnumber"
+                                               placeholder="{{ 'CREDIT_CARD_NUMBER' | translate }}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="securitycode">{{ 'SECURITY_CODE' | translate }}</label>
+                                        <input type="text" id="securitycode" name="securitycode" class="form-control"
+                                               ng-model="payment.securitycode"
+                                               placeholder="{{ 'SECURITY_CODE' | translate }}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expiryyear">{{ 'EXPIRY_YEAR' | translate }}</label>
+                                        <input type="text" id="expiryyear" name="expiryyear" class="form-control"
+                                               data-ng-model="payment.expiryyear"
+                                               placeholder="{{ 'YYYY' | translate }}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="expirymonth">{{ 'EXPIRY_MONTH' | translate }}</label>
+                                        <input type="text" id="expirymonth" name="expirymonth" class="form-control"
+                                               data-ng-model="payment.expirymonth"
+                                               placeholder="{{ 'MM' | translate }}"/>
+                                    </div>
                                 </div>
                             </div>
+                        </fieldset>
+                        <div class="text-center">
+                            <input type="submit" name="submitbooking" class="btn btn-color btn-lg"
+                                   value="{{ 'PAY_NOW' | translate }}"/>
                         </div>
-                    </fieldset>
-                    <div class="text-center">
-                        <input type="submit" name="submitbooking" class="btn btn-color btn-lg"
-                               value="{{ 'PAY_NOW' | translate }}"/>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </section>

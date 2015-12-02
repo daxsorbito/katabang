@@ -22,6 +22,9 @@ module.exports = {
       stream: 'access.log'
     }
   },
+  app: {
+    url: 'http://www.katabang.com'
+  },
   facebook: {
     clientID: process.env.FACEBOOK_ID || 'APP_ID',
     clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',

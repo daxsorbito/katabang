@@ -23,7 +23,8 @@ module.exports = {
     }
   },
   app: {
-    title: defaultEnvConfig.app.title + ' - Development Environment'
+    title: defaultEnvConfig.app.title + ' - Development Environment',
+    url: 'http://localhost:' + (process.env.PORT || 4000)
   },
   facebook: {
     clientID: process.env.FACEBOOK_ID || 'APP_ID',

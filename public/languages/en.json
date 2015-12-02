@@ -109,7 +109,8 @@
     "START_DATE_REQUIRED": "Start date is required",
     "LOCALE_REQUIRED": "Locale is required",
     "PRICE_REQUIRED": "Price is required",
-    "SERVICE_TYPE_REQUIRED": "Service type is required"
+    "SERVICE_TYPE_REQUIRED": "Service type is required",
+    "CURRENCY_REQUIRED" : "Currency is required"
   },
   "ARTICLE": "Article",
   "NEW_ARTICLE": "New Article",

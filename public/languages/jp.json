@@ -109,7 +109,8 @@
     "START_DATE_REQUIRED": "Start date is required_jp",
     "LOCALE_REQUIRED": "Locale is required_jp",
     "PRICE_REQUIRED": "Price is required_jp",
-    "SERVICE_TYPE_REQUIRED": "Service type is required_jp"
+    "SERVICE_TYPE_REQUIRED": "Service type is required_jp",
+    "CURRENCY_REQUIRED" : "Currency is required_jp"
   },
   "ARTICLE": "Article_jp",
   "NEW_ARTICLE": "New Article_jp",
