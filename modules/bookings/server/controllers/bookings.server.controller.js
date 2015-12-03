@@ -193,14 +193,16 @@ exports.executePay = function(req, res) {
     var bookingPayment = new BookingPayment(req.body);
     bookingPayment.status = 0; // set to pending
 
-    bookingPayment.save(function(err, payment) {
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        }
-        return res.jsonp(payment);
-    });
+    BookingPayment.findOneAndUpdate({paymentId: bookingPayment.paymentId}, bookingPayment, {upsert: true}, 
+        function(err, payment){
+                if (err) {
+                    return res.status(400).send({
+                        message: errorHandler.getErrorMessage(err)
+                    });
+                }
+                return res.jsonp(payment);
+            }
+    );
 };
 
 /**
