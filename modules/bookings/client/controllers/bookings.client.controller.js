@@ -17,6 +17,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
         };
 
         $scope.init = function () {
+            if(!$scope.createBookingPage) delete $sessionStorage.booked;
             $scope.booking = $sessionStorage.booked || {};
             $scope.booking.pricing = Pricings.get({
                 pricingLocale: $translate.use()
@@ -39,12 +40,17 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
         // Create new Bookings
         $scope.create = function () {
             // Create new Bookings object
+            delete $scope.booking._id;
             var booking = new Bookings($scope.booking);
 
             // Redirect after save
-            booking.$save(function (response) {
+            booking.$save(function (booking) {
                 // TODO: call payment API
                 // $location.path('bookings/payment/' + response._id);
+                console.log('#########################');
+                console.log(booking);
+                $scope.booking._id = booking._id;
+                console.log('#########################');
                 processPayment();
 
             }, function (errorResponse) {
@@ -106,6 +112,19 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
             $scope.bookings = Bookings.query();
         };
 
+        // Find a list of Bookings
+        $scope.executePayment = function () {
+            var execPayment = {
+                paymentId: $stateParams.paymentId,
+                token: $stateParams.token,
+                PayerID: $stateParams.PayerID,
+                booking: $stateParams.bookingId
+            };
+            var payment = Bookings.executePay(execPayment);
+            payment.$promise.then(function(data){
+                console.log(data);
+            });
+        };
         // Find existing Bookings
         //$scope.findOne = function () {
         //    $scope.booking = {};

@@ -23,6 +23,9 @@ exports.invokeRolesPolicies = function () {
         },{
             resources: '/api/bookings/pay',
             permissions: '*'
+        },{
+            resources: '/api/bookings/executePay',
+            permissions: '*'
         }]
     }, {
         roles: ['user'],
@@ -34,6 +37,9 @@ exports.invokeRolesPolicies = function () {
             permissions: ['get']
         },{
             resources: '/api/bookings/pay',
+            permissions: '*'
+        },{
+            resources: '/api/bookings/executePay',
             permissions: '*'
         }]
     }, {

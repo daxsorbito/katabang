@@ -9,6 +9,7 @@ var path = require('path'),
     Booking = mongoose.model('Booking'),
     Pricing = mongoose.model('Pricing'),
     ScheduledBooking = mongoose.model('ScheduledBooking'),
+    BookingPayment = mongoose.model('BookingPayment'),
     paypal = require('paypal-rest-sdk'),
     config = require(path.resolve('./config/config')),
     async = require('async'),
@@ -148,9 +149,12 @@ exports.list = function(req, res) {
 exports.pay = function(req, res) {
     // TODO: process paypal payment
     console.log('entered payment');
-    console.log(config.app.url + '/executePayment');
+    console.log(config.app.url + '/bookings/executePayment');
 
     var postedData = req.body;
+
+    // TODO: add booking_id in the return_url
+    console.log(postedData);
 
     var payment = {
         "intent": "sale",
@@ -165,8 +169,8 @@ exports.pay = function(req, res) {
     // console.log(payment.transactions[0].amount);
     payment.payer.payment_method = 'paypal';
     payment.redirect_urls = {
-        "return_url": config.app.url + '/executePayment',
-        "cancel_url": config.app.url + '/cancelPayment',
+        "return_url": config.app.url + '/bookings/executePayment/' + postedData._id + '/',
+        "cancel_url": config.app.url + '/bookings/cancelPayment' + postedData._id + '/'
     };
 
     paypal.payment.create(payment, function (error, payment) {
@@ -179,9 +183,24 @@ exports.pay = function(req, res) {
             res.json(payment);
         }
     });
+};
 
+exports.executePay = function(req, res) {
+    console.log('execute Pay ------');
+    console.log(req.body);
 
+    // TODO: save bookingPayment
+    var bookingPayment = new BookingPayment(req.body);
+    bookingPayment.status = 0; // set to pending
 
+    bookingPayment.save(function(err, payment) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        }
+        return res.jsonp(payment);
+    });
 };
 
 /**

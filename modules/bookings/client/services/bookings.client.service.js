@@ -16,6 +16,10 @@ angular.module('bookings').factory('Bookings', ['$resource',
 			pay: {
 				method: 'POST',
 				url: 'api/bookings/pay'
+			},
+			executePay: {
+				method: 'POST',
+				url: 'api/bookings/executePay'
 			}
 		});
 	}

@@ -17,6 +17,10 @@ angular.module('bookings').config(['$stateProvider',
 				url: '',
 				templateUrl: 'modules/bookings/views/list-bookings.client.view.html'
 			})
+			.state('bookings.paymentexecute', {
+				url: '/executePayment/:bookingId/?paymentId&token&PayerID',
+				templateUrl: 'modules/bookings/views/execute-bookings.client.view.html'
+			})
 			.state('bookings.create', {
 				url: '/create',
 				templateUrl: 'modules/bookings/views/create-bookings.client.view.html'

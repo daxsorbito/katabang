@@ -10,6 +10,9 @@ module.exports = function (app) {
 	app.route('/api/bookings/pay').all(bookingsPolicy.isAllowed)
 		.post(bookings.pay);
 
+	app.route('/api/bookings/executePay').all(bookingsPolicy.isAllowed)
+		.post(bookings.executePay);
+
 	// Bookings collection routes
 	app.route('/api/bookings').all(bookingsPolicy.isAllowed)
 		.get(bookings.list)
