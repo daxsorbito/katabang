@@ -51,7 +51,7 @@ angular.module('users').config(['$stateProvider',
         templateUrl: 'modules/users/views/authentication/signin.client.view.html'
         })
       .state('authentication.activate', {
-        url: '/signin?err&msg',
+        url: '/activate?err&msg',
         templateUrl: 'modules/users/views/authentication/activate-user.client.view.html'
         })
       .state('password', {

@@ -51,11 +51,9 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
       $scope.credentials['g-response'] = vcRecaptchaService.getResponse($scope.widgetId);
       $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
-        // If successful we assign the response to the global user model
-        $scope.authentication.user = response;
+        // After registration redirect to signin and display message.
 
-        // And redirect to the previous or home page
-        $state.go($state.previous.state.name || 'home', $state.previous.params);
+        $state.go('authentication.signin', {"msg": "EMAIL_SENT"});
       }).error(function (response) {
         $scope.error = response.message;
         vcRecaptchaService.reload($scope.widgetId);
