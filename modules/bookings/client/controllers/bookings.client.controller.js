@@ -182,7 +182,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
         // });
 
         $scope.$watchGroup(['booking.pricing.price', 'booking.booking_date', 'booking.duration', 'booking.recurring', 'booking.frequency', 'booking.frequency_until_date', 'booking.booking_time'], function () {
-            if (!$scope.booking.pricing) return;
+            if (!$scope.booking || !$scope.booking.pricing) return;
             var billedBookingCount = ($scope.booking.duration || 4) / 4; // billed by 4 hours
 
             if ($scope.booking.booking_date) {
@@ -244,6 +244,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
         }
 
         function setBookingEndDate() {
+            if (!$scope.booking) return;
             var startdate = new Date();
             startdate.setDate(startdate.getDate() + 1);
             $scope.booking.allowed_start_date = startdate.toISOString();

@@ -32,6 +32,14 @@ angular.module('bookings').config(['$stateProvider',
 			.state('bookings.edit', {
 				url: '/:bookingId/edit',
 				templateUrl: 'modules/bookings/views/edit-bookings.client.view.html'
+			})
+			.state('bookings.my-bookings', {
+				url: '/my-bookings',
+				templateUrl: 'modules/bookings/views/my-bookings.client.view.html'
+			})
+			.state('bookings.service-provider', {
+				url: 'service-provider',
+				templateUrl: 'modules/bookings/views/service-provider.client.view.html'
 			});
 	}
 ]);

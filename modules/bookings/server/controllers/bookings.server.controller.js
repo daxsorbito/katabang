@@ -186,14 +186,13 @@ exports.pay = function(req, res) {
 };
 
 exports.executePay = function(req, res) {
-    console.log('execute Pay ------');
-    console.log(req.body);
-
-    // TODO: save bookingPayment
     var bookingPayment = new BookingPayment(req.body);
-    bookingPayment.status = 0; // set to pending
+    var bookingPaymentToUpdate = {};
+    bookingPaymentToUpdate = Object.assign(bookingPaymentToUpdate, bookingPayment._doc);
+    bookingPaymentToUpdate.status = 0; // set to pending
+    delete bookingPaymentToUpdate._id;
 
-    BookingPayment.findOneAndUpdate({paymentId: bookingPayment.paymentId}, bookingPayment, {upsert: true}, 
+    BookingPayment.findOneAndUpdate({paymentId: bookingPayment.paymentId}, bookingPaymentToUpdate, {upsert: true}, 
         function(err, payment){
                 if (err) {
                     return res.status(400).send({

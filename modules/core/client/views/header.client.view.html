@@ -54,6 +54,13 @@
                                 <a ui-sref="settings.services">{{ 'EDIT_SERVICES' | translate }}</a>
                             </li>
                             <li class="divider"></li>
+                            <li ui-sref-active="active" ng-show="authentication.user.userType !== 1">
+                                <a ui-sref="bookings.my-bookings">{{ 'MY_BOOKINGS' | translate }}</a>
+                            </li>
+                            <li ui-sref-active="active" ng-show="authentication.user.userType === 1">
+                                <a ui-sref="bookings.service-provider">{{ 'MY_SCHEDULE_ BOOKING' | translate }}</a>
+                            </li>
+                            <li class="divider"></li>
                             <li>
                                 <a href="/api/auth/signout" target="_self">{{ 'SIGNOUT' | translate }}</a>
                             </li>
