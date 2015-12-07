@@ -187,7 +187,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
 
             if ($scope.booking.booking_date) {
                 var start_date = new Date($scope.booking.booking_date);
-                var end_date = $scope.booking.frequency_until_date ? new Date($scope.booking.frequency_until_date) : new Date($scope.booking.booking_date);
+                var end_date = ($scope.booking.recurring === 1 && $scope.booking.frequency_until_date) ? new Date($scope.booking.frequency_until_date) : new Date($scope.booking.booking_date);
                 var MWF = [1,3,5];
                 var TTH = [2, 4];
                 var DAILY = [0,1,2,3,4,5,6,7];
