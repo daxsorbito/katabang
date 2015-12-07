@@ -28,7 +28,6 @@ paypal.configure({
 
 
 exports.create = function(req, res) {
-    console.log('entered create');
     var booking = new Booking(req.body);
     var pricing = new Pricing(req.body.pricing);
     var scheduledBookings  = req.body.scheduledBookings;
@@ -147,14 +146,7 @@ exports.list = function(req, res) {
  * Process payment
  */
 exports.pay = function(req, res) {
-    // TODO: process paypal payment
-    console.log('entered payment');
-    console.log(config.app.url + '/bookings/executePayment');
-
     var postedData = req.body;
-
-    // TODO: add booking_id in the return_url
-    console.log(postedData);
 
     var payment = {
         "intent": "sale",
@@ -166,7 +158,7 @@ exports.pay = function(req, res) {
             }
         }]
     };
-    // console.log(payment.transactions[0].amount);
+    
     payment.payer.payment_method = 'paypal';
     payment.redirect_urls = {
         "return_url": config.app.url + '/bookings/executePayment/' + postedData._id + '/',
