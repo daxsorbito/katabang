@@ -206,7 +206,7 @@ exports.bookthisrequest = function (req, res, next) {
     if(err || !schedBooking) {
       return res.redirect('/authentication/signin?err=BOOKING_TAKEN');
     }
-    ScheduledBooking.update({_id: schedBookings[0]._id}, { $set: {status: 2, service_provider: requestBooking.service_provider}}, function(){
+    ScheduledBooking.update({_id: schedBooking._id}, { $set: {status: 2, service_provider: requestBooking.service_provider}}, function(){
       return res.redirect('/authentication/signin?msg=BOOKING_SUCESS');
     });
   });
