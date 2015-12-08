@@ -18,6 +18,9 @@ module.exports = function (app) {
 		.get(bookings.list)
 		.post(bookings.create);
 
+	app.route('/api/bookthisrequest/:bookingToken')
+		.get(bookings.bookthisrequest);
+
 	// Single article routes
 	app.route('/api/bookings/:bookingId').all(bookingsPolicy.isAllowed)
 		.get(bookings.read)
@@ -26,4 +29,5 @@ module.exports = function (app) {
 
 	// Finish by binding the article middleware
 	app.param('bookingId', bookings.bookingID);
+	app.param('bookingToken', bookings.verifyToken);
 };

@@ -10,9 +10,9 @@ var mongoose = require('mongoose'),
  * BookingRequest Schema
  */
 var BookingRequestSchema = new Schema({
-	booking: {
+	scheduledBooking: {
 	    type: Schema.ObjectId,
-	    ref: 'Booking',
+	    ref: 'ScheduledBooking',
 	    required: "Booking id is required"
 	},
 	service_provider: {

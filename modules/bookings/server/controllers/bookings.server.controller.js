@@ -10,6 +10,7 @@ var path = require('path'),
     Pricing = mongoose.model('Pricing'),
     ScheduledBooking = mongoose.model('ScheduledBooking'),
     BookingPayment = mongoose.model('BookingPayment'),
+    BookingRequest = mongoose.model('BookingRequest'),
     paypal = require('paypal-rest-sdk'),
     config = require(path.resolve('./config/config')),
     async = require('async'),
@@ -113,32 +114,32 @@ exports.update = function(req, res) {
  * Delete an Booking
  */
 exports.delete = function(req, res) {
-    var booking = req.booking ;
+  var booking = req.booking ;
 
-    booking.remove(function(err) {
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        } else {
-            res.jsonp(booking);
-        }
-    });
+  booking.remove(function(err) {
+      if (err) {
+          return res.status(400).send({
+              message: errorHandler.getErrorMessage(err)
+          });
+      } else {
+          res.jsonp(booking);
+      }
+  });
 };
 
 /**
  * List of Booking
  */
 exports.list = function(req, res) {
-    Booking.find().sort('-created').populate('user', 'displayName').exec(function(err, booking) {
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        } else {
-            res.jsonp(booking);
-        }
-    });
+  Booking.find().sort('-created').populate('user', 'displayName').exec(function(err, booking) {
+      if (err) {
+          return res.status(400).send({
+              message: errorHandler.getErrorMessage(err)
+          });
+      } else {
+          res.jsonp(booking);
+      }
+  });
 };
 
 
@@ -146,75 +147,104 @@ exports.list = function(req, res) {
  * Process payment
  */
 exports.pay = function(req, res) {
-    var postedData = req.body;
+  var postedData = req.body;
 
-    var payment = {
-        "intent": "sale",
-        "payer": {},
-        "transactions": [{
-            "amount": {
-                "currency": postedData.pricing.currency,
-                "total": postedData.amountDue
-            }
-        }]
-    };
-    
-    payment.payer.payment_method = 'paypal';
-    payment.redirect_urls = {
-        "return_url": config.app.url + '/bookings/executePayment/' + postedData._id + '/',
-        "cancel_url": config.app.url + '/bookings/cancelPayment' + postedData._id + '/'
-    };
+  var payment = {
+      "intent": "sale",
+      "payer": {},
+      "transactions": [{
+          "amount": {
+              "currency": postedData.pricing.currency,
+              "total": postedData.amountDue
+          }
+      }]
+  };
+  
+  payment.payer.payment_method = 'paypal';
+  payment.redirect_urls = {
+      "return_url": config.app.url + '/bookings/executePayment/' + postedData._id + '/',
+      "cancel_url": config.app.url + '/bookings/cancelPayment' + postedData._id + '/'
+  };
 
-    paypal.payment.create(payment, function (error, payment) {
-        if (error) {
-            return res.status(400).send({
-                message: "Error processing payment"
-            });
-        } else {
-            req.session.paymentId = payment.id;
-            res.json(payment);
-        }
-    });
+  paypal.payment.create(payment, function (error, payment) {
+      if (error) {
+          return res.status(400).send({
+              message: "Error processing payment"
+          });
+      } else {
+          req.session.paymentId = payment.id;
+          res.json(payment);
+      }
+  });
 };
 
 exports.executePay = function(req, res) {
-    var bookingPayment = new BookingPayment(req.body);
-    var bookingPaymentToUpdate = {};
-    bookingPaymentToUpdate = Object.assign(bookingPaymentToUpdate, bookingPayment._doc);
-    bookingPaymentToUpdate.status = 0; // set to pending
-    delete bookingPaymentToUpdate._id;
+  var bookingPayment = new BookingPayment(req.body);
+  var bookingPaymentToUpdate = {};
+  bookingPaymentToUpdate = Object.assign(bookingPaymentToUpdate, bookingPayment._doc);
+  bookingPaymentToUpdate.status = 0; // set to pending
+  delete bookingPaymentToUpdate._id;
 
-    BookingPayment.findOneAndUpdate({paymentId: bookingPayment.paymentId}, bookingPaymentToUpdate, {upsert: true}, 
-        function(err, payment){
-                if (err) {
-                    return res.status(400).send({
-                        message: errorHandler.getErrorMessage(err)
-                    });
-                }
-                return res.jsonp(payment);
-            }
-    );
+  BookingPayment.findOneAndUpdate({paymentId: bookingPayment.paymentId}, bookingPaymentToUpdate, {upsert: true}, 
+      function(err, payment){
+              if (err) {
+                  return res.status(400).send({
+                      message: errorHandler.getErrorMessage(err)
+                  });
+              }
+              return res.jsonp(payment);
+          }
+  );
+};
+
+exports.bookthisrequest = function (req, res, next) {
+  var requestBooking = req.requestBooking;
+
+  // Todo: search for the booking, and change the status to booked and update the service provider field
+  ScheduledBooking.findOne({_id: requestBooking.scheduledBooking, status: 1})
+    .exec(function (err, schedBooking) {
+    if(err || !schedBooking) {
+      return res.redirect('/authentication/signin?err=BOOKING_TAKEN');
+    }
+    ScheduledBooking.update({_id: schedBookings[0]._id}, { $set: {status: 2, service_provider: requestBooking.service_provider}}, function(){
+      return res.redirect('/authentication/signin?msg=BOOKING_SUCESS');
+    });
+  });
 };
 
 /**
  * Booking middleware
  */
 exports.bookingID = function (req, res, next, id) {
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(400).send({
-            message: 'Booking is invalid'
-        });
-    }
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).send({
+          message: 'Booking is invalid'
+      });
+  }
 
-    Booking.findById(id).populate('user', 'displayName').exec(function (err, booking) {
-        if (err) {
-            return next(err);
-        } else if (!booking) {
-            return res.status(404).send({
-                message: 'No booking with that identifier has been found'
-            });
-        }
-        req.booking = booking;
-        next();
-    });
+  Booking.findById(id).populate('user', 'displayName').exec(function (err, booking) {
+      if (err) {
+          return next(err);
+      } else if (!booking) {
+          return res.status(404).send({
+              message: 'No booking with that identifier has been found'
+          });
+      }
+      req.booking = booking;
+      next();
+  });
+};
+
+exports.verifyToken = function (req, res, next, token) {
+  BookingRequest.findOne({
+      requestToken: token,
+      requestExpires: {
+        $gt: Date.now()
+      }}).exec(function (err, requestBooking) {
+      if (err || !requestBooking) {
+        return res.redirect('/authentication/signin?err=INVALID_BOOKING_REQUEST');
+      }
+      req.requestBooking = requestBooking;
+      next();
+  });
 };
