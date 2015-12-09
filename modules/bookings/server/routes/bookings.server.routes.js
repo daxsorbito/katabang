@@ -26,4 +26,5 @@ module.exports = function (app) {
 
 	// Finish by binding the article middleware
 	app.param('bookingId', bookings.bookingID);
+	app.param('userId', bookings.userId);
 };

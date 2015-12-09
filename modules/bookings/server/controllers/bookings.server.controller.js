@@ -10,6 +10,7 @@ var path = require('path'),
     Pricing = mongoose.model('Pricing'),
     ScheduledBooking = mongoose.model('ScheduledBooking'),
     BookingPayment = mongoose.model('BookingPayment'),
+    User = mongoose.model('User'),
     paypal = require('paypal-rest-sdk'),
     config = require(path.resolve('./config/config')),
     async = require('async'),
@@ -158,7 +159,7 @@ exports.pay = function(req, res) {
             }
         }]
     };
-    
+
     payment.payer.payment_method = 'paypal';
     payment.redirect_urls = {
         "return_url": config.app.url + '/bookings/executePayment/' + postedData._id + '/',
@@ -184,7 +185,7 @@ exports.executePay = function(req, res) {
     bookingPaymentToUpdate.status = 0; // set to pending
     delete bookingPaymentToUpdate._id;
 
-    BookingPayment.findOneAndUpdate({paymentId: bookingPayment.paymentId}, bookingPaymentToUpdate, {upsert: true}, 
+    BookingPayment.findOneAndUpdate({paymentId: bookingPayment.paymentId}, bookingPaymentToUpdate, {upsert: true},
         function(err, payment){
                 if (err) {
                     return res.status(400).send({
@@ -217,4 +218,27 @@ exports.bookingID = function (req, res, next, id) {
         req.booking = booking;
         next();
     });
+};
+
+/**
+  * UserId Check
+  */
+exports.userId = function(req, res, next, id){
+  if(!mongoose.Types.ObjectId.IsValid(id)){
+    return res.status(400).send({
+      message: 'User is invalid'
+    });
+  }
+
+  User.findById(id).exec(function(err, user){
+    if(err){
+      return next(err);
+    }else if (!user){
+      return res.status(404).send({
+        message: 'No user with that identifier has been found'
+      });
+    }
+    req.user = user;
+    next();
+  });
 };
