@@ -18,13 +18,20 @@ module.exports = function (app) {
 		.get(bookings.list)
 		.post(bookings.create);
 
+	app.route('/api/bookthisrequest/:bookingToken')
+		.get(bookings.bookthisrequest);
+
 	// Single article routes
 	app.route('/api/bookings/:bookingId').all(bookingsPolicy.isAllowed)
 		.get(bookings.read)
 		.put(bookings.update)
 		.delete(bookings.delete);
 
+	app.route('/api/userbookings/:userId')
+		.get(bookings.userbookings);
+
 	// Finish by binding the article middleware
 	app.param('bookingId', bookings.bookingID);
 	app.param('userId', bookings.userId);
+	app.param('bookingToken', bookings.verifyToken);
 };

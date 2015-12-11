@@ -38,7 +38,7 @@ angular.module('bookings').config(['$stateProvider',
 				templateUrl: 'modules/bookings/views/my-bookings.client.view.html'
 			})
 			.state('bookings.service-provider', {
-				url: 'service-provider',
+				url: '/service-provider',
 				templateUrl: 'modules/bookings/views/service-provider.client.view.html'
 			});
 	}
