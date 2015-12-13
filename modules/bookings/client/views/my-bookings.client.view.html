@@ -1,4 +1,4 @@
-<section data-ng-controller="MyBookingsController" >
+<section data-ng-controller="BookingsController" >
     <div class="col-lg-12 tp-banner-container-booking" >
         <div class="modal-dialog modal-dialog-lg col-lg-12">
             <div class="modal-content ">
@@ -6,12 +6,11 @@
                     <h2 class="form-signin-heading modal-title" id="myModalLabel">{{ 'MY_BOOKINGS' |
                         translate}}</h2>
                 </div>
-                <div class="modal-body" ng-init="findMyBookings()">
-                    {{ 'MY_BOOKINGS' | translate}}
-                    <!-- <div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="booking.scheduledBookings"></div> -->
+                <div class="modal-body" ng-init="findCustomerBookings()">
                     <table >
                         <thead>
                             <tr>
+                                <th class="text-center">Status</th>
                                 <th class="text-center">Service Type</th>
                                 <th class="text-center">Date</th>
                                 <th class="text-center">Time</th>
@@ -22,13 +21,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="schedBooking in booking.scheduledBookings" >
+                            <tr ng-repeat="schedBooking in custBooking.scheduledBookings" >
+                                <td>{{ schedBooking.statusStr }}</td>
+                                <td>{{ schedBooking.booking.serviceTypeStr }}</td>
                                 <td>{{ schedBooking.booking.booking_date | date:'MM-dd-yyyy'}}</td>
                                 <td>{{ schedBooking.booking.booking_time }}</td>
                                 <td>{{ schedBooking.booking.duration }}</td>
-                                <td>{{ schedBooking.booking.booking_date | date:'MM-dd-yyyy'}}</td>
-                                <td>{{ schedBooking.booking.booking_time }}</td>
-                                <td>{{ schedBooking.booking.booking_duration }}</td>
+                                <td>{{ schedBooking.service_provider.displayName }}</td>
+                                <td>{{ schedBooking.service_provider.adress.mobilephone }}</td>
+                                <td>{{ schedBooking.service_provider.adress.telephone }}</td>
                             </tr>
                         </tbody>
                     </table>

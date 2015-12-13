@@ -125,6 +125,23 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
                 console.log(data);
             });
         };
+
+        // Find customer bookings
+        $scope.findCustomerBookings = function(){
+            var custBookings = Bookings.customerBookings({
+                userId: Authentication.user._id
+            });
+
+            $scope.custBooking = {};
+            custBookings.$promise.then(function(data){
+                console.log(data);
+                $scope.custBooking.scheduledBookings = data; 
+            });
+
+            
+        };
+
+
         // Find existing Bookings
         //$scope.findOne = function () {
         //    $scope.booking = {};

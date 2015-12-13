@@ -55,4 +55,13 @@ var BookingSchema = new Schema({
 	}
 });
 
+BookingSchema.virtual('serviceTypeStr').get(function(){
+	if(this.serviceType === 1)
+		return 'HOUSE_CLEANER';
+	else
+		return '';
+});
+
+BookingSchema.set('toJSON', {'virtuals': true});
+
 mongoose.model('Booking', BookingSchema);
