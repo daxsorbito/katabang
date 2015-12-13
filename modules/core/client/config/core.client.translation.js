@@ -5,7 +5,7 @@ angular.module('core').config(['$translateProvider',
         $translateProvider.useStaticFilesLoader({
             prefix: 'languages/',
             suffix: '.json'
-        }).useSanitizeValueStrategy('sanitize')
+        }).useSanitizeValueStrategy('escapeParameters')
         .registerAvailableLanguageKeys(['en'])
         .determinePreferredLanguage()
         .fallbackLanguage('en');

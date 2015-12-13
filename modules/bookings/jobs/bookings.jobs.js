@@ -29,6 +29,7 @@ module.exports = function (agenda) {
 
   smtpTransport.use('compile', handlebarMailer);
 
+  // Todo: this should be in DB -> to be refactored
   function getFormattedCityAndCountry(cityId, countryId) {
   	var output = [];
   	switch (cityId) {
@@ -149,7 +150,7 @@ module.exports = function (agenda) {
 			bookingRequest.save(function(err, data){
 				if (last) {
 					ScheduledBooking.update({_id: schedBooking._id}, { $set: {status: 1}}, function(){
-						console.log('[processBooking] executed at --> ' + (new Date));	
+						console.log('[proccessServiceProviderEmail] executed at --> ' + (new Date));	
 						done();
 					});
 		    };
@@ -172,6 +173,19 @@ module.exports = function (agenda) {
 				    processSendingEmail(schedBookings[i], i === (bookingsLength -1), done)
 				}
 		});
+	});
+
+	agenda.define('reprocessUnacceptedRequests', function(job, done) {
+		// Todo
+		// 1. What if booking_date is overdue already
+		// 2. What if after 5 days no-one accepts the reqeust
+
+
+	});
+
+
+	agenda.define('processPayment', function(job, done) {
+		// Todo: execute paypal payment here
 	});
 
   agenda.every('3 minutes', 'proccessServiceProviderEmail');
