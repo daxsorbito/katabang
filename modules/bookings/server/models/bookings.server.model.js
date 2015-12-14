@@ -57,7 +57,23 @@ var BookingSchema = new Schema({
 
 BookingSchema.virtual('serviceTypeStr').get(function(){
 	if(this.serviceType === 1)
-		return 'HOUSE_CLEANER';
+		return 'SERVICES.HOUSE_CLEANER';
+	else if(this.serviceType === 2)
+		return 'SERVICES.LAUNDRY_PRESS';
+	else if(this.serviceType === 3)
+		return 'SERVICES.CARETAKER_OLDSITTER';
+	else if(this.serviceType === 4)
+		return 'SERVICES.CARETAKER_BABYSITTER';
+	else if(this.serviceType === 5)
+		return 'SERVICES.PLUMBER';
+	else if(this.serviceType === 6)
+		return 'SERVICES.AIRCON_CLEANER';
+	else if(this.serviceType === 7)
+		return 'SERVICES.HOUSE_FIXTURES_INSTALLER';
+	else if(this.serviceType === 8)
+		return 'SERVICES.GARDENER';
+	else if(this.serviceType === 9)
+		return 'SERVICES.HANDYMAN';
 	else
 		return '';
 });

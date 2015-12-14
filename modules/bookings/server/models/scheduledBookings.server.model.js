@@ -44,19 +44,19 @@ var ScheduledBookingSchema = new Schema({
 
 ScheduledBookingSchema.virtual('statusStr').get(function(){
     if(this.status === 0)
-        return 'PENDING';
+        return 'BOOKING_STATUS.PENDING';
     else if(this.status === 1)
-        return 'EMAIL_SENT';
+        return 'BOOKING_STATUS.EMAIL_SENT';
     else if(this.status === 2)
-        return 'ACCEPTED';
+        return 'BOOKING_STATUS.ACCEPTED';
     else if(this.status === 3)
-        return 'DONE';
+        return 'BOOKING_STATUS.DONE';
     else if(this.status === 4)
-        return 'BILLED';
+        return 'BOOKING_STATUS.BILLED';
     else if(this.status === 5)
-        return 'PAID';
+        return 'BOOKING_STATUS.PAID';
     else if(this.status === 6)
-        return 'CANCELLED';
+        return 'BOOKING_STATUS.CANCELLED';
     else
         return '';
 });

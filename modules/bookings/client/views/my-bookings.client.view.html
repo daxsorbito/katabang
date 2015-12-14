@@ -10,20 +10,20 @@
                     <table >
                         <thead>
                             <tr>
-                                <th class="text-center">Status</th>
-                                <th class="text-center">Service Type</th>
-                                <th class="text-center">Date</th>
-                                <th class="text-center">Time</th>
-                                <th class="text-center">Duration (hours)</th>
-                                <th class="text-center">Service Provider Name</th>
-                                <th class="text-center">Mobile Number</th>
-                                <th class="text-center">Telephone</th>
+                                <th class="text-center">{{"STATUS"}}</th>
+                                <th class="text-center">{{'SERVICE_TYPE' | translate}}</th>
+                                <th class="text-center">{{'DATE' | translate}}</th>
+                                <th class="text-center">{{'TIME' | translate}}</th>
+                                <th class="text-center">{{'DURATION_HOURS' | translate}}</th>
+                                <th class="text-center">{{'SERVICE_PROVIDER_NAME' | translate}}</th>
+                                <th class="text-center">{{'MOBILEPHONE' | translate}}</th>
+                                <th class="text-center">{{'TELEPHONE' | translate}}</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="schedBooking in custBooking.scheduledBookings" >
-                                <td>{{ schedBooking.statusStr }}</td>
-                                <td>{{ schedBooking.booking.serviceTypeStr }}</td>
+                                <td>{{ schedBooking.statusStr | translate }}</td>
+                                <td>{{ schedBooking.booking.serviceTypeStr | translate}}</td>
                                 <td>{{ schedBooking.booking.booking_date | date:'MM-dd-yyyy'}}</td>
                                 <td>{{ schedBooking.booking.booking_time }}</td>
                                 <td>{{ schedBooking.booking.duration }}</td>
