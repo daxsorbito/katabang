@@ -46,7 +46,7 @@ ScheduledBookingSchema.virtual('statusStr').get(function(){
     if(this.status === 0)
         return 'PENDING';
     else if(this.status === 1)
-        return 'EMAOL_SENT';
+        return 'EMAIL_SENT';
     else if(this.status === 2)
         return 'ACCEPTED';
     else if(this.status === 3)
