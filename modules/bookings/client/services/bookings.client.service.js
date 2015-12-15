@@ -29,15 +29,3 @@ angular.module('bookings').factory('Bookings', ['$resource',
 		});
 	}
 ]);
-
-// angular.module('bookings').factory('CustomerBookings', ['$resource', 
-// 	function($resource){
-// 		return $resource('api/userbookings/:userId', {
-// 			userId: '@_id'
-// 		}, {get: {
-// 			method: 'GET',
-// 			isArray: true
-// 		}
-// 		});
-// 	}
-// ]);
