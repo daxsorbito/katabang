@@ -109,7 +109,8 @@ module.exports = function (agenda) {
   	var userCriteria  = {
   		"address.city" : schedBookings.booking.address.city, 
   		"address.prov_state": schedBookings.booking.address.prov_state,
-  		"address.country": schedBookings.booking.address.country
+  		"address.country": schedBookings.booking.address.country,
+      "userType": 1
   	};
 
   	User.find(userCriteria)
