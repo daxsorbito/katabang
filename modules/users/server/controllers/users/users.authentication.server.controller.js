@@ -83,14 +83,11 @@ exports.signup = function (req, res) {
                 //   }
                 // });
 
-                //Send email
-                console.log("Sending email");
                 res.render(path.resolve('modules/users/server/templates/activate-user-email'), {
                   name: user.displayName,
                   appName: config.app.title,
                   url: 'http://' + req.headers.host + '/api/auth/activate/' + token
                 }, function (err, emailHTML) {
-                    console.log("emailHTML: " + emailHTML);
                     var mailOptions = {
                       to: user.email,
                       from: config.mailer.from,
@@ -99,17 +96,12 @@ exports.signup = function (req, res) {
                     };
                     smtpTransport.sendMail(mailOptions, function (err) {
                       if (!err) {
-                      //if(true){//temporary to simulate successful sending of email.
-                        console.log("sendMail");
                         res.json(user);
                       } else {
-                        console.log("sendMail error: "  + err);
                         return res.status(400).send({
                           message: 'Failure sending email'
                         });
                       }
-
-                      //done(err);
                     });
                 });
 
@@ -173,21 +165,16 @@ exports.activate = function (req, res){
       $gt: Date.now()
     }
   }, function(err, user){
-    if(!user)
-    {
+    if (!user) {
       return res.redirect('/authentication/signin?err=USER_NOT_FOUND');
     }
-    else{
-      console.log('user found');
+    else {
       user.verified = true;
       user.save(function(err){
-        if(err)
-        {
-          console.log('error saving user');
+        if(err) {
           return res.redirect('/authentication/signin?err=USER_ACTIVATION_ERROR');
         }
-        else{
-          console.log('user updated');
+        else {
           return res.redirect('/authentication/signin?msg=USER_ACTIVATION_SUCCESS');
         }
       });
