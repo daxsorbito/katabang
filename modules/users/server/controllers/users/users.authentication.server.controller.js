@@ -240,7 +240,6 @@ exports.resendActivation = function (req, res, next) {
         subject: 'Activate Account',
         html: emailHTML
       };
-      console.log(emailHTML);
       smtpTransport.sendMail(mailOptions, function (err) {
         if (!err) {
           res.send({
