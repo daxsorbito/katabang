@@ -27,7 +27,11 @@ module.exports = function (app) {
 		.put(bookings.update)
 		.delete(bookings.delete);
 
+	app.route('/api/userbookings/:userId')
+		.get(bookings.userbookings);
+
 	// Finish by binding the article middleware
 	app.param('bookingId', bookings.bookingID);
+	app.param('userId', bookings.userId);
 	app.param('bookingToken', bookings.verifyToken);
 };
