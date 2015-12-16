@@ -20,6 +20,11 @@ angular.module('bookings').factory('Bookings', ['$resource',
 			executePay: {
 				method: 'POST',
 				url: 'api/bookings/executePay'
+			}, 
+			customerBookings: {
+				method: 'GET',
+				url: 'api/userbookings/:userId',
+				isArray: true
 			}
 		});
 	}

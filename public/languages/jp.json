@@ -139,5 +139,23 @@
   "USER_ACTIVATION_SUCCESS": "Your account was successfully activated. Please login_jp",
   "USER_NOT_VERIFIED": "User not yet verified_jp",
   "RESEND_ACTIVATION": "Resend activation email_jp",
-  "EMAIL_SENT": "An email has been sent to the provided email with further instructions._jp"
+  "EMAIL_SENT": "An email has been sent to the provided email with further instructions._jp",
+  "INVALID_BOOKING_REQUEST": "Invalid booking request._jp",
+  "BOOKING_TAKEN": "Booking request is already taken._jp",
+  "BOOKING_SUCESS":  "Booking success_jp",
+  "BOOKING_STATUS":{
+    "PENDING": "Pending_jp",
+    "EMAIL_SENT": "Email Sent_jp",
+    "ACCEPTED": "Accepted_jp",
+    "DONE": "Done_jp",
+    "BILLED": "Billed_jp",
+    "PAID": "Paid_jp",
+    "CANCELLED": "Cancelled_jp"
+  }, 
+  "MY_BOOKINGS": "My Bookings_jp",
+  "STATUS": "Status_jp",
+  "SERVICE_TYPE": "Service Type_jp",
+  "TIME": "Time_jp",
+  "DURATION_HOURS": "Duration (Hours)_jp",
+  "SERVICE_PROVIDER_NAME": "Service Provider Name_jp"
 }

@@ -139,5 +139,23 @@
   "USER_ACTIVATION_SUCCESS": "Your account was successfully activated. Please login_ko",
   "USER_NOT_VERIFIED": "User not yet verified_ko",
   "RESEND_ACTIVATION": "Resend activation email_ko",
-  "EMAIL_SENT": "An email has been sent to the provided email with further instructions._jp"
+  "EMAIL_SENT": "An email has been sent to the provided email with further instructions._ko",
+  "INVALID_BOOKING_REQUEST": "Invalid booking request._ko",
+  "BOOKING_TAKEN": "Booking request is already taken._ko",
+  "BOOKING_SUCESS":  "Booking success_ko",
+  "BOOKING_STATUS":{
+    "PENDING": "Pending_ko",
+    "EMAIL_SENT": "Email Sent_ko",
+    "ACCEPTED": "Accepted_ko",
+    "DONE": "Done_ko",
+    "BILLED": "Billed_ko",
+    "PAID": "Paid_ko",
+    "CANCELLED": "Cancelled_ko"
+  }, 
+  "MY_BOOKINGS": "My Bookings_ko",
+  "STATUS": "Status_ko",
+  "SERVICE_TYPE": "Service Type_ko",
+  "TIME": "Time_ko",
+  "DURATION_HOURS": "Duration (Hours)_ko",
+  "SERVICE_PROVIDER_NAME": "Service Provider Name_ko"
 }
