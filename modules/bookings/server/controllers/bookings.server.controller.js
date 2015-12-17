@@ -214,18 +214,31 @@ exports.bookthisrequest = function (req, res, next) {
 };
 
 exports.userbookings = function(req, res) {
-    ScheduledBooking.find({user: req.user._id})
-        .populate('booking')
-        .populate('service_provider')
-        //.populate('pricing')
-        .exec(function (err, bookings) {
-            if(err) {
-                return res.status(400).send({
-                    message: 'Booking is invalid'
-                });
-            }
-            res.jsonp(bookings);
+  ScheduledBooking.find({user: req.user._id})
+    .populate('booking')
+    .populate('service_provider')
+    .exec(function (err, bookings) {
+        if(err) {
+            return res.status(400).send({
+                message: 'Booking is invalid'
+            });
+        }
+        res.jsonp(bookings);
+    });
+};
+
+exports.providerbookings = function(req, res){
+  ScheduledBooking.find({service_provider: req.user._id})
+    .populate('booking')
+    .populate('user', '-salt -password')
+    .exec(function(err, bookings){
+      if(err){
+        return res.status(400).send({
+          message: 'Booking is invalid'
         });
+      }
+      res.jsonp(bookings);
+    });
 };
 
 /**

@@ -30,6 +30,9 @@ module.exports = function (app) {
 	app.route('/api/userbookings/:userId')
 		.get(bookings.userbookings);
 
+	app.route('/api/providerbookings/:userId')
+		.get(bookings.providerbookings);
+
 	// Finish by binding the article middleware
 	app.param('bookingId', bookings.bookingID);
 	app.param('userId', bookings.userId);
