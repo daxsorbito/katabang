@@ -134,7 +134,6 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
 
             $scope.custBooking = {};
             custBookings.$promise.then(function(data){
-                console.log(data);
                 $scope.custBooking.scheduledBookings = data; 
             });
 
