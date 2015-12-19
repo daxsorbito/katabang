@@ -19,11 +19,11 @@ var BookingSchema = new Schema({
 		required: "Date is required"
 	},
 	booking_time: {
-		type: String,
+		type: Number,
 		required: "Booking time is required"
 	},
 	duration: {
-		type: String,
+		type: Number,
 		required: "Service duration is required"
 	},
 	recurring: {
