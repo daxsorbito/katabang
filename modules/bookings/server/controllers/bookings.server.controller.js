@@ -230,7 +230,7 @@ exports.userbookings = function(req, res) {
 exports.providerbookings = function(req, res){
   ScheduledBooking.find({service_provider: req.user._id})
     .populate('booking')
-    .populate('user', '-salt -password')
+    .populate('user', '-salt -password -activateUserExpires -activateUserToken' )
     .exec(function(err, bookings){
       if(err){
         return res.status(400).send({

@@ -7,7 +7,30 @@
                         translate}}</h2>
                 </div>
                 <div class="modal-body">
-                    {{ 'SERVICE_PROVIDER' | translate}}
+                    <div class="modal-body" ng-init="findServiceProviderBookings()">
+                    <table >
+                        <thead>
+                            <tr>
+                                <th class="text-center">{{"STATUS" | translate}}</th>
+                                <th class="text-center">{{'SERVICE_TYPE' | translate}}</th>
+                                <th class="text-center">{{'DATE' | translate}}</th>
+                                <th class="text-center">{{'TIME' | translate}}</th>
+                                <th class="text-center">{{'DURATION_HOURS' | translate}}</th>
+                                <th class="text-center">{{'CUSTOMER' | translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="schedBooking in spBooking.scheduledBookings" >
+                                <td>{{ schedBooking.statusStr | translate }}</td>
+                                <td>{{ schedBooking.booking.serviceTypeStr | translate}}</td>
+                                <td>{{ schedBooking.booking.booking_date | date:'MM-dd-yyyy'}}</td>
+                                <td>{{ schedBooking.booking.booking_time }}</td>
+                                <td>{{ schedBooking.booking.duration }}</td>
+                                <td>{{ schedBooking.user.displayName }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                     
                 </div>
 

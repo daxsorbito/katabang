@@ -28,7 +28,8 @@ angular.module('bookings').factory('Bookings', ['$resource',
 			},
 			serviceProviderBookings: {
 				method: 'GET',
-				url: 'api/providerbookings/:userId'
+				url: 'api/providerbookings/:userId',
+				isArray: true
 			}
 		});
 	}

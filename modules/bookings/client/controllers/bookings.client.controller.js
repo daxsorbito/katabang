@@ -136,8 +136,18 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
             custBookings.$promise.then(function(data){
                 $scope.custBooking.scheduledBookings = data; 
             });
+        };
 
-            
+        // Find Service Provider bookings
+        $scope.findServiceProviderBookings = function(){
+            var spBookings = Bookings.serviceProviderBookings({
+                userId: Authentication.user._id
+            });
+
+            $scope.spBooking = {};
+            spBookings.$promise.then(function(data){
+                $scope.spBooking.scheduledBookings = data;
+            });
         };
 
 
