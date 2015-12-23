@@ -157,5 +157,7 @@
   "SERVICE_TYPE": "Service Type_jp",
   "TIME": "Time_jp",
   "DURATION_HOURS": "Duration (Hours)_jp",
-  "SERVICE_PROVIDER_NAME": "Service Provider Name_jp"
+  "SERVICE_PROVIDER_NAME": "Service Provider Name_jp",
+  "BOOKING_DETAILS": "Booking Details_jp",
+  "CONFIRM_BOOKING": "Confirm Booking_jp"
 }

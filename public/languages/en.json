@@ -160,5 +160,7 @@
   "SERVICE_PROVIDER_NAME": "Service Provider Name",
   "SERVICE_PROVIDER": "Service Provider",
   "CUSTOMER": "Customer",
-  "MY_SCHEDULED_ BOOKING": "My Scheduled bookings"
+  "MY_SCHEDULED_ BOOKING": "My Scheduled bookings",
+  "BOOKING_DETAILS": "Booking Details",
+  "CONFIRM_BOOKING": "Confirm Booking"
 }
