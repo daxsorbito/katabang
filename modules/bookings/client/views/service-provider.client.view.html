@@ -8,39 +8,45 @@
                 </div>
                 <div class="modal-body">
                     <div class="modal-body" ng-init="findServiceProviderBookings()">
-                    <table >
-                        <thead>
-                            <tr>
-                                <th class="text-center">{{"STATUS" | translate}}</th>
-                                <th class="text-center">{{'SERVICE_TYPE' | translate}}</th>
-                                <th class="text-center">{{'DATE' | translate}}</th>
-                                <th class="text-center">{{'TIME' | translate}}</th>
-                                <th class="text-center">{{'DURATION_HOURS' | translate}}</th>
-                                <th class="text-center">{{'CUSTOMER' | translate}}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="schedBooking in spBooking.scheduledBookings" >
-                                <td>{{ schedBooking.statusStr | translate }}</td>
-                                <td>{{ schedBooking.booking.serviceTypeStr | translate}}</td>
-                                <td>{{ schedBooking.booking.booking_date | date:'MM-dd-yyyy'}}</td>
-                                <td>{{ schedBooking.booking.booking_time }}</td>
-                                <td>{{ schedBooking.booking.duration }}</td>
-                                <td>{{ schedBooking.user.displayName }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-			<div>
-			<mwl-calendar
-				view="calendarView"
-				current-day="calendarDay"
-				events="events"
-				view-title="calendarTitle"
-			</mwl-calendar>
-                </div>
-                    
-                </div>
+                  		<div>
+                            <button
+                              class="btn btn-default"
+                              mwl-date-modifier
+                              date="calendarDay"
+                              decrement="calendarView">
+                              Previous
+                            </button>
 
+                            <button
+                              class="btn btn-default"
+                              mwl-date-modifier
+                              date="calendarDay"
+                              set-to-today>
+                              Today
+                            </button>
+
+                            <button
+                              class="btn btn-default"
+                              mwl-date-modifier
+                              date="calendarDay"
+                              increment="calendarView">
+                              Next
+                            </button>
+                			<mwl-calendar
+                                view="calendarView"
+                                current-day="calendarDay"
+                                events="events"
+                                view-title="calendarTitle"
+                                on-event-click="eventClicked(calendarEvent)"
+                                on-event-times-changed="calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+                                edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
+                                delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
+                                on-edit-event-click="eventEdited(calendarEvent)"
+                                on-delete-event-click="eventDeleted(calendarEvent)"
+                                cell-is-open="true">
+                            </mwl-calendar>
+                        </div>
+                </div>
             </div>
         </div>
     </div>

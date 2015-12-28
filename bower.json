@@ -20,7 +20,8 @@
     "isotope": "~2.2.2",
     "modernizr": "~2.8.3",
     "ngstorage": "~0.3.9",
-    "angular-bootstrap-calendar": "~0.17.6"
+    "angular-bootstrap-calendar": "~0.17.6",
+    "moment": "~2.10.6"
   },
   "resolutions": {
     "angular": "~1.3"

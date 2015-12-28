@@ -10,6 +10,7 @@ module.exports = {
 	'public/lib/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css'
       ],
       js: [
+        'public/lib/moment/moment.js',
         'public/lib/angular/angular.min.js',
         'public/lib/angular-resource/angular-resource.min.js',
         'public/lib/angular-animate/angular-animate.min.js',
@@ -22,7 +23,8 @@ module.exports = {
         'public/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
         'public/lib/angular-recaptcha/release/angular-recaptcha.min.js',
         'public/lib/ngstorage/ngStorage.min.js',
-	'public/lib/angular-bootstrap-calendar/dist/js/angular-bootrap-calendar-tpls.min.js'
+	      'public/lib/angular-bootstrap-calendar/dist/js/angular-bootrap-calendar-tpls.min.js'
+
       ]
     },
     css: 'public/dist/application.min.css',
