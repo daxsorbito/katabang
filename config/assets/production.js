@@ -6,7 +6,8 @@ module.exports = {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.min.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
-        'public/lib/font-awesome/css/font-awesome.min.css'
+        'public/lib/font-awesome/css/font-awesome.min.css',
+	'public/lib/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css'
       ],
       js: [
         'public/lib/angular/angular.min.js',
@@ -20,7 +21,8 @@ module.exports = {
         'public/lib/angular-translate/angular-translate.min.js',
         'public/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js',
         'public/lib/angular-recaptcha/release/angular-recaptcha.min.js',
-        'public/lib/ngstorage/ngStorage.min.js'
+        'public/lib/ngstorage/ngStorage.min.js',
+	'public/lib/angular-bootstrap-calendar/dist/js/angular-bootrap-calendar-tpls.min.js'
       ]
     },
     css: 'public/dist/application.min.css',

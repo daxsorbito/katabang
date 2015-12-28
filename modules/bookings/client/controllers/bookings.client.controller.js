@@ -150,6 +150,11 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
             });
         };
 
+	
+	$scope.calendarView = 'month';
+	$scope.events = [];
+	$scope.calendarDay = new Date();
+	$scope.calendarTitle = 'My Calendar';
 
         // Find existing Bookings
         //$scope.findOne = function () {
