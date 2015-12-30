@@ -155,11 +155,11 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
                     var start = bookingdate.setHours(d.booking.booking_time);
                     var end = bookingdate.setHours(d.booking.booking_time + d.booking.duration);
                     var e = {};
-                    e.title = '{0} | {1} | '.format( d.booking.serviceTypeStr, d.user.displayName);
+                    e.title = '{0} | {1} | '.format( $translate.instant(d.booking.serviceTypeStr), d.user.displayName);
                     e.type = 'info';
                     e.startsAt = new Date(start);
                     e.endAt = new Date(end);
-                    e.editable = false;
+                    e.editable = true;
                     e.deletable = false;
                     e.draggable = false;
                     e.resizable = false;
