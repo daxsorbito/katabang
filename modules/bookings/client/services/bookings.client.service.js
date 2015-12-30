@@ -25,6 +25,11 @@ angular.module('bookings').factory('Bookings', ['$resource',
 				method: 'GET',
 				url: 'api/userbookings/:userId',
 				isArray: true
+			},
+			serviceProviderBookings: {
+				method: 'GET',
+				url: 'api/providerbookings/:userId',
+				isArray: true
 			}
 		});
 	}

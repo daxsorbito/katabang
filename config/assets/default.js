@@ -6,9 +6,11 @@ module.exports = {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-        'public/lib/font-awesome/css/font-awesome.css'
+        'public/lib/font-awesome/css/font-awesome.css',
+	'public/lib/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.css'     
       ],
       js: [
+        'public/lib/moment/moment.js',
         'public/lib/angular/angular.js',
         'public/lib/angular-resource/angular-resource.js',
         'public/lib/angular-animate/angular-animate.js',
@@ -20,7 +22,9 @@ module.exports = {
         'public/lib/angular-translate/angular-translate.js',
         'public/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
         'public/lib/angular-recaptcha/release/angular-recaptcha.js',
-        'public/lib/ngstorage/ngStorage.js'
+        'public/lib/ngstorage/ngStorage.js',
+	      'public/lib/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.js'
+
 
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']

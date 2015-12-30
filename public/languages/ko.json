@@ -157,5 +157,7 @@
   "SERVICE_TYPE": "Service Type_ko",
   "TIME": "Time_ko",
   "DURATION_HOURS": "Duration (Hours)_ko",
-  "SERVICE_PROVIDER_NAME": "Service Provider Name_ko"
+  "SERVICE_PROVIDER_NAME": "Service Provider Name_ko",
+  "BOOKING_DETAILS": "Booking Details_ko",
+  "CONFIRM_BOOKING": "Confirm Booking_ko"
 }

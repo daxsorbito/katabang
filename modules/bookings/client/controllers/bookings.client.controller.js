@@ -134,15 +134,44 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
 
             $scope.custBooking = {};
             custBookings.$promise.then(function(data){
-                console.log(data);
                 $scope.custBooking.scheduledBookings = data; 
             });
-
-            
         };
 
+        // Find Service Provider bookings
+        $scope.findServiceProviderBookings = function(){
+            var spBookings = Bookings.serviceProviderBookings({
+                userId: Authentication.user._id
+            });
 
-        // Find existing Bookings
+            $scope.events = [];
+            $scope.calendarView = 'month';
+            $scope.calendarDay = new Date();
+            $scope.calendarTitle = 'My Calendar';
+            spBookings.$promise.then(function(data){
+                
+                data.forEach(function(d){
+                    var bookingdate = new Date( d.booking.booking_date);
+                    var start = bookingdate.setHours(d.booking.booking_time);
+                    var end = bookingdate.setHours(d.booking.booking_time + d.booking.duration);
+                    var e = {};
+                    e.title = '{0} | {1} | '.format( $translate.instant(d.booking.serviceTypeStr), d.user.displayName);
+                    e.type = 'info';
+                    e.startsAt = new Date(start);
+                    e.endAt = new Date(end);
+                    e.editable = false;
+                    e.deletable = false;
+                    e.draggable = false;
+                    e.resizable = false;
+
+                    $scope.events.push(e);
+                });
+
+                
+            });
+        };
+
+	    // Find existing Bookings
         //$scope.findOne = function () {
         //    $scope.booking = {};
         //    $scope.booking.scheduledBookings = Bookings.get({
