@@ -10,7 +10,7 @@ module.exports = {
 	'public/lib/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css'
       ],
       js: [
-        'public/lib/moment/moment.js',
+        'public/lib/moment/min/moment.min.js',
         'public/lib/angular/angular.min.js',
         'public/lib/angular-resource/angular-resource.min.js',
         'public/lib/angular-animate/angular-animate.min.js',
