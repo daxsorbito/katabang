@@ -159,7 +159,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
                     e.type = 'info';
                     e.startsAt = new Date(start);
                     e.endAt = new Date(end);
-                    e.editable = true;
+                    e.editable = false;
                     e.deletable = false;
                     e.draggable = false;
                     e.resizable = false;
