@@ -33,7 +33,7 @@ module.exports = function (app) {
 	app.route('/api/providerbookings/:userId')
 		.get(bookings.providerbookings);
 
-	app.route('/api/setbookingdone/:scheduledBookingId')
+	app.route('/api/setbookingdone')
 		.post(bookings.setBookingDone);
 
 	// Finish by binding the article middleware

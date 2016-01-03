@@ -156,19 +156,33 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
                     var end = bookingdate.setHours(d.booking.booking_time + d.booking.duration);
                     var e = {};
                     e.title = '{0} | {1} | '.format( $translate.instant(d.booking.serviceTypeStr), d.user.displayName);
-                    e.type = 'info';
+                    e.type =  d.status === 3 ? 'success' : 'important';
                     e.startsAt = new Date(start);
                     e.endAt = new Date(end);
                     e.editable = false;
                     e.deletable = false;
                     e.draggable = false;
                     e.resizable = false;
-
+                    e.schedBookingId = d.id;
                     $scope.events.push(e);
                 });
 
                 
             });
+        };
+
+        $scope.eventClicked = function (calendarEvent){
+            var a = confirm('Mark this booking as done?');
+            if(a === true)
+            {
+                var spBooking = Bookings.setBookingDone({
+                    scheduledBookingId: calendarEvent.schedBookingId
+                });
+
+                 spBooking.$promise.then(function(data){
+                     $scope.findServiceProviderBookings();
+                 });
+            }
         };
 
 	    // Find existing Bookings

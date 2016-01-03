@@ -242,9 +242,8 @@ exports.providerbookings = function(req, res){
 };
 
 exports.setBookingDone = function (req, res, next){
-  var scheduledBooking = req.scheduledBooking;
-
-  ScheduledBooking.findOne({_id: scheduledBooking._id})
+  var scheduledBookingId = req.body.scheduledBookingId;
+  ScheduledBooking.findOne({_id: scheduledBookingId})
     .exec(function(err, schedBooking){
       if(err || !schedBooking){
         return res.status(400).send({
