@@ -160,7 +160,6 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
                     e.startsAt = new Date(start);
                     e.endAt = new Date(end);
                     e.editable = d.status !== 3;
-                    console.log('status ' + d.status + ' tf ' +  d.status !== 3);
                     e.deletable = false;
                     e.draggable = false;
                     e.resizable = false;
