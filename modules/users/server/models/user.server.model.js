@@ -187,4 +187,65 @@ UserSchema.statics.findUniqueUsername = function (username, suffix, callback) {
   });
 };
 
+UserSchema.virtual('address.cityStr').get(function(){
+  if(this.address.city === 1)
+    return 'Cebu City';
+  else if(this.address.city === 2)
+    return 'Mandaue City';
+  else if(this.address.city === 3)
+    return 'Lapu-lapu';
+  else if(this.address.city === 4)
+    return 'Talisay';
+  else if(this.address.city === 5)
+    return 'Manila-Pasay';
+  else if(this.address.city === 6)
+    return 'Makati';
+  else if(this.address.city === 7)
+    return 'Ortigas';
+  else if(this.address.city === 8)
+    return 'Taguig';
+  else if(this.address.city === 9)
+    return 'Tokyo';
+  else if(this.address.city === 10)
+    return 'Seoul';
+  else if(this.address.city === 11)
+    return 'Singapore';
+  else
+    return '';
+});
+
+UserSchema.virtual('address.prov_stateStr').get(function(){
+  if(this.address.prov_state === 1)
+    return 'Cebu';
+  if(this.address.prov_state === 2)
+    return 'Manila';
+  if(this.address.prov_state === 3)
+    return 'Tokyo';
+  if(this.address.prov_state === 4)
+    return 'Seoul';
+  if(this.address.prov_state === 5)
+    return 'Hong Kong';
+  if(this.address.prov_state === 6)
+    return 'Singapore';
+  else
+    return '';
+});
+
+UserSchema.virtual('address.countryStr').get(function(){
+  if(this.address.country === 1)
+    return 'Philippines';
+  if(this.address.country === 2)
+    return 'Japan';
+  if(this.address.country === 3)
+    return 'Korea';
+  if(this.address.country === 4)
+    return 'Hong Kong';
+  if(this.address.country === 5)
+    return 'Singapore';
+  else
+    return '';
+});
+
+UserSchema.set('toJSON', {'virtuals': true});
+
 mongoose.model('User', UserSchema);

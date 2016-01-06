@@ -171,7 +171,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
                     e.date = bookingdate.toLocaleDateString();
                     e.startTime = (new Date(start)).toLocaleTimeString();
                     e.endTime = (new Date(end)).toLocaleTimeString();
-                    e.address = '';
+                    e.address = '{0} {1} {2} {3}'.format(d.user.address.address1, d.user.address.cityStr, d.user.address.prov_stateStr, d.user.address.countryStr);
                     e.contact = d.user.address.telephone;
                     $scope.events.push(e);
                 });
@@ -189,21 +189,6 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
                     scope: $scope
                 });
             }
-
-
-            // if(calendarEvent.status === 2){
-            //     var a = confirm('Mark this booking as done?');
-            //     if(a === true)
-            //     {
-            //         var spBooking = Bookings.setBookingDone({
-            //             scheduledBookingId: calendarEvent.schedBookingId
-            //         });
-
-            //          spBooking.$promise.then(function(data){
-            //              $scope.findServiceProviderBookings();
-            //          });
-            //     }
-            // }
         };
 
         $scope.markEventDone = function(id)
