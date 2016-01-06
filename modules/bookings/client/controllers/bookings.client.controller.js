@@ -1,8 +1,8 @@
 'use strict';
 
 // Bookings controller
-angular.module('bookings').controller('BookingsController', ['$scope', '$state', '$stateParams', '$window', '$location', '$sessionStorage', '$translate', 'Authentication', 'Bookings', 'Pricings', '$modal',
-    function ($scope, $state, $stateParams, $window, $location, $sessionStorage, $translate, Authentication, Bookings, Pricings, $modal) {
+angular.module('bookings').controller('BookingsController', ['$scope', '$state', '$stateParams', '$window', '$location', '$sessionStorage', '$translate', 'Authentication', 'Bookings', 'Pricings', '$modal', '$modalStack',
+    function ($scope, $state, $stateParams, $window, $location, $sessionStorage, $translate, Authentication, Bookings, Pricings, $modal, $modalStack) {
         $scope.authentication = Authentication;
         $scope.createBookingPage = $state.current.name === 'bookings.create';
 
@@ -160,6 +160,7 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
                     e.startsAt = new Date(start);
                     e.endAt = new Date(end);
                     e.editable = d.status !== 3;
+                    console.log('status ' + d.status + ' tf ' +  d.status !== 3);
                     e.deletable = false;
                     e.draggable = false;
                     e.resizable = false;
@@ -180,24 +181,46 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
         };
 
         $scope.eventEdited = function (calendarEvent){
+            $scope.vm = {};
             if(calendarEvent.status === 2){
-                var a = confirm('Mark this booking as done?');
-                if(a === true)
-                {
-                    var spBooking = Bookings.setBookingDone({
-                        scheduledBookingId: calendarEvent.schedBookingId
-                    });
-
-                     spBooking.$promise.then(function(data){
-                         $scope.findServiceProviderBookings();
-                     });
-                }
+                $scope.vm.id = calendarEvent.schedBookingId;
+                $modal.open({
+                    templateUrl: '/modules/bookings/views/modals/event-done.client.modal.html',
+                    scope: $scope
+                });
             }
+
+
+            // if(calendarEvent.status === 2){
+            //     var a = confirm('Mark this booking as done?');
+            //     if(a === true)
+            //     {
+            //         var spBooking = Bookings.setBookingDone({
+            //             scheduledBookingId: calendarEvent.schedBookingId
+            //         });
+
+            //          spBooking.$promise.then(function(data){
+            //              $scope.findServiceProviderBookings();
+            //          });
+            //     }
+            // }
+        };
+
+        $scope.markEventDone = function(id)
+        {
+            var spBooking = Bookings.setBookingDone({
+                scheduledBookingId: id
+            });
+
+             spBooking.$promise.then(function(data){
+                 $scope.findServiceProviderBookings();
+             });
+             $modalStack.dismissAll();
         };
 
         $scope.eventClicked = function (calendarEvent){
             $modal.open({
-            templateUrl: '/modules/bookings/views/modal-content.client.view.html',
+            templateUrl: '/modules/bookings/views/modals/event-details.client.modal.html',
             controller: function() {
               var vm = this;
               vm.event = calendarEvent;
