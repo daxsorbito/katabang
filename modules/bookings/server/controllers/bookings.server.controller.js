@@ -241,6 +241,23 @@ exports.providerbookings = function(req, res){
     });
 };
 
+exports.setBookingDone = function (req, res, next){
+  var scheduledBookingId = req.body.scheduledBookingId;
+  ScheduledBooking.findOne({_id: scheduledBookingId})
+    .exec(function(err, schedBooking){
+      if(err || !schedBooking){
+        return res.status(400).send({
+          message: 'ScheduledBooking is invalid'
+        });
+      }
+      ScheduledBooking.update({_id: schedBooking._id}, {$set: {status: 3}}, function(){
+        return res.status(200).send({
+          message: 'Scheduled booking status changed to done.'
+        });
+      });
+    });
+};
+
 /**
  * Booking middleware
  */
@@ -298,6 +315,29 @@ exports.userId = function(req, res, next, id){
       });
     }
     req.user = user;
+    next();
+  });
+};
+
+/**
+ * Scheduled booking check
+ */
+exports.scheduledBookingId = function(req, res, next, id){
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    return res.status(400).send({
+      message: 'Sheduled booking is not valid.'
+    });
+  }
+
+  ScheduledBooking.findById(id).exec(function(err, scheduledBooking){
+    if(err){
+      return next(err);
+    }else if(!scheduledBooking){
+      return res.status(404).send({
+        message: 'No scheduled booking with that identifies has been found'
+      });
+    }
+    req.scheduledBooking = scheduledBooking;
     next();
   });
 };

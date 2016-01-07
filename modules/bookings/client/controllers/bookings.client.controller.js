@@ -1,8 +1,8 @@
 'use strict';
 
 // Bookings controller
-angular.module('bookings').controller('BookingsController', ['$scope', '$state', '$stateParams', '$window', '$location', '$sessionStorage', '$translate', 'Authentication', 'Bookings', 'Pricings',
-    function ($scope, $state, $stateParams, $window, $location, $sessionStorage, $translate, Authentication, Bookings, Pricings) {
+angular.module('bookings').controller('BookingsController', ['$scope', '$state', '$stateParams', '$window', '$location', '$sessionStorage', '$translate', 'Authentication', 'Bookings', 'Pricings', '$modal', '$modalStack',
+    function ($scope, $state, $stateParams, $window, $location, $sessionStorage, $translate, Authentication, Bookings, Pricings, $modal, $modalStack) {
         $scope.authentication = Authentication;
         $scope.createBookingPage = $state.current.name === 'bookings.create';
 
@@ -156,19 +156,61 @@ angular.module('bookings').controller('BookingsController', ['$scope', '$state',
                     var end = bookingdate.setHours(d.booking.booking_time + d.booking.duration);
                     var e = {};
                     e.title = '{0} | {1} | '.format( $translate.instant(d.booking.serviceTypeStr), d.user.displayName);
-                    e.type = 'info';
+                    e.type =  d.status === 3 ? 'success' : 'important';
                     e.startsAt = new Date(start);
                     e.endAt = new Date(end);
-                    e.editable = false;
+                    e.editable = d.status !== 3;
                     e.deletable = false;
                     e.draggable = false;
                     e.resizable = false;
-
+                    e.schedBookingId = d.id;
+                    e.status = d.status;
+                    e.customer = d.user.displayName;
+                    e.serviceType = $translate.instant(d.booking.serviceTypeStr);
+                    e.date = bookingdate.toLocaleDateString();
+                    e.startTime = (new Date(start)).toLocaleTimeString();
+                    e.endTime = (new Date(end)).toLocaleTimeString();
+                    e.address = '{0} {1} {2} {3}'.format(d.user.address.address1, d.user.address.cityStr, d.user.address.prov_stateStr, d.user.address.countryStr);
+                    e.contact = d.user.address.telephone;
                     $scope.events.push(e);
                 });
 
                 
             });
+        };
+
+        $scope.eventEdited = function (calendarEvent){
+            $scope.vm = {};
+            if(calendarEvent.status === 2){
+                $scope.vm.id = calendarEvent.schedBookingId;
+                $modal.open({
+                    templateUrl: '/modules/bookings/views/modals/event-done.client.modal.html',
+                    scope: $scope
+                });
+            }
+        };
+
+        $scope.markEventDone = function(id)
+        {
+            var spBooking = Bookings.setBookingDone({
+                scheduledBookingId: id
+            });
+
+             spBooking.$promise.then(function(data){
+                 $scope.findServiceProviderBookings();
+             });
+             $modalStack.dismissAll();
+        };
+
+        $scope.eventClicked = function (calendarEvent){
+            $modal.open({
+            templateUrl: '/modules/bookings/views/modals/event-details.client.modal.html',
+            controller: function() {
+              var vm = this;
+              vm.event = calendarEvent;
+            },
+            controllerAs: 'vm'
+          });
         };
 
 	    // Find existing Bookings

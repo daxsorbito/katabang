@@ -8,7 +8,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="modal-body" ng-init="findServiceProviderBookings()">
-                  		<div>
+                        <h2 class="text-center">{{ calendarTitle }}</h2>
+                  		<div class="row">
                             <button
                               class="btn btn-default"
                               mwl-date-modifier
@@ -32,6 +33,7 @@
                               increment="calendarView">
                               Next
                             </button>
+
                 			<mwl-calendar
                                 view="calendarView"
                                 current-day="calendarDay"

@@ -1,0 +1,31 @@
+
+      <div class="modal-header">
+        <h3 class="modal-title">Service Details</h3>
+      </div>
+      <div class="modal-body">
+        <p>Service Type:
+        <pre>{{ vm.event.serviceType }}</pre>
+        </p>
+        <p>Customer:
+        <pre>{{ vm.event.customer }}</pre>
+        </p>
+        <p>Date:
+        <pre>{{ vm.event.date }}</pre>
+        </p>
+        <p>Start Time:
+        <pre>{{ vm.event.startTime }}</pre>
+        </p>
+        <p>End Time:
+        <pre>{{ vm.event.endTime}}</pre>
+        </p>
+        <p>Address:
+        <pre>{{ vm.event.address }}</pre>
+        </p>
+        <p>Contact Number:
+        <pre>{{ vm.event.contact }}</pre>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="$close()">OK</button>
+      </div>
+    
