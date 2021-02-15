@@ -17,7 +17,7 @@ var path = require('path'),
 
   var smtpTransport = nodemailer.createTransport(ses({
     accessKeyId: 'AKIAJILT4UGK6WDMBQNQ',
-    secretAccessKey: '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'
+    secretAccessKey: '<SECRET_KEY>'
   }));
 
 //require('request-promise').debug = true;
