@@ -57,7 +57,7 @@ module.exports = {
     sandbox: true
   },
   mailer: {
-    from: process.env.MAILER_FROM || 'daxsorbito@gmail.com',
+    from: process.env.MAILER_FROM || '<EMAIL_ADD>',
     options: {
       service: process.env.MAILER_SERVICE_PROVIDER || 'MAILER_SERVICE_PROVIDER',
       auth: {
@@ -67,8 +67,8 @@ module.exports = {
     }
   },
   reCaptcha : {
-    siteKey: '6LfHVg0TAAAAAK3A3_yE1P4E3MDmuQ5ZxYikgdnm',
-    secretKey: '6LfHVg0TAAAAAL0CnK5730ajtLVv4dLtLbbwM-PS',
+    siteKey: '<SITE_KEY>',
+    secretKey: '<SECRET_KEY>',
     uri: 'https://www.google.com/recaptcha/api/siteverify'
   },
   livereload: true
